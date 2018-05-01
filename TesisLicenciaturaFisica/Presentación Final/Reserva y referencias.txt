@@ -1,0 +1,136 @@
+
+\begin{frame}{Introducción}
+
+En la presente exposición se pretende explicar el procedimiento realizado para detectar movimientos anómalos en la dinámica de un vehículo, mediante técnicas de análisis de señales.\\
+
+La detección se enfoca en tres tipos de movimientos:
+
+\begin{itemize}
+
+\item Frenado
+\item Rebase
+\item Movimiento en zig-zag
+
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}{Funcionamiento de un acelerómetro capacitivo}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[thick]
+  \node{\includegraphics[scale=0.75]{mems4.jpg}};
+  \node at (-3.6,1.5) {\small{\fontfamily{qhv}\selectfont Masa}};
+  \node at (-2.1,1.4) {\small{\fontfamily{qhv}\selectfont Muelles}};
+  \node at (3.3,1.5) {\small{\fontfamily{qhv}\selectfont Aceleración}};
+  \node at (-3.6,1.1) {\small{\fontfamily{qhv}\selectfont sísmica}};
+  \node at (3.3,1.1) {\small{\fontfamily{qhv}\selectfont aplicada}};
+  \node at (-2.5,-2.1) {\small{\fontfamily{qhv}\selectfont Placas paralelas fijas}};
+  \draw [black,-latex] (-3.6,0.85) -- (-3.6,0.55);
+  \draw [black,-latex] (-1.35,1.35) -- (-0.95,1.35);
+  \draw [black,-latex,line width=2pt] (2.2,1.3) -- (1.2,1.3);
+  \draw [black,-latex] (-3.16,-1.9) -- (-3.16,-1.5);
+  \draw [black,-latex] (-1.85,-1.9) -- (-1.85,-1.5);
+\end{tikzpicture}
+\caption{Esquema de un acelerómetro de condensador, también conocido como MEMS (Microelectromechanical System, por sus siglas en inglés).}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{}
+
+Las gráficas correspondientes al recorrido de {\em conducción regular} se presentan a continuación:
+\vspace{6cm}
+\graficaceroeventos{2x.pdf}{Conducción regular}{x}{1.75cm}
+
+\end{frame}
+
+
+
+\begin{frame}{}
+
+\graficaceroeventos{2y.pdf}{Conducción regular}{y}{0.8cm}
+
+\end{frame}
+
+
+
+\begin{frame}{}
+
+\graficaceroeventos{2z.pdf}{Conducción regular}{z}{0.8cm}
+
+\end{frame}
+
+\begin{frame}{}
+
+\graficauneventos{4y.pdf}{Rebase}{y}{0.8cm}
+
+\end{frame}
+
+
+
+\begin{frame}{}
+
+\graficauneventos{4z.pdf}{Rebase}{z}{0.8cm}
+
+\end{frame}
+
+
+
+\begin{frame}{}
+
+\graficadoseventos{5x.pdf}{Movimiento en zig-zag}{Rebase}{x}{0.8cm}
+
+\end{frame}
+
+
+
+\begin{frame}{}
+
+\graficadoseventos{5z.pdf}{Movimiento en zig-zag}{Rebase}{z}{0.8cm}
+
+\end{frame}
+
+
+Si toma no maneje
+http://lenguavempace.blogspot.mx/2014/10/si-toma-no-maneje-el-espanol-de-america.html
+
+No rebasar
+http://www.wikiwand.com/es/Anexo:Se%C3%B1ales_de_tr%C3%A1fico_en_M%C3%A9xico
+
+Autonomo
+
+http://www.motoryracing.com/pruebas/noticias/influencia-del-color-del-coche-en-la-conduccion-autonoma/
+
+Frenar 
+
+http://web.autofm.es/2013/07/como-frenar-bien-con-abs-y-sin-abs/
+
+Rebase
+
+https://twitter.com/AMETRD
+
+Zigzag
+
+http://www.todocoches.com/blog/pagina/26
+
+Red neuronal 1
+
+https://robologs.net/2017/01/22/tutorial-de-redes-neuronales-con-vrep-c-y-linux/
+
+Red neuronal 2
+
+https://www.researchgate.net/figure/Figura-III4-Capas-de-una-Red-Neuronal-Capa-de-entrada-neuronas-que-reciben-datos-o-s_fig3_315762548
+
+
+
+
+
+
+
+
+
