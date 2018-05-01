@@ -1,0 +1,190 @@
+% !TEX encoding = UTF-8 Unicode
+\chapter{Introducción}
+\pagestyle{fancy} %Para poner encabezados.
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+Hace ya bastante tiempo, el ser humano comenzó a entender las leyes fundamentales de la naturaleza en la escala correspondiente a sus propias dimensiones, es decir, las leyes de la mecánica clásica. 
+En la actualidad las aplicaciones de ese conocimiento no cesan y parece que no lo harán por un largo periodo de tiempo.
+
+Con la aparición de la informática el avance científico y tecnológico creció exponencialmente, esto debido principalmente al gran aumento en la velocidad de procesamiento de la información. 
+Es por ello, que esta disciplina resulta bastante útil dentro de un sinfín de ámbitos.
+
+Es, en la unión de estas dos herramientas, la física newtoniana y la informática; en donde el desarrollo de la tecnología para fines del mejoramiento de la calidad de vida ha encontrado su mayor aliado. 
+Esto debido a que con ellas se producen gran cantidad de medios para ayudar a los seres humanos, facilitándoles la realización de tareas de todo tipo; desde las rutinas banales que todo el mundo quiere evitar, hasta procedimientos de los que depende en gran medida la vida de muchas personas.
+Una de estas actividades rutinarias que provoca más accidentes hoy en día es la conducción de vehículos.
+ 
+La mayoría de estos accidentes no tienen consecuencias mayores, pero desafortunadamente un pequeño porcentaje ha tenido que culminar en una tragedia \cite{book1}.
+Razón por la cual se han creado un sinfín de procedimientos y herramientas que ayuden a evitarlos; o por lo menos a reducir sus consecuencias, 
+muchos de estos esfuerzos están enfocados en esto último. 
+Las medidas que se han implementado con fines de prevención dependen en su gran mayoría del nivel de compromiso que el usuario ponga de su parte, para acatar los protocolos hasta ahora establecidos. 
+Es debido a este factor que los métodos preventivos no siempre son tan eficientes. 
+
+%\textcolor{blue}{
+Algunas de las causas que provocan los accidentes automovilísticos son: el conducir bajo la influencia del alcohol, las distracciones, el estrés y cansancio, o cualquier otra cosa que haga que el conductor no ponga su atención sobre el camino \cite{book1}.
+%Los accidentes automovilísticos son causados principalmente por distracciones, estrés, cansancio o cualquier otra cosa que haga que el conductor no ponga su atención sobre el camino.
+En la mayoría de estos percances el conductor no se da cuenta de que tendrá un accidente y solo en ocasiones se percata de ello unos instantes antes de que suceda. 
+Durante este lapso no se tiene la capacidad suficiente para analizar la situación y encontrar la opción que evite que el siniestro ocurra. 
+
+Hasta hace pocos años era impensable que se pudiera tener el control suficiente durante este corto lapso y así prevenir cualquier accidente. 
+Razón por la cual las medidas de prevención van mucho más atrás de ese lapso y se enfocan principalmente en advertencias de todo tipo; con la intención de que los usuarios de automóviles adquieran una cultura de conducción responsable. 
+Por otro lado, también se implementan medidas post-accidente, de las cuales, una de las más útiles son las famosas bolsas de aire, que han ayudado en gran medida a que las pérdidas sean mayormente solo de carácter material.
+
+%Gracias a los avances científicos y tecnológicos de la actualidad es que hoy en día podemos ver los primeros esfuerzos por tener un mayor control de ese pequeño lapso en el que es físicamente posible evitar un accidente, e incluso poder ampliar ese lapso de “predicción” de un accidente inminente, el cual está limitado a las capacidades de percepción del ser humano. \textcolor{red}{frase muy larga}
+%\textcolor{blue}
+Gracias a los avances científicos y tecnológicos de la actualidad, es que hoy en día se pueden ver los primeros esfuerzos por tener un mayor control de ese pequeño lapso de tiempo, en el que es físicamente posible evitar un accidente; e incluso poder ampliar ese lapso de {\em predicción} de un accidente inminente. 
+El cual está limitado a las capacidades de percepción del ser humano. 
+Esto permitiría poder predecir estos accidentes mucho antes de ese periodo tan arbitrario, en el que es más probable que el accidente ocurra. 
+Muchos de los avances hechos recientemente en este ámbito involucran sistemas mecánicos que pueden tomar el control de un vehículo y evaluar la situación en la que este se encuentre; para que, en cuestión de instantes, dicho sistema tome una opción adecuada que prevenga la ocurrencia de cualquier percance.
+
+Sin embargo, este tipo de avances no solo tiene aplicaciones en la prevención de accidentes, sino que también se puede usar con fines de asistencia al conductor (pilotos automáticos) o incluso recreativos.
+
+En este trabajo se pretende crear un sistema de detección de movimientos anómalos en vehículos, concretamente en automóviles.
+Con el cual se podría ayudar alertando sobre la realización de alguna maniobra no deseada o potencialmente peligrosa, que pueda poner en riesgo la integridad del conductor y del medio que lo rodea.
+Para llevar a cabo tal fin, es necesario el uso de herramientas teóricas de la mecánica clásica y del análisis de señales que faciliten el estudio de la dinámica de un automóvil durante un recorrido arbitrario. 
+También se requiere de herramientas prácticas que permitan obtener datos de dicha dinámica de una manera rápida y fiable.
+
+Si bien la mecánica clásica y el análisis de señales son algunas de las ramas más antiguas y estudiadas de la física, existen aún muchas aplicaciones por desarrollar, particularmente cuando se hace uso de la combinación de ambas teorías.
+%Dentro de la física, el análisis de la dinámica de cuerpos clásicos \textcolor{orange}{(cambiar palabra?)} es una de las ramas más explotadas y estudiadas. 
+Razón por la cual se eligió abordar el problema aquí presentado, el cual tiene, debido a los fines establecidos, un aceptable grado de dificultad que además de involucrar el azaroso factor humano, requiere el uso adecuado de dispositivos de precisión para que el análisis correspondiente se pueda realizar correctamente.
+
+Con el avance tecnológico alcanzado recientemente en los instrumentos de medición, ahora es posible medir propiedades del mundo real con una exactitud que hasta hace unos pocos años solo era posible en la imaginación. 
+Precisión que seguramente seguirá refinándose en tiempos posteriores. 
+Dicho lo anterior, se piensa que con la capacidad de los dispositivos actuales es más que suficiente para realizar el análisis que se desea llevar a cabo en este trabajo. 
+Por lo que la parte de la instrumentación no representa ningún obstáculo, ya que los dispositivos con los que se cuenta (sensores inerciales) son capaces de medir aceleraciones en intervalos menores a las centésimas de segundo, con márgenes de error aceptables.
+Con lo cual se pueden extraer detalles muy pequeños del movimiento de casi cualquier objeto manipulable que se quiera analizar.
+
+Las formas en las que se puede mover tal objeto tienen la posibilidad de ser prácticamente arbitrarias.
+Lo que representa un gran campo de aplicación para este tipo de análisis, incluyendo no solo automóviles, como se pretende en esta ocasión, sino a casi cualquier objeto que se mueva a lo largo de cualquier tipo de trayectoria.
+
+Primeramente se tiene la intención de detectar movimientos anormales en la conducción de vehículos, analizando los datos provenientes de los sensores inerciales al considerarlos como series de tiempo.
+%\textcolor{blue}{únicamente analizando el espectro de frecuencias característico de varias series de tiempo.
+%Tales series están compuestas de los datos de aceleración obtenidos a lo largo del tiempo.
+Dicho lo anterior, este análisis se enfoca principalmente en detectar patrones en la series de tiempo, correspondientes a la dinámica en los eventos anormales.% sin poner mucha atención y sin realizar análisis de ningún orden sobre la magnitud de dicha aceleración. 
+Todo ello sin involucrar el análisis estricto de las relaciones entre posición, velocidad y aceleración del vehículo.
+%información sobre la forma de la ruta recorrida.}
+No obstante, este análisis se puede ampliar para obtener información adicional del comportamiento del vehículo con respecto a las características de la ruta que se recorra. 
+Solo se requiere que la información de esta sea determinada en su totalidad antes de que se efectúe un recorrido.
+Así, es posible en una segunda etapa de este proyecto, cotejar los datos de la dinámica del vehículo con los de la geografía de la ruta; y de esta manera obtener información complementaria que aumente la eficiencia en la detección de los patrones de movimiento del vehículo en su recorrido.
+
+Hay una gran cantidad de factores que intervienen o que podrían intervenir para el análisis adecuado del recorrido; tales como: las vibraciones del motor, los constantes y azarosos cambios de velocidad y de aceleración del vehículo, las condiciones de la vía por la que se conduzca, entre muchos otros.
+Estos factores pueden provocar ruido e imprecisiones en los datos obtenidos, lo cual añade dificultad a la solución del problema propuesto. La solución a este problema tiene aplicaciones inmediatas para la sociedad, particularmente en la prevención de accidentes.
+
+\section{Contexto}
+Como se mencionó anteriormente, en este trabajo se pretende dar los primeros pasos en la obtención de un sistema que ayude a detectar eficientemente los patrones que caracterizan a ciertos movimientos de un automóvil. 
+%Eliminé el sig párrafo por que dije algo similar en uno anterior de justificación. 
+%Es por medio de esta detección que se puede pensar en discriminar los tipos de movimientos que, en mayor medida, puedan poner en riesgo la integridad del conductor y del medio que lo rodea. 
+%Para que en un futuro se puedan implementar medidas que puedan evitarlos. 
+Para esto se contará con un sistema de recopilación de datos, que incluye diferentes dispositivos como un acelerómetro y un localizador GPS. 
+Los datos obtenidos por dicho sistema serán posteriormente analizados con la ayuda de un algoritmo, cuyo objetivo es identificar con precisión los movimientos anómalos que realice el vehículo a lo largo de un recorrido.
+ 
+Se tendrá al acelerómetro montado en un dispositivo de dimensiones pequeñas y de fácil manipulación. 
+La idea es colocar tal dispositivo en el vehículo de manera que quede lo más fijo posible a este.
+Es decir que, dentro de un sistema de coordenadas ortogonal en referencia al movimiento del vehículo, el dispositivo no sufra ninguna rotación o traslación. 
+Para un observador fuera del vehículo no debería haber diferencia entre los movimientos del dispositivo y del vehículo.
+ 
+Una vez colocado el dispositivo correctamente, se comenzará a recolectar los datos de la dinámica del vehículo mientras este realiza varios recorridos; cada uno de los cuales estará principalmente enfocado en la ejecución de un tipo de movimiento en específico. 
+Intencionalmente se realizarán dichos movimientos con el objetivo de discriminarlos y detectarlos, esto con base en sus características intrínsecas. 
+Para lograr esto, se tendrá que hacer un análisis de la dinámica del vehículo, estudiando su aceleración a lo largo de la trayectoria recorrida. 
+Después de realizar el análisis de los datos obtenidos se establecerán los patrones correspondientes a cada movimiento y se creará un programa de cómputo que reconozca dichos patrones.
+
+Finalmente, se ejecutará el algoritmo utilizando los datos obtenidos. 
+Esto con el fin de que analice la dinámica del vehículo y detecte satisfactoriamente todos los movimientos anómalos que se hayan realizado.
+La eficiencia del método propuesto estará sujeta a los resultados que arroje el programa, en la medida en que se implemente en varias muestras de datos.
+%Finalmente, después de realizar las pruebas preliminares para la detección de los diferentes movimientos del vehículo, se procederá a realizar un recorrido relativamente arbitrario, donde se realizarán las maniobras elegidas con fines de detección. 
+
+
+%Una vez realizado este último recorrido, se ejecutará el algoritmo utilizando los datos obtenidos. 
+%Esto con el fin de que analice la dinámica del vehículo y detecte satisfactoriamente todos los movimientos anómalos que se hayan realizado, tanto en los recorridos enfocados en un tipo de movimiento como en el recorrido que contiene todos los tipos. 
+%La eficiencia de nuestro análisis estará sujeta a los resultados que arroje nuestro programa, en la medida en que se implemente en varias muestras de datos.
+
+\section{Hipótesis y objetivos} 
+Considerando la capacidad de los dispositivos a utilizar, así como el actual estado del arte relacionado a este tipo de investigación, se pretende dar respuesta a la siguiente interrogante:\\
+
+¿Es posible detectar de forma automática determinados tipos de movimientos y comportamientos anómalos en vehículos terrestres mediante técnicas de análisis espectral?\\
+
+Para responder a esta cuestión, se han planteado los siguientes objetivos, que son considerados necesarios para lograr tal fin.
+%Al obtener una cantidad de información suficiente sobre la dinámica del vehículo, se espera que por medio de la implementación de la transformada discreta de Fourier a los datos obtenidos, se puedan identificar frecuencias que caractericen a los movimientos que se desean detectar.
+%Por lo que al obtener los espectros correspondientes a intervalos de tiempo donde se hayan realizado el mismo tipo de movimientos; se espera que las frecuencias que caractericen a cada uno de estos sean similares entre sí.
+%Finalmente, al introducir a un algoritmo la información de las frecuencias características de un cierto movimiento, se desea que este sea capaz de identificar eficientemente a que movimiento corresponden tales datos.
+
+\subsection{Objetivo General}
+
+%\begin{itemize}\item 
+Detectar movimientos y comportamientos anómalos en trayectorias de vehículos a través del análisis de señales.
+%\end{itemize}
+\subsection{Objetivos Particulares}
+Para llevar a cabo el objetivo general de este trabajo es necesario cumplir con una serie de objetivos particulares, los cuales se listan a continuación:
+
+\begin{itemize}
+	\item {Estudiar y comprender el funcionamiento de los dispositivos a utilizar.}
+\end{itemize}
+\begin{itemize}
+	\item {Realizar un muestreo de campo para generar una base de datos.}
+\end{itemize}
+\begin{itemize}
+	\item {Identificar las frecuencias correspondientes al ruido (movimiento del motor) para posteriormente suprimirlas de los datos.}
+\end{itemize}
+\begin{itemize}
+	\item {Implementar un programa de cómputo para determinar, de un conjunto de movimientos anómalos, las características de cada uno.}
+\end{itemize}
+%Diseñar un experimento para validar las características determinadas en el objetivo anterior.
+\begin{itemize}
+	\item {Diseñar un experimento para validar el método de detección propuesto.}
+\end{itemize}
+
+
+\section{Consideraciones}
+%Se eligieron 3 eventos de conducción, cuyas dinámicas características poseen diferencias entre sí, las cuales se piensa pueden ser analíticamente discriminantes a través de la identificación de parámetros clave intrínsecos de dichas dinámicas. \textcolor{red}{tienes que decir que los eventos son fuera de la conducción regular, y no queda nada claro lo que dices de las características}
+El conjunto de movimientos anómalos está compuesto de tres diferentes eventos de conducción, cada uno de los cuales presenta una dinámica característica diferente. 
+Dadas estas características se piensa que estos eventos pueden ser discriminantes por medio de la identificación de patrones en los datos de aceleración de cada uno de ellos. 
+Complementariamente a esto, se puede añadir que las diferencias en las dinámicas de cada evento son perceptibles al ojo humano; ya que para un observador estático fuera del vehículo estos eventos son apreciables a simple vista. 
+Motivos por los cuales se pensó, en la posibilidad de que fuesen detectados sin mayores inconvenientes.
+%Aunado a lo anterior, los eventos seleccionados presentan una frecuencia de ocurrencia elevada dentro de los comportamientos de conducción considerados como anómalos en la vida cotidiana. \textcolor{orange}{aquí tienes la definición eventos anómalos, pero como puedes afirmar que ocurren a un ocurrencia elevada, en primera supongo es frecuencia}
+
+Aunado a lo anterior, se cree que los eventos seleccionados presentan una frecuencia ocurrencia considerable dentro de los comportamientos anómalos de conducción que son fuente de percances automovilísticos. 
+Ya que es más probable que un accidente ocurra mientras se realiza alguno de ellos, que al realizar una conducción regular.
+Por lo que su detección, como se ha mencionado anteriormente, posee un potencial de aplicabilidad para diversos fines, dentro del ámbito de la conducción de vehículos. 
+Los eventos anómalos que se desean detectar son los siguientes:
+
+\begin{itemize}
+\item{Frenado}
+\item{Rebase}
+\item{Movimiento en zig-zag}
+\end{itemize}
+
+A continuación se da una explicación de las características consideradas de cada uno de estos eventos:
+
+%\textcolor{blue}{
+El evento de frenado consiste en detener completamente al vehículo, llevándolo desde una velocidad regular hasta un estado de reposo.
+%}
+%El evento de frenado de interés para este trabajo consiste en detener completamente al vehículo, llevándolo desde una velocidad regularmente estable de aproximadamente $80\ km/h$ (dicha velocidad se denominará en adelante como “velocidad regular”), hasta un estado de reposo. 
+%\textcolor{red}{los datos duros de la experimentación no se dan en esta sección}
+Una vez detenido el vehículo, este se pone en marcha inmediatamente, hasta alcanzar nuevamente una velocidad regular, después de lo cual se da por terminado el evento.
+
+Para realizar el evento de rebase se parte igualmente de una velocidad regular.  
+El evento da inicio en el momento que se comienza a acelerar, al mismo tiempo que se desplaza al vehículo hacia el carril contiguo.
+El vehículo avanza sobre este carril durante algunos segundos, para finalmente retornarlo al carril de transito normal, con lo cual se da por terminado el evento.
+
+%El evento de movimiento en zig-zag requiere llevar al vehículo a una velocidad aproximada de $45\ km/h$. 
+%Las características de este evento son primordialmente el movimiento oscilatorio del vehículo a lo largo del eje $y$ del sensor, mientras se avanza a la velocidad ya mencionada. 
+La característica principal del evento de movimiento en zig-zag es el movimiento oscilatorio del vehículo; este movimiento se realiza a lo largo de la línea perpendicular a la dirección de movimiento principal del vehículo.
+%El evento da comienzo a partir de que el vehículo empieza a moverse a lo largo del eje $y$ hacia cualquier sentido, partiendo de un movimiento en linea recta con dirección paralela al eje $x$.
+El evento da comienzo a partir de que el vehículo empieza a moverse hacia cualquier sentido de dicha línea. 
+El evento concluye una vez que se regresa a una velocidad regular sobre el carril de tránsito normal.
+%Después de desplazarse cierta distancia hacia cualquier sentido del eje $y$ se retornaba a la posición de inicio del evento sobre dicho eje, y sin detenerse se desplazaba al vehículo hasta separarlo nuevamente cierta distancia de dicha posición, hacia el sentido opuesto del primer movimiento. 
+
+\section{Propuesta}
+
+Para realizar una detección correcta de los movimientos anómalos, se propone utilizar la teoría del análisis de señales, particularmente el análisis de Fourier.
+Mediante la obtención de los espectros de frecuencias de cada señal de aceleración, se planea identificar aquellas frecuencias que tengan una mayor contribución en los intervalos de tiempo de la señal donde se ejecuten los movimientos que se deseen detectar.
+Debido a que cada una de las señales de aceleración contiene una gran cantidad de datos, se pretende realizar las operaciones matemáticas correspondientes, mediante la utilización de un algoritmo implementado en un equipo de cómputo.
+El cual obtendrá los espectros de frecuencias deseados y posteriormente, al identificar las frecuencias de interés, se programará dicho algoritmo para que detecte los diferentes movimientos elegidos.
+
+En el siguiente capítulo se dará una revisión de los trabajos relacionados e investigaciones considerados más importes, las cuales fueron realizadas con propósitos similares a los aquí presentados. 
+Dichas investigaciones guardan una relación directa o indirecta con la temática expuesta en el presente trabajo.
+En el capítulo tres se presentarán, por un lado, la teoría utilizada para verificar la validez de la hipótesis propuesta; y por otro lado, se explicará brevemente el funcionamiento de los dispositivos utilizados.
+En el capítulo cuatro se describirá detalladamente el proceso llevado a cabo para obtener la base de datos necesaria para el análisis propuesto, cuya información está relacionada principalmente con la dinámica de un vehículo en diferentes situaciones de conducción.
+Posteriormente, en el capítulo cinco, se presentarán los resultados obtenidos, los cuales son el producto del análisis y tratamiento de la información recopilada en la etapa experimental.
+Finalmente, en el sexto capítulo, se darán las conclusiones correspondientes tras finalizar el presente proyecto y se mencionarán algunas líneas de trabajo futuro.
+

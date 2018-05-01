@@ -1,0 +1,148 @@
+2  NORMAL
+
+0:250.667219                   Normal
+
+465.291414:535.419976          Normal
+
+535.419976:541.904968          Frenada
+535.877837
+541.904968:591.543309          Normal
+542.358859
+591.543309:608.049369          Frenada
+592.363201
+608.049369:684.983856          Normal
+608.405344
+
+3  FRENADO
+
+0:84.422472                    Normal
+
+84.422472:100.966559           Frenado       1.645956 (+0.005 x 1)
+86.068428
+100.966559:132.252658          Normal        2.058038 (+0.005 x 2)
+101.378641
+132.252658:151.559850          Frenado       2.506027 (+0.005 x 3)
+132.700647
+151.559850:171.391960          Normal        2.908934 (+0.005 x 4)
+151.962757
+171.391960:187.002073          Frenado       3.328855 (+0.005 x 5) 
+171.811881
+187.002073:211.406094          Normal        3.749739 (+0.005 x 6)
+187.422957
+211.406094:230.186337          Frenado       4.213744 (+0.005 x 7)
+211.870099
+230.186337:238.799343          Normal        4.821600 (+0.005 x 8)
+230.794193
+
+4  REBASE
+
+0:36.619701                    Normal
+
+36.619701:56.174874            Rebase        0.585940 (+0.005 x 1)
+37.205641
+56.174874:92.814967            Normal        1.239039 (+0.005 x 2)
+56.827973
+92.814967:109.906165           Rebase        1.738080 (+0.005 x 3)
+93.314008
+109.906165:128.654325          Normal        2.355152 (+0.005 x 4)
+110.523237
+128.654325:149.474424          Rebase        3.005026 (+0.005 x 5)
+129.304199
+149.474424:177.128632          Normal        3.627091 (+0.005 x 6)
+150.096489
+
+5  ZIG-ZAG
+
+0:45.626334                    Normal
+
+45.626334:58.590368            Zig-zag       1.705061 (+0.005 x 1)
+47.331395
+58.590368:104.344622           Normal        3.100674 (+0.005 x 2)
+59.985981
+104.344622:114.310679          Rebase        3.585615 (+0.005 x 3) 
+104.829563
+114.310679:170.398041          Normal        4.019701 (+0.005 x 4)
+114.744765
+170.398041:186.004076          Zig-zag       4.641559 (+0.005 x 5)
+171.019899
+186.004076:199.800219          Normal        5.445478 (+0.005 x 6)
+186.807995
+199.800219:219.224204          Zig-zag       6.088472 (+0.005 x 7)
+200.443213
+219.224204:234.039355          Normal        6.867777 (+0.005 x 8)
+220.003509
+234.039355:257.754537          Zig-zag       7.592685 (+0.005 x 9)
+234.764263
+257.754537:273.838587          Normal        8.731614 (+0.005 x 10)
+258.893466
+
+6  MIXTO
+
+0:29.577309                    Normal
+
+29.577309:46.842375            Zig-zag       0.445200 (+0.005 x 1)
+30.022509 
+46.842375:68.742599            Normal        1.211747 (+0.005 x 2)
+47.608922
+68.742599:86.807613            Frenada       2.565730 (+0.005 x 3)
+70.096582
+86.807613:109.662811           Normal        2.901702 (+0.005 x 4)
+87.143585
+109.662811:124.721984          Rebase        3.504714 (+0.005 x 5)
+110.265823
+124.721984:146.675115          Normal        4.008576 (+0.005 x 6)
+125.225846
+
+
+6
+
+p[0:148] 'G_Datos_x_1.txt' lc 6 w l t 'Regular', 'G_Datos_x_2.txt' lc 1  w l t 'Zig-zag', 'G_Datos_x_3.txt' lc 6 w l t '', 'G_Datos_x_4.txt' lc 7 w l t 'Frenado', 'G_Datos_x_5.txt' lc 6 w l t '', 'G_Datos_x_6.txt' lc 2 w l t 'Rebase', 'G_Datos_x_7.txt' lc 6 w l t ''
+p[0:148][107.5:142.5] 'G_Datos_y_1.txt' lc 6 w l t 'Regular', 'G_Datos_y_2.txt' lc 1  w l t 'Zig-zag', 'G_Datos_y_3.txt' lc 6 w l t '', 'G_Datos_y_4.txt' lc 7 w l t 'Frenado', 'G_Datos_y_5.txt' lc 6 w l t '', 'G_Datos_y_6.txt' lc 2 w l t 'Rebase', 'G_Datos_y_7.txt' lc 6 w l t ''
+p[0:148] 'G_Datos_z_1.txt' lc 6 w l t 'Regular', 'G_Datos_z_2.txt' lc 1  w l t 'Zig-zag', 'G_Datos_z_3.txt' lc 6 w l t '', 'G_Datos_z_4.txt' lc 7 w l t 'Frenado', 'G_Datos_z_5.txt' lc 6 w l t '', 'G_Datos_z_6.txt' lc 2 w l t 'Rebase', 'G_Datos_z_7.txt' lc 6 w l t ''
+
+p[0:148] 'G_Datos_xy_1.txt' lc 6 w l t 'Regular', 'G_Datos_xy_2.txt' lc 1  w l t 'Zig-zag', 'G_Datos_xy_3.txt' lc 6 w l t '', 'G_Datos_xy_4.txt' lc 7 w l t 'Frenado', 'G_Datos_xy_5.txt' lc 6 w l t '', 'G_Datos_xy_6.txt' lc 2 w l t 'Rebase', 'G_Datos_xy_7.txt' lc 6 w l t ''
+p[0:148] 'G_Datos_xz_1.txt' lc 6 w l t 'Regular', 'G_Datos_xz_2.txt' lc 1  w l t 'Zig-zag', 'G_Datos_xz_3.txt' lc 6 w l t '', 'G_Datos_xz_4.txt' lc 7 w l t 'Frenado', 'G_Datos_xz_5.txt' lc 6 w l t '', 'G_Datos_xz_6.txt' lc 2 w l t 'Rebase', 'G_Datos_xz_7.txt' lc 6 w l t ''
+p[0:148] 'G_Datos_yz_1.txt' lc 6 w l t 'Regular', 'G_Datos_yz_2.txt' lc 1  w l t 'Zig-zag', 'G_Datos_yz_3.txt' lc 6 w l t '', 'G_Datos_yz_4.txt' lc 7 w l t 'Frenado', 'G_Datos_yz_5.txt' lc 6 w l t '', 'G_Datos_yz_6.txt' lc 2 w l t 'Rebase', 'G_Datos_yz_7.txt' lc 6 w l t ''
+
+
+5
+
+p[0:275] 'G_Datos_x_1.txt' lc 6 w l t 'Regular', 'G_Datos_x_2.txt' lc 1  w l t 'Zig-zag', 'G_Datos_x_3.txt' lc 6 w l t '', 'G_Datos_x_4.txt' lc 2 w l t 'Rebase', 'G_Datos_x_5.txt' lc 6 w l t '', 'G_Datos_x_6.txt' lc 1 w l t '', 'G_Datos_x_7.txt' lc 6 w l t '', 'G_Datos_x_8.txt' lc 1 w l t '', 'G_Datos_x_9.txt' lc 6 w l t '', 'G_Datos_x_10.txt' lc 1 w l t '', 'G_Datos_x_11.txt' lc 6 w l t ''
+p[0:275] 'G_Datos_y_1.txt' lc 6 w l t 'Regular', 'G_Datos_y_2.txt' lc 1  w l t 'Zig-zag', 'G_Datos_y_3.txt' lc 6 w l t '', 'G_Datos_y_4.txt' lc 2 w l t 'Rebase', 'G_Datos_y_5.txt' lc 6 w l t '', 'G_Datos_y_6.txt' lc 1 w l t '', 'G_Datos_y_7.txt' lc 6 w l t '', 'G_Datos_y_8.txt' lc 1 w l t '', 'G_Datos_y_9.txt' lc 6 w l t '', 'G_Datos_y_10.txt' lc 1 w l t '', 'G_Datos_y_11.txt' lc 6 w l t ''
+p[0:275] 'G_Datos_z_1.txt' lc 6 w l t 'Regular', 'G_Datos_z_2.txt' lc 1  w l t 'Zig-zag', 'G_Datos_z_3.txt' lc 6 w l t '', 'G_Datos_z_4.txt' lc 2 w l t 'Rebase', 'G_Datos_z_5.txt' lc 6 w l t '', 'G_Datos_z_6.txt' lc 1 w l t '', 'G_Datos_z_7.txt' lc 6 w l t '', 'G_Datos_z_8.txt' lc 1 w l t '', 'G_Datos_z_9.txt' lc 6 w l t '', 'G_Datos_z_10.txt' lc 1 w l t '', 'G_Datos_z_11.txt' lc 6 w l t ''
+
+p[] 'G_Datos_xy_1.txt' lc 6 w l t 'Regular', 'G_Datos_xy_2.txt' lc 1  w l t 'Zig-zag', 'G_Datos_xy_3.txt' lc 6 w l t '', 'G_Datos_xy_4.txt' lc 2 w l t 'Rebase', 'G_Datos_xy_5.txt' lc 6 w l t '', 'G_Datos_xy_6.txt' lc 1 w l t '', 'G_Datos_xy_7.txt' lc 6 w l t '', 'G_Datos_xy_8.txt' lc 1 w l t '', 'G_Datos_xy_9.txt' lc 6 w l t '', 'G_Datos_xy_10.txt' lc 1 w l t '', 'G_Datos_xy_11.txt' lc 6 w l t ''
+p[] 'G_Datos_xz_1.txt' lc 6 w l t 'Regular', 'G_Datos_xz_2.txt' lc 1  w l t 'Zig-zag', 'G_Datos_xz_3.txt' lc 6 w l t '', 'G_Datos_xz_4.txt' lc 2 w l t 'Rebase', 'G_Datos_xz_5.txt' lc 6 w l t '', 'G_Datos_xz_6.txt' lc 1 w l t '', 'G_Datos_xz_7.txt' lc 6 w l t '', 'G_Datos_xz_8.txt' lc 1 w l t '', 'G_Datos_xz_9.txt' lc 6 w l t '', 'G_Datos_xz_10.txt' lc 1 w l t '', 'G_Datos_xz_11.txt' lc 6 w l t ''
+p[] 'G_Datos_yz_1.txt' lc 6 w l t 'Regular', 'G_Datos_yz_2.txt' lc 1  w l t 'Zig-zag', 'G_Datos_yz_3.txt' lc 6 w l t '', 'G_Datos_yz_4.txt' lc 2 w l t 'Rebase', 'G_Datos_yz_5.txt' lc 6 w l t '', 'G_Datos_yz_6.txt' lc 1 w l t '', 'G_Datos_yz_7.txt' lc 6 w l t '', 'G_Datos_yz_8.txt' lc 1 w l t '', 'G_Datos_yz_9.txt' lc 6 w l t '', 'G_Datos_yz_10.txt' lc 1 w l t '', 'G_Datos_yz_11.txt' lc 6 w l t ''
+p[] 'G_Datos_xyz_1.txt' lc 6 w l t 'Regular', 'G_Datos_xyz_2.txt' lc 1  w l t 'Zig-zag', 'G_Datos_xyz_3.txt' lc 6 w l t '', 'G_Datos_xyz_4.txt' lc 2 w l t 'Rebase', 'G_Datos_xyz_5.txt' lc 6 w l t '', 'G_Datos_xyz_6.txt' lc 1 w l t '', 'G_Datos_xyz_7.txt' lc 6 w l t '', 'G_Datos_xyz_8.txt' lc 1 w l t '', 'G_Datos_xyz_9.txt' lc 6 w l t '', 'G_Datos_xyz_10.txt' lc 1 w l t '', 'G_Datos_xyz_11.txt' lc 6 w l t ''
+
+4
+
+p[] 'G_Datos_x_1.txt' lc 6 w l t 'Regular', 'G_Datos_x_2.txt' lc 2  w l t '', 'G_Datos_x_3.txt' lc 6 w l t '', 'G_Datos_x_4.txt' lc 2 w l t 'Rebase', 'G_Datos_x_5.txt' lc 6 w l t '', 'G_Datos_x_6.txt' lc 2 w l t '', 'G_Datos_x_7.txt' lc 6 w l t ''
+p[] 'G_Datos_y_1.txt' lc 6 w l t 'Regular', 'G_Datos_y_2.txt' lc 2  w l t '', 'G_Datos_y_3.txt' lc 6 w l t '', 'G_Datos_y_4.txt' lc 2 w l t 'Rebase', 'G_Datos_y_5.txt' lc 6 w l t '', 'G_Datos_y_6.txt' lc 2 w l t '', 'G_Datos_y_7.txt' lc 6 w l t ''
+p[] 'G_Datos_z_1.txt' lc 6 w l t 'Regular', 'G_Datos_z_2.txt' lc 2  w l t '', 'G_Datos_z_3.txt' lc 6 w l t '', 'G_Datos_z_4.txt' lc 2 w l t 'Rebase', 'G_Datos_z_5.txt' lc 6 w l t '', 'G_Datos_z_6.txt' lc 2 w l t '', 'G_Datos_z_7.txt' lc 6 w l t ''
+
+p[] 'G_Datos_xy_1.txt' lc 6 w l t 'Regular', 'G_Datos_xy_2.txt' lc 2  w l t '', 'G_Datos_xy_3.txt' lc 6 w l t '', 'G_Datos_xy_4.txt' lc 2 w l t 'Rebase', 'G_Datos_xy_5.txt' lc 6 w l t '', 'G_Datos_xy_6.txt' lc 2 w l t '', 'G_Datos_xy_7.txt' lc 6 w l t ''
+p[] 'G_Datos_xz_1.txt' lc 6 w l t 'Regular', 'G_Datos_xz_2.txt' lc 2  w l t '', 'G_Datos_xz_3.txt' lc 6 w l t '', 'G_Datos_xz_4.txt' lc 2 w l t 'Rebase', 'G_Datos_xz_5.txt' lc 6 w l t '', 'G_Datos_xz_6.txt' lc 2 w l t '', 'G_Datos_xz_7.txt' lc 6 w l t ''
+p[] 'G_Datos_yz_1.txt' lc 6 w l t 'Regular', 'G_Datos_yz_2.txt' lc 2  w l t '', 'G_Datos_yz_3.txt' lc 6 w l t '', 'G_Datos_yz_4.txt' lc 2 w l t 'Rebase', 'G_Datos_yz_5.txt' lc 6 w l t '', 'G_Datos_yz_6.txt' lc 2 w l t '', 'G_Datos_yz_7.txt' lc 6 w l t ''
+p[] 'G_Datos_xyz_1.txt' lc 6 w l t 'Regular', 'G_Datos_xyz_2.txt' lc 2  w l t '', 'G_Datos_xyz_3.txt' lc 6 w l t '', 'G_Datos_xyz_4.txt' lc 2 w l t 'Rebase', 'G_Datos_xyz_5.txt' lc 6 w l t '', 'G_Datos_xyz_6.txt' lc 2 w l t '', 'G_Datos_xyz_7.txt' lc 6 w l t ''
+
+3
+
+p[] 'G_Datos_x_1.txt' lc 6 w l t 'Regular', 'G_Datos_x_2.txt' lc 7  w l t 'Frenado', 'G_Datos_x_3.txt' lc 6 w l t '', 'G_Datos_x_4.txt' lc 7 w l t '', 'G_Datos_x_5.txt' lc 6 w l t '', 'G_Datos_x_6.txt' lc 7 w l t '', 'G_Datos_x_7.txt' lc 6 w l t '', 'G_Datos_x_8.txt' lc 7 w l t '', 'G_Datos_x_9.txt' lc 6 w l t ''
+p[][110:145] 'G_Datos_y_1.txt' lc 6 w l t 'Regular', 'G_Datos_y_2.txt' lc 7  w l t 'Frenado', 'G_Datos_y_3.txt' lc 6 w l t '', 'G_Datos_y_4.txt' lc 7 w l t '', 'G_Datos_y_5.txt' lc 6 w l t '', 'G_Datos_y_6.txt' lc 7 w l t '', 'G_Datos_y_7.txt' lc 6 w l t '', 'G_Datos_y_8.txt' lc 7 w l t '', 'G_Datos_y_9.txt' lc 6 w l t ''
+p[] 'G_Datos_z_1.txt' lc 6 w l t 'Regular', 'G_Datos_z_2.txt' lc 7  w l t 'Frenado', 'G_Datos_z_3.txt' lc 6 w l t '', 'G_Datos_z_4.txt' lc 7 w l t '', 'G_Datos_z_5.txt' lc 6 w l t '', 'G_Datos_z_6.txt' lc 7 w l t '', 'G_Datos_z_7.txt' lc 6 w l t '', 'G_Datos_z_8.txt' lc 7 w l t '', 'G_Datos_z_9.txt' lc 6 w l t ''
+
+p[] 'G_Datos_xy_1.txt' lc 6 w l t 'Regular', 'G_Datos_xy_2.txt' lc 7  w l t 'Frenado', 'G_Datos_xy_3.txt' lc 6 w l t '', 'G_Datos_xy_4.txt' lc 7 w l t '', 'G_Datos_xy_5.txt' lc 6 w l t '', 'G_Datos_xy_6.txt' lc 7 w l t '', 'G_Datos_xy_7.txt' lc 6 w l t '', 'G_Datos_xy_8.txt' lc 7 w l t '', 'G_Datos_xy_9.txt' lc 6 w l t ''
+p[] 'G_Datos_xz_1.txt' lc 6 w l t 'Regular', 'G_Datos_xz_2.txt' lc 7  w l t 'Frenado', 'G_Datos_xz_3.txt' lc 6 w l t '', 'G_Datos_xz_4.txt' lc 7 w l t '', 'G_Datos_xz_5.txt' lc 6 w l t '', 'G_Datos_xz_6.txt' lc 7 w l t '', 'G_Datos_xz_7.txt' lc 6 w l t '', 'G_Datos_xz_8.txt' lc 7 w l t '', 'G_Datos_xz_9.txt' lc 6 w l t ''
+p[] 'G_Datos_yz_1.txt' lc 6 w l t 'Regular', 'G_Datos_yz_2.txt' lc 7  w l t 'Frenado', 'G_Datos_yz_3.txt' lc 6 w l t '', 'G_Datos_yz_4.txt' lc 7 w l t '', 'G_Datos_yz_5.txt' lc 6 w l t '', 'G_Datos_yz_6.txt' lc 7 w l t '', 'G_Datos_yz_7.txt' lc 6 w l t '', 'G_Datos_yz_8.txt' lc 7 w l t '', 'G_Datos_yz_9.txt' lc 6 w l t ''
+p[] 'G_Datos_xyz_1.txt' lc 6 w l t 'Regular', 'G_Datos_xyz_2.txt' lc 7  w l t 'Frenado', 'G_Datos_xyz_3.txt' lc 6 w l t '', 'G_Datos_xyz_4.txt' lc 7 w l t '', 'G_Datos_xyz_5.txt' lc 6 w l t '', 'G_Datos_xyz_6.txt' lc 7 w l t '', 'G_Datos_xyz_7.txt' lc 6 w l t '', 'G_Datos_xyz_8.txt' lc 7 w l t '', 'G_Datos_xyz_9.txt' lc 6 w l t ''
+
+
+
+
+
+
+
+
+

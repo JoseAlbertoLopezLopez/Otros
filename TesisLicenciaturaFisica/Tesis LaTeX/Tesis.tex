@@ -1,0 +1,370 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[11pt,letterpaper,oneside]{report}
+%\newcommand{\currentchapter}{}
+%\let\oldchapter\chapter
+%\renewcommand{\chapter}[1]{\oldchapter{#1}\renewcommand{\currentchapter}{#1}}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{amsfonts}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{anyfontsize}
+%\usepackage[T1]{fontenc}
+%\usepackage{baskervillef}
+\usepackage{amssymb}
+
+\usepackage[usenames]{xcolor}
+%strikethrough
+\usepackage[normalem]{ulem}
+%\usepackage{color}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+
+\usepackage{tikz}
+\usepgflibrary{arrows}
+\usetikzlibrary{calc}
+\usepackage{mwe}
+\usepackage{calc} %Para hacer operaciones en setlength
+%\graphicspath{{Pictures/}}
+%\DeclareGraphicsExtensions{.pdf}
+\newlength{\longa}
+\setlength{\longa}{\textwidth+5.5cm}
+
+%\addcontentsline{toc}{chapter}{\bibname}
+%\let\OLDthebibliography=\thebibliography
+%\def\thebibliography#1{\OLDthebibliography{#1}%
+
+%\usepackage[spanish,es-tabla]{babel}
+%\def\tablename{Tabla}
+\usepackage{multirow}
+\usepackage{array}
+
+%\usepackage{stackengine}
+\usepackage{makecell}      %Para utilizar \Gape[1cm][1cm].
+\usepackage{diagbox}
+
+\usepackage{fmtcount}  %Para numeros ordinales.
+
+\usepackage{booktabs}
+
+\spanishdecimal{.}
+
+\usepackage{zref-savepos}
+
+\usepackage{rotating}
+
+\usepackage[labelfont=bf]{caption} 
+%\makeatletter
+%\renewcommand{\fnum@table}[1]{\textbf{\tablename~\thetable}: \sffamily}
+%\makeatother
+%\renewcommand*\familydefault{\cmr}
+\usepackage[T1]{fontenc}
+\usepackage{calligra}
+%{\fontfamily{calligra}\selectfont Placas paralelas fijas}
+
+\usepackage{setspace} %Para usar \spacing{} y \linespread{} (para dentro de entornos)
+
+\usepackage{hhline}
+%\usepackage{fontspec}
+%\setmainfont{Times}
+%\setmonofont{arev}
+
+\usepackage{relsize} % Para usar \mathlarger	
+
+\usepackage[perpage]{footmisc} %contador de pie de página siempre en 1.	
+
+%\usepackage[explicit]{titlesec}
+
+%\newcommand*\Hide{%
+%\titleformat{\chapter}[display]
+ % {}{}{0pt}{\Huge}
+%\titleformat{\part}
+  %{}{}{0pt}{}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Inicia código para sumatorias grandes
+
+\newlength{\depthofsumsign}
+\setlength{\depthofsumsign}{\depthof{$\sum$}}
+\newlength{\totalheightofsumsign}
+\newlength{\heightanddepthofargument}
+
+\newcommand{\nsum}[1][1.4]{% only for \displaystyle
+    \mathop{%
+        \raisebox
+            {-#1\depthofsumsign+1\depthofsumsign}
+            {\scalebox
+                {#1}
+                {$\displaystyle\sum$}%
+            }
+    }
+}
+\newcommand{\resum}[1]{%
+    \def\s{#1}
+    \mathop{
+        \mathpalette\resumaux{#1}
+    }
+}
+
+\newcommand{\resumaux}[2]{% internally
+    \sbox0{$#1#2$}
+    \sbox1{$#1\sum$}
+    \setlength{\heightanddepthofargument}{\wd0+\dp0}
+    \setlength{\totalheightofsumsign}{\wd1+\dp1}
+    \def\quot{\DivideLengths{\heightanddepthofargument}{\totalheightofsumsign}}
+    \nsum[\quot]%
+}
+
+% http://tex.stackexchange.com/a/6424/16595
+\makeatletter
+\newcommand*{\DivideLengths}[2]{%
+  \strip@pt\dimexpr\number\numexpr\number\dimexpr#1\relax*65536/\number\dimexpr#2\relax\relax sp\relax
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Termina código para sumatorias grandes
+
+\usepackage[fleqn]{mathtools}
+
+\newcommand{\graficaespectros}[5]{
+\begin{textblock*}{190mm}(1.6cm,#4)
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node{\includegraphics[scale=0.45]{#1}};
+  \node at (0,4.3) {\bf {#2 (eje \textbf{\textit{#3}})}};
+  \node at (0,-4.3) {Frecuencia ($Hz$)};
+  \node[black,rotate=90] at (-8.2,0) {Amplitud};
+  \node at (5,3.52) {\fontsize{8}{1}\selectfont #5};
+\end{tikzpicture}
+\begin{minipage}{\longa}
+\caption{Ejemplo de espectro de frecuencias característico del evento \MakeLowercase{#2}.}
+\label{#1}
+\end{minipage}
+\end{figure}
+\end{textblock*}
+}
+
+\newcommand{\graficaceroeventos}[4]{
+\begin{textblock*}{190mm}(1.6cm,#4)
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node{\includegraphics[scale=0.45]{#1}};
+  \node at (0,4.3) {\bf {#2 (eje \textbf{\textit{#3}})}};
+  \node at (0,-4.3) {Tiempo ($s$)};
+  \node[black,rotate=90] at (-8.2,0) {Aceleraci{\'o}n};
+  \node at (6.3,3.5) {\fontsize{8}{1}\selectfont };
+  \node at (6.3,3.2) {\fontsize{8}{1}\selectfont };
+\end{tikzpicture}
+\caption{Registros de aceleraci{\'o}n sobre el eje $#3$ para el caso de \MakeLowercase{#2}.}
+\label{#1}
+\end{figure}
+\end{textblock*}
+}
+
+\newcommand{\graficauneventos}[4]{
+\begin{textblock*}{190mm}(1.6cm,#4)
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node{\includegraphics[scale=0.45]{#1}};
+  \node at (0,4.3) {\bf {#2 (eje \textbf{\textit{#3}})}};
+  \node at (0,-4.3) {Tiempo ($s$)};
+  \node[black,rotate=90] at (-8.2,0) {Aceleraci{\'o}n};
+  \node at (6.25,3.51) {\fontsize{8}{1}\selectfont Regular};
+  \node at (6.28,3.19) {\fontsize{8}{1}\selectfont #2};
+\end{tikzpicture}
+\caption{Registros de aceleraci{\'o}n sobre el eje $#3$ para el evento de \MakeLowercase{#2}.}
+\label{#1}
+\end{figure}
+\end{textblock*}
+}
+
+\newcommand{\graficadoseventos}[5]{
+\begin{textblock*}{190mm}(1.6cm,#5)
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node{\includegraphics[scale=0.45]{#1}};
+  \node at (0,4.3) {\bf {#2 (eje \textbf{\textit{#4}})}};
+  \node at (0,-4.3) {Tiempo ($s$)};
+  \node[black,rotate=90] at (-8.2,0) {Aceleraci{\'o}n};
+  \node at (6.3,3.5) {\fontsize{8}{1}\selectfont Regular};
+  \node at (6.3,3.2) {\fontsize{8}{1}\selectfont Zig-zag};
+  \node at (6.3,2.87) {\fontsize{8}{1}\selectfont #3};
+\end{tikzpicture}
+\begin{minipage}{\longa}
+\caption{Registros de aceleraci{\'o}n sobre el eje $#4$ para el evento de \MakeLowercase{#2}.}
+\label{#1}
+\end{minipage}
+\end{figure}
+\end{textblock*}
+}
+
+\newcommand{\graficatreseventos}[7]{
+\begin{textblock*}{190mm}(1.6cm,#7)
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node{\includegraphics[scale=0.45]{#1}};
+  \node at (0,4.3) {\bf {#2 (eje \textbf{\textit{#6}})}};
+  \node at (0,-4.3) {Tiempo ($s$)};
+  \node[black,rotate=90] at (-8.2,0) {Aceleraci{\'o}n};
+  \node at (6.28,3.5) {\fontsize{8}{1}\selectfont Regular};
+  \node at (6.3,3.15) {\fontsize{8}{1}\selectfont #3};
+  \node at (6.26,2.85) {\fontsize{8}{1}\selectfont #4};
+  \node at (6.3,2.53) {\fontsize{8}{1}\selectfont #5};
+\end{tikzpicture}
+\caption{Registros de aceleraci{\'o}n sobre el eje $#6$ durante el \MakeLowercase{#2}.}
+\label{#1}
+\end{figure}
+\end{textblock*}
+}
+
+\newcommand{\graficasalidas}[7]{
+\begin{textblock*}{190mm}(1.6cm,#7)
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node{\includegraphics[scale=0.45]{#1}};
+  \node at (0,4.3) {\bf #2 (#6)};
+  \node at (0,-4.3) {Tiempo ($s$)};
+  \node[black,rotate=90] at (-8.2,0) {Valor de la salida};
+  \node at (5.8,3.5) {\fontsize{8}{1}\selectfont #3};
+  \node at (5.8,3.15) {\fontsize{8}{1}\selectfont #4};
+  \node at (5.8,2.8) {\fontsize{8}{1}\selectfont #5};
+\end{tikzpicture}
+\caption{Valores de las salidas de la red neuronal a lo largo del tiempo.}
+\label{#1}
+\end{figure}				
+\end{textblock*}
+}
+
+\newcommand{\graficadeteccion}[8]{
+\begin{textblock*}{190mm}(1.6cm,#8)
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node{\includegraphics[scale=0.45]{#1}};
+  \node at (0,4.3) {\bf Detecci{\'o}n en el recorrido #2 (#3)};
+  \node at (0,-4.3) {Tiempo ($s$)};
+  \node[black,rotate=90] at (-8.2,0) {Evento};
+  \node at (6.5,3.52) {\fontsize{8}{1}\selectfont #4};
+  \node at (6.5,3.17) {\fontsize{8}{1}\selectfont #5};
+  \node at (6.5,2.82) {\fontsize{8}{1}\selectfont #6};
+  \node at (6.5,2.5) {\fontsize{8}{1}\selectfont #7};
+\end{tikzpicture}
+\caption{Detecci{\'o}n del algoritmo a lo largo del tiempo para un recorrido.}
+\label{#1}
+\end{figure}
+\end{textblock*}
+}
+
+\pagestyle{fancy}
+%\textwidth = 15.59cm 13.343cm
+\headwidth = 13.343cm  %Longitud del encabezado y pie. 
+%\fancyheadoffset[]{} %Longitud de la parte de la li­nea de encabezado que se sale del ancho del texto (en este caso a la izquierda).
+%\fancyfootoffset[]{}
+%\fancyhfoffset[L]{0pt}
+%\renewcommand{\headrule}{\color{black} \vbox to 0pt{\hbox to 400pt{\hrulefill}\vss}} %Forma de modificar el ancho, largo, color y tipo de linea de encabezado y pie de pagina (head y foot). Opciones de li­nea: \dotfill.
+
+%\setlength{\headheight}{15pt}
+%\renewcommand{\chaptername}{}
+%\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
+%\renewcommand{\thechapter}{\Roman{chapter}}
+
+%\fancyhf{}
+\fancyhead{}
+%\rhead{\thepage} % Clears the left side page header
+\lhead{\nouppercase{\chaptername} \thechapter . \it \currentchapter}
+%\lfoot{}
+\cfoot{\hspace{2.2cm}\thepage}
+%\fancyhead[L]{\chaptername \chaptermark}
+%\fancyfoot[C]{\thepage} % Numeros de pagina en el centro
+%\fancyhead[LO,RE]{\slshape \leftmark}
+%\fancyhead[LO]{\leftmark} % En las paginas impares, parte izquierda del encabezado, aparecera el nombre de capi­tulo.
+%\fancyhead[RE]{\thepage} % En las paginas pares, parte derecha del encabezado, aparecera el nombre de seccion.
+\renewcommand{\headrulewidth}{0.4pt} % Ancho de la li­nea del encabezado.
+\renewcommand{\footrulewidth}{0pt}
+%\setlength{\headheight}{15pt}  %¿?
+
+
+\def\author#1{\gdef\insertauthor{#1}\gdef\@author{#1}}
+\def\title#1{\gdef\inserttitle{#1}\gdef\@title{#1}}
+\def\supervisor#1{\gdef\insertsupervisor{#1}}
+\def\institution#1{\gdef\insertinstitution{#1}}
+\def\degree#1{\gdef\insertdegree{#1}}
+\def\faculty#1{\gdef\insertfaculty{#1}}
+\def\department#1{\gdef\insertdepartment{#1}}
+\def\submitdate#1{\gdef\insertsubmitdate{#1}}
+
+\author{Jos{\'e} Alberto L{\'o}pez L{\'o}pez}
+\title{Detecci{\'o}n de Movimientos An{\'o}malos en Veh{\'i}­culos}
+\degree{Licenciado en F{\'i}­sica}
+\supervisor{Antonio Mar{\'i}­n Hernandez}
+\institution{Universidad Veracruzana}
+\faculty{Facultad de F{\'i}­sica}
+\department{}
+
+\RequirePackage[
+  top     = 40mm, bottom     = 33mm,
+  outer   = 25mm, inner      = 35mm,
+  headsep = 10mm, headheight = 15pt,
+  marginparwidth = 15mm ]{geometry}
+%\geometry{top=40mm,bottom=33mm,inner=40mm,outer=25mm}
+
+%\hypersetup{urlcolor=blue, colorlinks=true} 
+%\hyperlinking
+
+\begin{document}
+
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} %asteriscos
+
+\include{titlepage}
+\pagenumbering{roman} % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages.
+\addcontentsline{toc}{chapter}{Dedicatoria}
+\include{Dedicatoria}
+\addcontentsline{toc}{chapter}{Agradecimientos}
+\include{Agradecimientos}
+
+\pagenumbering{gobble}
+\pagestyle{empty} %Para quitar encabezado del indice.
+\tableofcontents
+%\thispagestyle{empty}
+%\renewcommand{\chapter}[1]{\oldchapter{#1}\renewcommand{\currentchapter}{#1}}
+%\thispagestyle{empty} %quitar num de pagina a una.
+%\pagestyle{empty} %quitar num de pagina a todas.
+%\listoffigures
+%\listoftables
+
+%\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages.
+%\setstretch{1.3} % Line spacing of 1.3
+%\mainmatter
+
+\newcommand{\currentchapter}{}
+\let\oldchapter\chapter
+\renewcommand{\chapter}[1]{\oldchapter{#1}\renewcommand{\currentchapter}{#1}}
+%\addtocontents{toc}{\protect\thispagestyle{empty}}
+
+\include{Introduccion}
+\include{Estado_del_arte}
+\include{Marco_teorico}
+\include{Desarrollo_experimental}
+\include{Tratamiento_de_datos_y_resultados}
+\include{Conclusiones}
+
+%\appendix
+%\include{apendiceA}
+%\include{apendiceB}
+%\include{apendiceC}
+\let\chapter\oldchapter
+%\renewcommand{\refname}{Bibliograf{\'i}­a}
+\renewcommand\bibname{Referencias}
+\lhead{\it Referencias}
+\bibliographystyle{unsrt}
+\bibliography{Bibliografia}
+\addcontentsline{toc}{chapter}{Referencias}
+\end{document}

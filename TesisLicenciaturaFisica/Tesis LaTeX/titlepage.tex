@@ -1,0 +1,135 @@
+% !TEX encoding = UTF-8 Unicode
+\newdimen\MSup
+\newdimen\MIzq
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  QUIZAS REQUIERAS AJUSTAR ESTOS VALORES %%% 
+\MSup=48pt   
+\MIzq=65pt  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newenvironment{changemargin}[1]{%
+\begin{list}{}{%
+\setlength{\leftmargin}{#1}%
+\setlength{\topmargin}{-100pt}
+\setlength{\parsep}{\parskip}%
+}\item[]
+}{\end{list}}
+
+\addtolength{\topmargin}{-\MSup}
+
+\begin{changemargin}{-\MIzq}
+\thispagestyle{empty}
+\begin{minipage}[c][1pt][t]{0.2\paperwidth}
+\begin{center}
+
+\includegraphics [scale=.75 ]{UV.pdf}\\
+\vskip 527.5pt
+\hskip -4pt
+\linethickness{1.8pt} 
+\line(0,1){520}
+\linethickness{0.9pt} 
+\line(0,1){500}
+\linethickness{1.8pt} 
+\line(0,1){520}
+\end{center}
+\end{minipage}
+\hskip 20 pt     %Acercar texto a linea vertical.
+\begin{minipage}[c][1pt][t]{0.6\paperwidth}
+\begin{center}
+\vskip 30pt
+{\huge \scshape Universidad Veracruzana} 
+{\vskip 0 pt
+\hskip -354 pt 
+\linethickness{1.6pt} 
+\line(1,0){350}}
+{\vskip 0pt
+\hskip -317 pt
+\linethickness{.9pt}
+\centering
+\line(1,0){313}}
+\vskip 11pt
+{\LARGE \scshape Facultad de F\'isica}
+\end{center}
+\end{minipage} 
+
+\hskip 102.5pt 
+\begin{minipage}[c][-280pt][t]{15cm}
+\begin{center}
+\vskip 10 pt
+\centering
+\linethickness{1.5pt}
+\line(1,0){440}
+%\vskip 22pt
+\end{center}
+\end{minipage}
+
+\hskip 110pt 
+\begin{minipage}[c][-300pt][t]{15cm}
+\begin{center}
+\linespread{1.0} \huge \textbf{Estudio de la Din{\'a}mica de Conducci{\'o}n en Veh{\'i}culos para Determinar Comportamientos An{\'o}malos}
+\end{center}
+\end{minipage}
+
+\hskip 102.5pt 
+\begin{minipage}[c][-415pt][t]{15cm}
+\begin{center}
+\vskip 10pt
+\linethickness{1.5pt} 
+\line(1,0){440}
+\end{center}
+\end{minipage}
+
+\hskip 110pt 
+\begin{minipage}[c][-500pt][t]{15cm}
+\begin{center}
+{\Large Trabajo recepcional en la modalidad de:}\\
+
+\vskip 12pt
+
+\textbf{\LARGE TESIS}
+
+
+\vskip 12 pt
+{\Large que como requisito parcial para obtener el t\'itulo de:}
+\vskip 12pt
+
+\textbf{\LARGE Licenciado en F\'isica}
+\end{center}
+
+\vskip 50pt
+
+\begin{center}
+{\Large {P\ R\ E\ S\ E\ N\ T\ A} }
+\end{center}
+
+\vskip 12pt
+
+\begin{center}
+\textbf{\LARGE  JOS\'E ALBERTO L\'OPEZ L\'OPEZ}
+\end{center}
+
+\vskip 25pt
+
+\begin{center}
+{\large ASESOR:}\\
+
+\vskip 18 pt
+
+{\large DR. ANTONIO MAR\'IN HERN\'ANDEZ }\\
+\vskip 65pt
+
+
+Xalapa Enr\'iquez, Veracruz\hfill \today
+
+
+\end{center}
+\end{minipage}
+\end{changemargin}
+\newpage
+
+\addtolength{\topmargin}{\MSup}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% HASTA AQUI                     %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
