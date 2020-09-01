@@ -1,0 +1,43 @@
+set encoding iso_8859_1
+
+caso = "8x8"
+
+#set terminal epslatex color size 14,9.8	#3x3
+#set terminal epslatex color size 14,7		#4x4
+set terminal epslatex color size 25,7		#5x5 ...
+
+set title "Resultados para mallas de $5\\times 8$"
+set title font ',12'
+set xlabel "Objetos en malla (cubos, prismas)"
+set xlabel font ',11'
+set ylabel "Costo global $T$"
+set ylabel font ',11'
+set ytics font ',11'
+set xtics font ',3'	# 3x3 18 4x4 5x5 9 6x6 4 7x7 3 8x8 1.5
+set key font ',11'
+
+set xtics offset -0.5,-0.5	# 3x3 4x4 5x5 -1,-1.2 6x6 -0.5,-0.5
+
+set xlabel offset 0,0	# 3x3 4x4 5x5 0,-1.5 6x6 0,0
+set ylabel offset -3,0
+
+set margins 13, 8, 6, 7
+
+set xtic rotate by 45
+
+# 3x5 85
+# 5x5 226
+# 6x6 423
+# 5x8 558
+# 7x7 834
+# 8x8 1312
+
+# 3x3 4x4 ps 1.5 5x5 ps 1.2 6x6 7x7 ps 0.5 8x8 ps 0.25 lw 2
+
+set output "comparacionAlgoritmos".caso.".tex"
+
+#plot[-1:32][5:] "comparacionAlgoritmos.txt" u 0:1:xtic(3) w lp lw 4 lc 1 pt 7 ps 2.5 t "Búsqueda por intercambios (costo total = 313)", "LimitesPasos3x3.txt" u 0:2 w lp lw 4 lc 2 pt 7 ps 2.5 t "Búsqueda exhaustiva (costo total = 316)"
+
+plot[-1:1312][5:] "comparacionAlgoritmos".caso.".txt" u 0:1:xtic(3) w lp lw 2 lc 2 pt 7 ps 0.5 t "", "LimitesPasos".caso.".txt" u 0:2 w lp lw 2 lc 1 pt 7 ps 0.5 t "", 1/0 w lp lw 4 lc 1 pt 7 ps 1.5 t "Muestreo", 1/0 w lp lw 4 lc 2 pt 7 ps 1.5 t "Búsqueda por RS"
+
+unset output

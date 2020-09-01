@@ -1,0 +1,730 @@
+int contarImpPotSeparados(array<array<int, m-1>, n-1> &potencialesCuadrosImposibles){
+
+	int numImposiblesSeparados = 0;
+	bool imposibleQ;
+
+	for(int r=1; r<=n-2; r++){
+		for(int c=1; c<=m-2; c++){
+		
+			imposibleQ = false;
+		
+			if(c%2==1 and r%2==1){
+			
+				if(potencialesCuadrosImposibles[r-1][c-1]) imposibleQ = true;
+				if(potencialesCuadrosImposibles[r-1][c]) imposibleQ = true;
+				if(potencialesCuadrosImposibles[r][c-1]) imposibleQ = true;
+				if(potencialesCuadrosImposibles[r][c]) imposibleQ = true;
+			}
+			else if(((r==n-2 and r%2==0) and c%2==1) or ((c==m-2 and c%2==0) and r%2==1)){
+				
+				if((c==m-2 and c%2==0) and r%2==1){
+					if(potencialesCuadrosImposibles[r][c] or potencialesCuadrosImposibles[r-1][c]) imposibleQ = true;
+				}
+				else{
+					if(potencialesCuadrosImposibles[r][c] or potencialesCuadrosImposibles[r][c-1]) imposibleQ = true; 
+				}
+			}
+			else if((r==n-2 and r%2==0) and (c==m-2 and c%2==0)){
+			
+				if(potencialesCuadrosImposibles[r][c]) imposibleQ = true;
+			}
+			
+			if(imposibleQ) numImposiblesSeparados++;
+		}
+	}
+	
+	return numImposiblesSeparados++;
+}
+
+
+
+
+double puntajeElemento(int (&malla)[n+2][m+2], int r, int c){
+
+	bool imposibleQ = false;
+	double puntuacion=0;
+	double libre1=0;
+	double libre2=0;
+	
+	// Puntuación de interacciones y libertad.
+
+	if(malla[r+1][c]<malla[r][c] and malla[r-1][c]<malla[r][c]){
+	
+		libre1 += puntuacionInteraccion(malla[r][c], malla[r+1][c]) + puntuacionInteraccion(malla[r][c], malla[r-1][c]);
+		// Bono libertad.
+		libre1 += 3;
+	}
+	
+	if(malla[r][c+1]<malla[r][c] and malla[r][c-1]<malla[r][c]){
+	
+		libre2 += puntuacionInteraccion(malla[r][c], malla[r][c+1]) + puntuacionInteraccion(malla[r][c], malla[r][c-1]);
+		// Bono libertad.
+		libre2 += 3;
+	}
+	
+	if(libre1==0 and libre2==0){
+	
+		puntuacion += puntuacionInteraccion(malla[r][c], malla[r][c+1]) + puntuacionInteraccion(malla[r][c], malla[r][c-1]);
+		puntuacion += puntuacionInteraccion(malla[r][c], malla[r+1][c]) + puntuacionInteraccion(malla[r][c], malla[r-1][c]);
+	}
+	else{
+		puntuacion += (libre1>=libre2 ? libre1 : libre2);
+	}
+	
+	// Puntuación negativa de cuadros imposibles. Si pertenece a 1 o más cuadros imposibles, restar la misma puntuación.
+	
+	if(!imposibleQ and ((malla[r][c]==malla[r][c-1] and malla[r][c]==malla[r-1][c-1]) and (malla[r][c]==malla[r-1][c] and malla[r][c]>0))){
+		puntuacion -= 2.0; imposibleQ = true;}
+	if(!imposibleQ and ((malla[r][c]==malla[r][c+1] and malla[r][c]==malla[r-1][c+1]) and (malla[r][c]==malla[r-1][c] and malla[r][c]>0))){
+		puntuacion -= 2.0; imposibleQ = true;}
+	if(!imposibleQ and ((malla[r][c]==malla[r][c+1] and malla[r][c]==malla[r+1][c+1]) and (malla[r][c]==malla[r+1][c] and malla[r][c]>0))){
+		puntuacion -= 2.0; imposibleQ = true;}
+	if(!imposibleQ and ((malla[r][c]==malla[r][c-1] and malla[r][c]==malla[r+1][c-1]) and (malla[r][c]==malla[r+1][c] and malla[r][c]>0))){
+		puntuacion -= 2.0; imposibleQ = true;}
+	
+	return puntuacion;
+}
+
+
+
+
+
+
+double puntajeElemento(int (&malla)[n+2][m+2], int r, int c){
+
+	bool imposibleQ = false;
+	double puntuacion=0;
+	double puntuacion1=0;
+	double puntuacion2=0;
+	
+	// Puntuación de interacciones y libertad.
+	
+	puntuacion1 += puntuacionInteraccion(malla[r][c], malla[r+1][c]) + puntuacionInteraccion(malla[r][c], malla[r-1][c]);
+
+	if(malla[r+1][c]<malla[r][c] and malla[r-1][c]<malla[r][c]){
+		// Bono libertad.
+		puntuacion1 += 4;
+	}
+	
+	puntuacion2 += puntuacionInteraccion(malla[r][c], malla[r][c+1]) + puntuacionInteraccion(malla[r][c], malla[r][c-1]);
+	
+	if(malla[r][c+1]<malla[r][c] and malla[r][c-1]<malla[r][c]){
+		// Bono libertad.
+		puntuacion2 += 4;
+	}
+	
+	if(malla[r][c]==0){
+	
+		puntuacion += puntuacionInteraccion(malla[r][c], malla[r][c+1]) + puntuacionInteraccion(malla[r][c], malla[r][c-1]);
+		puntuacion += puntuacionInteraccion(malla[r][c], malla[r+1][c]) + puntuacionInteraccion(malla[r][c], malla[r-1][c]);
+	}
+	else{
+		puntuacion += (puntuacion1>=puntuacion2 ? puntuacion1 : puntuacion2);
+	}
+	
+	// Puntuación negativa de cuadros imposibles. Si pertenece a 1 o más cuadros imposibles, restar la misma puntuación.
+	
+	if(!imposibleQ and ((malla[r][c]==malla[r][c-1] and malla[r][c]==malla[r-1][c-1]) and (malla[r][c]==malla[r-1][c] and malla[r][c]>0))){
+		puntuacion -= 2.0; imposibleQ = true;}
+	if(!imposibleQ and ((malla[r][c]==malla[r][c+1] and malla[r][c]==malla[r-1][c+1]) and (malla[r][c]==malla[r-1][c] and malla[r][c]>0))){
+		puntuacion -= 2.0; imposibleQ = true;}
+	if(!imposibleQ and ((malla[r][c]==malla[r][c+1] and malla[r][c]==malla[r+1][c+1]) and (malla[r][c]==malla[r+1][c] and malla[r][c]>0))){
+		puntuacion -= 2.0; imposibleQ = true;}
+	if(!imposibleQ and ((malla[r][c]==malla[r][c-1] and malla[r][c]==malla[r+1][c-1]) and (malla[r][c]==malla[r+1][c] and malla[r][c]>0))){
+		puntuacion -= 2.0; imposibleQ = true;}
+	
+	return puntuacion;
+}
+
+
+
+
+	\item[$\bullet$] La función de costo, que calcula el número de de acciones necesarias para tomar un objeto, se define a continuación:
+	
+	\begin{algorithm}[H]
+
+		\label{alg1}
+	
+		\DontPrintSemicolon
+	
+		\vspace{\baselineskip}
+
+		\KwData{Coordenadas $i,j$ de la celda del elemento, secuencia $Sec$ de objetos a retirar y su número de secuencia correspondiente $sec$.}
+		\KwResult{Número $t$ de de acciones necesarias para tomar un objeto.}
+	
+		\vspace{\baselineskip}	
+		
+		\tcp*[l]{Lista de secuencias $Sec$ posibles para tomar el objeto en $e_{i,j}$.} 
+		
+		$ListaSecuencias$\;
+		$sec=1$\;
+		
+		Añadir a $ListaSecuencias[sec]$ el objeto $e_{i,j}$.\;
+		
+		\If{Objeto en $e_{i,j}$ no se puede sujetar}{
+		
+			$ListaSecuencias[sec+1]=ListaSecuencias[sec]$\;
+			
+			$t_{i+1,j}()$\;
+			$t_{i-1,j}()$\;
+			
+			$sec=sec+1$
+			
+			$t_{i,j+1}()$\;
+			$t_{i,j-1}()$\;
+		}
+	
+		\BlankLine
+	
+		\caption{Función de costo $t_{i,j}(Sec,sec)$.}
+
+	\end{algorithm}
+	
+
+
+
+\RestyleAlgo{tworuled}
+\SetAlgorithmName{Función}{}{}
+
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+\begin{algorithm}[H]
+
+	\label{alg1}
+	
+	\DontPrintSemicolon
+	
+	\vspace{\baselineskip}
+
+	\KwData{Celdas de los elementos a puntuar: $e_{i_1,j_1}$ (elemento de referencia) y $e_{i_2,j_2}$ (elemento vecino).}
+	\KwResult{Puntuación.}
+	
+	\vspace{\baselineskip}	
+	
+	\Function{puntuacionPar($e_{i_1,j_1}$, $e_{i_2,j_2}$)}{
+	\BlankLine
+	
+		\Return ${\max\limits_{k}(a_{k,1})-|a_{k_1,1}-a_{k_2,1}| \over h}+{a_{k_1,1}-a_{k_2,1} \over |a_{k_1,1}-a_{k_2,1}|+\theta}$
+	}
+	
+	\BlankLine
+	
+	\caption{Función de puntuación de pares de objetos vecinos.}
+
+\end{algorithm}
+\end{minipage}
+\end{center}
+
+
+\RestyleAlgo{ruled}
+\SetAlgorithmName{Algorithm}{}{}
+
+\ \\
+
+
+
+
+
+
+
+
+% !TEX encoding = UTF-8 Unicode
+\documentclass[letterpaper, dvips]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{picture}
+\usepackage{pst-all}
+\usepackage{pst-solides3d}
+\usepackage{pst-eps}
+\begin{document}
+\pagestyle{empty}
+\begin{TeXtoEPS}
+\psset{unit=0.7}
+\begin{pspicture}(-10,-10)(10,10)
+\psSolid[object=cube, a=2, action=draw*, fillcolor=magenta!20]
+\end{pspicture}
+\end{TeXtoEPS}
+\end{document}
+
+
+
+
+\NewDocumentCommand{\mallaAux}{m m O{20 0 89.999} O{10 0 10}}{
+\begin{pspicture}(-1.25,-8.75)(8.85,1.25)
+\psset{solidmemory}
+\psset{unit=1}
+\psset{viewpoint=#3 rtp2xyz, Decran=50}
+\psSolid[object=grille, linewidth=0.75pt, base=0 #1 0 #2](0,0,0)
+\foreach \n in {1, ..., #1}{
+\foreach \m in {1, ..., #2}{
+\FPadd\x\n{-0.5}
+\FPadd\y\m{-0.5}
+\checkmalla(\n,\m)
+\ifthenelse{\cachedata=2}{
+\def\colorCelda{rojo}
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine={\x} {\y} 0, base=-0.5 0.5 -0.5 0.5, fillcolor=\colorCelda]
+}
+{}
+\ifthenelse{\cachedata=1}{
+\def\colorCelda{blue}
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine={\x} {\y} 0, base=-0.5 0.5 -0.5 0.5, fillcolor=\colorCelda]
+}
+{}
+}
+}
+%\psProjection[object=texte, fontsize=5, pos=cc, plan=monoplan, text=Hola, phi=90](0,0)
+%\axesIIID[axisnames={x,y,}](0,0,0)(1,1,0)
+\end{pspicture}
+}
+
+
+
+
+% Objetos individuales.
+
+
+\begin{pspicture}(-2,-3.25)(2,3.25)%  (-2,-3.25)(2,3.25) (-2,-2.25)(2,2.25)
+\psset{solidmemory}%
+\psset{unit=1}%
+\psset{viewpoint=20 30 30 rtp2xyz, lightsrc=15 45 60 rtp2xyz, lightintensity=2, Decran=50}%
+%\psSolid[object=grille, linewidth=0.75pt, base=0 #1 0 #2](0,0,0)%
+
+%\psSolid[object=new, sommets=0.5 0.5 0.5  -0.5 0.5 0.5  -0.5 -0.5 0.5  0.5 -0.5 0.5     0.45 0.45 -0.5  -0.45 0.45 -0.5  -0.45 -0.45 -0.5  0.45 -0.45 -0.5, faces={[0 1 2 3] [0 4 5 1] [1 5 6 2] [2 6 7 3] [3 7 4 0] [4 5 6 7]}, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](0,0,0)%
+
+\psSolid[object=new, sommets=0.5 0.5 1  -0.5 0.5 1  -0.5 -0.5 1  0.5 -0.5 1     0.45 0.45 -1 -0.45 0.45 -1  -0.45 -0.45 -1  0.45 -0.45 -1, faces={[0 1 2 3] [0 4 5 1] [1 5 6 2] [2 6 7 3] [3 7 4 0] [4 5 6 7]}, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=azul](0,0,0)%
+
+%\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](0,0,0)%
+\end{pspicture}
+
+
+
+% Objetos sin malla (beamer).
+
+
+
+\begin{pspicture}(-5.2,-3.2)(7.5,3)%
+\psset{solidmemory}%
+\psset{unit=0.6}%
+\psset{viewpoint=20 0 25 rtp2xyz, lightsrc=25 0 60 rtp2xyz, lightintensity=2, Decran=50}%
+
+\psSolid[object=cube, a=1, linecolor=black, RotZ=-20, linewidth=0.2pt, action=draw**, fillcolor=rojo](1.3,-2.0,0.5)
+\psSolid[object=cube, a=1, linecolor=black, RotZ=-20, linewidth=0.2pt, action=draw**, fillcolor=rojo](1.7,-0.5,0.5)
+\psSolid[object=cube, a=1, linecolor=black, RotZ=-20, linewidth=0.2pt, action=draw**, fillcolor=rojo](2.6,-2.2,0.5)
+\psSolid[object=cube, a=1, linecolor=black, RotZ=-20, linewidth=0.2pt, action=draw**, fillcolor=rojo](3.0,-0.7,0.5)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, RotZ=-30, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=azul](1.1,1.9,1)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, RotZ=-30, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=azul](1.5,3.4,1)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, RotZ=-30, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=azul](2.6,1.8,1)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, RotZ=-30, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=azul](3.0,3.3,1)
+
+\end{pspicture}
+
+
+
+% Vecindad (beamer).
+
+
+
+\begin{tikzpicture}
+
+\node {\begin{pspicture}(-4.7,-7.7)(7.5,0.4)%(-8,-12.5)(12.5,0.5)
+
+\psset{solidmemory}
+\FPdiv\aux{3}{5}
+\psset{unit=\aux}
+\psset{viewpoint=20 30 30 rtp2xyz, lightsrc=15 45 50 rtp2xyz, lightintensity=2, Decran=50}
+
+\psSolid[object=grille, linewidth=0.75pt, base=0 5 0 5, fillcolor=gray!10, opacity=0](0,0,0)
+
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine={2.5} {2.5} 0, base=-0.5 0.5 -0.5 0.5, fillcolor=verde, name=planoCero]%
+
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine={2.5} {1.5} 0, base=-0.5 0.5 -0.5 0.5, fillcolor=amarillo, name=planoUno]%
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine={1.5} {2.5} 0, base=-0.5 0.5 -0.5 0.5, fillcolor=amarillo, name=planoDos]%
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine={2.5} {3.5} 0, base=-0.5 0.5 -0.5 0.5, fillcolor=amarillo, name=planoTres]%
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine={3.5} {2.5} 0, base=-0.5 0.5 -0.5 0.5, fillcolor=amarillo, name=planoCuatro]%
+
+%\psProjection[object=texte, phi=90, text=abc, plan=planoUno]%
+%\composeSolid
+
+\end{pspicture}};
+
+\newcommand{\viewA}{21.5}
+\newcommand{\viewB}{60}
+
+%\begin{axis}[scale mode=scale uniformly, view={\viewA}{\viewB}, xmin=0, xmax=3, ymin=0, ymax=3, zmin=0, zmax=1] at (0,0)
+
+\node[cm={cos(\viewA),-sin(\viewA)*sin(\viewB),sin(\viewA),cos(\viewA)*sin(\viewB),(0,0)}] at (0.2,0.55) {\fontsize{24}{24}\selectfont $e_{i,j}$};
+\node[cm={cos(\viewA),-sin(\viewA)*sin(\viewB),sin(\viewA),cos(\viewA)*sin(\viewB),(0,0)}] at (1,1.5) {\fontsize{22}{22}\selectfont $v_1$};
+\node[cm={cos(\viewA),-sin(\viewA)*sin(\viewB),sin(\viewA),cos(\viewA)*sin(\viewB),(0,0)}] at (1.8,0.1) {\fontsize{24}{24}\selectfont $v_2$};
+\node[cm={cos(\viewA),-sin(\viewA)*sin(\viewB),sin(\viewA),cos(\viewA)*sin(\viewB),(0,0)}] at (-0.6,-0.3) {\fontsize{24}{24}\selectfont $v_3$};
+\node[cm={cos(\viewA),-sin(\viewA)*sin(\viewB),sin(\viewA),cos(\viewA)*sin(\viewB),(0,0)}] at (-1.3,1.13) {\fontsize{24}{24}\selectfont $v_4$};
+
+%\end{axis}
+
+\end{tikzpicture}
+
+
+
+% Flechas en todas las direcciones.
+
+
+
+\psSolid[object=cone, h=0.3, r=0.075, RotY=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](1.7,2.5,2)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotY=90, linewidth=1pt, ngrid=4 40, action=draw**, fillcolor=black](1,2.5,2)%
+
+\psSolid[object=cone, h=0.3, r=0.075, RotY=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](3.3,2.5,2)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotY=-90, linewidth=1pt, ngrid=4 40, action=draw**, fillcolor=black](4,2.5,2)%
+
+\psSolid[object=cone, h=0.3, r=0.075, RotX=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,1.7,2)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotX=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,1,2)%
+
+\psSolid[object=cone, h=0.3, r=0.075, RotX=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,3.3,2)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotX=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,4,2)%
+
+
+
+% Formas de agarre.
+
+
+
+\begin{pspicture}(-4.74,-7.5)(7.5,1.1)%
+
+\psset{solidmemory}%
+\psset{unit=0.6}%
+\psset{viewpoint=20 30 30 rtp2xyz, lightsrc=15 45 50 rtp2xyz, lightintensity=2, Decran=50}%
+
+\psSolid[object=grille, linewidth=0.75pt, base=0 5 0 5, fillcolor=gray!10](0,0,0)%
+
+\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](2.5,1.5,0.5)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=azul](2.5,3.5,1)
+
+% Flechas verticales.
+\psSolid[object=cone, h=0.3, r=0.075, RotY=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](1.7,1.5,1)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotY=90, linewidth=1pt, ngrid=4 40, action=draw**, fillcolor=black](1,1.5,1)%
+
+\psSolid[object=cone, h=0.3, r=0.075, RotY=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](3.3,1.5,1)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotY=-90, linewidth=1pt, ngrid=4 40, action=draw**, fillcolor=black](4,1.5,1)%
+
+\psSolid[object=cone, h=0.3, r=0.075, RotY=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](1.7,3.5,2)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotY=90, linewidth=1pt, ngrid=4 40, action=draw**, fillcolor=black](1,3.5,2)%
+
+\psSolid[object=cone, h=0.3, r=0.075, RotY=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](3.3,3.5,2)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotY=-90, linewidth=1pt, ngrid=4 40, action=draw**, fillcolor=black](4,3.5,2)%
+
+
+% Flechas horizontales.
+%\psSolid[object=cone, h=0.3, r=0.075, RotX=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,0.7,1)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotX=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,0,1)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotX=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,2.3,1)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotX=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,3,1)%
+
+
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotX=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,2.7,2)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotX=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,2,2)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotX=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,4.3,2)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotX=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,5,2)%
+
+
+\end{pspicture}
+
+
+
+% Restricciones formas de agarre.
+
+
+
+\begin{tikzpicture}
+
+\node at (-2.5,5) {\fontsize{60}{60}\selectfont $H$};
+\node at (2.5,5) {\fontsize{60}{60}\selectfont $V$ \hspace{-3cm} \textcolor{rojo}{\faBan}};
+
+\node {\begin{pspicture}(-4.5,-7.3)(7.3,3)%
+\psset{solidmemory}%
+\psset{unit=0.6}%
+\psset{viewpoint=20 30 30 rtp2xyz, lightsrc=15 45 50 rtp2xyz, lightintensity=2, Decran=50}%
+
+\psSolid[object=grille, linewidth=0.75pt, base=0 5 0 5, fillcolor=gray!10](0,0,0)%
+%\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](2.5,1.5,0.5)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=gray](1.5,2.5,1)
+\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](2.5,2.5,0.5)
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotY=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](1.7,2.5,1)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotY=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](1,2.5,1)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotY=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](3.3,2.5,1)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotY=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](4,2.5,1)%
+
+\psSolid[object=cone, h=0.3, r=0.075, RotX=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,1.7,1)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotX=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,1,1)%
+
+\psSolid[object=cone, h=0.3, r=0.075, RotX=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,3.3,1)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotX=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,4,1)%
+
+%\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](0,0,0)%
+\end{pspicture}};
+
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+
+\node at (-2.5,5) {\fontsize{60}{60}\selectfont $H$ \hspace{-3cm} \textcolor{rojo}{\faBan}};
+\node at (2.5,5) {\fontsize{60}{60}\selectfont $V$};
+
+\node {\begin{pspicture}(-4.5,-7.3)(7.3,3)%
+\psset{solidmemory}%
+\psset{unit=0.6}%
+\psset{viewpoint=20 30 30 rtp2xyz, lightsrc=15 45 50 rtp2xyz, lightintensity=2, Decran=50}%
+
+\psSolid[object=grille, linewidth=0.75pt, base=0 5 0 5, fillcolor=gray!10](0,0,0)%
+\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=gray](2.5,1.5,0.5)
+%\psSolid[object=parallelepiped, a=1, b=1, c=2, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=gray](1.5,2.5,1)
+\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](2.5,2.5,0.5)
+
+\psSolid[object=cone, h=0.3, r=0.075, RotY=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](1.7,2.5,1)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotY=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](1,2.5,1)%
+
+\psSolid[object=cone, h=0.3, r=0.075, RotY=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](3.3,2.5,1)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotY=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](4,2.5,1)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotX=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,1.7,1)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotX=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,1,1)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotX=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,3.3,1)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotX=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,4,1)%
+
+%\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](0,0,0)%
+\end{pspicture}};
+
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+
+\node at (-2.5,5) {\fontsize{60}{60}\selectfont $H$ \hspace{-3cm} \textcolor{rojo}{\faBan}};
+\node at (2.5,5) {\fontsize{60}{60}\selectfont $V$ \hspace{-3cm} \textcolor{rojo}{\faBan}};
+
+\node {\begin{pspicture}(-4.5,-7.3)(7.3,3)%
+\psset{solidmemory}%
+\psset{unit=0.6}%
+\psset{viewpoint=20 30 30 rtp2xyz, lightsrc=15 45 50 rtp2xyz, lightintensity=2, Decran=50}%
+
+\psSolid[object=grille, linewidth=0.75pt, base=0 5 0 5, fillcolor=gray!10](0,0,0)%
+\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=gray](2.5,1.5,0.5)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=gray](1.5,2.5,1)
+\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](2.5,2.5,0.5)
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotY=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](1.7,2.5,1)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotY=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](1,2.5,1)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotY=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](3.3,2.5,1)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotY=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](4,2.5,1)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotX=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,1.7,1)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotX=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,1,1)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotX=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,3.3,1)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotX=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,4,1)%
+
+%\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](0,0,0)%
+\end{pspicture}};
+
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+
+\node at (-2.5,5) {\fontsize{60}{60}\selectfont $H$ \hspace{-3cm} \textcolor{rojo}{\faBan}};
+\node at (2.5,5) {\fontsize{60}{60}\selectfont $V$};
+
+\node {\begin{pspicture}(-4.5,-7.3)(7.3,3)%
+\psset{solidmemory}%
+\psset{unit=0.6}%
+\psset{viewpoint=20 30 30 rtp2xyz, lightsrc=15 45 50 rtp2xyz, lightintensity=2, Decran=50}%
+
+\psSolid[object=grille, linewidth=0.75pt, base=0 5 0 5, fillcolor=gray!10](0,0,0)%
+\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=gray](1.5,2.5,0.5)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=gray](2.5,1.5,1)
+%\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](2.5,2.5,0.5)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=azul](2.5,2.5,1)
+
+\psSolid[object=cone, h=0.3, r=0.075, RotY=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](1.7,2.5,2)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotY=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](1,2.5,2)%
+
+\psSolid[object=cone, h=0.3, r=0.075, RotY=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](3.3,2.5,2)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotY=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](4,2.5,2)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotX=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,1.7,1)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotX=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,1,1)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotX=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,3.3,1)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotX=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,4,1)%
+
+%\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](0,0,0)%
+\end{pspicture}};
+
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+
+\node at (-2.5,5) {\fontsize{60}{60}\selectfont $H$};
+\node at (2.5,5) {\fontsize{60}{60}\selectfont $V$ \hspace{-3cm} \textcolor{rojo}{\faBan}};
+
+\node {\begin{pspicture}(-4.5,-7.3)(7.3,3)%
+\psset{solidmemory}%
+\psset{unit=0.6}%
+\psset{viewpoint=20 30 30 rtp2xyz, lightsrc=15 45 50 rtp2xyz, lightintensity=2, Decran=50}%
+
+\psSolid[object=grille, linewidth=0.75pt, base=0 5 0 5, fillcolor=gray!10](0,0,0)%
+\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=gray](2.5,1.5,0.5)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=gray](1.5,2.5,1)
+%\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](2.5,2.5,0.5)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=azul](2.5,2.5,1)
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotY=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](1.7,2.5,2)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotY=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](1,2.5,2)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotY=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](3.3,2.5,2)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotY=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](4,2.5,2)%
+
+\psSolid[object=cone, h=0.3, r=0.075, RotX=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,1.7,2)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotX=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,1,2)%
+
+\psSolid[object=cone, h=0.3, r=0.075, RotX=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,3.3,2)%
+\psSolid[object=cylindre, h=0.7, r=0.03, RotX=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,4,2)%
+
+%\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](0,0,0)%
+\end{pspicture}};
+
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+
+\node at (-2.5,5) {\fontsize{60}{60}\selectfont $H$ \hspace{-3cm} \textcolor{rojo}{\faBan}};
+\node at (2.5,5) {\fontsize{60}{60}\selectfont $V$ \hspace{-3cm} \textcolor{rojo}{\faBan}};
+
+\node {\begin{pspicture}(-4.5,-7.3)(7.3,3)%
+\psset{solidmemory}%
+\psset{unit=0.6}%
+\psset{viewpoint=20 30 30 rtp2xyz, lightsrc=15 45 50 rtp2xyz, lightintensity=2, Decran=50}%
+
+\psSolid[object=grille, linewidth=0.75pt, base=0 5 0 5, fillcolor=gray!10](0,0,0)%
+%\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=gray](2.5,1.5,0.5)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=gray](1.5,2.5,1)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=gray](2.5,1.5,1)
+%\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](2.5,2.5,0.5)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=azul](2.5,2.5,1)
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotY=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](1.7,2.5,2)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotY=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](1,2.5,2)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotY=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](3.3,2.5,2)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotY=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](4,2.5,2)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotX=-90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,1.7,2)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotX=-90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,1,2)%
+
+%\psSolid[object=cone, h=0.3, r=0.075, RotX=90, linewidth=0.2pt, ngrid=4 50, action=draw**, fillcolor=black](2.5,3.3,2)%
+%\psSolid[object=cylindre, h=0.7, r=0.03, RotX=90, linewidth=0.2pt, ngrid=4 40, action=draw**, fillcolor=black](2.5,4,2)%
+
+%\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](0,0,0)%
+\end{pspicture}};
+
+\end{tikzpicture}
+
+
+
+
+% Arreglo árbol.
+
+
+
+
+\NewDocumentCommand{\GraficarMallaTresD}{m m O{20 30 30} O{15 45 50}}{
+
+\dataheight=#2
+
+\FPset\izq{-4.2}%
+\FPset\der{7.025}%
+\FPset\abajo{-6.75}%
+\FPset\arriba{2.575}%
+
+\begin{pspicture}(\izq,\abajo)(\der,\arriba)
+
+\psset{solidmemory}
+\FPdiv\aux{3}{#1}
+\psset{unit=\aux}
+\psset{viewpoint=#3 rtp2xyz, lightsrc=#4 rtp2xyz, lightintensity=2, Decran=50}
+
+\psSolid[object=grille, linewidth=0.75pt, base=0 #1 0 #2, fillcolor=gray!10, opacity=0](0,0,0)
+\foreach \n in {1, ..., #1}{
+	\foreach \m in {1, ..., #2}{
+		\FPadd\x\n{-0.5}
+		\FPadd\y\m{-0.5}
+		\checkmallaTresD(\n,\m)
+		\ifthenelse{\cachedata=1}{%
+			\def\colorCelda{rojo}%
+			\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, name=A\n\m, fillcolor=rojo](\x,\y,0.5)
+		}
+		{}%
+		\ifthenelse{\cachedata=2}{%
+			\def\colorCelda{azul}%
+			\psSolid[object=parallelepiped, a=1, b=1, c=2, linecolor=black, linewidth=0.2pt, action=draw**, name=B\n\m, fillcolor=azul!80](\x,\y,1)%
+		}
+		{}%
+	}%
+}% 
+
+%\psProjection[object=texte, fontsize=5, pos=cc, plan=monoplan, text=Hola, phi=90](0,0)
+%\axesIIID[axisnames={x,y,}](0,0,0)(1,1,0)
+\psSolid[object=plan, action=none, definition=solidface, args=A33 0, name=P0]%
+\psProjection[object=texte, linecolor=black, text=A, fontsize=20, plan=P0]%
+\psSolid[object=plan, action=none, definition=solidface, args=A32 0, name=P1]%
+\psProjection[object=texte, linecolor=black, text=B, fontsize=20, plan=P1]%
+\psSolid[object=plan, action=none, definition=solidface, args=A34 0, name=P2]%
+\psProjection[object=texte, linecolor=black, text=D, fontsize=20, plan=P2]%
+\psSolid[object=plan, action=none, definition=solidface, args=A44 0, name=P3]%
+\psProjection[object=texte, linecolor=black, text=E, fontsize=20, plan=P3]%
+\psSolid[object=plan, action=none, definition=solidface, args=A42 0, name=P4]%
+\psProjection[object=texte, linecolor=black, text=C, fontsize=20, plan=P4]%
+\psSolid[object=plan, action=none, definition=solidface, args=A23 0, name=P5]%
+\psProjection[object=texte, linecolor=black, text=F, fontsize=20, plan=P5]%
+
+\psSolid[object=plan, action=none, definition=solidface, args=B31 0, name=P6]%
+\psProjection[object=texte, linecolor=black, text=G, fontsize=20, plan=P6]%
+\psSolid[object=plan, action=none, definition=solidface, args=B22 0, name=P7]%
+\psProjection[object=texte, linecolor=black, text=H, fontsize=20, plan=P7]%
+\psSolid[object=plan, action=none, definition=solidface, args=B13 0, name=P8]%
+\psProjection[object=texte, linecolor=black, text=I, fontsize=20, plan=P8]%
+\end{pspicture}
+}
+
+
+
+% Objetos con texto del árbol.
+
+
+
+
+\begin{pspicture}(-2,-2.25)(2,2.25)% (-2,-3.25)(2,3.25) (-2,-2.25)(2,2.25)
+\psset{solidmemory}%
+\psset{unit=1}%
+\psset{viewpoint=20 30 30 rtp2xyz, lightsrc=15 45 60 rtp2xyz, lightintensity=2, Decran=50}%
+%\psSolid[object=grille, linewidth=0.75pt, base=0 #1 0 #2](0,0,0)%
+
+\psSolid[object=new, sommets=0.5 0.5 0.5  -0.5 0.5 0.5  -0.5 -0.5 0.5  0.5 -0.5 0.5     0.45 0.45 -0.5  -0.45 0.45 -0.5  -0.45 -0.45 -0.5  0.45 -0.45 -0.5, faces={[0 1 2 3] [0 4 5 1] [1 5 6 2] [2 6 7 3] [3 7 4 0] [4 5 6 7]}, linecolor=black, name=C, linewidth=0.2pt, action=draw**, fillcolor=rojo](0,0,0)%
+
+\psSolid[object=plan, action=none, definition=solidface, args=C 0, name=P0]%
+\psProjection[object=texte, linecolor=black, text=F, fontsize=20, plan=P0]%
+
+%\psSolid[object=new, sommets=0.5 0.5 1  -0.5 0.5 1  -0.5 -0.5 1  0.5 -0.5 1     0.45 0.45 -1 -0.45 0.45 -1  -0.45 -0.45 -1  0.45 -0.45 -1, faces={[0 1 2 3] [0 4 5 1] [1 5 6 2] [2 6 7 3] [3 7 4 0] [4 5 6 7]}, linecolor=black, name=P, linewidth=0.2pt, action=draw**, fillcolor=azul](0,0,0)%
+
+%\psSolid[object=plan, action=none, definition=solidface, args=P 0, name=P0]%
+%\psProjection[object=texte, linecolor=black, text=H, fontsize=20, plan=P0]%
+
+%\psSolid[object=cube, a=1, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=rojo](0,0,0)%
+\end{pspicture}

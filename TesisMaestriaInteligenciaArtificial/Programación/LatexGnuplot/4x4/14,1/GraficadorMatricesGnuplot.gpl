@@ -1,0 +1,152 @@
+set term eps enhanced color size 51,63 font "Helvetica"
+set tics scale 0
+set xtics 0,1,3
+set ytics 0,1,3
+set xtics (''0,''1,''2,''3,''4)
+set ytics (''0,''1,''2,''3,''4)
+set size ratio 1
+unset border
+set grid front lt 1 lw 1 lc -1
+set datafile separator ","
+set pm3d implicit # Para que los objetos puedan tomar colores de la paleta.
+set palette model RGB defined (0 "red", 0.5 "yellow", 1 "green")
+unset colorbox
+set title offset 0,-0.3
+set output "Mallas4639307.eps"
+set label "N = 15, Cubos = 14, Prismas = 1" at screen 0.5,0.97 center font "Helvetica,160"
+set multiplot layout 100,100 margins 0.01,0.99,0.01,0.94 spacing 0.002,0.002
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639307.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639308.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639309.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639310.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639311.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639312.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639313.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639314.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639315.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639316.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639317.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639318.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639319.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639320.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639321.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639322.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639323.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639324.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639325.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639326.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639327.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639328.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639329.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639330.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639331.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639332.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639333.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639334.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639335.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639336.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639337.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639338.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+set title "Promedio=-, Min=-, Max=-" font ',3'
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc "gray" fs noborder
+plot[0:4][0:4] "/home/j6/Desktop/Función de evaluación/Matrices evaluadas/MatricesEvaluadasGnuplot4639339.txt" using 1:2:3 with labels font ',4' t ""
+unset object 1
+unset label
+unset multiplot
+unset output

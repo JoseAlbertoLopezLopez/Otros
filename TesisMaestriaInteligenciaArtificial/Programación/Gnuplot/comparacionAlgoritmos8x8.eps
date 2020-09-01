@@ -1,0 +1,11824 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: comparacionAlgoritmos8x8.tex
+%%Creator: gnuplot 5.0 patchlevel 3
+%%CreationDate: Sun Jul 26 18:33:36 2020
+%%DocumentFonts: 
+%%BoundingBox: 50 50 1850 554
+%%EndComments
+%%BeginProlog
+/gnudict 256 dict def
+gnudict begin
+%
+% The following true/false flags may be edited by hand if desired.
+% The unit line width and grayscale image gamma correction may also be changed.
+%
+/Color true def
+/Blacktext true def
+/Solid false def
+/Dashlength 1 def
+/Landscape false def
+/Level1 false def
+/Level3 false def
+/Rounded false def
+/ClipToBoundingBox false def
+/SuppressPDFMark false def
+/TransparentPatterns false def
+/gnulinewidth 5.000 def
+/userlinewidth gnulinewidth def
+/Gamma 1.0 def
+/BackgroundColor {-1.000 -1.000 -1.000} def
+%
+/vshift -73 def
+/dl1 {
+  10.0 Dashlength userlinewidth gnulinewidth div mul mul mul
+  Rounded { currentlinewidth 0.75 mul sub dup 0 le { pop 0.01 } if } if
+} def
+/dl2 {
+  10.0 Dashlength userlinewidth gnulinewidth div mul mul mul
+  Rounded { currentlinewidth 0.75 mul add } if
+} def
+/hpt_ 31.5 def
+/vpt_ 31.5 def
+/hpt hpt_ def
+/vpt vpt_ def
+/doclip {
+  ClipToBoundingBox {
+    newpath 50 50 moveto 1850 50 lineto 1850 554 lineto 50 554 lineto closepath
+    clip
+  } if
+} def
+%
+% Gnuplot Prolog Version 5.1 (Oct 2015)
+%
+%/SuppressPDFMark true def
+%
+/M {moveto} bind def
+/L {lineto} bind def
+/R {rmoveto} bind def
+/V {rlineto} bind def
+/N {newpath moveto} bind def
+/Z {closepath} bind def
+/C {setrgbcolor} bind def
+/f {rlineto fill} bind def
+/g {setgray} bind def
+/Gshow {show} def   % May be redefined later in the file to support UTF-8
+/vpt2 vpt 2 mul def
+/hpt2 hpt 2 mul def
+/Lshow {currentpoint stroke M 0 vshift R 
+	Blacktext {gsave 0 setgray textshow grestore} {textshow} ifelse} def
+/Rshow {currentpoint stroke M dup stringwidth pop neg vshift R
+	Blacktext {gsave 0 setgray textshow grestore} {textshow} ifelse} def
+/Cshow {currentpoint stroke M dup stringwidth pop -2 div vshift R 
+	Blacktext {gsave 0 setgray textshow grestore} {textshow} ifelse} def
+/UP {dup vpt_ mul /vpt exch def hpt_ mul /hpt exch def
+  /hpt2 hpt 2 mul def /vpt2 vpt 2 mul def} def
+/DL {Color {setrgbcolor Solid {pop []} if 0 setdash}
+ {pop pop pop 0 setgray Solid {pop []} if 0 setdash} ifelse} def
+/BL {stroke userlinewidth 2 mul setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+/AL {stroke userlinewidth 2 div setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+/UL {dup gnulinewidth mul /userlinewidth exch def
+	dup 1 lt {pop 1} if 10 mul /udl exch def} def
+/PL {stroke userlinewidth setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+3.8 setmiterlimit
+% Classic Line colors (version 5.0)
+/LCw {1 1 1} def
+/LCb {0 0 0} def
+/LCa {0 0 0} def
+/LC0 {1 0 0} def
+/LC1 {0 1 0} def
+/LC2 {0 0 1} def
+/LC3 {1 0 1} def
+/LC4 {0 1 1} def
+/LC5 {1 1 0} def
+/LC6 {0 0 0} def
+/LC7 {1 0.3 0} def
+/LC8 {0.5 0.5 0.5} def
+% Default dash patterns (version 5.0)
+/LTB {BL [] LCb DL} def
+/LTw {PL [] 1 setgray} def
+/LTb {PL [] LCb DL} def
+/LTa {AL [1 udl mul 2 udl mul] 0 setdash LCa setrgbcolor} def
+/LT0 {PL [] LC0 DL} def
+/LT1 {PL [2 dl1 3 dl2] LC1 DL} def
+/LT2 {PL [1 dl1 1.5 dl2] LC2 DL} def
+/LT3 {PL [6 dl1 2 dl2 1 dl1 2 dl2] LC3 DL} def
+/LT4 {PL [1 dl1 2 dl2 6 dl1 2 dl2 1 dl1 2 dl2] LC4 DL} def
+/LT5 {PL [4 dl1 2 dl2] LC5 DL} def
+/LT6 {PL [1.5 dl1 1.5 dl2 1.5 dl1 1.5 dl2 1.5 dl1 6 dl2] LC6 DL} def
+/LT7 {PL [3 dl1 3 dl2 1 dl1 3 dl2] LC7 DL} def
+/LT8 {PL [2 dl1 2 dl2 2 dl1 6 dl2] LC8 DL} def
+/SL {[] 0 setdash} def
+/Pnt {stroke [] 0 setdash gsave 1 setlinecap M 0 0 V stroke grestore} def
+/Dia {stroke [] 0 setdash 2 copy vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath stroke
+  Pnt} def
+/Pls {stroke [] 0 setdash vpt sub M 0 vpt2 V
+  currentpoint stroke M
+  hpt neg vpt neg R hpt2 0 V stroke
+ } def
+/Box {stroke [] 0 setdash 2 copy exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath stroke
+  Pnt} def
+/Crs {stroke [] 0 setdash exch hpt sub exch vpt add M
+  hpt2 vpt2 neg V currentpoint stroke M
+  hpt2 neg 0 R hpt2 vpt2 V stroke} def
+/TriU {stroke [] 0 setdash 2 copy vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath stroke
+  Pnt} def
+/Star {2 copy Pls Crs} def
+/BoxF {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath fill} def
+/TriUF {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath fill} def
+/TriD {stroke [] 0 setdash 2 copy vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath stroke
+  Pnt} def
+/TriDF {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath fill} def
+/DiaF {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath fill} def
+/Pent {stroke [] 0 setdash 2 copy gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath stroke grestore Pnt} def
+/PentF {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath fill grestore} def
+/Circle {stroke [] 0 setdash 2 copy
+  hpt 0 360 arc stroke Pnt} def
+/CircleF {stroke [] 0 setdash hpt 0 360 arc fill} def
+/C0 {BL [] 0 setdash 2 copy moveto vpt 90 450 arc} bind def
+/C1 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C2 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C3 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C4 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 180 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C5 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc
+	2 copy moveto
+	2 copy vpt 180 270 arc closepath fill
+	vpt 0 360 arc} bind def
+/C6 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C7 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C8 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 270 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C9 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 270 450 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C10 {BL [] 0 setdash 2 copy 2 copy moveto vpt 270 360 arc closepath fill
+	2 copy moveto
+	2 copy vpt 90 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C11 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 180 arc closepath fill
+	2 copy moveto
+	2 copy vpt 270 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C12 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 180 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C13 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc closepath fill
+	2 copy moveto
+	2 copy vpt 180 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C14 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 360 arc closepath fill
+	vpt 0 360 arc} bind def
+/C15 {BL [] 0 setdash 2 copy vpt 0 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/Rec {newpath 4 2 roll moveto 1 index 0 rlineto 0 exch rlineto
+	neg 0 rlineto closepath} bind def
+/Square {dup Rec} bind def
+/Bsquare {vpt sub exch vpt sub exch vpt2 Square} bind def
+/S0 {BL [] 0 setdash 2 copy moveto 0 vpt rlineto BL Bsquare} bind def
+/S1 {BL [] 0 setdash 2 copy vpt Square fill Bsquare} bind def
+/S2 {BL [] 0 setdash 2 copy exch vpt sub exch vpt Square fill Bsquare} bind def
+/S3 {BL [] 0 setdash 2 copy exch vpt sub exch vpt2 vpt Rec fill Bsquare} bind def
+/S4 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt Square fill Bsquare} bind def
+/S5 {BL [] 0 setdash 2 copy 2 copy vpt Square fill
+	exch vpt sub exch vpt sub vpt Square fill Bsquare} bind def
+/S6 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt vpt2 Rec fill Bsquare} bind def
+/S7 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt vpt2 Rec fill
+	2 copy vpt Square fill Bsquare} bind def
+/S8 {BL [] 0 setdash 2 copy vpt sub vpt Square fill Bsquare} bind def
+/S9 {BL [] 0 setdash 2 copy vpt sub vpt vpt2 Rec fill Bsquare} bind def
+/S10 {BL [] 0 setdash 2 copy vpt sub vpt Square fill 2 copy exch vpt sub exch vpt Square fill
+	Bsquare} bind def
+/S11 {BL [] 0 setdash 2 copy vpt sub vpt Square fill 2 copy exch vpt sub exch vpt2 vpt Rec fill
+	Bsquare} bind def
+/S12 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill Bsquare} bind def
+/S13 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill
+	2 copy vpt Square fill Bsquare} bind def
+/S14 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill
+	2 copy exch vpt sub exch vpt Square fill Bsquare} bind def
+/S15 {BL [] 0 setdash 2 copy Bsquare fill Bsquare} bind def
+/D0 {gsave translate 45 rotate 0 0 S0 stroke grestore} bind def
+/D1 {gsave translate 45 rotate 0 0 S1 stroke grestore} bind def
+/D2 {gsave translate 45 rotate 0 0 S2 stroke grestore} bind def
+/D3 {gsave translate 45 rotate 0 0 S3 stroke grestore} bind def
+/D4 {gsave translate 45 rotate 0 0 S4 stroke grestore} bind def
+/D5 {gsave translate 45 rotate 0 0 S5 stroke grestore} bind def
+/D6 {gsave translate 45 rotate 0 0 S6 stroke grestore} bind def
+/D7 {gsave translate 45 rotate 0 0 S7 stroke grestore} bind def
+/D8 {gsave translate 45 rotate 0 0 S8 stroke grestore} bind def
+/D9 {gsave translate 45 rotate 0 0 S9 stroke grestore} bind def
+/D10 {gsave translate 45 rotate 0 0 S10 stroke grestore} bind def
+/D11 {gsave translate 45 rotate 0 0 S11 stroke grestore} bind def
+/D12 {gsave translate 45 rotate 0 0 S12 stroke grestore} bind def
+/D13 {gsave translate 45 rotate 0 0 S13 stroke grestore} bind def
+/D14 {gsave translate 45 rotate 0 0 S14 stroke grestore} bind def
+/D15 {gsave translate 45 rotate 0 0 S15 stroke grestore} bind def
+/DiaE {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath stroke} def
+/BoxE {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath stroke} def
+/TriUE {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath stroke} def
+/TriDE {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath stroke} def
+/PentE {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath stroke grestore} def
+/CircE {stroke [] 0 setdash 
+  hpt 0 360 arc stroke} def
+/Opaque {gsave closepath 1 setgray fill grestore 0 setgray closepath} def
+/DiaW {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V Opaque stroke} def
+/BoxW {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V Opaque stroke} def
+/TriUW {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V Opaque stroke} def
+/TriDW {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V Opaque stroke} def
+/PentW {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  Opaque stroke grestore} def
+/CircW {stroke [] 0 setdash 
+  hpt 0 360 arc Opaque stroke} def
+/BoxFill {gsave Rec 1 setgray fill grestore} def
+/Density {
+  /Fillden exch def
+  currentrgbcolor
+  /ColB exch def /ColG exch def /ColR exch def
+  /ColR ColR Fillden mul Fillden sub 1 add def
+  /ColG ColG Fillden mul Fillden sub 1 add def
+  /ColB ColB Fillden mul Fillden sub 1 add def
+  ColR ColG ColB setrgbcolor} def
+/BoxColFill {gsave Rec PolyFill} def
+/PolyFill {gsave Density fill grestore grestore} def
+/h {rlineto rlineto rlineto gsave closepath fill grestore} bind def
+%
+% PostScript Level 1 Pattern Fill routine for rectangles
+% Usage: x y w h s a XX PatternFill
+%	x,y = lower left corner of box to be filled
+%	w,h = width and height of box
+%	  a = angle in degrees between lines and x-axis
+%	 XX = 0/1 for no/yes cross-hatch
+%
+/PatternFill {gsave /PFa [ 9 2 roll ] def
+  PFa 0 get PFa 2 get 2 div add PFa 1 get PFa 3 get 2 div add translate
+  PFa 2 get -2 div PFa 3 get -2 div PFa 2 get PFa 3 get Rec
+  TransparentPatterns {} {gsave 1 setgray fill grestore} ifelse
+  clip
+  currentlinewidth 0.5 mul setlinewidth
+  /PFs PFa 2 get dup mul PFa 3 get dup mul add sqrt def
+  0 0 M PFa 5 get rotate PFs -2 div dup translate
+  0 1 PFs PFa 4 get div 1 add floor cvi
+	{PFa 4 get mul 0 M 0 PFs V} for
+  0 PFa 6 get ne {
+	0 1 PFs PFa 4 get div 1 add floor cvi
+	{PFa 4 get mul 0 2 1 roll M PFs 0 V} for
+ } if
+  stroke grestore} def
+%
+/languagelevel where
+ {pop languagelevel} {1} ifelse
+dup 2 lt
+	{/InterpretLevel1 true def
+	 /InterpretLevel3 false def}
+	{/InterpretLevel1 Level1 def
+	 2 gt
+	    {/InterpretLevel3 Level3 def}
+	    {/InterpretLevel3 false def}
+	 ifelse }
+ ifelse
+%
+% PostScript level 2 pattern fill definitions
+%
+/Level2PatternFill {
+/Tile8x8 {/PaintType 2 /PatternType 1 /TilingType 1 /BBox [0 0 8 8] /XStep 8 /YStep 8}
+	bind def
+/KeepColor {currentrgbcolor [/Pattern /DeviceRGB] setcolorspace} bind def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 8 8 L 0 8 M 8 0 L stroke} 
+>> matrix makepattern
+/Pat1 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 8 8 L 0 8 M 8 0 L stroke
+	0 4 M 4 8 L 8 4 L 4 0 L 0 4 L stroke}
+>> matrix makepattern
+/Pat2 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 0 8 L
+	8 8 L 8 0 L 0 0 L fill}
+>> matrix makepattern
+/Pat3 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -4 8 M 8 -4 L
+	0 12 M 12 0 L stroke}
+>> matrix makepattern
+/Pat4 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -4 0 M 8 12 L
+	0 -4 M 12 8 L stroke}
+>> matrix makepattern
+/Pat5 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -2 8 M 4 -4 L
+	0 12 M 8 -4 L 4 12 M 10 0 L stroke}
+>> matrix makepattern
+/Pat6 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -2 0 M 4 12 L
+	0 -4 M 8 12 L 4 -4 M 10 8 L stroke}
+>> matrix makepattern
+/Pat7 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 8 -2 M -4 4 L
+	12 0 M -4 8 L 12 4 M 0 10 L stroke}
+>> matrix makepattern
+/Pat8 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 -2 M 12 4 L
+	-4 0 M 12 8 L -4 4 M 8 10 L stroke}
+>> matrix makepattern
+/Pat9 exch def
+/Pattern1 {PatternBgnd KeepColor Pat1 setpattern} bind def
+/Pattern2 {PatternBgnd KeepColor Pat2 setpattern} bind def
+/Pattern3 {PatternBgnd KeepColor Pat3 setpattern} bind def
+/Pattern4 {PatternBgnd KeepColor Landscape {Pat5} {Pat4} ifelse setpattern} bind def
+/Pattern5 {PatternBgnd KeepColor Landscape {Pat4} {Pat5} ifelse setpattern} bind def
+/Pattern6 {PatternBgnd KeepColor Landscape {Pat9} {Pat6} ifelse setpattern} bind def
+/Pattern7 {PatternBgnd KeepColor Landscape {Pat8} {Pat7} ifelse setpattern} bind def
+} def
+%
+%
+%End of PostScript Level 2 code
+%
+/PatternBgnd {
+  TransparentPatterns {} {gsave 1 setgray fill grestore} ifelse
+} def
+%
+% Substitute for Level 2 pattern fill codes with
+% grayscale if Level 2 support is not selected.
+%
+/Level1PatternFill {
+/Pattern1 {0.250 Density} bind def
+/Pattern2 {0.500 Density} bind def
+/Pattern3 {0.750 Density} bind def
+/Pattern4 {0.125 Density} bind def
+/Pattern5 {0.375 Density} bind def
+/Pattern6 {0.625 Density} bind def
+/Pattern7 {0.875 Density} bind def
+} def
+%
+% Now test for support of Level 2 code
+%
+Level1 {Level1PatternFill} {Level2PatternFill} ifelse
+%
+/Symbol-Oblique /Symbol findfont [1 0 .167 1 0 0] makefont
+dup length dict begin {1 index /FID eq {pop pop} {def} ifelse} forall
+currentdict end definefont pop
+%
+Level1 SuppressPDFMark or 
+{} {
+/SDict 10 dict def
+systemdict /pdfmark known not {
+  userdict /pdfmark systemdict /cleartomark get put
+} if
+SDict begin [
+  /Title (comparacionAlgoritmos8x8.tex)
+  /Subject (gnuplot plot)
+  /Creator (gnuplot 5.0 patchlevel 3)
+  /Author (j6)
+%  /Producer (gnuplot)
+%  /Keywords ()
+  /CreationDate (Sun Jul 26 18:33:36 2020)
+  /DOCINFO pdfmark
+end
+} ifelse
+%
+% Support for boxed text - Ethan A Merritt May 2005
+%
+/InitTextBox { userdict /TBy2 3 -1 roll put userdict /TBx2 3 -1 roll put
+           userdict /TBy1 3 -1 roll put userdict /TBx1 3 -1 roll put
+	   /Boxing true def } def
+/ExtendTextBox { Boxing
+    { gsave dup false charpath pathbbox
+      dup TBy2 gt {userdict /TBy2 3 -1 roll put} {pop} ifelse
+      dup TBx2 gt {userdict /TBx2 3 -1 roll put} {pop} ifelse
+      dup TBy1 lt {userdict /TBy1 3 -1 roll put} {pop} ifelse
+      dup TBx1 lt {userdict /TBx1 3 -1 roll put} {pop} ifelse
+      grestore } if } def
+/PopTextBox { newpath TBx1 TBxmargin sub TBy1 TBymargin sub M
+               TBx1 TBxmargin sub TBy2 TBymargin add L
+	       TBx2 TBxmargin add TBy2 TBymargin add L
+	       TBx2 TBxmargin add TBy1 TBymargin sub L closepath } def
+/DrawTextBox { PopTextBox stroke /Boxing false def} def
+/FillTextBox { gsave PopTextBox 1 1 1 setrgbcolor fill grestore /Boxing false def} def
+0 0 0 0 InitTextBox
+/TBxmargin 20 def
+/TBymargin 20 def
+/Boxing false def
+/textshow { ExtendTextBox Gshow } def
+%
+% redundant definitions for compatibility with prologue.ps older than 5.0.2
+/LTB {BL [] LCb DL} def
+/LTb {PL [] LCb DL} def
+end
+%%EndProlog
+%%Page: 1 1
+gnudict begin
+gsave
+doclip
+50 50 translate
+0.050 0.050 scale
+0 setgray
+newpath
+1.000 UL
+LTb
+LCb setrgbcolor
+[] 0 setdash
+1716 1939 M
+63 0 V
+33164 0 R
+-63 0 V
+stroke
+LTb
+1716 2764 M
+63 0 V
+33164 0 R
+-63 0 V
+stroke
+1716 3589 M
+63 0 V
+33164 0 R
+-63 0 V
+stroke
+1716 4414 M
+63 0 V
+33164 0 R
+-63 0 V
+stroke
+1716 5239 M
+63 0 V
+33164 0 R
+-63 0 V
+stroke
+1716 6064 M
+63 0 V
+33164 0 R
+-63 0 V
+stroke
+1716 6889 M
+63 0 V
+33164 0 R
+-63 0 V
+stroke
+1716 7714 M
+63 0 V
+33164 0 R
+-63 0 V
+stroke
+1716 8539 M
+63 0 V
+33164 0 R
+-63 0 V
+stroke
+1741 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+1767 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+1792 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+1817 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+1843 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+1868 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+1893 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+1918 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+1944 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+1969 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+1994 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2020 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2045 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2070 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2096 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2121 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2146 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2172 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2197 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2222 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2247 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2273 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2298 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2323 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2349 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2374 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2399 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2425 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2450 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2475 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2500 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2526 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2551 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2576 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2602 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2627 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2652 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2678 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2703 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2728 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2754 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2779 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2804 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2829 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2855 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2880 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2905 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2931 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2956 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+2981 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3007 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3032 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3057 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3083 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3108 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3133 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3158 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3184 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3209 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3234 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3260 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3285 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3310 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3336 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3361 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3386 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3412 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3437 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3462 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3487 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3513 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3538 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3563 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3589 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3614 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3639 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3665 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3690 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3715 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3740 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3766 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3791 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3816 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3842 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3867 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3892 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3918 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3943 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3968 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+3994 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4019 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4044 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4069 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4095 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4120 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4145 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4171 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4196 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4221 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4247 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4272 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4297 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4323 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4348 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4373 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4398 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4424 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4449 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4474 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4500 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4525 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4550 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4576 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4601 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4626 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4652 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4677 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4702 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4727 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4753 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4778 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4803 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4829 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4854 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4879 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4905 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4930 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4955 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+4980 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5006 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5031 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5056 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5082 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5107 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5132 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5158 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5183 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5208 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5234 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5259 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5284 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5309 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5335 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5360 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5385 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5411 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5436 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5461 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5487 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5512 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5537 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5563 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5588 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5613 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5638 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5664 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5689 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5714 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5740 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5765 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5790 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5816 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5841 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5866 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5892 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5917 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5942 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5967 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+5993 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6018 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6043 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6069 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6094 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6119 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6145 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6170 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6195 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6220 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6246 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6271 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6296 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6322 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6347 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6372 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6398 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6423 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6448 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6474 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6499 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6524 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6549 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6575 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6600 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6625 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6651 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6676 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6701 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6727 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6752 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6777 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6803 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6828 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6853 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6878 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6904 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6929 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6954 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+6980 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7005 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7030 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7056 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7081 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7106 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7132 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7157 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7182 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7207 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7233 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7258 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7283 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7309 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7334 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7359 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7385 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7410 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7435 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7461 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7486 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7511 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7536 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7562 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7587 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7612 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7638 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7663 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7688 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7714 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7739 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7764 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7789 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7815 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7840 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7865 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7891 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7916 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7941 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7967 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+7992 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8017 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8043 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8068 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8093 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8118 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8144 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8169 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8194 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8220 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8245 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8270 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8296 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8321 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8346 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8372 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8397 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8422 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8447 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8473 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8498 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8523 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8549 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8574 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8599 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8625 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8650 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8675 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8701 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8726 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8751 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8776 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8802 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8827 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8852 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8878 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8903 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8928 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8954 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+8979 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9004 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9029 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9055 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9080 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9105 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9131 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9156 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9181 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9207 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9232 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9257 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9283 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9308 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9333 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9358 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9384 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9409 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9434 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9460 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9485 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9510 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9536 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9561 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9586 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9612 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9637 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9662 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9687 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9713 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9738 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9763 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9789 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9814 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9839 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9865 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9890 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9915 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9941 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9966 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+9991 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10016 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10042 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10067 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10092 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10118 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10143 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10168 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10194 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10219 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10244 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10269 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10295 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10320 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10345 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10371 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10396 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10421 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10447 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10472 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10497 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10523 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10548 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10573 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10598 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10624 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10649 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10674 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10700 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10725 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10750 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10776 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10801 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10826 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10852 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10877 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10902 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10927 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10953 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+10978 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11003 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11029 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11054 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11079 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11105 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11130 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11155 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11181 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11206 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11231 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11256 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11282 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11307 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11332 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11358 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11383 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11408 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11434 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11459 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11484 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11509 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11535 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11560 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11585 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11611 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11636 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11661 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11687 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11712 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11737 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11763 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11788 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11813 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11838 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11864 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11889 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11914 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11940 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11965 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+11990 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12016 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12041 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12066 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12092 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12117 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12142 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12167 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12193 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12218 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12243 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12269 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12294 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12319 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12345 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12370 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12395 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12421 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12446 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12471 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12496 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12522 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12547 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12572 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12598 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12623 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12648 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12674 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12699 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12724 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12749 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12775 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12800 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12825 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12851 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12876 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12901 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12927 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12952 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+12977 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13003 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13028 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13053 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13078 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13104 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13129 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13154 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13180 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13205 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13230 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13256 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13281 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13306 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13332 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13357 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13382 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13407 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13433 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13458 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13483 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13509 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13534 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13559 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13585 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13610 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13635 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13661 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13686 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13711 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13736 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13762 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13787 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13812 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13838 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13863 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13888 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13914 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13939 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13964 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+13989 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14015 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14040 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14065 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14091 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14116 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14141 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14167 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14192 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14217 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14243 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14268 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14293 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14318 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14344 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14369 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14394 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14420 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14445 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14470 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14496 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14521 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14546 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14572 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14597 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14622 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14647 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14673 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14698 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14723 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14749 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14774 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14799 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14825 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14850 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14875 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14901 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14926 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14951 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+14976 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15002 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15027 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15052 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15078 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15103 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15128 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15154 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15179 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15204 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15229 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15255 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15280 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15305 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15331 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15356 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15381 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15407 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15432 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15457 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15483 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15508 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15533 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15558 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15584 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15609 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15634 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15660 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15685 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15710 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15736 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15761 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15786 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15812 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15837 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15862 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15887 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15913 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15938 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15963 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+15989 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16014 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16039 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16065 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16090 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16115 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16141 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16166 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16191 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16216 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16242 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16267 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16292 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16318 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16343 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16368 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16394 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16419 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16444 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16469 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16495 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16520 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16545 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16571 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16596 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16621 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16647 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16672 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16697 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16723 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16748 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16773 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16798 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16824 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16849 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16874 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16900 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16925 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16950 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+16976 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17001 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17026 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17052 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17077 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17102 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17127 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17153 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17178 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17203 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17229 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17254 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17279 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17305 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17330 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17355 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17381 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17406 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17431 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17456 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17482 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17507 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17532 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17558 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17583 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17608 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17634 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17659 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17684 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17709 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17735 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17760 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17785 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17811 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17836 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17861 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17887 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17912 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17937 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17963 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+17988 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18013 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18038 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18064 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18089 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18114 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18140 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18165 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18190 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18216 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18241 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18266 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18292 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18317 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18342 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18367 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18393 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18418 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18443 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18469 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18494 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18519 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18545 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18570 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18595 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18621 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18646 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18671 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18696 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18722 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18747 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18772 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18798 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18823 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18848 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18874 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18899 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18924 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18950 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+18975 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19000 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19025 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19051 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19076 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19101 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19127 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19152 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19177 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19203 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19228 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19253 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19278 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19304 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19329 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19354 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19380 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19405 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19430 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19456 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19481 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19506 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19532 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19557 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19582 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19607 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19633 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19658 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19683 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19709 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19734 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19759 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19785 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19810 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19835 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19861 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19886 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19911 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19936 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19962 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+19987 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20012 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20038 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20063 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20088 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20114 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20139 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20164 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20190 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20215 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20240 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20265 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20291 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20316 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20341 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20367 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20392 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20417 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20443 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20468 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20493 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20518 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20544 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20569 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20594 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20620 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20645 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20670 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20696 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20721 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20746 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20772 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20797 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20822 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20847 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20873 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20898 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20923 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20949 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20974 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+20999 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21025 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21050 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21075 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21101 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21126 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21151 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21176 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21202 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21227 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21252 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21278 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21303 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21328 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21354 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21379 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21404 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21430 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21455 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21480 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21505 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21531 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21556 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21581 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21607 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21632 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21657 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21683 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21708 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21733 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21758 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21784 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21809 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21834 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21860 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21885 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21910 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21936 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21961 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+21986 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22012 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22037 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22062 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22087 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22113 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22138 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22163 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22189 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22214 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22239 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22265 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22290 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22315 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22341 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22366 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22391 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22416 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22442 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22467 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22492 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22518 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22543 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22568 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22594 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22619 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22644 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22670 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22695 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22720 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22745 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22771 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22796 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22821 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22847 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22872 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22897 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22923 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22948 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22973 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+22998 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23024 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23049 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23074 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23100 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23125 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23150 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23176 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23201 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23226 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23252 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23277 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23302 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23327 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23353 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23378 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23403 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23429 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23454 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23479 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23505 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23530 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23555 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23581 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23606 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23631 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23656 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23682 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23707 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23732 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23758 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23783 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23808 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23834 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23859 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23884 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23910 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23935 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23960 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+23985 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24011 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24036 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24061 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24087 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24112 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24137 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24163 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24188 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24213 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24238 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24264 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24289 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24314 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24340 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24365 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24390 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24416 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24441 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24466 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24492 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24517 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24542 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24567 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24593 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24618 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24643 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24669 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24694 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24719 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24745 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24770 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24795 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24821 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24846 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24871 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24896 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24922 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24947 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24972 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+24998 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25023 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25048 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25074 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25099 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25124 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25150 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25175 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25200 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25225 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25251 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25276 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25301 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25327 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25352 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25377 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25403 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25428 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25453 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25478 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25504 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25529 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25554 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25580 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25605 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25630 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25656 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25681 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25706 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25732 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25757 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25782 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25807 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25833 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25858 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25883 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25909 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25934 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25959 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+25985 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26010 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26035 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26061 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26086 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26111 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26136 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26162 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26187 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26212 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26238 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26263 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26288 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26314 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26339 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26364 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26390 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26415 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26440 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26465 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26491 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26516 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26541 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26567 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26592 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26617 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26643 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26668 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26693 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26718 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26744 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26769 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26794 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26820 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26845 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26870 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26896 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26921 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26946 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26972 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+26997 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27022 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27047 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27073 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27098 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27123 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27149 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27174 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27199 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27225 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27250 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27275 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27301 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27326 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27351 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27376 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27402 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27427 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27452 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27478 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27503 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27528 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27554 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27579 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27604 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27630 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27655 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27680 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27705 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27731 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27756 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27781 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27807 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27832 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27857 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27883 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27908 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27933 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27958 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+27984 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28009 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28034 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28060 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28085 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28110 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28136 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28161 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28186 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28212 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28237 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28262 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28287 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28313 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28338 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28363 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28389 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28414 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28439 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28465 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28490 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28515 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28541 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28566 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28591 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28616 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28642 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28667 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28692 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28718 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28743 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28768 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28794 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28819 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28844 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28870 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28895 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28920 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28945 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28971 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+28996 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29021 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29047 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29072 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29097 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29123 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29148 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29173 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29198 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29224 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29249 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29274 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29300 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29325 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29350 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29376 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29401 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29426 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29452 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29477 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29502 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29527 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29553 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29578 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29603 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29629 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29654 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29679 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29705 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29730 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29755 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29781 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29806 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29831 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29856 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29882 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29907 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29932 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29958 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+29983 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30008 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30034 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30059 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30084 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30110 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30135 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30160 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30185 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30211 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30236 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30261 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30287 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30312 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30337 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30363 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30388 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30413 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30439 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30464 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30489 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30514 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30540 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30565 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30590 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30616 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30641 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30666 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30692 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30717 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30742 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30767 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30793 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30818 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30843 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30869 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30894 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30919 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30945 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30970 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+30995 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31021 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31046 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31071 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31096 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31122 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31147 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31172 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31198 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31223 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31248 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31274 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31299 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31324 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31350 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31375 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31400 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31425 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31451 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31476 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31501 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31527 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31552 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31577 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31603 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31628 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31653 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31679 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31704 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31729 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31754 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31780 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31805 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31830 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31856 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31881 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31906 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31932 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31957 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+31982 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32007 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32033 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32058 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32083 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32109 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32134 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32159 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32185 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32210 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32235 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32261 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32286 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32311 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32336 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32362 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32387 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32412 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32438 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32463 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32488 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32514 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32539 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32564 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32590 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32615 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32640 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32665 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32691 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32716 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32741 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32767 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32792 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32817 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32843 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32868 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32893 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32919 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32944 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32969 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+32994 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33020 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33045 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33070 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33096 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33121 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33146 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33172 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33197 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33222 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33247 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33273 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33298 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33323 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33349 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33374 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33399 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33425 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33450 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33475 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33501 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33526 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33551 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33576 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33602 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33627 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33652 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33678 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33703 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33728 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33754 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33779 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33804 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33830 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33855 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33880 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33905 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33931 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33956 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+33981 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34007 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34032 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34057 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34083 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34108 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34133 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34159 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34184 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34209 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34234 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34260 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34285 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34310 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34336 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34361 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34386 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34412 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34437 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34462 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34487 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34513 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34538 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34563 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34589 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34614 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34639 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34665 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34690 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34715 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34741 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34766 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34791 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34816 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34842 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34867 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34892 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+34918 1320 M
+0 63 V
+0 7156 R
+0 -63 V
+stroke
+1.000 UL
+LTb
+1716 8539 N
+0 -7219 V
+33227 0 V
+0 7219 V
+-33227 0 V
+Z stroke
+1.000 UP
+1.000 UL
+LTb
+0.500 UP
+2.000 UL
+LTb
+0.00 0.62 0.45 C 1741 8291 M
+26 -412 V
+25 -248 V
+25 -165 V
+26 -123 V
+25 -83 V
+25 -289 V
+25 42 V
+26 -289 V
+25 -83 V
+25 -165 V
+26 -123 V
+25 -124 V
+25 -124 V
+26 -124 V
+25 -82 V
+25 -83 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 1939 V
+26 206 V
+25 -660 V
+25 0 V
+26 -330 V
+25 -206 V
+25 -124 V
+26 -123 V
+25 -124 V
+25 -124 V
+25 41 V
+26 -247 V
+25 -165 V
+25 -83 V
+26 -82 V
+25 -83 V
+25 -41 V
+26 41 V
+25 -41 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 41 V
+26 42 V
+25 1691 V
+25 784 V
+25 -1155 V
+26 -124 V
+25 -165 V
+25 -289 V
+26 -124 V
+25 -123 V
+25 -42 V
+26 -206 V
+25 0 V
+25 -206 V
+25 -83 V
+26 -82 V
+25 -83 V
+25 -41 V
+26 -41 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 41 V
+25 41 V
+26 1650 V
+25 -41 V
+25 -330 V
+stroke 4373 6765 M
+25 -206 V
+26 -206 V
+25 -42 V
+25 -288 V
+26 -124 V
+25 -124 V
+25 -124 V
+26 -82 V
+25 -83 V
+25 42 V
+26 -207 V
+25 42 V
+25 -124 V
+25 -41 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 41 V
+25 41 V
+25 41 V
+26 1403 V
+25 -165 V
+25 -124 V
+25 -165 V
+26 -124 V
+25 -288 V
+25 -83 V
+26 -41 V
+25 -248 V
+25 -82 V
+26 -83 V
+25 -82 V
+25 -83 V
+26 -41 V
+25 -41 V
+25 -41 V
+25 -42 V
+26 0 V
+25 0 V
+25 124 V
+26 -124 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 42 V
+25 0 V
+26 0 V
+25 41 V
+25 41 V
+26 124 V
+25 1279 V
+25 -372 V
+25 0 V
+26 -330 V
+25 -123 V
+25 -124 V
+26 -41 V
+25 -207 V
+25 -82 V
+26 -83 V
+25 -82 V
+25 0 V
+26 -124 V
+25 0 V
+25 -82 V
+25 -42 V
+26 -41 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 83 V
+26 -83 V
+25 0 V
+25 41 V
+26 -41 V
+25 41 V
+stroke 7005 4826 M
+25 42 V
+26 41 V
+25 41 V
+25 124 V
+26 1609 V
+25 -825 V
+25 -207 V
+25 -123 V
+26 -42 V
+25 -206 V
+25 -124 V
+26 -82 V
+25 -83 V
+25 -82 V
+26 -83 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+25 -41 V
+26 0 V
+25 0 V
+25 82 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 -41 V
+25 41 V
+26 0 V
+25 0 V
+25 -82 V
+26 41 V
+25 83 V
+25 0 V
+26 123 V
+25 42 V
+25 41 V
+25 825 V
+26 41 V
+25 -412 V
+25 -124 V
+26 -124 V
+25 124 V
+25 -124 V
+26 -289 V
+25 124 V
+25 -247 V
+26 -83 V
+25 -41 V
+25 -41 V
+25 -42 V
+26 -41 V
+25 -41 V
+25 -41 V
+26 0 V
+25 0 V
+25 82 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 -82 V
+25 82 V
+26 0 V
+25 41 V
+25 0 V
+26 0 V
+25 -41 V
+25 124 V
+25 -41 V
+26 123 V
+25 42 V
+25 41 V
+26 660 V
+25 -165 V
+25 -165 V
+26 -124 V
+25 -124 V
+25 207 V
+26 -372 V
+25 0 V
+25 -82 V
+25 -41 V
+26 -124 V
+25 41 V
+25 -124 V
+26 248 V
+25 -330 V
+25 -41 V
+26 41 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+stroke 9637 4249 M
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 41 V
+25 41 V
+25 42 V
+26 41 V
+25 41 V
+25 41 V
+26 83 V
+25 82 V
+25 413 V
+26 -124 V
+25 -124 V
+25 -123 V
+25 -42 V
+26 -82 V
+25 -83 V
+25 -82 V
+26 -41 V
+25 -124 V
+25 -41 V
+26 -42 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 41 V
+25 0 V
+25 -41 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 82 V
+25 -82 V
+26 41 V
+25 -41 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 41 V
+25 -41 V
+25 41 V
+26 41 V
+25 41 V
+25 42 V
+26 41 V
+25 41 V
+25 83 V
+26 82 V
+25 83 V
+25 371 V
+25 -124 V
+26 -124 V
+25 -123 V
+25 -42 V
+26 -82 V
+25 -83 V
+25 -41 V
+26 -124 V
+25 -41 V
+25 -41 V
+25 -41 V
+26 -42 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 83 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 -83 V
+25 0 V
+25 42 V
+26 41 V
+25 41 V
+25 124 V
+25 41 V
+26 0 V
+25 41 V
+25 83 V
+26 82 V
+stroke 12269 4331 M
+25 83 V
+25 330 V
+26 -124 V
+25 -124 V
+25 -123 V
+26 -83 V
+25 41 V
+25 -206 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 -41 V
+25 -42 V
+26 -41 V
+25 -41 V
+25 -41 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 82 V
+25 -41 V
+26 41 V
+25 41 V
+25 42 V
+26 41 V
+25 41 V
+25 83 V
+26 82 V
+25 41 V
+25 83 V
+25 82 V
+26 248 V
+25 -124 V
+25 -124 V
+26 -82 V
+25 -83 V
+25 -82 V
+26 -83 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 41 V
+26 -41 V
+25 41 V
+25 41 V
+25 42 V
+26 41 V
+25 41 V
+25 41 V
+26 83 V
+25 82 V
+25 42 V
+26 82 V
+25 41 V
+25 83 V
+26 165 V
+25 -124 V
+25 -82 V
+25 -124 V
+26 -83 V
+25 -82 V
+25 -41 V
+26 -42 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+26 -41 V
+stroke 14901 3589 M
+25 -41 V
+25 -42 V
+25 -41 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 41 V
+25 -41 V
+26 41 V
+25 42 V
+25 41 V
+26 41 V
+25 41 V
+25 42 V
+25 41 V
+26 41 V
+25 83 V
+25 41 V
+26 82 V
+25 83 V
+25 82 V
+26 83 V
+25 -41 V
+25 -165 V
+26 -42 V
+25 -123 V
+25 -83 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 -41 V
+25 -42 V
+26 -41 V
+25 -41 V
+25 -41 V
+26 -42 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 42 V
+25 41 V
+25 41 V
+26 41 V
+25 42 V
+25 41 V
+26 41 V
+25 41 V
+25 42 V
+25 82 V
+26 41 V
+25 83 V
+25 82 V
+26 83 V
+25 0 V
+25 -124 V
+26 -41 V
+25 -124 V
+25 -41 V
+26 -83 V
+25 -41 V
+25 -41 V
+25 -41 V
+26 -42 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 -41 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+stroke 17532 3218 M
+26 41 V
+25 -41 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 41 V
+25 41 V
+26 41 V
+25 42 V
+25 41 V
+26 41 V
+25 41 V
+25 42 V
+26 41 V
+25 41 V
+25 83 V
+25 41 V
+26 82 V
+25 124 V
+25 41 V
+26 -82 V
+25 -83 V
+25 -82 V
+26 -83 V
+25 -82 V
+25 -41 V
+26 -42 V
+25 -41 V
+25 -41 V
+25 -41 V
+26 -42 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 41 V
+25 41 V
+25 42 V
+26 41 V
+25 41 V
+25 41 V
+26 42 V
+25 41 V
+25 41 V
+26 41 V
+25 83 V
+25 41 V
+25 83 V
+26 41 V
+25 124 V
+25 41 V
+26 -124 V
+25 -82 V
+25 -83 V
+26 -82 V
+25 -42 V
+25 -41 V
+26 83 V
+25 -165 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 -41 V
+25 -42 V
+26 -41 V
+25 -41 V
+25 -41 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+stroke 20164 3053 M
+26 0 V
+25 41 V
+25 41 V
+25 41 V
+26 42 V
+25 41 V
+25 82 V
+26 0 V
+25 42 V
+25 41 V
+26 41 V
+25 41 V
+25 83 V
+25 82 V
+26 42 V
+25 82 V
+25 -124 V
+26 -82 V
+25 -83 V
+25 -41 V
+26 -41 V
+25 -41 V
+25 -42 V
+26 -41 V
+25 -41 V
+25 -41 V
+25 -42 V
+26 -41 V
+25 -41 V
+25 -41 V
+26 -42 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 42 V
+25 41 V
+25 41 V
+25 41 V
+26 42 V
+25 41 V
+25 41 V
+26 41 V
+25 42 V
+25 41 V
+26 41 V
+25 83 V
+25 41 V
+25 82 V
+26 -123 V
+25 41 V
+25 -165 V
+26 -41 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 -41 V
+25 -42 V
+26 -41 V
+25 -41 V
+25 -41 V
+25 -42 V
+26 -41 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 41 V
+25 42 V
+26 41 V
+25 41 V
+25 41 V
+25 42 V
+26 41 V
+25 41 V
+stroke 22796 3300 M
+25 41 V
+26 42 V
+25 41 V
+25 41 V
+26 83 V
+25 -124 V
+25 -41 V
+25 -42 V
+26 -41 V
+25 -41 V
+25 -41 V
+26 -42 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 41 V
+25 41 V
+26 42 V
+25 41 V
+25 41 V
+26 41 V
+25 42 V
+25 41 V
+25 41 V
+26 41 V
+25 42 V
+25 41 V
+26 -83 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 -41 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 82 V
+25 0 V
+25 41 V
+26 42 V
+25 41 V
+25 41 V
+26 41 V
+25 42 V
+25 41 V
+26 41 V
+25 41 V
+25 -82 V
+25 -41 V
+26 -42 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 -41 V
+stroke 25428 2888 M
+25 -42 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 42 V
+26 41 V
+25 41 V
+25 41 V
+25 42 V
+26 41 V
+25 41 V
+25 41 V
+26 83 V
+25 0 V
+25 -83 V
+26 -41 V
+25 -41 V
+25 -41 V
+26 -42 V
+25 -41 V
+25 -41 V
+25 -41 V
+26 -42 V
+25 -41 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 41 V
+26 83 V
+25 0 V
+25 41 V
+26 41 V
+25 42 V
+25 41 V
+26 41 V
+25 41 V
+25 -82 V
+25 -41 V
+26 -42 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+stroke 28060 2764 M
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 41 V
+26 41 V
+25 42 V
+25 41 V
+25 41 V
+26 41 V
+25 165 V
+25 -82 V
+26 -83 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 -41 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 41 V
+25 41 V
+25 41 V
+26 42 V
+25 82 V
+25 0 V
+26 41 V
+25 -82 V
+25 -41 V
+26 -42 V
+25 -41 V
+25 -41 V
+25 -41 V
+26 -42 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 42 V
+25 41 V
+26 41 V
+25 41 V
+25 83 V
+26 0 V
+25 -83 V
+25 -41 V
+26 -41 V
+25 -41 V
+25 -42 V
+25 -41 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+stroke 30692 2640 M
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 41 V
+25 42 V
+26 41 V
+25 41 V
+25 41 V
+26 -82 V
+25 -41 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 41 V
+25 41 V
+25 42 V
+26 41 V
+25 -83 V
+25 -41 V
+25 -41 V
+26 -41 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 41 V
+25 41 V
+26 41 V
+25 -82 V
+25 -41 V
+25 -42 V
+26 0 V
+25 0 V
+25 0 V
+stroke 33323 2516 M
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 42 V
+25 41 V
+26 -83 V
+25 -41 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 0 V
+26 41 V
+1741 8291 CircleF
+1767 7879 CircleF
+1792 7631 CircleF
+1817 7466 CircleF
+1843 7343 CircleF
+1868 7260 CircleF
+1893 6971 CircleF
+1918 7013 CircleF
+1944 6724 CircleF
+1969 6641 CircleF
+1994 6476 CircleF
+2020 6353 CircleF
+2045 6229 CircleF
+2070 6105 CircleF
+2096 5981 CircleF
+2121 5899 CircleF
+2146 5816 CircleF
+2172 5816 CircleF
+2197 5816 CircleF
+2222 5816 CircleF
+2247 5816 CircleF
+2273 5816 CircleF
+2298 5816 CircleF
+2323 5816 CircleF
+2349 5816 CircleF
+2374 5816 CircleF
+2399 5816 CircleF
+2425 5816 CircleF
+2450 5816 CircleF
+2475 5816 CircleF
+2500 5816 CircleF
+2526 5816 CircleF
+2551 5816 CircleF
+2576 7755 CircleF
+2602 7961 CircleF
+2627 7301 CircleF
+2652 7301 CircleF
+2678 6971 CircleF
+2703 6765 CircleF
+2728 6641 CircleF
+2754 6518 CircleF
+2779 6394 CircleF
+2804 6270 CircleF
+2829 6311 CircleF
+2855 6064 CircleF
+2880 5899 CircleF
+2905 5816 CircleF
+2931 5734 CircleF
+2956 5651 CircleF
+2981 5610 CircleF
+3007 5651 CircleF
+3032 5610 CircleF
+3057 5610 CircleF
+3083 5610 CircleF
+3108 5610 CircleF
+3133 5610 CircleF
+3158 5610 CircleF
+3184 5610 CircleF
+3209 5610 CircleF
+3234 5610 CircleF
+3260 5610 CircleF
+3285 5610 CircleF
+3310 5610 CircleF
+3336 5610 CircleF
+3361 5610 CircleF
+3386 5651 CircleF
+3412 5693 CircleF
+3437 7384 CircleF
+3462 8168 CircleF
+3487 7013 CircleF
+3513 6889 CircleF
+3538 6724 CircleF
+3563 6435 CircleF
+3589 6311 CircleF
+3614 6188 CircleF
+3639 6146 CircleF
+3665 5940 CircleF
+3690 5940 CircleF
+3715 5734 CircleF
+3740 5651 CircleF
+3766 5569 CircleF
+3791 5486 CircleF
+3816 5445 CircleF
+3842 5404 CircleF
+3867 5404 CircleF
+3892 5404 CircleF
+3918 5404 CircleF
+3943 5404 CircleF
+3968 5404 CircleF
+3994 5404 CircleF
+4019 5404 CircleF
+4044 5404 CircleF
+4069 5404 CircleF
+4095 5404 CircleF
+4120 5404 CircleF
+4145 5404 CircleF
+4171 5404 CircleF
+4196 5404 CircleF
+4221 5404 CircleF
+4247 5404 CircleF
+4272 5445 CircleF
+4297 5486 CircleF
+4323 7136 CircleF
+4348 7095 CircleF
+4373 6765 CircleF
+4398 6559 CircleF
+4424 6353 CircleF
+4449 6311 CircleF
+4474 6023 CircleF
+4500 5899 CircleF
+4525 5775 CircleF
+4550 5651 CircleF
+4576 5569 CircleF
+4601 5486 CircleF
+4626 5528 CircleF
+4652 5321 CircleF
+4677 5363 CircleF
+4702 5239 CircleF
+4727 5198 CircleF
+4753 5198 CircleF
+4778 5198 CircleF
+4803 5198 CircleF
+4829 5198 CircleF
+4854 5198 CircleF
+4879 5198 CircleF
+4905 5198 CircleF
+4930 5198 CircleF
+4955 5198 CircleF
+4980 5198 CircleF
+5006 5198 CircleF
+5031 5198 CircleF
+5056 5198 CircleF
+5082 5198 CircleF
+5107 5198 CircleF
+5132 5198 CircleF
+5158 5239 CircleF
+5183 5280 CircleF
+5208 5321 CircleF
+5234 6724 CircleF
+5259 6559 CircleF
+5284 6435 CircleF
+5309 6270 CircleF
+5335 6146 CircleF
+5360 5858 CircleF
+5385 5775 CircleF
+5411 5734 CircleF
+5436 5486 CircleF
+5461 5404 CircleF
+5487 5321 CircleF
+5512 5239 CircleF
+5537 5156 CircleF
+5563 5115 CircleF
+5588 5074 CircleF
+5613 5033 CircleF
+5638 4991 CircleF
+5664 4991 CircleF
+5689 4991 CircleF
+5714 5115 CircleF
+5740 4991 CircleF
+5765 4991 CircleF
+5790 4991 CircleF
+5816 4991 CircleF
+5841 4991 CircleF
+5866 4991 CircleF
+5892 4991 CircleF
+5917 4991 CircleF
+5942 4991 CircleF
+5967 4991 CircleF
+5993 4991 CircleF
+6018 5033 CircleF
+6043 5033 CircleF
+6069 5033 CircleF
+6094 5074 CircleF
+6119 5115 CircleF
+6145 5239 CircleF
+6170 6518 CircleF
+6195 6146 CircleF
+6220 6146 CircleF
+6246 5816 CircleF
+6271 5693 CircleF
+6296 5569 CircleF
+6322 5528 CircleF
+6347 5321 CircleF
+6372 5239 CircleF
+6398 5156 CircleF
+6423 5074 CircleF
+6448 5074 CircleF
+6474 4950 CircleF
+6499 4950 CircleF
+6524 4868 CircleF
+6549 4826 CircleF
+6575 4785 CircleF
+6600 4785 CircleF
+6625 4785 CircleF
+6651 4785 CircleF
+6676 4785 CircleF
+6701 4785 CircleF
+6727 4785 CircleF
+6752 4785 CircleF
+6777 4785 CircleF
+6803 4785 CircleF
+6828 4785 CircleF
+6853 4785 CircleF
+6878 4868 CircleF
+6904 4785 CircleF
+6929 4785 CircleF
+6954 4826 CircleF
+6980 4785 CircleF
+7005 4826 CircleF
+7030 4868 CircleF
+7056 4909 CircleF
+7081 4950 CircleF
+7106 5074 CircleF
+7132 6683 CircleF
+7157 5858 CircleF
+7182 5651 CircleF
+7207 5528 CircleF
+7233 5486 CircleF
+7258 5280 CircleF
+7283 5156 CircleF
+7309 5074 CircleF
+7334 4991 CircleF
+7359 4909 CircleF
+7385 4826 CircleF
+7410 4785 CircleF
+7435 4744 CircleF
+7461 4703 CircleF
+7486 4661 CircleF
+7511 4620 CircleF
+7536 4579 CircleF
+7562 4579 CircleF
+7587 4579 CircleF
+7612 4661 CircleF
+7638 4661 CircleF
+7663 4661 CircleF
+7688 4661 CircleF
+7714 4661 CircleF
+7739 4661 CircleF
+7764 4661 CircleF
+7789 4661 CircleF
+7815 4661 CircleF
+7840 4620 CircleF
+7865 4661 CircleF
+7891 4661 CircleF
+7916 4661 CircleF
+7941 4579 CircleF
+7967 4620 CircleF
+7992 4703 CircleF
+8017 4703 CircleF
+8043 4826 CircleF
+8068 4868 CircleF
+8093 4909 CircleF
+8118 5734 CircleF
+8144 5775 CircleF
+8169 5363 CircleF
+8194 5239 CircleF
+8220 5115 CircleF
+8245 5239 CircleF
+8270 5115 CircleF
+8296 4826 CircleF
+8321 4950 CircleF
+8346 4703 CircleF
+8372 4620 CircleF
+8397 4579 CircleF
+8422 4538 CircleF
+8447 4496 CircleF
+8473 4455 CircleF
+8498 4414 CircleF
+8523 4373 CircleF
+8549 4373 CircleF
+8574 4373 CircleF
+8599 4455 CircleF
+8625 4455 CircleF
+8650 4455 CircleF
+8675 4455 CircleF
+8701 4455 CircleF
+8726 4455 CircleF
+8751 4455 CircleF
+8776 4455 CircleF
+8802 4455 CircleF
+8827 4373 CircleF
+8852 4455 CircleF
+8878 4455 CircleF
+8903 4496 CircleF
+8928 4496 CircleF
+8954 4496 CircleF
+8979 4455 CircleF
+9004 4579 CircleF
+9029 4538 CircleF
+9055 4661 CircleF
+9080 4703 CircleF
+9105 4744 CircleF
+9131 5404 CircleF
+9156 5239 CircleF
+9181 5074 CircleF
+9207 4950 CircleF
+9232 4826 CircleF
+9257 5033 CircleF
+9283 4661 CircleF
+9308 4661 CircleF
+9333 4579 CircleF
+9358 4538 CircleF
+9384 4414 CircleF
+9409 4455 CircleF
+9434 4331 CircleF
+9460 4579 CircleF
+9485 4249 CircleF
+9510 4208 CircleF
+9536 4249 CircleF
+9561 4249 CircleF
+9586 4249 CircleF
+9612 4249 CircleF
+9637 4249 CircleF
+9662 4249 CircleF
+9687 4249 CircleF
+9713 4249 CircleF
+9738 4249 CircleF
+9763 4249 CircleF
+9789 4249 CircleF
+9814 4249 CircleF
+9839 4249 CircleF
+9865 4249 CircleF
+9890 4249 CircleF
+9915 4249 CircleF
+9941 4249 CircleF
+9966 4290 CircleF
+9991 4331 CircleF
+10016 4373 CircleF
+10042 4414 CircleF
+10067 4455 CircleF
+10092 4496 CircleF
+10118 4579 CircleF
+10143 4661 CircleF
+10168 5074 CircleF
+10194 4950 CircleF
+10219 4826 CircleF
+10244 4703 CircleF
+10269 4661 CircleF
+10295 4579 CircleF
+10320 4496 CircleF
+10345 4414 CircleF
+10371 4373 CircleF
+10396 4249 CircleF
+10421 4208 CircleF
+10447 4166 CircleF
+10472 4125 CircleF
+10497 4084 CircleF
+10523 4043 CircleF
+10548 4084 CircleF
+10573 4084 CircleF
+10598 4043 CircleF
+10624 4043 CircleF
+10649 4043 CircleF
+10674 4043 CircleF
+10700 4043 CircleF
+10725 4125 CircleF
+10750 4043 CircleF
+10776 4084 CircleF
+10801 4043 CircleF
+10826 4043 CircleF
+10852 4043 CircleF
+10877 4043 CircleF
+10902 4043 CircleF
+10927 4043 CircleF
+10953 4084 CircleF
+10978 4043 CircleF
+11003 4084 CircleF
+11029 4125 CircleF
+11054 4166 CircleF
+11079 4208 CircleF
+11105 4249 CircleF
+11130 4290 CircleF
+11155 4373 CircleF
+11181 4455 CircleF
+11206 4538 CircleF
+11231 4909 CircleF
+11256 4785 CircleF
+11282 4661 CircleF
+11307 4538 CircleF
+11332 4496 CircleF
+11358 4414 CircleF
+11383 4331 CircleF
+11408 4290 CircleF
+11434 4166 CircleF
+11459 4125 CircleF
+11484 4084 CircleF
+11509 4043 CircleF
+11535 4001 CircleF
+11560 3960 CircleF
+11585 3919 CircleF
+11611 3878 CircleF
+11636 3836 CircleF
+11661 3919 CircleF
+11687 3919 CircleF
+11712 3919 CircleF
+11737 3919 CircleF
+11763 3919 CircleF
+11788 3919 CircleF
+11813 3919 CircleF
+11838 3919 CircleF
+11864 3919 CircleF
+11889 3919 CircleF
+11914 3919 CircleF
+11940 3919 CircleF
+11965 3919 CircleF
+11990 3919 CircleF
+12016 3836 CircleF
+12041 3836 CircleF
+12066 3878 CircleF
+12092 3919 CircleF
+12117 3960 CircleF
+12142 4084 CircleF
+12167 4125 CircleF
+12193 4125 CircleF
+12218 4166 CircleF
+12243 4249 CircleF
+12269 4331 CircleF
+12294 4414 CircleF
+12319 4744 CircleF
+12345 4620 CircleF
+12370 4496 CircleF
+12395 4373 CircleF
+12421 4290 CircleF
+12446 4331 CircleF
+12471 4125 CircleF
+12496 4084 CircleF
+12522 4043 CircleF
+12547 4001 CircleF
+12572 3960 CircleF
+12598 3919 CircleF
+12623 3878 CircleF
+12648 3836 CircleF
+12674 3795 CircleF
+12699 3754 CircleF
+12724 3713 CircleF
+12749 3713 CircleF
+12775 3713 CircleF
+12800 3713 CircleF
+12825 3713 CircleF
+12851 3713 CircleF
+12876 3713 CircleF
+12901 3713 CircleF
+12927 3713 CircleF
+12952 3713 CircleF
+12977 3713 CircleF
+13003 3713 CircleF
+13028 3713 CircleF
+13053 3713 CircleF
+13078 3713 CircleF
+13104 3713 CircleF
+13129 3795 CircleF
+13154 3754 CircleF
+13180 3795 CircleF
+13205 3836 CircleF
+13230 3878 CircleF
+13256 3919 CircleF
+13281 3960 CircleF
+13306 4043 CircleF
+13332 4125 CircleF
+13357 4166 CircleF
+13382 4249 CircleF
+13407 4331 CircleF
+13433 4579 CircleF
+13458 4455 CircleF
+13483 4331 CircleF
+13509 4249 CircleF
+13534 4166 CircleF
+13559 4084 CircleF
+13585 4001 CircleF
+13610 3960 CircleF
+13635 3919 CircleF
+13661 3878 CircleF
+13686 3836 CircleF
+13711 3795 CircleF
+13736 3754 CircleF
+13762 3713 CircleF
+13787 3671 CircleF
+13812 3630 CircleF
+13838 3589 CircleF
+13863 3589 CircleF
+13888 3589 CircleF
+13914 3589 CircleF
+13939 3589 CircleF
+13964 3589 CircleF
+13989 3589 CircleF
+14015 3589 CircleF
+14040 3589 CircleF
+14065 3589 CircleF
+14091 3589 CircleF
+14116 3589 CircleF
+14141 3589 CircleF
+14167 3589 CircleF
+14192 3589 CircleF
+14217 3630 CircleF
+14243 3589 CircleF
+14268 3630 CircleF
+14293 3671 CircleF
+14318 3713 CircleF
+14344 3754 CircleF
+14369 3795 CircleF
+14394 3836 CircleF
+14420 3919 CircleF
+14445 4001 CircleF
+14470 4043 CircleF
+14496 4125 CircleF
+14521 4166 CircleF
+14546 4249 CircleF
+14572 4414 CircleF
+14597 4290 CircleF
+14622 4208 CircleF
+14647 4084 CircleF
+14673 4001 CircleF
+14698 3919 CircleF
+14723 3878 CircleF
+14749 3836 CircleF
+14774 3795 CircleF
+14799 3754 CircleF
+14825 3713 CircleF
+14850 3671 CircleF
+14875 3630 CircleF
+14901 3589 CircleF
+14926 3548 CircleF
+14951 3506 CircleF
+14976 3465 CircleF
+15002 3465 CircleF
+15027 3465 CircleF
+15052 3465 CircleF
+15078 3465 CircleF
+15103 3465 CircleF
+15128 3465 CircleF
+15154 3465 CircleF
+15179 3465 CircleF
+15204 3465 CircleF
+15229 3465 CircleF
+15255 3465 CircleF
+15280 3465 CircleF
+15305 3465 CircleF
+15331 3465 CircleF
+15356 3506 CircleF
+15381 3465 CircleF
+15407 3506 CircleF
+15432 3548 CircleF
+15457 3589 CircleF
+15483 3630 CircleF
+15508 3671 CircleF
+15533 3713 CircleF
+15558 3754 CircleF
+15584 3795 CircleF
+15609 3878 CircleF
+15634 3919 CircleF
+15660 4001 CircleF
+15685 4084 CircleF
+15710 4166 CircleF
+15736 4249 CircleF
+15761 4208 CircleF
+15786 4043 CircleF
+15812 4001 CircleF
+15837 3878 CircleF
+15862 3795 CircleF
+15887 3754 CircleF
+15913 3713 CircleF
+15938 3671 CircleF
+15963 3630 CircleF
+15989 3589 CircleF
+16014 3548 CircleF
+16039 3506 CircleF
+16065 3465 CircleF
+16090 3424 CircleF
+16115 3383 CircleF
+16141 3341 CircleF
+16166 3341 CircleF
+16191 3341 CircleF
+16216 3341 CircleF
+16242 3341 CircleF
+16267 3341 CircleF
+16292 3341 CircleF
+16318 3341 CircleF
+16343 3341 CircleF
+16368 3341 CircleF
+16394 3341 CircleF
+16419 3341 CircleF
+16444 3341 CircleF
+16469 3341 CircleF
+16495 3341 CircleF
+16520 3341 CircleF
+16545 3341 CircleF
+16571 3383 CircleF
+16596 3424 CircleF
+16621 3465 CircleF
+16647 3506 CircleF
+16672 3548 CircleF
+16697 3589 CircleF
+16723 3630 CircleF
+16748 3671 CircleF
+16773 3713 CircleF
+16798 3795 CircleF
+16824 3836 CircleF
+16849 3919 CircleF
+16874 4001 CircleF
+16900 4084 CircleF
+16925 4084 CircleF
+16950 3960 CircleF
+16976 3919 CircleF
+17001 3795 CircleF
+17026 3754 CircleF
+17052 3671 CircleF
+17077 3630 CircleF
+17102 3589 CircleF
+17127 3548 CircleF
+17153 3506 CircleF
+17178 3465 CircleF
+17203 3424 CircleF
+17229 3383 CircleF
+17254 3341 CircleF
+17279 3300 CircleF
+17305 3259 CircleF
+17330 3218 CircleF
+17355 3218 CircleF
+17381 3218 CircleF
+17406 3218 CircleF
+17431 3218 CircleF
+17456 3218 CircleF
+17482 3218 CircleF
+17507 3218 CircleF
+17532 3218 CircleF
+17558 3259 CircleF
+17583 3218 CircleF
+17608 3218 CircleF
+17634 3218 CircleF
+17659 3218 CircleF
+17684 3218 CircleF
+17709 3218 CircleF
+17735 3218 CircleF
+17760 3259 CircleF
+17785 3300 CircleF
+17811 3341 CircleF
+17836 3383 CircleF
+17861 3424 CircleF
+17887 3465 CircleF
+17912 3506 CircleF
+17937 3548 CircleF
+17963 3589 CircleF
+17988 3630 CircleF
+18013 3713 CircleF
+18038 3754 CircleF
+18064 3836 CircleF
+18089 3960 CircleF
+18114 4001 CircleF
+18140 3919 CircleF
+18165 3836 CircleF
+18190 3754 CircleF
+18216 3671 CircleF
+18241 3589 CircleF
+18266 3548 CircleF
+18292 3506 CircleF
+18317 3465 CircleF
+18342 3424 CircleF
+18367 3383 CircleF
+18393 3341 CircleF
+18418 3300 CircleF
+18443 3259 CircleF
+18469 3218 CircleF
+18494 3176 CircleF
+18519 3135 CircleF
+18545 3094 CircleF
+18570 3094 CircleF
+18595 3094 CircleF
+18621 3094 CircleF
+18646 3094 CircleF
+18671 3094 CircleF
+18696 3094 CircleF
+18722 3094 CircleF
+18747 3094 CircleF
+18772 3094 CircleF
+18798 3094 CircleF
+18823 3094 CircleF
+18848 3094 CircleF
+18874 3094 CircleF
+18899 3094 CircleF
+18924 3094 CircleF
+18950 3094 CircleF
+18975 3135 CircleF
+19000 3176 CircleF
+19025 3218 CircleF
+19051 3259 CircleF
+19076 3300 CircleF
+19101 3341 CircleF
+19127 3383 CircleF
+19152 3424 CircleF
+19177 3465 CircleF
+19203 3506 CircleF
+19228 3589 CircleF
+19253 3630 CircleF
+19278 3713 CircleF
+19304 3754 CircleF
+19329 3878 CircleF
+19354 3919 CircleF
+19380 3795 CircleF
+19405 3713 CircleF
+19430 3630 CircleF
+19456 3548 CircleF
+19481 3506 CircleF
+19506 3465 CircleF
+19532 3548 CircleF
+19557 3383 CircleF
+19582 3341 CircleF
+19607 3300 CircleF
+19633 3259 CircleF
+19658 3218 CircleF
+19683 3176 CircleF
+19709 3135 CircleF
+19734 3094 CircleF
+19759 3053 CircleF
+19785 3053 CircleF
+19810 3053 CircleF
+19835 3053 CircleF
+19861 3053 CircleF
+19886 3053 CircleF
+19911 3053 CircleF
+19936 3053 CircleF
+19962 3053 CircleF
+19987 3053 CircleF
+20012 3053 CircleF
+20038 3053 CircleF
+20063 3053 CircleF
+20088 3053 CircleF
+20114 3053 CircleF
+20139 3053 CircleF
+20164 3053 CircleF
+20190 3053 CircleF
+20215 3094 CircleF
+20240 3135 CircleF
+20265 3176 CircleF
+20291 3218 CircleF
+20316 3259 CircleF
+20341 3341 CircleF
+20367 3341 CircleF
+20392 3383 CircleF
+20417 3424 CircleF
+20443 3465 CircleF
+20468 3506 CircleF
+20493 3589 CircleF
+20518 3671 CircleF
+20544 3713 CircleF
+20569 3795 CircleF
+20594 3671 CircleF
+20620 3589 CircleF
+20645 3506 CircleF
+20670 3465 CircleF
+20696 3424 CircleF
+20721 3383 CircleF
+20746 3341 CircleF
+20772 3300 CircleF
+20797 3259 CircleF
+20822 3218 CircleF
+20847 3176 CircleF
+20873 3135 CircleF
+20898 3094 CircleF
+20923 3053 CircleF
+20949 3011 CircleF
+20974 3011 CircleF
+20999 3011 CircleF
+21025 3011 CircleF
+21050 3011 CircleF
+21075 3011 CircleF
+21101 3011 CircleF
+21126 3011 CircleF
+21151 3011 CircleF
+21176 3011 CircleF
+21202 3011 CircleF
+21227 3011 CircleF
+21252 3011 CircleF
+21278 3011 CircleF
+21303 3011 CircleF
+21328 3011 CircleF
+21354 3011 CircleF
+21379 3011 CircleF
+21404 3011 CircleF
+21430 3053 CircleF
+21455 3094 CircleF
+21480 3135 CircleF
+21505 3176 CircleF
+21531 3218 CircleF
+21556 3259 CircleF
+21581 3300 CircleF
+21607 3341 CircleF
+21632 3383 CircleF
+21657 3424 CircleF
+21683 3465 CircleF
+21708 3548 CircleF
+21733 3589 CircleF
+21758 3671 CircleF
+21784 3548 CircleF
+21809 3589 CircleF
+21834 3424 CircleF
+21860 3383 CircleF
+21885 3341 CircleF
+21910 3300 CircleF
+21936 3259 CircleF
+21961 3218 CircleF
+21986 3176 CircleF
+22012 3135 CircleF
+22037 3094 CircleF
+22062 3053 CircleF
+22087 3011 CircleF
+22113 2970 CircleF
+22138 2970 CircleF
+22163 2970 CircleF
+22189 2970 CircleF
+22214 2970 CircleF
+22239 2970 CircleF
+22265 2970 CircleF
+22290 2970 CircleF
+22315 2970 CircleF
+22341 2970 CircleF
+22366 2970 CircleF
+22391 2970 CircleF
+22416 2970 CircleF
+22442 2970 CircleF
+22467 2970 CircleF
+22492 2970 CircleF
+22518 2970 CircleF
+22543 2970 CircleF
+22568 2970 CircleF
+22594 2970 CircleF
+22619 3011 CircleF
+22644 3053 CircleF
+22670 3094 CircleF
+22695 3135 CircleF
+22720 3176 CircleF
+22745 3218 CircleF
+22771 3259 CircleF
+22796 3300 CircleF
+22821 3341 CircleF
+22847 3383 CircleF
+22872 3424 CircleF
+22897 3465 CircleF
+22923 3548 CircleF
+22948 3424 CircleF
+22973 3383 CircleF
+22998 3341 CircleF
+23024 3300 CircleF
+23049 3259 CircleF
+23074 3218 CircleF
+23100 3176 CircleF
+23125 3135 CircleF
+23150 3094 CircleF
+23176 3053 CircleF
+23201 3011 CircleF
+23226 2970 CircleF
+23252 2929 CircleF
+23277 2929 CircleF
+23302 2929 CircleF
+23327 2929 CircleF
+23353 2929 CircleF
+23378 2929 CircleF
+23403 2929 CircleF
+23429 2929 CircleF
+23454 2929 CircleF
+23479 2929 CircleF
+23505 2929 CircleF
+23530 2929 CircleF
+23555 2929 CircleF
+23581 2929 CircleF
+23606 2929 CircleF
+23631 2929 CircleF
+23656 2929 CircleF
+23682 2929 CircleF
+23707 2929 CircleF
+23732 2929 CircleF
+23758 2929 CircleF
+23783 2970 CircleF
+23808 3011 CircleF
+23834 3053 CircleF
+23859 3094 CircleF
+23884 3135 CircleF
+23910 3176 CircleF
+23935 3218 CircleF
+23960 3259 CircleF
+23985 3300 CircleF
+24011 3341 CircleF
+24036 3383 CircleF
+24061 3424 CircleF
+24087 3341 CircleF
+24112 3300 CircleF
+24137 3259 CircleF
+24163 3218 CircleF
+24188 3176 CircleF
+24213 3135 CircleF
+24238 3094 CircleF
+24264 3053 CircleF
+24289 3011 CircleF
+24314 2970 CircleF
+24340 2929 CircleF
+24365 2888 CircleF
+24390 2888 CircleF
+24416 2888 CircleF
+24441 2888 CircleF
+24466 2888 CircleF
+24492 2888 CircleF
+24517 2888 CircleF
+24542 2888 CircleF
+24567 2888 CircleF
+24593 2888 CircleF
+24618 2888 CircleF
+24643 2888 CircleF
+24669 2888 CircleF
+24694 2888 CircleF
+24719 2888 CircleF
+24745 2888 CircleF
+24770 2888 CircleF
+24795 2888 CircleF
+24821 2888 CircleF
+24846 2888 CircleF
+24871 2888 CircleF
+24896 2888 CircleF
+24922 2970 CircleF
+24947 2970 CircleF
+24972 3011 CircleF
+24998 3053 CircleF
+25023 3094 CircleF
+25048 3135 CircleF
+25074 3176 CircleF
+25099 3218 CircleF
+25124 3259 CircleF
+25150 3300 CircleF
+25175 3341 CircleF
+25200 3259 CircleF
+25225 3218 CircleF
+25251 3176 CircleF
+25276 3135 CircleF
+25301 3094 CircleF
+25327 3053 CircleF
+25352 3011 CircleF
+25377 2970 CircleF
+25403 2929 CircleF
+25428 2888 CircleF
+25453 2846 CircleF
+25478 2846 CircleF
+25504 2846 CircleF
+25529 2846 CircleF
+25554 2846 CircleF
+25580 2846 CircleF
+25605 2846 CircleF
+25630 2846 CircleF
+25656 2846 CircleF
+25681 2846 CircleF
+25706 2846 CircleF
+25732 2846 CircleF
+25757 2846 CircleF
+25782 2846 CircleF
+25807 2846 CircleF
+25833 2846 CircleF
+25858 2846 CircleF
+25883 2846 CircleF
+25909 2846 CircleF
+25934 2846 CircleF
+25959 2846 CircleF
+25985 2846 CircleF
+26010 2846 CircleF
+26035 2888 CircleF
+26061 2929 CircleF
+26086 2970 CircleF
+26111 3011 CircleF
+26136 3053 CircleF
+26162 3094 CircleF
+26187 3135 CircleF
+26212 3176 CircleF
+26238 3259 CircleF
+26263 3259 CircleF
+26288 3176 CircleF
+26314 3135 CircleF
+26339 3094 CircleF
+26364 3053 CircleF
+26390 3011 CircleF
+26415 2970 CircleF
+26440 2929 CircleF
+26465 2888 CircleF
+26491 2846 CircleF
+26516 2805 CircleF
+26541 2805 CircleF
+26567 2805 CircleF
+26592 2805 CircleF
+26617 2805 CircleF
+26643 2805 CircleF
+26668 2805 CircleF
+26693 2805 CircleF
+26718 2805 CircleF
+26744 2805 CircleF
+26769 2805 CircleF
+26794 2805 CircleF
+26820 2805 CircleF
+26845 2805 CircleF
+26870 2805 CircleF
+26896 2805 CircleF
+26921 2805 CircleF
+26946 2805 CircleF
+26972 2805 CircleF
+26997 2805 CircleF
+27022 2805 CircleF
+27047 2805 CircleF
+27073 2805 CircleF
+27098 2805 CircleF
+27123 2846 CircleF
+27149 2929 CircleF
+27174 2929 CircleF
+27199 2970 CircleF
+27225 3011 CircleF
+27250 3053 CircleF
+27275 3094 CircleF
+27301 3135 CircleF
+27326 3176 CircleF
+27351 3094 CircleF
+27376 3053 CircleF
+27402 3011 CircleF
+27427 2970 CircleF
+27452 2929 CircleF
+27478 2888 CircleF
+27503 2846 CircleF
+27528 2805 CircleF
+27554 2764 CircleF
+27579 2764 CircleF
+27604 2764 CircleF
+27630 2764 CircleF
+27655 2764 CircleF
+27680 2764 CircleF
+27705 2764 CircleF
+27731 2764 CircleF
+27756 2764 CircleF
+27781 2764 CircleF
+27807 2764 CircleF
+27832 2764 CircleF
+27857 2764 CircleF
+27883 2764 CircleF
+27908 2764 CircleF
+27933 2764 CircleF
+27958 2764 CircleF
+27984 2764 CircleF
+28009 2764 CircleF
+28034 2764 CircleF
+28060 2764 CircleF
+28085 2764 CircleF
+28110 2764 CircleF
+28136 2764 CircleF
+28161 2764 CircleF
+28186 2805 CircleF
+28212 2846 CircleF
+28237 2888 CircleF
+28262 2929 CircleF
+28287 2970 CircleF
+28313 3011 CircleF
+28338 3176 CircleF
+28363 3094 CircleF
+28389 3011 CircleF
+28414 2970 CircleF
+28439 2929 CircleF
+28465 2888 CircleF
+28490 2846 CircleF
+28515 2805 CircleF
+28541 2764 CircleF
+28566 2723 CircleF
+28591 2723 CircleF
+28616 2723 CircleF
+28642 2723 CircleF
+28667 2723 CircleF
+28692 2723 CircleF
+28718 2723 CircleF
+28743 2723 CircleF
+28768 2723 CircleF
+28794 2723 CircleF
+28819 2723 CircleF
+28844 2723 CircleF
+28870 2723 CircleF
+28895 2723 CircleF
+28920 2723 CircleF
+28945 2723 CircleF
+28971 2723 CircleF
+28996 2723 CircleF
+29021 2723 CircleF
+29047 2723 CircleF
+29072 2723 CircleF
+29097 2723 CircleF
+29123 2723 CircleF
+29148 2723 CircleF
+29173 2723 CircleF
+29198 2723 CircleF
+29224 2764 CircleF
+29249 2805 CircleF
+29274 2846 CircleF
+29300 2888 CircleF
+29325 2970 CircleF
+29350 2970 CircleF
+29376 3011 CircleF
+29401 2929 CircleF
+29426 2888 CircleF
+29452 2846 CircleF
+29477 2805 CircleF
+29502 2764 CircleF
+29527 2723 CircleF
+29553 2681 CircleF
+29578 2681 CircleF
+29603 2681 CircleF
+29629 2681 CircleF
+29654 2681 CircleF
+29679 2681 CircleF
+29705 2681 CircleF
+29730 2681 CircleF
+29755 2681 CircleF
+29781 2681 CircleF
+29806 2681 CircleF
+29831 2681 CircleF
+29856 2681 CircleF
+29882 2681 CircleF
+29907 2681 CircleF
+29932 2681 CircleF
+29958 2681 CircleF
+29983 2681 CircleF
+30008 2681 CircleF
+30034 2681 CircleF
+30059 2681 CircleF
+30084 2681 CircleF
+30110 2681 CircleF
+30135 2681 CircleF
+30160 2681 CircleF
+30185 2681 CircleF
+30211 2681 CircleF
+30236 2723 CircleF
+30261 2764 CircleF
+30287 2805 CircleF
+30312 2846 CircleF
+30337 2929 CircleF
+30363 2929 CircleF
+30388 2846 CircleF
+30413 2805 CircleF
+30439 2764 CircleF
+30464 2723 CircleF
+30489 2681 CircleF
+30514 2640 CircleF
+30540 2640 CircleF
+30565 2640 CircleF
+30590 2640 CircleF
+30616 2640 CircleF
+30641 2640 CircleF
+30666 2640 CircleF
+30692 2640 CircleF
+30717 2640 CircleF
+30742 2640 CircleF
+30767 2640 CircleF
+30793 2640 CircleF
+30818 2640 CircleF
+30843 2640 CircleF
+30869 2640 CircleF
+30894 2640 CircleF
+30919 2640 CircleF
+30945 2640 CircleF
+30970 2640 CircleF
+30995 2640 CircleF
+31021 2640 CircleF
+31046 2640 CircleF
+31071 2640 CircleF
+31096 2640 CircleF
+31122 2640 CircleF
+31147 2640 CircleF
+31172 2640 CircleF
+31198 2640 CircleF
+31223 2681 CircleF
+31248 2723 CircleF
+31274 2764 CircleF
+31299 2805 CircleF
+31324 2846 CircleF
+31350 2764 CircleF
+31375 2723 CircleF
+31400 2681 CircleF
+31425 2640 CircleF
+31451 2599 CircleF
+31476 2599 CircleF
+31501 2599 CircleF
+31527 2599 CircleF
+31552 2599 CircleF
+31577 2599 CircleF
+31603 2599 CircleF
+31628 2599 CircleF
+31653 2599 CircleF
+31679 2599 CircleF
+31704 2599 CircleF
+31729 2599 CircleF
+31754 2599 CircleF
+31780 2599 CircleF
+31805 2599 CircleF
+31830 2599 CircleF
+31856 2599 CircleF
+31881 2599 CircleF
+31906 2599 CircleF
+31932 2599 CircleF
+31957 2599 CircleF
+31982 2599 CircleF
+32007 2599 CircleF
+32033 2599 CircleF
+32058 2599 CircleF
+32083 2599 CircleF
+32109 2599 CircleF
+32134 2599 CircleF
+32159 2599 CircleF
+32185 2640 CircleF
+32210 2681 CircleF
+32235 2723 CircleF
+32261 2764 CircleF
+32286 2681 CircleF
+32311 2640 CircleF
+32336 2599 CircleF
+32362 2558 CircleF
+32387 2558 CircleF
+32412 2558 CircleF
+32438 2558 CircleF
+32463 2558 CircleF
+32488 2558 CircleF
+32514 2558 CircleF
+32539 2558 CircleF
+32564 2558 CircleF
+32590 2558 CircleF
+32615 2558 CircleF
+32640 2558 CircleF
+32665 2558 CircleF
+32691 2558 CircleF
+32716 2558 CircleF
+32741 2558 CircleF
+32767 2558 CircleF
+32792 2558 CircleF
+32817 2558 CircleF
+32843 2558 CircleF
+32868 2558 CircleF
+32893 2558 CircleF
+32919 2558 CircleF
+32944 2558 CircleF
+32969 2558 CircleF
+32994 2558 CircleF
+33020 2558 CircleF
+33045 2558 CircleF
+33070 2558 CircleF
+33096 2558 CircleF
+33121 2599 CircleF
+33146 2640 CircleF
+33172 2681 CircleF
+33197 2599 CircleF
+33222 2558 CircleF
+33247 2516 CircleF
+33273 2516 CircleF
+33298 2516 CircleF
+33323 2516 CircleF
+33349 2516 CircleF
+33374 2516 CircleF
+33399 2516 CircleF
+33425 2516 CircleF
+33450 2516 CircleF
+33475 2516 CircleF
+33501 2516 CircleF
+33526 2516 CircleF
+33551 2516 CircleF
+33576 2516 CircleF
+33602 2516 CircleF
+33627 2516 CircleF
+33652 2516 CircleF
+33678 2516 CircleF
+33703 2516 CircleF
+33728 2516 CircleF
+33754 2516 CircleF
+33779 2516 CircleF
+33804 2516 CircleF
+33830 2516 CircleF
+33855 2516 CircleF
+33880 2516 CircleF
+33905 2516 CircleF
+33931 2516 CircleF
+33956 2516 CircleF
+33981 2516 CircleF
+34007 2516 CircleF
+34032 2558 CircleF
+34057 2599 CircleF
+34083 2516 CircleF
+34108 2475 CircleF
+34133 2475 CircleF
+34159 2475 CircleF
+34184 2475 CircleF
+34209 2475 CircleF
+34234 2475 CircleF
+34260 2475 CircleF
+34285 2475 CircleF
+34310 2475 CircleF
+34336 2475 CircleF
+34361 2475 CircleF
+34386 2475 CircleF
+34412 2475 CircleF
+34437 2475 CircleF
+34462 2475 CircleF
+34487 2475 CircleF
+34513 2475 CircleF
+34538 2475 CircleF
+34563 2475 CircleF
+34589 2475 CircleF
+34614 2475 CircleF
+34639 2475 CircleF
+34665 2475 CircleF
+34690 2475 CircleF
+34715 2475 CircleF
+34741 2475 CircleF
+34766 2475 CircleF
+34791 2475 CircleF
+34816 2475 CircleF
+34842 2475 CircleF
+34867 2475 CircleF
+34892 2475 CircleF
+34918 2516 CircleF
+0.500 UP
+2.000 UL
+LTb
+LCb setrgbcolor
+[] 0 setdash
+0.58 0.00 0.83 C 1869 1320 M
+24 6641 V
+25 -6641 V
+27 0 R
+24 6600 V
+25 -247 V
+26 0 V
+25 -165 V
+25 -124 V
+26 -206 V
+25 82 V
+25 -495 V
+26 165 V
+25 -330 V
+25 536 V
+25 -371 V
+26 289 V
+25 -124 V
+25 206 V
+25 -5816 V
+27 0 R
+24 5404 V
+24 -5404 V
+357 0 R
+24 6765 V
+25 -907 V
+26 165 V
+25 -248 V
+25 83 V
+26 0 V
+25 -248 V
+25 -247 V
+26 -124 V
+25 41 V
+25 289 V
+26 -165 V
+25 -330 V
+25 412 V
+25 -288 V
+26 453 V
+24 -5651 V
+432 0 R
+25 5899 V
+25 412 V
+25 -660 V
+25 248 V
+26 -413 V
+25 289 V
+25 -536 V
+26 0 V
+25 -41 V
+25 -42 V
+26 -206 V
+25 536 V
+25 -495 V
+26 42 V
+25 0 V
+25 288 V
+25 -453 V
+25 -4868 V
+381 0 R
+25 6064 V
+25 -124 V
+25 124 V
+26 -83 V
+25 -247 V
+25 -743 V
+26 372 V
+25 -124 V
+25 -83 V
+25 165 V
+26 -247 V
+25 -124 V
+25 83 V
+26 -248 V
+25 83 V
+25 -124 V
+26 0 V
+25 -83 V
+25 -41 V
+25 248 V
+26 82 V
+25 -165 V
+24 -4785 V
+357 0 R
+24 5734 V
+25 -413 V
+26 -165 V
+25 372 V
+25 -83 V
+26 -206 V
+25 -41 V
+25 -124 V
+25 -371 V
+26 288 V
+25 42 V
+25 -330 V
+26 82 V
+25 -247 V
+25 165 V
+26 0 V
+25 -289 V
+25 247 V
+26 -41 V
+25 -247 V
+stroke 5917 5693 M
+25 41 V
+24 -4414 V
+357 0 R
+24 5610 V
+25 371 V
+26 -371 V
+25 -124 V
+25 -371 V
+26 165 V
+25 -247 V
+25 0 V
+25 0 V
+26 -330 V
+25 -248 V
+25 83 V
+26 82 V
+25 -247 V
+25 165 V
+26 -165 V
+25 -124 V
+25 412 V
+26 -412 V
+25 41 V
+25 41 V
+25 124 V
+26 83 V
+25 536 V
+24 -5074 V
+357 0 R
+24 5775 V
+25 -124 V
+26 -701 V
+25 206 V
+25 -288 V
+26 0 V
+25 -124 V
+25 -41 V
+25 -207 V
+26 -41 V
+25 -165 V
+25 41 V
+26 -82 V
+25 124 V
+25 -330 V
+26 206 V
+25 82 V
+25 -247 V
+25 206 V
+26 41 V
+25 -82 V
+25 660 V
+26 -454 V
+24 -4455 V
+356 0 R
+25 5445 V
+24 -5445 V
+2 0 R
+24 5198 V
+24 -5198 V
+3 0 R
+24 4744 V
+25 -124 V
+25 -82 V
+26 -124 V
+25 -165 V
+25 289 V
+26 -289 V
+25 -124 V
+25 -206 V
+26 247 V
+25 -247 V
+25 247 V
+26 -82 V
+25 -83 V
+25 0 V
+25 124 V
+26 -41 V
+25 41 V
+24 -4125 V
+3 0 R
+24 4249 V
+24 -4249 V
+2 0 R
+24 4373 V
+24 -4373 V
+332 0 R
+24 4785 V
+25 454 V
+24 -5239 V
+3 0 R
+24 4661 V
+25 -371 V
+25 495 V
+26 -371 V
+25 -206 V
+25 -42 V
+26 124 V
+25 -247 V
+25 -83 V
+26 -206 V
+25 206 V
+25 -82 V
+25 82 V
+26 -41 V
+stroke 9713 5239 M
+25 -124 V
+25 83 V
+26 -83 V
+25 41 V
+25 124 V
+26 -247 V
+25 330 V
+24 -4043 V
+3 0 R
+24 3960 V
+25 -206 V
+24 -3754 V
+331 0 R
+24 5074 V
+25 -5074 V
+27 0 R
+24 4868 V
+26 -537 V
+25 -82 V
+25 -124 V
+26 -41 V
+25 0 V
+25 -206 V
+25 0 V
+26 41 V
+25 -248 V
+25 124 V
+26 -82 V
+25 -207 V
+25 207 V
+26 -83 V
+25 124 V
+25 -289 V
+26 206 V
+25 -206 V
+25 289 V
+25 41 V
+26 0 V
+24 -3795 V
+28 0 R
+24 3919 V
+23 -3919 V
+358 0 R
+24 4579 V
+25 -371 V
+25 0 V
+25 0 V
+26 -83 V
+25 -206 V
+25 82 V
+26 -247 V
+25 165 V
+25 -124 V
+26 0 V
+25 -165 V
+25 124 V
+26 -289 V
+25 165 V
+25 -165 V
+25 0 V
+26 0 V
+25 0 V
+25 83 V
+26 -207 V
+25 83 V
+25 82 V
+26 -41 V
+25 289 V
+25 -165 V
+26 165 V
+23 -3754 V
+408 0 R
+24 4579 V
+25 -701 V
+26 330 V
+25 -330 V
+25 0 V
+26 -207 V
+25 0 V
+25 0 V
+25 -123 V
+26 -124 V
+25 82 V
+25 -82 V
+26 0 V
+25 -206 V
+25 123 V
+26 -41 V
+25 83 V
+25 -165 V
+26 165 V
+25 -289 V
+25 330 V
+25 82 V
+26 0 V
+25 83 V
+25 -206 V
+26 82 V
+23 -3465 V
+408 0 R
+24 4414 V
+26 -413 V
+25 -123 V
+25 -42 V
+stroke 13711 5156 M
+25 207 V
+26 -413 V
+25 -82 V
+25 -124 V
+26 247 V
+25 -206 V
+25 -165 V
+26 83 V
+25 -207 V
+25 165 V
+25 42 V
+26 -248 V
+25 -82 V
+25 165 V
+26 -42 V
+25 -82 V
+25 124 V
+26 0 V
+25 41 V
+25 0 V
+26 82 V
+25 -82 V
+25 0 V
+25 -41 V
+26 0 V
+23 -3218 V
+409 0 R
+23 3795 V
+26 -82 V
+25 -165 V
+25 0 V
+26 0 V
+25 0 V
+25 -207 V
+25 165 V
+26 -247 V
+25 0 V
+25 41 V
+26 -41 V
+25 -248 V
+25 289 V
+26 -206 V
+25 0 V
+25 -165 V
+25 41 V
+26 83 V
+25 0 V
+25 41 V
+26 -41 V
+25 -124 V
+25 -124 V
+26 413 V
+25 -207 V
+25 83 V
+26 -165 V
+23 -2929 V
+408 0 R
+24 3878 V
+25 123 V
+26 -536 V
+25 0 V
+25 41 V
+26 -247 V
+25 206 V
+25 -330 V
+26 124 V
+25 -41 V
+25 -124 V
+25 0 V
+26 -83 V
+25 0 V
+25 -41 V
+26 83 V
+25 -83 V
+25 -41 V
+26 0 V
+25 -41 V
+25 -42 V
+25 -82 V
+26 206 V
+25 -82 V
+25 0 V
+26 41 V
+25 -124 V
+25 41 V
+26 289 V
+25 124 V
+25 -124 V
+26 -41 V
+23 -3094 V
+333 0 R
+23 3424 V
+24 -3424 V
+3 0 R
+24 3465 V
+25 165 V
+25 -165 V
+26 -165 V
+25 -41 V
+25 -41 V
+26 -124 V
+25 -83 V
+25 83 V
+26 -206 V
+stroke 17381 4208 M
+25 -83 V
+25 83 V
+25 -42 V
+26 42 V
+25 41 V
+25 -83 V
+26 -123 V
+25 41 V
+25 -83 V
+26 -41 V
+25 165 V
+25 -82 V
+25 -83 V
+26 165 V
+25 -41 V
+25 82 V
+26 83 V
+25 82 V
+25 42 V
+26 -165 V
+23 -2888 V
+409 0 R
+23 3094 V
+24 -3094 V
+3 0 R
+24 3424 V
+25 206 V
+25 -536 V
+26 -83 V
+25 0 V
+25 -41 V
+26 -165 V
+25 124 V
+25 -83 V
+26 -41 V
+25 -82 V
+25 41 V
+25 -83 V
+26 -41 V
+25 206 V
+25 -165 V
+26 -165 V
+25 83 V
+25 41 V
+26 -41 V
+25 41 V
+25 124 V
+26 -83 V
+25 -41 V
+25 124 V
+25 0 V
+26 82 V
+25 0 V
+25 -123 V
+24 -2723 V
+4 0 R
+23 2723 V
+25 247 V
+24 -2970 V
+383 0 R
+23 3383 V
+26 -207 V
+25 124 V
+25 -454 V
+26 0 V
+25 -41 V
+25 41 V
+26 -41 V
+25 0 V
+25 -124 V
+26 0 V
+25 0 V
+25 -165 V
+25 83 V
+26 0 V
+25 -41 V
+25 -42 V
+26 124 V
+25 -289 V
+25 124 V
+26 83 V
+25 -42 V
+25 42 V
+26 -165 V
+25 82 V
+25 165 V
+25 0 V
+26 165 V
+25 -82 V
+25 165 V
+24 -2888 V
+332 0 R
+24 3630 V
+25 -495 V
+26 -124 V
+23 -3011 V
+4 0 R
+23 3053 V
+25 -372 V
+26 42 V
+25 41 V
+25 -41 V
+26 -42 V
+25 42 V
+stroke 20974 4043 M
+25 -165 V
+26 -42 V
+25 42 V
+25 -42 V
+26 -41 V
+25 -82 V
+25 0 V
+25 82 V
+26 0 V
+25 -165 V
+25 124 V
+26 -41 V
+25 -42 V
+25 83 V
+26 -41 V
+25 -83 V
+25 41 V
+26 124 V
+25 0 V
+25 0 V
+25 83 V
+26 82 V
+25 124 V
+25 -83 V
+26 248 V
+25 41 V
+23 -2970 V
+232 0 R
+23 2723 V
+26 577 V
+25 -330 V
+25 -206 V
+26 82 V
+25 -453 V
+25 330 V
+25 0 V
+26 -330 V
+25 41 V
+25 124 V
+26 -124 V
+25 41 V
+25 -41 V
+26 -83 V
+25 0 V
+25 -41 V
+26 83 V
+25 0 V
+25 -83 V
+25 0 V
+26 83 V
+25 -42 V
+25 42 V
+26 -42 V
+25 -82 V
+25 82 V
+26 42 V
+25 123 V
+25 42 V
+26 -248 V
+25 -41 V
+25 82 V
+25 248 V
+26 330 V
+23 -2929 V
+206 0 R
+24 2929 V
+25 -41 V
+23 -2888 V
+4 0 R
+24 3135 V
+25 -536 V
+25 82 V
+26 0 V
+25 -453 V
+25 165 V
+26 82 V
+25 -82 V
+25 0 V
+25 -42 V
+26 0 V
+25 -123 V
+25 82 V
+26 -124 V
+25 83 V
+25 -124 V
+26 83 V
+25 -83 V
+25 83 V
+26 -42 V
+25 42 V
+25 -42 V
+25 42 V
+26 -42 V
+25 83 V
+25 -41 V
+26 82 V
+25 -41 V
+25 -83 V
+26 124 V
+25 124 V
+25 82 V
+26 124 V
+25 -165 V
+25 41 V
+stroke 23960 3836 M
+23 -2516 V
+156 0 R
+24 2764 V
+25 -371 V
+25 41 V
+25 124 V
+26 0 V
+25 -124 V
+25 -124 V
+26 -41 V
+25 82 V
+25 0 V
+26 0 V
+25 -82 V
+25 -124 V
+26 83 V
+25 -42 V
+25 -165 V
+25 124 V
+26 -41 V
+25 82 V
+25 -41 V
+26 -41 V
+25 41 V
+25 -124 V
+26 83 V
+25 0 V
+25 0 V
+26 -41 V
+25 41 V
+25 82 V
+25 -123 V
+26 206 V
+25 -124 V
+25 124 V
+26 -83 V
+25 207 V
+25 -124 V
+26 41 V
+25 124 V
+23 -2434 V
+55 0 R
+23 2269 V
+23 -2269 V
+30 0 R
+23 2599 V
+25 -83 V
+26 -41 V
+25 -289 V
+25 124 V
+26 41 V
+25 -41 V
+25 -165 V
+25 -41 V
+26 0 V
+25 -41 V
+25 -42 V
+26 83 V
+25 -124 V
+25 41 V
+26 -41 V
+25 41 V
+25 -82 V
+26 41 V
+25 0 V
+25 -82 V
+25 123 V
+26 -41 V
+25 -41 V
+25 -41 V
+26 165 V
+25 -42 V
+25 0 V
+26 42 V
+25 0 V
+25 -83 V
+26 206 V
+25 83 V
+25 -41 V
+25 82 V
+26 206 V
+25 -123 V
+23 -2393 V
+30 0 R
+23 2269 V
+23 -2269 V
+30 0 R
+23 2269 V
+25 41 V
+26 -165 V
+25 0 V
+25 -165 V
+25 41 V
+26 207 V
+25 -83 V
+25 -41 V
+26 -41 V
+25 41 V
+25 -83 V
+26 -82 V
+25 -41 V
+25 82 V
+25 -41 V
+26 0 V
+stroke 26744 3259 M
+25 41 V
+25 -41 V
+26 -41 V
+25 0 V
+25 -42 V
+26 83 V
+25 0 V
+25 -124 V
+26 41 V
+25 83 V
+25 0 V
+25 0 V
+26 -41 V
+25 41 V
+25 0 V
+26 41 V
+25 41 V
+25 42 V
+26 -124 V
+25 206 V
+25 41 V
+23 -2186 V
+55 0 R
+23 2475 V
+26 -41 V
+25 -330 V
+25 -124 V
+26 206 V
+25 -82 V
+25 -41 V
+26 -165 V
+25 41 V
+25 0 V
+26 -41 V
+25 82 V
+25 -41 V
+25 -124 V
+26 41 V
+25 42 V
+25 -83 V
+26 83 V
+25 -42 V
+25 -82 V
+26 0 V
+25 41 V
+25 41 V
+25 -41 V
+26 41 V
+25 0 V
+25 -41 V
+26 41 V
+25 0 V
+25 42 V
+26 -42 V
+25 0 V
+25 42 V
+26 41 V
+25 82 V
+25 -41 V
+25 124 V
+26 -83 V
+25 207 V
+23 -2228 V
+5 0 R
+23 2021 V
+25 -206 V
+25 371 V
+26 -206 V
+25 0 V
+25 -41 V
+26 0 V
+25 0 V
+25 -41 V
+25 -83 V
+26 0 V
+25 -82 V
+25 41 V
+26 -41 V
+25 41 V
+25 -41 V
+26 82 V
+25 -82 V
+25 41 V
+26 -83 V
+25 0 V
+25 42 V
+25 0 V
+26 0 V
+25 -83 V
+25 124 V
+26 -83 V
+25 42 V
+25 41 V
+26 -41 V
+25 82 V
+25 0 V
+25 0 V
+26 -82 V
+25 41 V
+25 82 V
+26 42 V
+25 165 V
+25 -42 V
+26 83 V
+stroke 29376 3424 M
+25 -165 V
+25 41 V
+26 -124 V
+25 42 V
+25 -42 V
+25 -41 V
+26 -41 V
+25 41 V
+25 0 V
+26 -41 V
+25 -41 V
+25 -83 V
+26 41 V
+25 42 V
+25 -42 V
+26 42 V
+25 0 V
+25 -83 V
+25 0 V
+26 -124 V
+25 83 V
+25 41 V
+26 -41 V
+25 41 V
+25 -82 V
+26 82 V
+25 -41 V
+25 82 V
+26 0 V
+25 0 V
+25 42 V
+25 -42 V
+26 42 V
+25 82 V
+25 0 V
+26 -41 V
+25 0 V
+25 165 V
+26 206 V
+25 -330 V
+25 -82 V
+26 123 V
+25 0 V
+25 -123 V
+25 -42 V
+26 83 V
+25 -124 V
+25 -41 V
+26 124 V
+25 -83 V
+25 -41 V
+26 41 V
+25 0 V
+25 -41 V
+25 -41 V
+26 41 V
+25 0 V
+25 0 V
+26 0 V
+25 -83 V
+25 83 V
+26 -41 V
+25 -42 V
+25 -82 V
+26 124 V
+25 -42 V
+25 42 V
+25 41 V
+26 -41 V
+25 41 V
+25 41 V
+26 -41 V
+25 41 V
+25 83 V
+26 41 V
+25 82 V
+25 83 V
+26 -289 V
+25 124 V
+25 -41 V
+25 -42 V
+26 42 V
+25 0 V
+25 -165 V
+26 41 V
+25 0 V
+25 0 V
+26 -83 V
+25 42 V
+25 41 V
+26 -124 V
+25 0 V
+25 41 V
+25 -123 V
+26 82 V
+25 -41 V
+25 41 V
+26 41 V
+25 -41 V
+25 41 V
+26 -41 V
+25 -41 V
+25 41 V
+25 41 V
+stroke 32007 2846 M
+26 0 V
+25 42 V
+25 0 V
+26 0 V
+25 0 V
+25 -42 V
+26 124 V
+25 -82 V
+25 165 V
+26 -83 V
+25 -41 V
+25 -41 V
+25 82 V
+26 -41 V
+25 -83 V
+25 -123 V
+26 82 V
+25 41 V
+25 0 V
+26 -82 V
+25 -41 V
+25 0 V
+26 41 V
+25 0 V
+25 0 V
+25 -41 V
+26 0 V
+25 41 V
+25 -41 V
+26 82 V
+25 -82 V
+25 82 V
+26 -41 V
+25 -41 V
+25 41 V
+26 0 V
+25 -41 V
+25 41 V
+25 41 V
+26 -41 V
+25 41 V
+25 41 V
+26 83 V
+25 -41 V
+25 -42 V
+26 83 V
+25 -83 V
+25 0 V
+25 -41 V
+26 -41 V
+25 41 V
+25 -82 V
+26 41 V
+25 0 V
+25 -41 V
+26 41 V
+25 -83 V
+25 42 V
+26 -42 V
+25 0 V
+25 -41 V
+25 41 V
+26 0 V
+25 -41 V
+25 0 V
+26 41 V
+25 0 V
+25 42 V
+26 -42 V
+25 42 V
+25 -42 V
+26 0 V
+25 0 V
+25 0 V
+25 42 V
+26 41 V
+25 0 V
+25 0 V
+26 0 V
+25 0 V
+25 82 V
+26 -82 V
+25 -41 V
+25 0 V
+26 0 V
+25 -42 V
+25 0 V
+25 0 V
+26 0 V
+25 -41 V
+25 -41 V
+26 41 V
+25 41 V
+25 -82 V
+26 41 V
+25 -41 V
+25 -41 V
+25 82 V
+26 0 V
+25 -41 V
+25 -41 V
+26 -42 V
+25 42 V
+25 41 V
+stroke 34639 2599 M
+26 0 V
+25 41 V
+25 0 V
+26 0 V
+25 -82 V
+25 123 V
+25 -82 V
+26 82 V
+25 0 V
+25 83 V
+26 41 V
+1893 7961 CircleF
+1969 7920 CircleF
+1994 7673 CircleF
+2020 7673 CircleF
+2045 7508 CircleF
+2070 7384 CircleF
+2096 7178 CircleF
+2121 7260 CircleF
+2146 6765 CircleF
+2172 6930 CircleF
+2197 6600 CircleF
+2222 7136 CircleF
+2247 6765 CircleF
+2273 7054 CircleF
+2298 6930 CircleF
+2323 7136 CircleF
+2399 6724 CircleF
+2804 8085 CircleF
+2829 7178 CircleF
+2855 7343 CircleF
+2880 7095 CircleF
+2905 7178 CircleF
+2931 7178 CircleF
+2956 6930 CircleF
+2981 6683 CircleF
+3007 6559 CircleF
+3032 6600 CircleF
+3057 6889 CircleF
+3083 6724 CircleF
+3108 6394 CircleF
+3133 6806 CircleF
+3158 6518 CircleF
+3184 6971 CircleF
+3665 7219 CircleF
+3690 7631 CircleF
+3715 6971 CircleF
+3740 7219 CircleF
+3766 6806 CircleF
+3791 7095 CircleF
+3816 6559 CircleF
+3842 6559 CircleF
+3867 6518 CircleF
+3892 6476 CircleF
+3918 6270 CircleF
+3943 6806 CircleF
+3968 6311 CircleF
+3994 6353 CircleF
+4019 6353 CircleF
+4044 6641 CircleF
+4069 6188 CircleF
+4500 7384 CircleF
+4525 7260 CircleF
+4550 7384 CircleF
+4576 7301 CircleF
+4601 7054 CircleF
+4626 6311 CircleF
+4652 6683 CircleF
+4677 6559 CircleF
+4702 6476 CircleF
+4727 6641 CircleF
+4753 6394 CircleF
+4778 6270 CircleF
+4803 6353 CircleF
+4829 6105 CircleF
+4854 6188 CircleF
+4879 6064 CircleF
+4905 6064 CircleF
+4930 5981 CircleF
+4955 5940 CircleF
+4980 6188 CircleF
+5006 6270 CircleF
+5031 6105 CircleF
+5436 7054 CircleF
+5461 6641 CircleF
+5487 6476 CircleF
+5512 6848 CircleF
+5537 6765 CircleF
+5563 6559 CircleF
+5588 6518 CircleF
+5613 6394 CircleF
+5638 6023 CircleF
+5664 6311 CircleF
+5689 6353 CircleF
+5714 6023 CircleF
+5740 6105 CircleF
+5765 5858 CircleF
+5790 6023 CircleF
+5816 6023 CircleF
+5841 5734 CircleF
+5866 5981 CircleF
+5892 5940 CircleF
+5917 5693 CircleF
+5942 5734 CircleF
+6347 6930 CircleF
+6372 7301 CircleF
+6398 6930 CircleF
+6423 6806 CircleF
+6448 6435 CircleF
+6474 6600 CircleF
+6499 6353 CircleF
+6524 6353 CircleF
+6549 6353 CircleF
+6575 6023 CircleF
+6600 5775 CircleF
+6625 5858 CircleF
+6651 5940 CircleF
+6676 5693 CircleF
+6701 5858 CircleF
+6727 5693 CircleF
+6752 5569 CircleF
+6777 5981 CircleF
+6803 5569 CircleF
+6828 5610 CircleF
+6853 5651 CircleF
+6878 5775 CircleF
+6904 5858 CircleF
+6929 6394 CircleF
+7334 7095 CircleF
+7359 6971 CircleF
+7385 6270 CircleF
+7410 6476 CircleF
+7435 6188 CircleF
+7461 6188 CircleF
+7486 6064 CircleF
+7511 6023 CircleF
+7536 5816 CircleF
+7562 5775 CircleF
+7587 5610 CircleF
+7612 5651 CircleF
+7638 5569 CircleF
+7663 5693 CircleF
+7688 5363 CircleF
+7714 5569 CircleF
+7739 5651 CircleF
+7764 5404 CircleF
+7789 5610 CircleF
+7815 5651 CircleF
+7840 5569 CircleF
+7865 6229 CircleF
+7891 5775 CircleF
+8296 6765 CircleF
+8346 6518 CircleF
+8397 6064 CircleF
+8422 5940 CircleF
+8447 5858 CircleF
+8473 5734 CircleF
+8498 5569 CircleF
+8523 5858 CircleF
+8549 5569 CircleF
+8574 5445 CircleF
+8599 5239 CircleF
+8625 5486 CircleF
+8650 5239 CircleF
+8675 5486 CircleF
+8701 5404 CircleF
+8726 5321 CircleF
+8751 5321 CircleF
+8776 5445 CircleF
+8802 5404 CircleF
+8827 5445 CircleF
+8878 5569 CircleF
+8928 5693 CircleF
+9308 6105 CircleF
+9333 6559 CircleF
+9384 5981 CircleF
+9409 5610 CircleF
+9434 6105 CircleF
+9460 5734 CircleF
+9485 5528 CircleF
+9510 5486 CircleF
+9536 5610 CircleF
+9561 5363 CircleF
+9586 5280 CircleF
+9612 5074 CircleF
+9637 5280 CircleF
+9662 5198 CircleF
+9687 5280 CircleF
+9713 5239 CircleF
+9738 5115 CircleF
+9763 5198 CircleF
+9789 5115 CircleF
+9814 5156 CircleF
+9839 5280 CircleF
+9865 5033 CircleF
+9890 5363 CircleF
+9941 5280 CircleF
+9966 5074 CircleF
+10345 6394 CircleF
+10421 6188 CircleF
+10447 5651 CircleF
+10472 5569 CircleF
+10497 5445 CircleF
+10523 5404 CircleF
+10548 5404 CircleF
+10573 5198 CircleF
+10598 5198 CircleF
+10624 5239 CircleF
+10649 4991 CircleF
+10674 5115 CircleF
+10700 5033 CircleF
+10725 4826 CircleF
+10750 5033 CircleF
+10776 4950 CircleF
+10801 5074 CircleF
+10826 4785 CircleF
+10852 4991 CircleF
+10877 4785 CircleF
+10902 5074 CircleF
+10927 5115 CircleF
+10953 5115 CircleF
+11029 5239 CircleF
+11434 5899 CircleF
+11459 5528 CircleF
+11484 5528 CircleF
+11509 5528 CircleF
+11535 5445 CircleF
+11560 5239 CircleF
+11585 5321 CircleF
+11611 5074 CircleF
+11636 5239 CircleF
+11661 5115 CircleF
+11687 5115 CircleF
+11712 4950 CircleF
+11737 5074 CircleF
+11763 4785 CircleF
+11788 4950 CircleF
+11813 4785 CircleF
+11838 4785 CircleF
+11864 4785 CircleF
+11889 4785 CircleF
+11914 4868 CircleF
+11940 4661 CircleF
+11965 4744 CircleF
+11990 4826 CircleF
+12016 4785 CircleF
+12041 5074 CircleF
+12066 4909 CircleF
+12092 5074 CircleF
+12547 5899 CircleF
+12572 5198 CircleF
+12598 5528 CircleF
+12623 5198 CircleF
+12648 5198 CircleF
+12674 4991 CircleF
+12699 4991 CircleF
+12724 4991 CircleF
+12749 4868 CircleF
+12775 4744 CircleF
+12800 4826 CircleF
+12825 4744 CircleF
+12851 4744 CircleF
+12876 4538 CircleF
+12901 4661 CircleF
+12927 4620 CircleF
+12952 4703 CircleF
+12977 4538 CircleF
+13003 4703 CircleF
+13028 4414 CircleF
+13053 4744 CircleF
+13078 4826 CircleF
+13104 4826 CircleF
+13129 4909 CircleF
+13154 4703 CircleF
+13180 4785 CircleF
+13635 5734 CircleF
+13661 5321 CircleF
+13686 5198 CircleF
+13711 5156 CircleF
+13736 5363 CircleF
+13762 4950 CircleF
+13787 4868 CircleF
+13812 4744 CircleF
+13838 4991 CircleF
+13863 4785 CircleF
+13888 4620 CircleF
+13914 4703 CircleF
+13939 4496 CircleF
+13964 4661 CircleF
+13989 4703 CircleF
+14015 4455 CircleF
+14040 4373 CircleF
+14065 4538 CircleF
+14091 4496 CircleF
+14116 4414 CircleF
+14141 4538 CircleF
+14167 4538 CircleF
+14192 4579 CircleF
+14217 4579 CircleF
+14243 4661 CircleF
+14268 4579 CircleF
+14293 4579 CircleF
+14318 4538 CircleF
+14344 4538 CircleF
+14799 5115 CircleF
+14825 5033 CircleF
+14850 4868 CircleF
+14875 4868 CircleF
+14901 4868 CircleF
+14926 4868 CircleF
+14951 4661 CircleF
+14976 4826 CircleF
+15002 4579 CircleF
+15027 4579 CircleF
+15052 4620 CircleF
+15078 4579 CircleF
+15103 4331 CircleF
+15128 4620 CircleF
+15154 4414 CircleF
+15179 4414 CircleF
+15204 4249 CircleF
+15229 4290 CircleF
+15255 4373 CircleF
+15280 4373 CircleF
+15305 4414 CircleF
+15331 4373 CircleF
+15356 4249 CircleF
+15381 4125 CircleF
+15407 4538 CircleF
+15432 4331 CircleF
+15457 4414 CircleF
+15483 4249 CircleF
+15938 5198 CircleF
+15963 5321 CircleF
+15989 4785 CircleF
+16014 4785 CircleF
+16039 4826 CircleF
+16065 4579 CircleF
+16090 4785 CircleF
+16115 4455 CircleF
+16141 4579 CircleF
+16166 4538 CircleF
+16191 4414 CircleF
+16216 4414 CircleF
+16242 4331 CircleF
+16267 4331 CircleF
+16292 4290 CircleF
+16318 4373 CircleF
+16343 4290 CircleF
+16368 4249 CircleF
+16394 4249 CircleF
+16419 4208 CircleF
+16444 4166 CircleF
+16469 4084 CircleF
+16495 4290 CircleF
+16520 4208 CircleF
+16545 4208 CircleF
+16571 4249 CircleF
+16596 4125 CircleF
+16621 4166 CircleF
+16647 4455 CircleF
+16672 4579 CircleF
+16697 4455 CircleF
+16723 4414 CircleF
+17102 4744 CircleF
+17153 4785 CircleF
+17178 4950 CircleF
+17203 4785 CircleF
+17229 4620 CircleF
+17254 4579 CircleF
+17279 4538 CircleF
+17305 4414 CircleF
+17330 4331 CircleF
+17355 4414 CircleF
+17381 4208 CircleF
+17406 4125 CircleF
+17431 4208 CircleF
+17456 4166 CircleF
+17482 4208 CircleF
+17507 4249 CircleF
+17532 4166 CircleF
+17558 4043 CircleF
+17583 4084 CircleF
+17608 4001 CircleF
+17634 3960 CircleF
+17659 4125 CircleF
+17684 4043 CircleF
+17709 3960 CircleF
+17735 4125 CircleF
+17760 4084 CircleF
+17785 4166 CircleF
+17811 4249 CircleF
+17836 4331 CircleF
+17861 4373 CircleF
+17887 4208 CircleF
+18342 4414 CircleF
+18393 4744 CircleF
+18418 4950 CircleF
+18443 4414 CircleF
+18469 4331 CircleF
+18494 4331 CircleF
+18519 4290 CircleF
+18545 4125 CircleF
+18570 4249 CircleF
+18595 4166 CircleF
+18621 4125 CircleF
+18646 4043 CircleF
+18671 4084 CircleF
+18696 4001 CircleF
+18722 3960 CircleF
+18747 4166 CircleF
+18772 4001 CircleF
+18798 3836 CircleF
+18823 3919 CircleF
+18848 3960 CircleF
+18874 3919 CircleF
+18899 3960 CircleF
+18924 4084 CircleF
+18950 4001 CircleF
+18975 3960 CircleF
+19000 4084 CircleF
+19025 4084 CircleF
+19051 4166 CircleF
+19076 4166 CircleF
+19101 4043 CircleF
+19152 4043 CircleF
+19177 4290 CircleF
+19607 4703 CircleF
+19633 4496 CircleF
+19658 4620 CircleF
+19683 4166 CircleF
+19709 4166 CircleF
+19734 4125 CircleF
+19759 4166 CircleF
+19785 4125 CircleF
+19810 4125 CircleF
+19835 4001 CircleF
+19861 4001 CircleF
+19886 4001 CircleF
+19911 3836 CircleF
+19936 3919 CircleF
+19962 3919 CircleF
+19987 3878 CircleF
+20012 3836 CircleF
+20038 3960 CircleF
+20063 3671 CircleF
+20088 3795 CircleF
+20114 3878 CircleF
+20139 3836 CircleF
+20164 3878 CircleF
+20190 3713 CircleF
+20215 3795 CircleF
+20240 3960 CircleF
+20265 3960 CircleF
+20291 4125 CircleF
+20316 4043 CircleF
+20341 4208 CircleF
+20721 4950 CircleF
+20746 4455 CircleF
+20772 4331 CircleF
+20822 4373 CircleF
+20847 4001 CircleF
+20873 4043 CircleF
+20898 4084 CircleF
+20923 4043 CircleF
+20949 4001 CircleF
+20974 4043 CircleF
+20999 3878 CircleF
+21025 3836 CircleF
+21050 3878 CircleF
+21075 3836 CircleF
+21101 3795 CircleF
+21126 3713 CircleF
+21151 3713 CircleF
+21176 3795 CircleF
+21202 3795 CircleF
+21227 3630 CircleF
+21252 3754 CircleF
+21278 3713 CircleF
+21303 3671 CircleF
+21328 3754 CircleF
+21354 3713 CircleF
+21379 3630 CircleF
+21404 3671 CircleF
+21430 3795 CircleF
+21455 3795 CircleF
+21480 3795 CircleF
+21505 3878 CircleF
+21531 3960 CircleF
+21556 4084 CircleF
+21581 4001 CircleF
+21607 4249 CircleF
+21632 4290 CircleF
+21910 4043 CircleF
+21936 4620 CircleF
+21961 4290 CircleF
+21986 4084 CircleF
+22012 4166 CircleF
+22037 3713 CircleF
+22062 4043 CircleF
+22087 4043 CircleF
+22113 3713 CircleF
+22138 3754 CircleF
+22163 3878 CircleF
+22189 3754 CircleF
+22214 3795 CircleF
+22239 3754 CircleF
+22265 3671 CircleF
+22290 3671 CircleF
+22315 3630 CircleF
+22341 3713 CircleF
+22366 3713 CircleF
+22391 3630 CircleF
+22416 3630 CircleF
+22442 3713 CircleF
+22467 3671 CircleF
+22492 3713 CircleF
+22518 3671 CircleF
+22543 3589 CircleF
+22568 3671 CircleF
+22594 3713 CircleF
+22619 3836 CircleF
+22644 3878 CircleF
+22670 3630 CircleF
+22695 3589 CircleF
+22720 3671 CircleF
+22745 3919 CircleF
+22771 4249 CircleF
+23024 4249 CircleF
+23049 4208 CircleF
+23100 4455 CircleF
+23125 3919 CircleF
+23150 4001 CircleF
+23176 4001 CircleF
+23201 3548 CircleF
+23226 3713 CircleF
+23252 3795 CircleF
+23277 3713 CircleF
+23302 3713 CircleF
+23327 3671 CircleF
+23353 3671 CircleF
+23378 3548 CircleF
+23403 3630 CircleF
+23429 3506 CircleF
+23454 3589 CircleF
+23479 3465 CircleF
+23505 3548 CircleF
+23530 3465 CircleF
+23555 3548 CircleF
+23581 3506 CircleF
+23606 3548 CircleF
+23631 3506 CircleF
+23656 3548 CircleF
+23682 3506 CircleF
+23707 3589 CircleF
+23732 3548 CircleF
+23758 3630 CircleF
+23783 3589 CircleF
+23808 3506 CircleF
+23834 3630 CircleF
+23859 3754 CircleF
+23884 3836 CircleF
+23910 3960 CircleF
+23935 3795 CircleF
+23960 3836 CircleF
+24163 4084 CircleF
+24188 3713 CircleF
+24213 3754 CircleF
+24238 3878 CircleF
+24264 3878 CircleF
+24289 3754 CircleF
+24314 3630 CircleF
+24340 3589 CircleF
+24365 3671 CircleF
+24390 3671 CircleF
+24416 3671 CircleF
+24441 3589 CircleF
+24466 3465 CircleF
+24492 3548 CircleF
+24517 3506 CircleF
+24542 3341 CircleF
+24567 3465 CircleF
+24593 3424 CircleF
+24618 3506 CircleF
+24643 3465 CircleF
+24669 3424 CircleF
+24694 3465 CircleF
+24719 3341 CircleF
+24745 3424 CircleF
+24770 3424 CircleF
+24795 3424 CircleF
+24821 3383 CircleF
+24846 3424 CircleF
+24871 3506 CircleF
+24896 3383 CircleF
+24922 3589 CircleF
+24947 3465 CircleF
+24972 3589 CircleF
+24998 3506 CircleF
+25023 3713 CircleF
+25048 3589 CircleF
+25074 3630 CircleF
+25099 3754 CircleF
+25200 3589 CircleF
+25276 3919 CircleF
+25301 3836 CircleF
+25327 3795 CircleF
+25352 3506 CircleF
+25377 3630 CircleF
+25403 3671 CircleF
+25428 3630 CircleF
+25453 3465 CircleF
+25478 3424 CircleF
+25504 3424 CircleF
+25529 3383 CircleF
+25554 3341 CircleF
+25580 3424 CircleF
+25605 3300 CircleF
+25630 3341 CircleF
+25656 3300 CircleF
+25681 3341 CircleF
+25706 3259 CircleF
+25732 3300 CircleF
+25757 3300 CircleF
+25782 3218 CircleF
+25807 3341 CircleF
+25833 3300 CircleF
+25858 3259 CircleF
+25883 3218 CircleF
+25909 3383 CircleF
+25934 3341 CircleF
+25959 3341 CircleF
+25985 3383 CircleF
+26010 3383 CircleF
+26035 3300 CircleF
+26061 3506 CircleF
+26086 3589 CircleF
+26111 3548 CircleF
+26136 3630 CircleF
+26162 3836 CircleF
+26187 3713 CircleF
+26263 3589 CircleF
+26339 3589 CircleF
+26364 3630 CircleF
+26390 3465 CircleF
+26415 3465 CircleF
+26440 3300 CircleF
+26465 3341 CircleF
+26491 3548 CircleF
+26516 3465 CircleF
+26541 3424 CircleF
+26567 3383 CircleF
+26592 3424 CircleF
+26617 3341 CircleF
+26643 3259 CircleF
+26668 3218 CircleF
+26693 3300 CircleF
+26718 3259 CircleF
+26744 3259 CircleF
+26769 3300 CircleF
+26794 3259 CircleF
+26820 3218 CircleF
+26845 3218 CircleF
+26870 3176 CircleF
+26896 3259 CircleF
+26921 3259 CircleF
+26946 3135 CircleF
+26972 3176 CircleF
+26997 3259 CircleF
+27022 3259 CircleF
+27047 3259 CircleF
+27073 3218 CircleF
+27098 3259 CircleF
+27123 3259 CircleF
+27149 3300 CircleF
+27174 3341 CircleF
+27199 3383 CircleF
+27225 3259 CircleF
+27250 3465 CircleF
+27275 3506 CircleF
+27376 3795 CircleF
+27402 3754 CircleF
+27427 3424 CircleF
+27452 3300 CircleF
+27478 3506 CircleF
+27503 3424 CircleF
+27528 3383 CircleF
+27554 3218 CircleF
+27579 3259 CircleF
+27604 3259 CircleF
+27630 3218 CircleF
+27655 3300 CircleF
+27680 3259 CircleF
+27705 3135 CircleF
+27731 3176 CircleF
+27756 3218 CircleF
+27781 3135 CircleF
+27807 3218 CircleF
+27832 3176 CircleF
+27857 3094 CircleF
+27883 3094 CircleF
+27908 3135 CircleF
+27933 3176 CircleF
+27958 3135 CircleF
+27984 3176 CircleF
+28009 3176 CircleF
+28034 3135 CircleF
+28060 3176 CircleF
+28085 3176 CircleF
+28110 3218 CircleF
+28136 3176 CircleF
+28161 3176 CircleF
+28186 3218 CircleF
+28212 3259 CircleF
+28237 3341 CircleF
+28262 3300 CircleF
+28287 3424 CircleF
+28313 3341 CircleF
+28338 3548 CircleF
+28389 3341 CircleF
+28414 3135 CircleF
+28439 3506 CircleF
+28465 3300 CircleF
+28490 3300 CircleF
+28515 3259 CircleF
+28541 3259 CircleF
+28566 3259 CircleF
+28591 3218 CircleF
+28616 3135 CircleF
+28642 3135 CircleF
+28667 3053 CircleF
+28692 3094 CircleF
+28718 3053 CircleF
+28743 3094 CircleF
+28768 3053 CircleF
+28794 3135 CircleF
+28819 3053 CircleF
+28844 3094 CircleF
+28870 3011 CircleF
+28895 3011 CircleF
+28920 3053 CircleF
+28945 3053 CircleF
+28971 3053 CircleF
+28996 2970 CircleF
+29021 3094 CircleF
+29047 3011 CircleF
+29072 3053 CircleF
+29097 3094 CircleF
+29123 3053 CircleF
+29148 3135 CircleF
+29173 3135 CircleF
+29198 3135 CircleF
+29224 3053 CircleF
+29249 3094 CircleF
+29274 3176 CircleF
+29300 3218 CircleF
+29325 3383 CircleF
+29350 3341 CircleF
+29376 3424 CircleF
+29401 3259 CircleF
+29426 3300 CircleF
+29452 3176 CircleF
+29477 3218 CircleF
+29502 3176 CircleF
+29527 3135 CircleF
+29553 3094 CircleF
+29578 3135 CircleF
+29603 3135 CircleF
+29629 3094 CircleF
+29654 3053 CircleF
+29679 2970 CircleF
+29705 3011 CircleF
+29730 3053 CircleF
+29755 3011 CircleF
+29781 3053 CircleF
+29806 3053 CircleF
+29831 2970 CircleF
+29856 2970 CircleF
+29882 2846 CircleF
+29907 2929 CircleF
+29932 2970 CircleF
+29958 2929 CircleF
+29983 2970 CircleF
+30008 2888 CircleF
+30034 2970 CircleF
+30059 2929 CircleF
+30084 3011 CircleF
+30110 3011 CircleF
+30135 3011 CircleF
+30160 3053 CircleF
+30185 3011 CircleF
+30211 3053 CircleF
+30236 3135 CircleF
+30261 3135 CircleF
+30287 3094 CircleF
+30312 3094 CircleF
+30337 3259 CircleF
+30363 3465 CircleF
+30388 3135 CircleF
+30413 3053 CircleF
+30439 3176 CircleF
+30464 3176 CircleF
+30489 3053 CircleF
+30514 3011 CircleF
+30540 3094 CircleF
+30565 2970 CircleF
+30590 2929 CircleF
+30616 3053 CircleF
+30641 2970 CircleF
+30666 2929 CircleF
+30692 2970 CircleF
+30717 2970 CircleF
+30742 2929 CircleF
+30767 2888 CircleF
+30793 2929 CircleF
+30818 2929 CircleF
+30843 2929 CircleF
+30869 2929 CircleF
+30894 2846 CircleF
+30919 2929 CircleF
+30945 2888 CircleF
+30970 2846 CircleF
+30995 2764 CircleF
+31021 2888 CircleF
+31046 2846 CircleF
+31071 2888 CircleF
+31096 2929 CircleF
+31122 2888 CircleF
+31147 2929 CircleF
+31172 2970 CircleF
+31198 2929 CircleF
+31223 2970 CircleF
+31248 3053 CircleF
+31274 3094 CircleF
+31299 3176 CircleF
+31324 3259 CircleF
+31350 2970 CircleF
+31375 3094 CircleF
+31400 3053 CircleF
+31425 3011 CircleF
+31451 3053 CircleF
+31476 3053 CircleF
+31501 2888 CircleF
+31527 2929 CircleF
+31552 2929 CircleF
+31577 2929 CircleF
+31603 2846 CircleF
+31628 2888 CircleF
+31653 2929 CircleF
+31679 2805 CircleF
+31704 2805 CircleF
+31729 2846 CircleF
+31754 2723 CircleF
+31780 2805 CircleF
+31805 2764 CircleF
+31830 2805 CircleF
+31856 2846 CircleF
+31881 2805 CircleF
+31906 2846 CircleF
+31932 2805 CircleF
+31957 2764 CircleF
+31982 2805 CircleF
+32007 2846 CircleF
+32033 2846 CircleF
+32058 2888 CircleF
+32083 2888 CircleF
+32109 2888 CircleF
+32134 2888 CircleF
+32159 2846 CircleF
+32185 2970 CircleF
+32210 2888 CircleF
+32235 3053 CircleF
+32261 2970 CircleF
+32286 2929 CircleF
+32311 2888 CircleF
+32336 2970 CircleF
+32362 2929 CircleF
+32387 2846 CircleF
+32412 2723 CircleF
+32438 2805 CircleF
+32463 2846 CircleF
+32488 2846 CircleF
+32514 2764 CircleF
+32539 2723 CircleF
+32564 2723 CircleF
+32590 2764 CircleF
+32615 2764 CircleF
+32640 2764 CircleF
+32665 2723 CircleF
+32691 2723 CircleF
+32716 2764 CircleF
+32741 2723 CircleF
+32767 2805 CircleF
+32792 2723 CircleF
+32817 2805 CircleF
+32843 2764 CircleF
+32868 2723 CircleF
+32893 2764 CircleF
+32919 2764 CircleF
+32944 2723 CircleF
+32969 2764 CircleF
+32994 2805 CircleF
+33020 2764 CircleF
+33045 2805 CircleF
+33070 2846 CircleF
+33096 2929 CircleF
+33121 2888 CircleF
+33146 2846 CircleF
+33172 2929 CircleF
+33197 2846 CircleF
+33222 2846 CircleF
+33247 2805 CircleF
+33273 2764 CircleF
+33298 2805 CircleF
+33323 2723 CircleF
+33349 2764 CircleF
+33374 2764 CircleF
+33399 2723 CircleF
+33425 2764 CircleF
+33450 2681 CircleF
+33475 2723 CircleF
+33501 2681 CircleF
+33526 2681 CircleF
+33551 2640 CircleF
+33576 2681 CircleF
+33602 2681 CircleF
+33627 2640 CircleF
+33652 2640 CircleF
+33678 2681 CircleF
+33703 2681 CircleF
+33728 2723 CircleF
+33754 2681 CircleF
+33779 2723 CircleF
+33804 2681 CircleF
+33830 2681 CircleF
+33855 2681 CircleF
+33880 2681 CircleF
+33905 2723 CircleF
+33931 2764 CircleF
+33956 2764 CircleF
+33981 2764 CircleF
+34007 2764 CircleF
+34032 2764 CircleF
+34057 2846 CircleF
+34083 2764 CircleF
+34108 2723 CircleF
+34133 2723 CircleF
+34159 2723 CircleF
+34184 2681 CircleF
+34209 2681 CircleF
+34234 2681 CircleF
+34260 2681 CircleF
+34285 2640 CircleF
+34310 2599 CircleF
+34336 2640 CircleF
+34361 2681 CircleF
+34386 2599 CircleF
+34412 2640 CircleF
+34437 2599 CircleF
+34462 2558 CircleF
+34487 2640 CircleF
+34513 2640 CircleF
+34538 2599 CircleF
+34563 2558 CircleF
+34589 2516 CircleF
+34614 2558 CircleF
+34639 2599 CircleF
+34665 2599 CircleF
+34690 2640 CircleF
+34715 2640 CircleF
+34741 2640 CircleF
+34766 2558 CircleF
+34791 2681 CircleF
+34816 2599 CircleF
+34842 2681 CircleF
+34867 2681 CircleF
+34892 2764 CircleF
+34918 2805 CircleF
+1.500 UP
+4.000 UL
+LTb
+LCb setrgbcolor
+[] 0 setdash
+0.58 0.00 0.83 C LCb setrgbcolor
+1.500 UP
+4.000 UL
+LTb
+0.58 0.00 0.83 C 34418 8421 M
+327 0 V
+34581 8421 CircleF
+1.500 UP
+4.000 UL
+LTb
+LCb setrgbcolor
+[] 0 setdash
+0.00 0.62 0.45 C LCb setrgbcolor
+1.500 UP
+4.000 UL
+LTb
+0.00 0.62 0.45 C 34418 8311 M
+327 0 V
+34581 8311 CircleF
+2.000 UL
+LTb
+LCb setrgbcolor
+[] 0 setdash
+1.000 UL
+LTb
+1716 8539 N
+0 -7219 V
+33227 0 V
+0 7219 V
+-33227 0 V
+Z stroke
+1.000 UP
+1.000 UL
+LTb
+stroke
+grestore
+end
+showpage
+%%Trailer

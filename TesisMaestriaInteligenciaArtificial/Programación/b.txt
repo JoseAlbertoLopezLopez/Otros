@@ -1,0 +1,551 @@
+j6@J6:~/Desktop/Función evaluación$ g++ aprendizajePorRefuerzo_3.cpp -std=c++11
+j6@J6:~/Desktop/Función evaluación$ ./a.out
+0 0 0 0 0 0 
+0 1 1 1 1 0 
+0 2 1 2 1 0 
+0 2 1 1 1 0 
+0 2 1 1 1 0 
+0 0 0 0 0 0 
+
+Puntaje = 49
+
+8e-06
+1.7e-05
+2.6e-05
+3.8e-05
+4.6e-05
+5.5e-05
+6.8e-05
+12,4
+0 0 0 0 0 0 
+0 1 1 1 1 0 
+0 1 2 1 2 0 
+0 2 1 2 1 0 
+0 1 1 1 1 0 
+0 0 0 0 0 0 
+
+Puntaje = 74
+Intercambios = 7
+Num. aceptados = 7
+Num. rechazados = 473
+
+Min t aceptado = 8e-06
+Promedio t aceptado = 9.71429e-06
+Max t aceptado = 1.3e-05
+
+Min t rechazado = 4e-06
+Promedio t rechazado = 7.64059e-06
+Max t rechazado = 2.8e-05
+j6@J6:~/Desktop/Función evaluación$ g++ aprendizajePorRefuerzo_3.cpp -std=c++11
+j6@J6:~/Desktop/Función evaluación$ ./a.out
+0 0 0 0 0 0 0 
+0 1 1 1 1 1 0 
+0 1 1 1 1 1 0 
+0 1 2 1 1 1 0 
+0 1 1 2 2 2 0 
+0 1 1 1 1 1 0 
+0 0 0 0 0 0 0 
+
+Puntaje = 47
+
+7e-06
+1.3e-05
+1.9e-05
+2.8e-05
+3.8e-05
+4.6e-05
+5.6e-05
+6.6e-05
+21,4
+0 0 0 0 0 0 0 
+0 1 1 1 1 1 0 
+0 1 2 1 2 1 0 
+0 1 1 1 1 1 0 
+0 1 2 1 2 1 0 
+0 1 1 1 1 1 0 
+0 0 0 0 0 0 0 
+
+Puntaje = 88
+Intercambios = 8
+Num. aceptados = 8
+Num. rechazados = 1192
+
+Min t aceptado = 6e-06
+Promedio t aceptado = 8.25e-06
+Max t aceptado = 1e-05
+
+Min t rechazado = 3e-06
+Promedio t rechazado = 6.7198e-06
+Max t rechazado = 2.8e-05
+j6@J6:~/Desktop/Función evaluación$ g++ aprendizajePorRefuerzo_3.cpp -std=c++11
+j6@J6:~/Desktop/Función evaluación$ ./a.out
+0 0 0 0 0 0 0 0 
+0 2 1 1 1 2 1 0 
+0 1 1 1 1 2 1 0 
+0 1 1 1 2 1 1 0 
+0 1 1 2 1 1 2 0 
+0 1 2 1 1 1 1 0 
+0 1 1 1 1 2 2 0 
+0 0 0 0 0 0 0 0 
+
+Puntaje = 90
+
+1.6e-05
+2.5e-05
+3.4e-05
+4.3e-05
+5e-05
+5.8e-05
+6.8e-05
+7.6e-05
+8.5e-05
+9.4e-05
+0.000102
+0.000113
+0.000124
+0.000135
+0.000143
+27,9
+0 0 0 0 0 0 0 0 
+0 1 2 1 1 1 1 0 
+0 1 1 2 1 2 1 0 
+0 1 2 1 2 1 1 0 
+0 1 1 1 1 1 2 0 
+0 1 2 1 2 2 1 0 
+0 1 1 1 1 1 1 0 
+0 0 0 0 0 0 0 0 
+
+Puntaje = 148
+Intercambios = 15
+Num. aceptados = 15
+Num. rechazados = 3765
+
+Min t aceptado = 7e-06
+Promedio t aceptado = 9.53333e-06
+Max t aceptado = 1.6e-05
+
+Min t rechazado = 1e-06
+Promedio t rechazado = 5.0749e-06
+Max t rechazado = 5.8e-05
+j6@J6:~/Desktop/Función evaluación$ g++ aprendizajePorRefuerzo_3.cpp -std=c++11
+j6@J6:~/Desktop/Función evaluación$ ./a.out
+0 0 0 0 0 0 0 0 0 
+0 2 2 1 1 1 1 2 0 
+0 1 1 1 1 2 1 2 0 
+0 1 1 1 1 1 1 1 0 
+0 1 2 1 1 1 1 1 0 
+0 1 1 1 1 2 2 1 0 
+0 1 1 1 1 1 1 1 0 
+0 1 1 1 1 2 1 1 0 
+0 0 0 0 0 0 0 0 0 
+
+Puntaje = 65
+
+7e-06
+1.1e-05
+1.6e-05
+2e-05
+2.4e-05
+2.8e-05
+3.4e-05
+3.7e-05
+4.2e-05
+4.6e-05
+5.1e-05
+5.8e-05
+6.1e-05
+6.5e-05
+7e-05
+40,9
+0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 1 1 0 
+0 1 2 2 1 2 1 1 0 
+0 1 1 1 2 1 2 1 0 
+0 1 2 1 1 1 1 1 0 
+0 1 1 1 2 1 2 1 0 
+0 1 2 1 1 1 1 1 0 
+0 1 1 1 1 1 1 1 0 
+0 0 0 0 0 0 0 0 0 
+
+Puntaje = 134
+Intercambios = 15
+Num. aceptados = 15
+Num. rechazados = 4689
+
+Min t aceptado = 3e-06
+Promedio t aceptado = 4.66667e-06
+Max t aceptado = 7e-06
+
+Min t rechazado = 1e-06
+Promedio t rechazado = 2.60461e-06
+Max t rechazado = 3.7e-05
+j6@J6:~/Desktop/Función evaluación$ g++ aprendizajePorRefuerzo_3.cpp -std=c++11
+j6@J6:~/Desktop/Función evaluación$ g++ aprendizajePorRefuerzo_3.cpp -std=c++11
+j6@J6:~/Desktop/Función evaluación$ ./a.out
+0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 2 2 1 0 
+0 1 1 2 1 1 1 1 1 0 
+0 1 1 1 1 1 1 1 1 0 
+0 1 2 1 1 1 2 1 1 0 
+0 2 1 2 1 2 1 1 1 0 
+0 1 1 1 1 2 1 1 1 0 
+0 2 1 1 2 2 1 2 2 0 
+0 1 1 1 2 1 1 2 1 0 
+0 0 0 0 0 0 0 0 0 0 
+
+Puntaje = 135
+
+1.1e-05
+2e-05
+3.2e-05
+4.3e-05
+5.4e-05
+6.3e-05
+7.3e-05
+8.5e-05
+9.4e-05
+0.000103
+0.000117
+0.00013
+0.000142
+0.000154
+0.000164
+0.000177
+0.000189
+0.000201
+0.000213
+0.000225
+0.000235
+0.000246
+0.000257
+0.000264
+0.000269
+0.000274
+0.000278
+0.000283
+0.000285
+0.000287
+48,16
+0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 1 1 1 0 
+0 1 2 2 1 2 1 2 1 0 
+0 1 1 1 2 1 1 2 1 0 
+0 1 2 1 1 1 2 1 1 0 
+0 1 1 2 1 2 1 2 1 0 
+0 1 2 1 1 1 1 1 1 0 
+0 2 1 2 1 2 1 2 1 0 
+0 1 1 1 1 1 1 1 1 0 
+0 0 0 0 0 0 0 0 0 0 
+
+Puntaje = 249
+Intercambios = 30
+Num. aceptados = 30
+Num. rechazados = 12066
+
+Min t aceptado = 2e-06
+Promedio t aceptado = 9.56667e-06
+Max t aceptado = 1.4e-05
+
+Min t rechazado = 0
+Promedio t rechazado = 3.08768e-06
+Max t rechazado = 6.1e-05
+j6@J6:~/Desktop/Función evaluación$ g++ aprendizajePorRefuerzo_3.cpp -std=c++11
+j6@J6:~/Desktop/Función evaluación$ ./a.out
+0 0 0 0 0 0 0 0 0 0 0 
+0 1 2 1 1 1 1 1 1 1 0 
+0 1 1 2 2 1 1 1 1 1 0 
+0 1 1 1 2 1 1 2 1 1 0 
+0 2 1 2 1 1 1 1 1 1 0 
+0 2 2 1 1 1 1 1 1 1 0 
+0 1 1 1 1 1 2 1 1 1 0 
+0 1 1 1 1 1 1 1 1 2 0 
+0 1 2 2 2 1 1 1 1 1 0 
+0 1 1 1 2 1 2 1 1 1 0 
+0 0 0 0 0 0 0 0 0 0 0 
+
+Puntaje = 108
+
+7e-06
+1.5e-05
+2.3e-05
+3.2e-05
+4.1e-05
+4.8e-05
+5.6e-05
+6.3e-05
+6.9e-05
+7.6e-05
+8.3e-05
+8.9e-05
+9.6e-05
+0.000103
+0.000109
+0.000115
+0.000122
+0.000128
+0.000137
+0.000145
+0.000156
+0.000164
+0.000174
+0.000179
+0.000186
+0.000195
+0.000202
+0.000209
+0.000212
+0.000216
+0.000219
+0.000222
+0.000227
+0.00023
+0.000233
+0.000235
+0.000238
+0.000241
+65,16
+0 0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 1 1 1 1 0 
+0 1 2 1 1 2 1 2 1 1 0 
+0 1 1 1 1 1 1 1 2 1 0 
+0 1 2 1 2 1 2 1 1 1 0 
+0 1 1 1 1 1 1 1 2 1 0 
+0 1 2 1 2 1 2 1 2 1 0 
+0 1 1 1 1 1 1 1 1 1 0 
+0 1 2 1 2 1 2 1 2 1 0 
+0 1 1 1 1 1 1 1 1 1 0 
+0 0 0 0 0 0 0 0 0 0 0 
+
+Puntaje = 242
+Intercambios = 38
+Num. aceptados = 38
+Num. rechazados = 12922
+
+Min t aceptado = 2e-06
+Promedio t aceptado = 6.34211e-06
+Max t aceptado = 1.1e-05
+
+Min t rechazado = 1e-06
+Promedio t rechazado = 2.58164e-06
+Max t rechazado = 3.9e-05
+j6@J6:~/Desktop/Función evaluación$ g++ aprendizajePorRefuerzo_3.cpp -std=c++11
+j6@J6:~/Desktop/Función evaluación$ ./a.out
+0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 2 1 1 1 1 1 1 0 
+0 1 1 1 1 1 2 1 1 1 1 0 
+0 1 1 2 1 2 2 2 1 1 1 0 
+0 1 2 1 2 1 2 1 1 1 2 0 
+0 1 1 2 1 1 2 1 1 1 2 0 
+0 2 1 1 1 2 2 1 1 1 2 0 
+0 1 2 1 1 1 1 1 2 1 2 0 
+0 1 1 1 1 1 2 1 2 1 1 0 
+0 1 1 2 2 2 1 1 1 1 1 0 
+0 1 1 1 1 1 1 1 1 1 1 0 
+0 0 0 0 0 0 0 0 0 0 0 0 
+
+Puntaje = 212
+
+9e-06
+1.9e-05
+2.7e-05
+3.6e-05
+4.8e-05
+6.1e-05
+6.9e-05
+7.7e-05
+9.1e-05
+9.8e-05
+0.000108
+0.000115
+0.000127
+0.000137
+0.000149
+0.000161
+0.000172
+0.000182
+0.000193
+0.000203
+0.000213
+0.00022
+0.000227
+0.000234
+0.000242
+0.000248
+0.000252
+0.000255
+0.000258
+0.00026
+0.000263
+0.000265
+0.000267
+0.000269
+0.000271
+0.000273
+75,25
+0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 1 1 1 1 1 0 
+0 1 2 1 2 1 2 2 1 2 1 0 
+0 1 1 1 1 1 1 1 2 1 1 0 
+0 1 2 1 2 1 2 1 1 2 1 0 
+0 1 1 2 1 2 1 1 2 1 1 0 
+0 1 2 1 1 1 2 1 1 2 1 0 
+0 1 1 1 2 1 1 1 2 1 1 0 
+0 1 2 1 1 1 2 1 1 2 1 0 
+0 1 1 2 1 2 1 2 1 2 1 0 
+0 1 1 1 1 1 1 1 1 1 1 0 
+0 0 0 0 0 0 0 0 0 0 0 0 
+
+Puntaje = 368
+Intercambios = 36
+Num. aceptados = 36
+Num. rechazados = 19764
+
+Min t aceptado = 2e-06
+Promedio t aceptado = 7.58333e-06
+Max t aceptado = 1.4e-05
+
+Min t rechazado = 0
+Promedio t rechazado = 2.17972e-06
+Max t rechazado = 5.3e-05
+j6@J6:~/Desktop/Función evaluación$ g++ aprendizajePorRefuerzo_3.cpp -std=c++11
+j6@J6:~/Desktop/Función evaluación$ ./a.out
+Error, más objetos que espacios disponibles.
+j6@J6:~/Desktop/Función evaluación$ g++ aprendizajePorRefuerzo_3.cpp -std=c++11
+j6@J6:~/Desktop/Función evaluación$ ./a.out
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 2 1 2 1 1 1 0 
+0 1 1 1 1 2 1 1 1 1 1 1 0 
+0 1 2 1 1 1 1 2 1 1 1 1 0 
+0 1 1 1 1 1 1 1 1 2 1 1 0 
+0 2 1 1 2 1 1 1 2 1 1 1 0 
+0 1 1 1 1 1 1 2 2 1 1 2 0 
+0 1 2 2 1 1 1 1 1 1 1 1 0 
+0 1 1 1 1 2 1 2 1 1 1 1 0 
+0 1 2 1 1 2 1 1 2 1 2 1 0 
+0 1 1 1 1 1 1 2 1 1 1 1 0 
+0 1 1 1 2 2 1 2 1 1 2 1 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+Puntaje = 202
+
+
+96,25
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 1 1 1 1 1 1 0 
+0 1 1 1 1 2 1 2 1 2 1 1 0 
+0 1 2 1 2 1 1 1 1 1 1 1 0 
+0 1 1 1 1 2 1 2 1 2 1 1 0 
+0 1 2 1 2 1 1 1 1 1 2 1 0 
+0 1 1 1 1 2 1 2 1 2 1 1 0 
+0 1 2 1 2 1 1 1 1 1 2 1 0 
+0 1 1 2 1 2 1 2 1 1 1 1 0 
+0 1 2 1 1 1 1 1 1 1 2 1 0 
+0 1 1 2 1 2 1 2 1 1 1 1 0 
+0 1 1 1 1 1 1 1 1 1 1 1 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+Puntaje = 320
+Intercambios = 36
+Num. aceptados = 36
+Num. rechazados = 43524
+
+Min t aceptado = 2e-06
+Promedio t aceptado = 7.25e-06
+Max t aceptado = 1.3e-05
+
+Min t rechazado = 0
+Promedio t rechazado = 1.84905e-06
+Max t rechazado = 8.5e-05
+j6@J6:~/Desktop/Función evaluación$ g++ aprendizajePorRefuerzo_3.cpp -std=c++11
+j6@J6:~/Desktop/Función evaluación$ ./a.out
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 0 1 2 1 2 0 0 
+0 1 2 1 1 0 1 2 2 2 0 2 0 
+0 1 2 2 2 2 2 1 2 2 2 1 0 
+0 1 1 2 2 2 2 2 2 1 2 1 0 
+0 2 1 1 1 2 1 1 0 2 2 0 0 
+0 1 1 0 0 1 2 2 2 0 0 0 0 
+0 1 2 1 0 1 2 1 2 1 0 0 0 
+0 0 1 2 0 1 1 0 1 1 1 0 0 
+0 0 1 2 0 2 1 2 2 2 0 1 0 
+0 2 1 2 2 0 2 1 0 1 0 2 0 
+0 2 0 1 0 2 1 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+Puntaje = 501
+
+
+45,45
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 2 1 2 0 1 2 1 2 2 2 2 0 
+0 2 0 2 1 0 1 0 1 0 0 1 0 
+0 2 1 2 0 1 2 1 0 2 1 2 0 
+0 2 0 2 1 0 1 0 1 2 0 1 0 
+0 1 0 1 0 1 0 1 0 2 0 1 0 
+0 2 1 2 1 2 1 2 1 2 1 2 0 
+0 1 0 1 0 1 0 1 0 1 0 1 0 
+0 2 1 2 2 2 2 0 1 0 1 2 0 
+0 2 0 2 1 0 1 2 2 2 2 1 0 
+0 2 1 2 0 1 0 1 0 1 0 2 0 
+0 2 0 2 1 2 1 2 1 2 1 2 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+Puntaje = 873
+Intercambios = 110
+Num. aceptados = 110
+Num. rechazados = 43450
+
+Min t aceptado = 1e-06
+Promedio t aceptado = 6.61818e-06
+Max t aceptado = 2.9e-05
+
+Min t rechazado = 0
+Promedio t rechazado = 1.87728e-06
+Max t rechazado = 7.1e-05
+j6@J6:~/Desktop/Función evaluación$ ./a.out
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 2 0 0 2 2 0 2 2 2 1 0 
+0 1 2 2 2 0 1 1 1 1 2 1 0 
+0 1 1 0 2 1 0 2 2 2 1 1 0 
+0 2 1 0 1 1 1 2 0 2 1 2 0 
+0 0 0 2 1 0 1 2 1 1 2 1 0 
+0 0 1 1 2 0 0 1 1 0 1 2 0 
+0 2 2 1 2 2 2 0 1 1 2 0 0 
+0 2 2 0 2 1 0 1 0 2 2 2 0 
+0 0 0 2 0 1 2 1 1 2 1 1 0 
+0 2 1 2 0 1 1 1 2 1 2 2 0 
+0 0 1 0 2 2 1 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+Puntaje = 550
+
+
+45,45
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 2 1 0 2 1 2 1 2 1 2 1 0 
+0 1 0 1 2 0 1 0 1 0 1 2 0 
+0 0 1 0 2 1 0 1 2 1 0 1 0 
+0 2 2 1 0 2 2 2 0 2 2 2 0 
+0 1 0 2 1 0 1 0 2 1 0 1 0 
+0 2 1 0 2 1 2 1 2 0 1 2 0 
+0 2 0 1 2 0 1 0 2 1 2 1 0 
+0 2 1 0 2 1 0 1 0 2 0 2 0 
+0 2 0 1 2 0 1 2 1 2 1 2 0 
+0 2 1 0 2 1 0 1 0 1 0 2 0 
+0 1 2 1 2 0 1 2 1 2 1 2 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+Puntaje = 863
+Intercambios = 107
+Num. aceptados = 107
+Num. rechazados = 28933
+
+Min t aceptado = 1e-06
+Promedio t aceptado = 8.42056e-06
+Max t aceptado = 1.5e-05
+
+Min t rechazado = 0
+Promedio t rechazado = 2.21322e-06
+Max t rechazado = 7.9e-05
+j6@J6:~/Desktop/Función evaluación$ 
+

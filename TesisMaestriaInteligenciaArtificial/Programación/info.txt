@@ -1,0 +1,503 @@
+13,000 23s
+45,000 3:06
+113,000 
+
+
+
+
+
+
+Permutaciones = 11440
+Filtradas (9,0) x 4 = 1465
+Escribiendo archivos... 1465
+Archivos escritos en 0s.
+
+Permutaciones = 102960
+Filtrando... 10000  t = 0.05min   15728
+Filtradas (8,1) x 4 = 12945
+Escribiendo archivos... 12945
+Archivos escritos en 0s.
+
+Permutaciones = 411840
+Filtrando... 10000  t = 0.05min   14592
+Filtrando... 20000  t = 0.1min   25378
+Filtrando... 30000  t = 0.2min   40100
+Filtrando... 40000  t = 0.383333min   63696
+Filtrando... 50000  t = 2.3min   203306
+Filtrando... 50000  t = 0min   203307
+Filtrando... 50000  t = 0min   203308
+Filtradas (7,2) x 3 = 51660
+Escribiendo archivos... 51660
+Archivos escritos en -1s.
+
+Permutaciones = 960960
+Filtrando... 10000  t = 0.05min   19286
+Filtrando... 20000  t = 0.116667min   30395
+Filtrando... 30000  t = 0.166667min   40639
+Filtrando... 40000  t = 0.25min   52144
+Filtrando... 50000  t = 0.316667min   63662
+Filtrando... 60000  t = 0.466667min   78122
+Filtrando... 70000  t = 0.6min   95414
+Filtrando... 80000  t = 0.7min   112731
+Filtrando... 90000  t = 1.1min   139088
+Filtrando... 100000  t = 2.71667min   209000
+Filtrando... 110000  t = 3.61667min   293842
+Filtrando... 110000  t = 0min   293843
+Filtrando... 110000  t = 0min   293844
+Filtrando... 110000  t = 0min   293845
+Filtrando... 110000  t = 0min   293846
+Filtrando... 120000  t = 10.8min   545718
+Filtrando... 120000  t = 0min   545719
+Filtradas (6,3) x 6 = 120380
+Escribiendo archivos... 120380
+Archivos escritos en -2s.
+
+Permutaciones = 1441440
+Filtrando... 10000  t = 0.0333333min   13276
+Filtrando... 20000  t = 0.166667min   34461
+Filtrando... 30000  t = 0.166667min   45168
+Filtrando... 40000  t = 0.233333min   55383
+Filtrando... 50000  t = 0.316667min   66507
+Filtrando... 60000  t = 0.4min   78101
+Filtrando... 70000  t = 0.45min   88854
+Filtrando... 80000  t = 0.633333min   103570
+Filtrando... 90000  t = 0.683333min   116519
+Filtrando... 100000  t = 0.866667min   133490
+Filtrando... 110000  t = 0.933333min   149026
+Filtrando... 120000  t = 1.28333min   171553
+Filtrando... 130000  t = 1.53333min   195128
+Filtrando... 130000  t = 0min   195129
+Filtrando... 130000  t = 0min   195130
+Filtrando... 140000  t = 2min   226533
+Filtrando... 150000  t = 4.4min   301611
+Filtrando... 160000  t = 2.91667min   341274
+Filtrando... 160000  t = 0min   341275
+Filtrando... 160000  t = 0min   341276
+Filtrando... 160000  t = 0min   341277
+Filtrando... 160000  t = 0min   341278
+Filtrando... 160000  t = 0min   341279
+Filtrando... 160000  t = 0min   341280
+Filtrando... 170000  t = 18.7333min   670830
+Filtrando... 170000  t = 0min   670831
+Filtrando... 170000  t = 0min   670832
+Filtrando... 170000  t = 0min   670833
+Filtrando... 170000  t = 0min   670834
+Filtrando... 170000  t = 0min   670835
+Filtrando... 170000  t = 0min   670836
+Filtrando... 170000  t = 0min   670837
+Filtrando... 170000  t = 0min   670838
+Filtrando... 180000  t = 12.9333min   836475
+Filtrando... 180000  t = 0min   836476
+Filtrando... 180000  t = 0min   836477
+Filtrando... 180000  t = 0min   836478
+Filtrando... 180000  t = 0min   836479
+Filtrando... 180000  t = 0min   836480
+Filtrando... 180000  t = 0min   836481
+Filtrando... 180000  t = 0min   836482
+Filtrando... 180000  t = 0min   836483
+Filtrando... 180000  t = 0min   836484
+Filtrando... 180000  t = 0min   836485
+Filtrando... 180000  t = 0min   836486
+Filtrando... 180000  t = 0min   836487
+Filtrando... 180000  t = 0min   836488
+Filtrando... 180000  t = 0min   836489
+Filtrando... 180000  t = 0min   836490
+Filtrando... 180000  t = 0min   836491
+Filtrando... 180000  t = 0min   836492
+Filtrando... 180000  t = 0min   836493
+Filtrando... 180000  t = 0min   836494
+Filtrando... 180000  t = 0min   836495
+Filtrando... 180000  t = 0min   836496
+Filtrando... 180000  t = 0min   836497
+Filtrando... 180000  t = 0min   836498
+Filtrando... 180000  t = 0min   836499
+Filtrando... 180000  t = 0min   836500
+Filtrando... 180000  t = 0min   836501
+Filtrando... 180000  t = 0min   836502
+Filtrando... 180000  t = 0min   836503
+Filtrando... 180000  t = 0min   836504
+Filtrando... 180000  t = 0min   836505
+Filtrando... 180000  t = 0min   836506
+Filtrando... 180000  t = 0min   836507
+Filtrando... 180000  t = 0min   836508
+Filtrando... 180000  t = 0min   836509
+Filtrando... 180000  t = 0min   836510
+Filtrando... 180000  t = 0min   836511
+Filtrando... 180000  t = 0min   836512
+Filtrando... 180000  t = 0min   836513
+Filtrando... 180000  t = 0min   836514
+Filtrando... 180000  t = 0min   836515
+Filtrando... 180000  t = 0min   836516
+Filtrando... 180000  t = 0min   836517
+Filtrando... 180000  t = 0min   836518
+Filtrando... 180000  t = 0min   836519
+Filtrando... 180000  t = 0min   836520
+Filtrando... 180000  t = 0min   836521
+Filtrando... 180000  t = 0min   836522
+Filtrando... 180000  t = 0min   836523
+Filtrando... 180000  t = 0min   836524
+Filtrando... 180000  t = 0min   836525
+Filtradas (5,4) x 6 = 180510
+Escribiendo archivos... 180510
+Archivos escritos en -3s.
+
+Permutaciones = 8008
+Filtradas (10,0) x 4 = 1051
+Escribiendo archivos... 1051
+Archivos escritos en 0s.
+
+Permutaciones = 80080
+Filtrando... 10000  t = 0.133333min   42996
+Filtrando... 10000  t = 0min   42997
+Filtrando... 10000  t = 0min   42998
+Filtrando... 10000  t = 0min   42999
+Filtrando... 10000  t = 0min   43000
+Filtrando... 10000  t = 0min   43001
+Filtrando... 10000  t = 0min   43002
+Filtrando... 10000  t = 0min   43003
+Filtrando... 10000  t = 0min   43004
+Filtrando... 10000  t = 0min   43005
+Filtrando... 10000  t = 0min   43006
+Filtrando... 10000  t = 0min   43007
+Filtradas (9,1) x 4 = 10075
+Escribiendo archivos... 10075
+Archivos escritos en 0s.
+
+Permutaciones = 360360
+Filtrando... 10000  t = 0.0333333min   11748
+Filtrando... 20000  t = 0.133333min   25788
+Filtrando... 30000  t = 0.216667min   42437
+Filtrando... 40000  t = 1.15min   122954
+Filtradas (8,2) x 4 = 45315
+Escribiendo archivos... 45315
+Archivos escritos en -1s.
+
+Permutaciones = 1681680
+Filtrando... 10000  t = 0.05min   16995
+Filtrando... 20000  t = 0.1min   27332
+Filtrando... 30000  t = 0.166667min   37371
+Filtrando... 40000  t = 0.233333min   48160
+Filtrando... 50000  t = 0.3min   58272
+Filtrando... 60000  t = 0.4min   70095
+Filtrando... 70000  t = 0.483333min   81406
+Filtrando... 80000  t = 0.6min   95681
+Filtrando... 90000  t = 0.683333min   109506
+Filtrando... 100000  t = 0.716667min   121443
+Filtrando... 100000  t = 0min   121444
+Filtrando... 110000  t = 1min   139752
+Filtrando... 110000  t = 0min   139753
+Filtrando... 120000  t = 1.1min   156740
+Filtrando... 130000  t = 1.45min   179628
+Filtrando... 130000  t = 0min   179629
+Filtrando... 140000  t = 1.2min   195265
+Filtrando... 150000  t = 3.26667min   254501
+Filtrando... 160000  t = 2.08333min   282010
+Filtrando... 170000  t = 3.23333min   324513
+Filtrando... 180000  t = 7.53333min   438925
+Filtrando... 190000  t = 14.5833min   666622
+Filtrando... 200000  t = 4.71667min   711973
+Filtrando... 210000  t = 20.8167min   959905
+Filtrando... 210000  t = 0min   959906
+Filtrando... 210000  t = 0min   959907
+Filtrando... 210000  t = 0min   959908
+Filtrando... 210000  t = 0min   959909
+Filtrando... 210000  t = 0min   959910
+Filtrando... 210000  t = 0min   959911
+Filtrando... 210000  t = 0min   959912
+Filtrando... 210000  t = 0min   959913
+Filtrando... 210000  t = 0min   959914
+Filtrando... 210000  t = 0min   959915
+Filtrando... 210000  t = 0min   959916
+Filtrando... 210000  t = 0min   959917
+Filtrando... 210000  t = 0min   959918
+Filtrando... 210000  t = 0min   959919
+Filtrando... 210000  t = 0min   959920
+Filtrando... 210000  t = 0min   959921
+Filtrando... 210000  t = 0min   959922
+Filtrando... 210000  t = 0min   959923
+Filtrando... 210000  t = 0min   959924
+Filtrando... 210000  t = 0min   959925
+Filtrando... 210000  t = 0min   959926
+Filtrando... 210000  t = 0min   959927
+Filtrando... 210000  t = 0min   959928
+Filtrando... 210000  t = 0min   959929
+Filtrando... 210000  t = 0min   959930
+Filtrando... 210000  t = 0min   959931
+Filtrando... 210000  t = 0min   959932
+Filtrando... 210000  t = 0min   959933
+Filtrando... 210000  t = 0min   959934
+Filtrando... 210000  t = 0min   959935
+Filtrando... 210000  t = 0min   959936
+Filtrando... 210000  t = 0min   959937
+Filtrando... 210000  t = 0min   959938
+Filtrando... 210000  t = 0min   959939
+Filtrando... 210000  t = 0min   959940
+Filtrando... 210000  t = 0min   959941
+Filtrando... 210000  t = 0min   959942
+Filtrando... 210000  t = 0min   959943
+Filtrando... 210000  t = 0min   959944
+Filtrando... 210000  t = 0min   959945
+Filtrando... 210000  t = 0min   959946
+Filtrando... 210000  t = 0min   959947
+Filtrando... 210000  t = 0min   959948
+Filtrando... 210000  t = 0min   959949
+Filtrando... 210000  t = 0min   959950
+Filtrando... 210000  t = 0min   959951
+Filtradas (6,4) x 3 = 210770
+Escribiendo archivos... 210770
+Archivos escritos en -2s.
+
+Permutaciones = 2018016
+Filtrando... 10000  t = 0.05min   18340
+Filtrando... 20000  t = 0.1min   28684
+Filtrando... 30000  t = 0.166667min   38706
+Filtrando... 40000  t = 0.25min   49434
+Filtrando... 50000  t = 0.3min   59831
+Filtrando... 60000  t = 0.366667min   69987
+Filtrando... 70000  t = 0.483333min   81761
+Filtrando... 80000  t = 0.533333min   92759
+Filtrando... 90000  t = 0.65min   106034
+Filtrando... 100000  t = 0.75min   118996
+Filtrando... 110000  t = 0.866667min   133161
+Filtrando... 120000  t = 1min   149100
+Filtrando... 130000  t = 0.983333min   161717
+Filtrando... 140000  t = 1.36667min   180382
+Filtrando... 140000  t = 0min   180383
+Filtrando... 150000  t = 1.7min   203657
+Filtrando... 160000  t = 1.31667min   217970
+Filtrando... 170000  t = 1.96667min   242767
+Filtrando... 170000  t = 0min   242768
+Filtrando... 180000  t = 3.58333min   296410
+Filtrando... 190000  t = 2.58333min   324953
+Filtrando... 190000  t = 0min   324954
+Filtrando... 200000  t = 3.45min   362214
+Filtrando... 210000  t = 6.51667min   443041
+Filtrando... 210000  t = 0min   443042
+Filtrando... 210000  t = 0min   443043
+Filtrando... 220000  t = 10.25min   565895
+Filtrando... 220000  t = 0min   565896
+Filtrando... 220000  t = 0min   565897
+Filtrando... 230000  t = 19.5333min   813939
+Filtrando... 240000  t = 3.65min   842609
+Filtrando... 250000  t = 22.3min   1065087
+Filtrando... 250000  t = 0min   1065088
+Filtrando... 250000  t = 0min   1065089
+Filtrando... 250000  t = 0min   1065090
+Filtrando... 250000  t = 0min   1065091
+Filtrando... 250000  t = 0min   1065092
+Filtrando... 250000  t = 0min   1065093
+Filtradas (5,5) x 3 = 252642
+Escribiendo archivos... 252642
+Archivos escritos en -2s.
+
+Permutaciones = 4368
+Filtradas (11,0) x 4 = 567
+Escribiendo archivos... 567
+Archivos escritos en 0s.
+
+Permutaciones = 48048
+Filtradas (10,1) x 4 = 6057
+Escribiendo archivos... 6057
+Archivos escritos en 0s.
+
+Permutaciones = 240240
+Filtrando... 10000  t = 0.05min   11562
+Filtrando... 20000  t = 0.133333min   30411
+Filtrando... 30000  t = 0.85min   112071
+Filtrando... 30000  t = 0min   112072
+Filtrando... 30000  t = 0min   112073
+Filtrando... 30000  t = 0min   112074
+Filtrando... 30000  t = 0min   112075
+Filtrando... 30000  t = 0min   112076
+Filtrando... 30000  t = 0min   112077
+Filtrando... 30000  t = 0min   112078
+Filtrando... 30000  t = 0min   112079
+Filtrando... 30000  t = 0min   112080
+Filtrando... 30000  t = 0min   112081
+Filtrando... 30000  t = 0min   112082
+Filtrando... 30000  t = 0min   112083
+Filtrando... 30000  t = 0min   112084
+Filtrando... 30000  t = 0min   112085
+Filtrando... 30000  t = 0min   112086
+Filtrando... 30000  t = 0min   112087
+Filtrando... 30000  t = 0min   112088
+Filtrando... 30000  t = 0min   112089
+Filtrando... 30000  t = 0min   112090
+Filtrando... 30000  t = 0min   112091
+Filtrando... 30000  t = 0min   112092
+Filtrando... 30000  t = 0min   112093
+Filtrando... 30000  t = 0min   112094
+Filtrando... 30000  t = 0min   112095
+Filtradas (9,2) x 4 = 30165
+Escribiendo archivos... 30165
+Archivos escritos en -1s.
+
+Permutaciones = 720720
+Filtrando... 10000  t = 0.0333333min   11065
+Filtrando... 20000  t = 0.1min   21783
+Filtrando... 30000  t = 0.183333min   34222
+Filtrando... 40000  t = 0.266667min   47094
+Filtrando... 50000  t = 0.55min   74585
+Filtrando... 60000  t = 0.5min   90820
+Filtrando... 70000  t = 1.45min   145697
+Filtrando... 80000  t = 3.16667min   254007
+Filtrando... 90000  t = 5.11667min   397079
+Filtrando... 90000  t = 0min   397080
+Filtrando... 90000  t = 0min   397081
+Filtrando... 90000  t = 0min   397082
+Filtrando... 90000  t = 0min   397083
+Filtrando... 90000  t = 0min   397084
+Filtrando... 90000  t = 0min   397085
+Filtradas (8,3) x 4 = 90315
+Escribiendo archivos... 90315
+Archivos escritos en -1s.
+
+Permutaciones = 1820
+Filtradas (12,0) x 4 = 252
+Escribiendo archivos... 252
+Archivos escritos en 0s.
+
+Permutaciones = 21840
+Filtradas (11,1) x 4 = 2763
+Escribiendo archivos... 2763
+Archivos escritos en 0s.
+
+Permutaciones = 120120
+Filtrando... 10000  t = 0.05min   19960
+Filtradas (10,2) x 4 = 15171
+Escribiendo archivos... 15171
+Archivos escritos en 0s.
+
+Permutaciones = 400400
+Filtrando... 10000  t = 0.0333333min   10661
+Filtrando... 20000  t = 0.116667min   25478
+Filtrando... 30000  t = 0.333333min   52278
+Filtrando... 40000  t = 0.9min   111053
+Filtrando... 50000  t = 1.61667min   193250
+Filtrando... 50000  t = 0min   193251
+Filtrando... 50000  t = 0min   193252
+Filtrando... 50000  t = 0min   193253
+Filtrando... 50000  t = 0min   193254
+Filtrando... 50000  t = 0min   193255
+Filtrando... 50000  t = 0min   193256
+Filtrando... 50000  t = 0min   193257
+Filtrando... 50000  t = 0min   193258
+Filtrando... 50000  t = 0min   193259
+Filtrando... 50000  t = 0min   193260
+Filtrando... 50000  t = 0min   193261
+Filtrando... 50000  t = 0min   193262
+Filtrando... 50000  t = 0min   193263
+Filtrando... 50000  t = 0min   193264
+Filtrando... 50000  t = 0min   193265
+Filtrando... 50000  t = 0min   193266
+Filtrando... 50000  t = 0min   193267
+Filtrando... 50000  t = 0min   193268
+Filtrando... 50000  t = 0min   193269
+Filtrando... 50000  t = 0min   193270
+Filtrando... 50000  t = 0min   193271
+Filtrando... 50000  t = 0min   193272
+Filtrando... 50000  t = 0min   193273
+Filtrando... 50000  t = 0min   193274
+Filtrando... 50000  t = 0min   193275
+Filtrando... 50000  t = 0min   193276
+Filtrando... 50000  t = 0min   193277
+Filtrando... 50000  t = 0min   193278
+Filtrando... 50000  t = 0min   193279
+Filtrando... 50000  t = 0min   193280
+Filtrando... 50000  t = 0min   193281
+Filtrando... 50000  t = 0min   193282
+Filtrando... 50000  t = 0min   193283
+Filtrando... 50000  t = 0min   193284
+Filtrando... 50000  t = 0min   193285
+Filtrando... 50000  t = 0min   193286
+Filtrando... 50000  t = 0min   193287
+Filtrando... 50000  t = 0min   193288
+Filtrando... 50000  t = 0min   193289
+Filtrando... 50000  t = 0min   193290
+Filtradas (9,3) x 4 = 50215
+Escribiendo archivos... 50215
+Archivos escritos en -1s.
+
+Permutaciones = 900900
+Filtrando... 10000  t = 0.0333333min   10239
+Filtrando... 20000  t = 0.1min   21033
+Filtrando... 30000  t = 0.183333min   32318
+Filtrando... 40000  t = 0.25min   44605
+Filtrando... 50000  t = 0.383333min   62032
+Filtrando... 60000  t = 0.816667min   93071
+Filtrando... 70000  t = 0.683333min   112122
+Filtrando... 70000  t = 0min   112123
+Filtrando... 70000  t = 0min   112124
+Filtrando... 80000  t = 1.9min   173752
+Filtrando... 90000  t = 2.63333min   247542
+Filtrando... 90000  t = 0min   247543
+Filtrando... 100000  t = 1.56667min   284563
+Filtrando... 110000  t = 2.88333min   343228
+Filtrando... 110000  t = 0min   343229
+Filtrando... 110000  t = 0min   343230
+Filtrando... 110000  t = 0min   343231
+Filtrando... 110000  t = 0min   343232
+Filtrando... 110000  t = 0min   343233
+Filtradas (8,4) x 2 = 113028
+Escribiendo archivos... 113028
+Archivos escritos en -1s.
+
+Permutaciones = 560
+Filtradas (13,0) x 4 = 77
+Escribiendo archivos... 77
+Archivos escritos en 0s.
+
+Permutaciones = 7280
+Filtradas (12,1) x 4 = 929
+Escribiendo archivos... 929
+Archivos escritos en 0s.
+
+Permutaciones = 43680
+Filtradas (11,2) x 4 = 5514
+Escribiendo archivos... 5514
+Archivos escritos en 0s.
+
+Permutaciones = 160160
+Filtrando... 10000  t = 0.05min   15657
+Filtrando... 20000  t = 0.433333min   79137
+Filtradas (10,3) x 2 = 20122
+Escribiendo archivos... 20122
+Archivos escritos en 0s.
+
+Permutaciones = 120
+Filtradas (14,0) x 4 = 21
+Escribiendo archivos... 21
+Archivos escritos en 0s.
+
+Permutaciones = 1680
+Filtradas (13,1) x 4 = 219
+Escribiendo archivos... 219
+Archivos escritos en 0s.
+
+Permutaciones = 10920
+Filtradas (12,2) x 2 = 1413
+Escribiendo archivos... 1413
+Archivos escritos en 0s.
+
+Permutaciones = 16
+Filtradas (15,0) x 4 = 3
+Escribiendo archivos... 3
+Archivos escritos en 0s.
+
+Permutaciones = 240
+Filtradas (14,1) x 2 = 33
+Escribiendo archivos... 33
+Archivos escritos en 0s.
+
+Permutaciones = 1
+Filtradas (16,0) x 2 = 1
+Escribiendo archivos... 1
+Archivos escritos en 0s.
+
+Permutaciones = 12870
+Filtradas (8,8) x 1 = 1674
+Escribiendo archivos... 1674
+Archivos escritos en 0s.
+
+Filtradas totales = 4713900
+
