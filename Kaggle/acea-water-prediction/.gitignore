@@ -1,0 +1,13 @@
+*
+!*/
+!**/*.py
+!**/*.csv
+!**/*.ipynb
+!**/*.ods
+!**/*.tex
+!**/*.pdf
+!**/*.png
+!**/*.txt
+!**/.gitkeep
+!README.md
+!.gitignore
