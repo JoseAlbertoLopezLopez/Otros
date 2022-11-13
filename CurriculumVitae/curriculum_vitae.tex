@@ -2,362 +2,485 @@
 \usepackage[utf8]{inputenc}
 \usepackage[default]{raleway}
 
-%\usepackage{fontspec}
-\usepackage{fontawesome}
 
-\usepackage{amsmath}
-
-\usepackage[letterspace=200]{microtype}
-
-\usepackage{multicol}
-
-\usepackage{anyfontsize}
-
-\usepackage{float}
-
-\usepackage{supertabular}
-%\usepackage{longtable}
-%\usepackage{tabu}
-
-\usepackage{array}
-
-\usepackage[table]{xcolor}
-\newcounter{rowcount}
-\setcounter{rowcount}{0}
-
-\usepackage{tikz}
-\usetikzlibrary{fadings}
-
+% Configuraciones generales
 \usepackage{geometry}
-
 \geometry{
 	right=15mm,
 	left=15mm,
 	top=25mm,
 	bottom=20mm
 }
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
 
-\usepackage{titlesec}
-\titlespacing*{\section}{0cm}{0.8cm}{0.15cm}
-\titleformat*{\section}{\lsstyle \color[rgb]{0.2,0,0} \bf \fontsize{12}{12}\selectfont}
 
+% Fuentes
+\usepackage[letterspace=200]{microtype}
+\usepackage{fontawesome}
+%\usepackage{fontspec}
+
+
+% Varios
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage[table]{xcolor}
+\usepackage{anyfontsize}
+\usepackage{float}
+\usepackage{calc}
+\usepackage{xfp}
+\usepackage{xargs}
+
+
+% Pie de página para colocar fecha de compilación.
+\usepackage{fancyhdr}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+% Tablas
+\usepackage{array}
+\usepackage{supertabular}
 \usepackage{cellspace}
-%\cellspacetoplimit 30cm
-%\cellspacebottomlimit 30pt
-\setlength{\tabcolsep}{10pt}
+\setlength{\tabcolsep}{0pt}
+%\usepackage{longtable}
+%\usepackage{tabu}
+
+\newcounter{rowcount}
+\setcounter{rowcount}{0}
+
+
+% Gráficos
+\usepackage{tikz}
+\usepackage{pgfplots}
+\tikzset{
+    every picture/.style={%
+        execute at begin picture={%
+            \pgfsetbuttcap%
+            \pgfsetmiterjoin%
+            \pgfsetmiterlimit{10}%
+            \pgfsetdash{}{0pt}%
+        }
+    }
+}
+\usetikzlibrary{fadings}
 
 \definecolor{cafe}{rgb}{0.250980392,0,0}
 \definecolor{verde}{rgb}{0,0.5,0}
 \definecolor{azul}{rgb}{0,0,0.5}
 
+
+% Títulos y secciones
+\usepackage{titlesec}
+\titlespacing*{\section}{0cm}{0.8cm}{-1.8\baselineskip}
+\titleformat*{\section}{\lsstyle\color[rgb]{0.2,0,0}\bfseries\fontsize{12}{12}\selectfont}
+\newlength{\sectionRulevSkip}
+\setlength{\sectionRulevSkip}{2.5pt}
+
+
+% Columnas por página
 \setlength{\columnsep}{1cm}
 \columnseprule 1pt
 \def\columnseprulecolor{\color{gray!50}}
 
-\pagestyle{empty}
 
-
-\newcommand{\linea}[1]{
-	
-	\begin{tikzpicture}[remember picture, overlay] 
-
-	\draw[line width=1pt, color=cafe] (0,0.4) -- (0,-#1);
-
-	\end{tikzpicture}
-}
-
+% Hipervínculos
 \usepackage{hyperref}
 \hypersetup{
 	colorlinks=false,
 	hidelinks=true,
 }
 
-% Evitar espacios grandes entre títulos de secciones y párrafos.
-\setlength{\parskip}{0pt}
+\def\CIIAlocation{\href{https://maps.google.com/?cid=17992863989216810333}{\textcolor{red}{\faMapMarker}}}
+\def\MIApage{\color{cyan!65}\href{https://www.uv.mx/dia/}{\faUniversity}}
+\def\FFIApage{\color{cyan!65} \href{https://www.uv.mx/ffia/}{\faUniversity}}
+
+\def\TimeSeriesCourseURL{\href{https://ude.my/UC-51b1bb6c-b324-41d7-b11f-3826f7999574}{\Large\color{gray}\faShareSquareO}}
+\def\GitCourseURL{\href{https://ude.my/UC-c48e4dd1-59c9-4f2c-b199-c9d09a74f9e8}{\Large\color{gray}\faShareSquareO}}
+\def\SQLCourseURL{\href{https://ude.my/UC-6acc8434-7c34-40b5-ae1b-b813b2252e33}{\Large\color{gray}\faShareSquareO}}
+\def\BasicSQLCourseURL{\href{https://www.sololearn.com/Certificate/1060-849693/pdf/}{\Large\color{gray}\faShareSquareO}}
+\def\JavaCourseURL{\href{https://www.sololearn.com/Certificate/1068-849693/pdf/}{\Large\color{gray}\faShareSquareO}}
+\def\DockerAndKubernetesCourseURL{\href{https://ude.my/UC-93d1fe9f-91d7-4547-9f2a-2d924a7582f3}{\Large\color{gray}\faShareSquareO}}
+\def\MongoDBDataModelingCourseURL{\href{https://learn.mongodb.com/c/nsoZ-ybvTlyIW4GdYEmyDg}{\Large\color{gray}\faShareSquareO}}
+\def\MongoDBAggregationFrameworkCourseURL{\href{https://learn.mongodb.com/c/izxrxl1BTveMe2NkrtiEtw}{\Large\color{gray}\faShareSquareO}}
+\def\MongoDBPythonAPICourseURL{\href{https://learn.mongodb.com/c/1TWNDNs5RHKU1bY3O0K8GQ}{\Large\color{gray}\faShareSquareO}}
+\def\MongoDBPerformanceCourseURL{\href{https://learn.mongodb.com/c/OII3PHyCQuSof4KOy6ahVA}{\Large\color{gray}\faShareSquareO}}
+\def\MongoDBBasicClusterAdministrationCourseURL{\href{https://university.mongodb.com/course_completion/cd0248d4-64b2-4a81-9253-1766d7e3459f}{\Large\color{gray}\faShareSquareO}}
+\def\MongoDBBasicsCourseURL{\href{https://university.mongodb.com/course_completion/93f517c6-c0f7-4ecc-8871-5524c33f1a48}{\Large\color{gray}\faShareSquareO}}
+
 
 % Elementos con línea vertical y bullet.
 \newlength{\sepVertical}
-\setlength{\sepVertical}{21pt}
-\newcommand{\elementoInicio}[2]{\noindent\hfill\parbox[t]{\columnwidth}{\parbox[t]{0.12\columnwidth}{\raggedleft #1}\hfill{\color{cafe}\vrule width1pt height 10pt}\llap{\Large$\color{cafe}\bullet \hspace{-3.1pt}$}\hfill\parbox[t]{0.8\columnwidth}{#2}}%
+\setlength{\sepVertical}{26pt}
 
-\vspace{-1.1pt}
+\newlength{\compExpPreBulletWidth}
+\setlength{\compExpPreBulletWidth}{0.0\columnwidth}
+\newlength{\compExpTimeLineWidth}
+\setlength{\compExpTimeLineWidth}{0.2\columnwidth}
+\newlength{\compExpTimeLineSep}
+\setlength{\compExpTimeLineSep}{15.3pt}
+\newlength{\compExpParWidth}
+\setlength{\compExpParWidth}{0.61\columnwidth}
+
+\newcommandx{\elementoInicio}[2][1=, usedefault]{%
+	\noindent\hfill\parbox[t]{\columnwidth}{%
+		\parbox[t]{\compExpPreBulletWidth}{\raggedleft #1}%
+		{\hfill\LARGE$\color{cafe}\bullet$\hfill}%
+		{\hspace{-\compExpTimeLineSep}\color{cafe}\vrule width 1pt height 5pt\hspace{\compExpTimeLineSep}}%
+		\parbox[t]{\compExpParWidth}{#2}%
+	}%
+	\vspace{-1.1pt}%
 }
-\newcommand{\elementoMitad}[2]{\noindent\hfill\parbox[t]{\columnwidth}{\parbox[t]{0.12\columnwidth}{\raggedleft #1}\hfill{\color{cafe}\vrule width1pt height \sepVertical}\llap{\Large$\color{cafe}\bullet \hspace{-3.1pt}$}\hfill\parbox[t]{0.8\columnwidth}{#2}}%
-
-\vspace{-1.1pt}
+\newcommandx{\elementoMitad}[2][1=, usedefault]{%
+	\noindent\hfill\parbox[t]{\columnwidth}{%
+		\parbox[t]{\compExpPreBulletWidth}{\raggedleft #1}%
+		{\hfill\LARGE$\color{cafe}\bullet$\hfill}%
+		{\hspace{-\compExpTimeLineSep}\color{cafe}\vrule width 1pt height \sepVertical\hspace{\compExpTimeLineSep}}%
+		\parbox[t]{\compExpParWidth}{#2}%
+	}%
+	\vspace{-1.1pt}%
 }
-\newcommand{\elementoFin}[2]{\noindent\hfill\parbox[t]{\columnwidth}{\parbox[t]{0.12\columnwidth}{\raggedleft #1}\hfill{\color{cafe}\rule[-3pt]{1pt}{\sepVertical+3pt}}\llap{\Large$\color{cafe}\bullet \hspace{-3.1pt}$}\hfill\parbox[t]{0.8\columnwidth}{#2}}}
+\newcommandx{\elementoFin}[2][1=, usedefault]{%
+	\noindent\hfill\parbox[t]{\columnwidth}{%
+		\parbox[t]{\compExpPreBulletWidth}{\raggedleft #1}%
+		{\hfill\LARGE$\color{cafe}\bullet$\hfill}%
+		{\hspace{-\compExpTimeLineSep}\color{cafe}\vrule width 1pt height \sepVertical depth -2pt\hspace{\compExpTimeLineSep}}%
+		\parbox[t]{\compExpParWidth}{#2}%
+	}%
+}
+
+\newlength{\timeLineWidth}
+\setlength{\timeLineWidth}{1.5pt}
+\newlength{\timeLineSep}
+\setlength{\timeLineSep}{18.8pt}
+\newlength{\companyCircleWidth}
+\setlength{\companyCircleWidth}{1.5pt}
+\newlength{\companyCircleRadious}
+\setlength{\companyCircleRadious}{11.5pt}
+\newlength{\companyCircleShift}
+\setlength{\companyCircleShift}{-1.65\ht\strutbox}
+
+\newlength{\vruleHeight}
+\setlength{\vruleHeight}{-2\companyCircleRadious - \companyCircleShift}
+\newlength{\vruleDepth}
+\setlength{\vruleDepth}{-20pt -\companyCircleRadious - \companyCircleShift}
+\newlength{\experienceItemOverlap}
+\setlength{\experienceItemOverlap}{2.2pt}
+\newlength{\experienceItemSep}
+\setlength{\experienceItemSep}{0pt}
+\newlength{\companyLogoDefaultHeight}
+\setlength{\companyLogoDefaultHeight}{1.86\companyCircleRadious}
+
+\newcommandx{\firstElement}[5][1=default.png, 2=\companyLogoDefaultHeight, 3={(0,0)}, 4=\experienceItemSep, usedefault]{%
+	\noindent\parbox[t]{\columnwidth}{%
+		\hfill%
+		\begin{tikzpicture}[baseline={([yshift=\companyCircleShift]current bounding box.north)}]
+			\useasboundingbox (-\companyCircleRadious, -\companyCircleRadious) rectangle (\companyCircleRadious, \companyCircleRadious);
+			\draw[color=cafe, line width=\companyCircleWidth] (0, 0) circle (\companyCircleRadious);
+			\node[shift={#3}] {\includegraphics[height=#2]{img/#1}};
+		\end{tikzpicture}\hfill%
+		{\hspace{-\timeLineSep}\color{cafe}\vrule width \timeLineWidth height \vruleHeight \hspace{\timeLineSep}}%
+		\parbox[t]{0.85\columnwidth}{#5}%
+	}%
+	\vspace{#4 - \experienceItemOverlap}
+}
+
+\newcommandx{\middleElement}[5][1=default.png, 2=\companyLogoDefaultHeight, 3={(0,0)}, 4=\experienceItemSep, usedefault]{%
+	\noindent\parbox[t]{\columnwidth}{%
+		\hfill%
+		\begin{tikzpicture}[baseline={([yshift=\companyCircleShift]current bounding box.north)}]
+			\useasboundingbox (-\companyCircleRadious, -\companyCircleRadious) rectangle (\companyCircleRadious, \companyCircleRadious);
+			\draw[color=cafe, line width=1.5pt] (0, 0) circle (\companyCircleRadious);
+			\node[shift={#3}] {\includegraphics[height=#2]{img/#1}};
+		\end{tikzpicture}\hfill%
+		{\hspace{-\timeLineSep}\color{cafe}\vrule width \timeLineWidth height 20pt depth \vruleDepth \hspace{\timeLineSep}}%
+		{\hspace{-\timeLineSep - \timeLineWidth}\color{cafe}\vrule width \timeLineWidth height \vruleHeight \hspace{\timeLineSep}}%
+		\parbox[t]{0.85\columnwidth}{#5}%
+	}%
+	\vspace{#4 - \experienceItemOverlap}
+}
+
+\newcommandx{\lastElement}[5][1=default.png, 2=\companyLogoDefaultHeight, 3={(0,0)}, 4=\experienceItemSep, usedefault]{%
+	\noindent\parbox[t]{\columnwidth}{%
+		\hfill%
+		\begin{tikzpicture}[baseline={([yshift=\companyCircleShift]current bounding box.north)}]
+			\useasboundingbox (-\companyCircleRadious, -\companyCircleRadious) rectangle (\companyCircleRadious, \companyCircleRadious);
+			\draw[color=cafe, line width=1.5pt] (0, 0) circle (\companyCircleRadious);
+			\node[shift={#3}] {\includegraphics[height=#2]{img/#1}};
+		\end{tikzpicture}\hfill%
+		{\hspace{-\timeLineSep}\color{cafe}\vrule width \timeLineWidth height 20pt depth \vruleDepth \hspace{\timeLineSep}}%
+		\parbox[t]{0.85\columnwidth}{#5}%
+	}%
+}
 
 
+\renewcommand{\arraystretch}{1.56}
+\newlength\barheight
+\setlength{\barheight}{9.5pt}
+
+\def\stepFunction#1{%
+	\ifthenelse{\fpeval{#1 < 0} = 1}{0}{#1}%
+}
+
+\newlength{\totalBarLenght}%
+
+\newcommandx{\skillBar}[4][2=\linewidth, 3=15, 4=\barheight, usedefault]{%
+%
+\setlength{\totalBarLenght}{#2}%
+\def\shadingPercent{#3}%
+\def\firstSegmentLenght{\fpeval{(#1 - \shadingPercent / 2)/100}\totalBarLenght}%
+\def\shadingSegmentLenght{\fpeval{\shadingPercent / 100}\totalBarLenght}%
+\def\secondSegmentLenght{\fpeval{(100 - #1 - \shadingPercent / 2)/100}\totalBarLenght}%
+%
+\def\auxFill{0.2pt}%
+\def\firstPoint{\firstSegmentLenght}%
+\def\secondPoint{\firstSegmentLenght + \shadingSegmentLenght}%
+\def\thirdPoint{\firstSegmentLenght + \shadingSegmentLenght + \secondSegmentLenght}%
+%
+\begin{tikzpicture}%
+	% The +1pt and -1pt in the clip is a workaraund for a shade overheight in some PDF viewers.
+	\clip (0, 0 + 1pt) rectangle (\totalBarLenght, \barheight - 1pt);
+	\fill[color=brown!300] (0, 0) rectangle (\firstPoint + \auxFill, \barheight);
+	\shade[left color=brown!300, right color=gray!60] (\firstPoint, 0) rectangle (\secondPoint + \auxFill, \barheight);
+    \fill[gray!60] (\secondPoint, 0) rectangle (\thirdPoint, \barheight); 
+\end{tikzpicture}%
+}
+
+
+% Subrayado especial.
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+\newcommand{\fancyUnderline}[1]{%
+	\uline{\phantom{#1}}%
+	\llap{\contour{white}{#1}}%
+}
 
 
 \begin{document}
-
-
-
-
-\begin{tikzpicture}[remember picture, overlay] 
-
+%
+%
+%
+% Encabezado.
+\begin{tikzpicture}[remember picture, overlay]%
 	\useasboundingbox (0cm,0cm) rectangle (\paperwidth,5cm);
-
+	%
 	\node[anchor=north west, minimum width=\paperwidth, minimum height=5cm, fill=brown!340, inner sep=0pt, align=center] at (current page.north west) {
-		\\[40pt] \textcolor{white}{\fontsize{24}{24}\selectfont {\bf JOSÉ ALBERTO} LÓPEZ LÓPEZ} \\[10pt] 
+		\\[35pt] \textcolor{white}{\fontsize{24}{24}\selectfont \textbf{JOSÉ ALBERTO} LÓPEZ LÓPEZ} \\[10pt] 
 		\textcolor{white}{\large BACHELORS IN PHYSICS} \\[5pt] 
 		\textcolor{white}{\large MASTERS IN ARTIFICIAL INTELLIGENCE} \\[5pt] 
 		\textcolor{gray}{\href{mailto:JLL.6@hotmail.com}{\faEnvelope\ \ JLL.6@hotmail.com}}
 	};
-
 \end{tikzpicture}
-
-
-\vspace{2cm}
-
-
-%\begin{multicols}{1}
-
-%\begin{table}[H]
-%\begin{tabular}{b{0.25\textwidth} b{0.75\textwidth}}
-
-%\includegraphics[scale=0.2]{J} & 
-
-\section*{ABOUT ME \vskip 3pt \hrule width0.6\textwidth} 
-	
-	I belive that physics and AI are two careers which complement each other very well and both are powerful tools for solving a great number of problems. I consider myself a dedicated, responsable, and very capable person, with the ability to quickly learn new things. I like to play sports and I have great passion for music.
-	
-\vspace{0.35cm}
-
-%\end{tabular}
-%\end{table}
-
-%\end{multicols}
-
-\begin{multicols*}{2}
-
-\section*{EXPERIENCE \vskip 3pt \hrule width0.6\columnwidth}%
-
-\setlength{\tabcolsep}{0pt}
-
-\begin{tabular*}{\columnwidth}{>{\raggedleft}p{0.085\columnwidth} >{\centering \Large}p{0.08\columnwidth} p{0.83\columnwidth}}
-	2018 & $\color{cafe} \bullet$\llap{\linea{4.16}} & {\bf Algorithms and Prototipes Developer} \newline\textsc{Artificial Intelligence Research Center} $\cdot$ University of Veracruz \ \href{https://maps.google.com/?cid=17992863989216810333}{\textcolor{red}{\faMapMarker}} \newline \color{black!70} C++ developer of various company projects, involving computer vision, autonomous movement detection in vehicles and embedded systems using accelerometers and Furier analisys. \\[-0.3cm] \tabularnewline
-
-	2017 & $\color{cafe} \bullet$ & {\bf Engineer Assistant} \newline\textsc{Mechanics and Reactor Engineery departments} $\cdot$ Laguna Verde Nuclear Power Plant \ \href{https://maps.app.goo.gl/aeNEVSTLKJTFyx4E9}{\textcolor{red}{\faMapMarker}} \newline \color{black!70} Engineer assistant in the 18$^{\text{th}}$ fuel recharge of Laguna Verde Nuclear Power Plant. Assisting machanical engineers in maintainance of diverses reactor machines and systems, and doing administrative work of the department. As well as performing activities in reactor engineery department like reactor monitoring, data analysis of reactor jet pumps stability among others.
-\end{tabular*}
-
-%\columnbreak
-\vspace{-0.2cm}
-
-\section*{EDUCATION \vskip 3pt \hrule width0.6\columnwidth}
-
-\setlength{\tabcolsep}{10pt}
-\begin{tabular*}{\columnwidth}{p{0.08\columnwidth} S{p{0.8\columnwidth}}}
-    2020 & {\bf Masters in artificial intelligence} \newline\textsc{Artificial Intelligence Research Center} $\cdot$ University of Veracruz, Mexico \ \color{cyan!65} \href{https://www.uv.mx/dia/}{\faUniversity} \\[-0.2cm] \tabularnewline
-    
-    2018 & {\bf Bachelors in physics} \newline\textsc{Faculty of Physics} $\cdot$ University of Veracruz, Mexico \ \color{cyan!65} \href{https://www.uv.mx/ffia/}{\faUniversity} \newline \color{black!70} Best marks of generation. \\ 
-\end{tabular*}
-
-
-\section*{PROFILE \vskip 3pt \hrule width0.6\columnwidth}
-
-
-My background in nature and computer sciences areas has allowed me to develop good skills to solve problems of many kinds, especially those that involve programing and mathematics. 
-I have an outstanding analytical skill and I always focus on offering solutions in the most efficient way possible, but also looking for the simplest, tasteful and time-proof results. \\[-0.6cm]
-
-\section*{PROGRAMMING LANGUAGES \newline \& TECHNOLOGIES \vskip 6pt \hrule width\columnwidth}
-
-{\renewcommand{\arraystretch}{1.56}
-\def\barheight{6pt}
-\vspace{-0.25cm}
-\begin{tabular}{>{\bf} m{0.25\columnwidth} m{0.568\columnwidth}}
-
-	 & \color{gray} \bf Junior \hfill \color{cafe} Senior \\
-
-    C++ & \begin{tikzpicture}[line width=5pt] 
-    \shade[left color=gray!60, right color=gray!60] (0,0) rectangle (5cm,\barheight); 
-    \shade[left color=brown!300, right color=gray!60] (3.95cm,0) rectangle (4.7cm,\barheight);
-    \shade[left color=brown!300, right color=brown!300] (0,0) rectangle (4.0cm,\barheight); 
-    \end{tikzpicture} \\
-    
-    Python  & \begin{tikzpicture}[line width=5pt] 
-    \shade[left color=gray!60, right color=gray!60] (0,0) rectangle (5cm,\barheight); 
-    \shade[left color=brown!300, right color=gray!60] (3.45cm,0) rectangle (4.2cm,\barheight);
-    \shade[left color=brown!300, right color=brown!300] (0,0) rectangle (3.5cm,\barheight); 
-    \end{tikzpicture} \newline {\bf \small \color{gray} numpy, pandas, statsmodels, keras, sklearn, tkinter, etc.} \\
-    
-    Mathematica & \begin{tikzpicture}[line width=5pt] 
-    \shade[left color=gray!60, right color=gray!60] (0,0) rectangle (5cm,\barheight); 
-    \shade[left color=brown!300, right color=gray!60] (3.45cm,0) rectangle (4.2cm,\barheight);
-    \shade[left color=brown!300, right color=brown!300] (0,0) rectangle (3.5cm,\barheight); 
-    \end{tikzpicture} \\
-    
-    SQL, MySQL & \begin{tikzpicture}[line width=5pt] 
-    \shade[left color=gray!60, right color=gray!60] (0,0) rectangle (5cm,\barheight); 
-    \shade[left color=brown!300, right color=gray!60] (3.05cm,0) rectangle (3.8cm,\barheight);
-    \shade[left color=brown!300, right color=brown!300] (0,0) rectangle (3.1cm,\barheight); 
-    \end{tikzpicture} \\
-    
-    Git & \begin{tikzpicture}[line width=5pt] 
-    \shade[left color=gray!60, right color=gray!60] (0,0) rectangle (5cm,\barheight); 
-    \shade[left color=brown!300, right color=gray!60] (3.05cm,0) rectangle (3.8cm,\barheight);
-    \shade[left color=brown!300, right color=brown!300] (0,0) rectangle (3.1cm,\barheight); 
-    \end{tikzpicture} \\
-    
-    Java & \begin{tikzpicture}[line width=5pt] 
-    \shade[left color=gray!60, right color=gray!60] (0,0) rectangle (5cm,\barheight); 
-    \shade[left color=brown!300, right color=gray!60] (2.45cm,0) rectangle (3.2cm,\barheight);
-    \shade[left color=brown!300, right color=brown!300] (0,0) rectangle (2.5cm,\barheight); 
-    \end{tikzpicture} \\
-    
-    Fortran & \begin{tikzpicture}[line width=5pt] 
-    \shade[left color=gray!60, right color=gray!60] (0,0) rectangle (5cm,\barheight); 
-    \shade[left color=brown!300, right color=gray!60] (2.45cm,0) rectangle (3.2cm,\barheight);
-    \shade[left color=brown!300, right color=brown!300] (0,0) rectangle (2.5cm,\barheight); 
-    \end{tikzpicture} \\
-    
-    Javascript & \begin{tikzpicture}[line width=5pt] 
-    \shade[left color=gray!60, right color=gray!60] (0,0) rectangle (5cm,\barheight); 
-    \shade[left color=brown!300, right color=gray!60] (1.95cm,0) rectangle (2.7cm,\barheight);
-    \shade[left color=brown!300, right color=brown!300] (0,0) rectangle (2cm,\barheight); 
-    \end{tikzpicture} \\
-    
-    HTML, CSS & \begin{tikzpicture}[line width=5pt] 
-    \shade[left color=gray!60, right color=gray!60] (0,0) rectangle (5cm,\barheight); 
-    \shade[left color=brown!300, right color=gray!60] (1.95cm,0) rectangle (2.7cm,\barheight);
-    \shade[left color=brown!300, right color=brown!300] (0,0) rectangle (2cm,\barheight); 
-    \end{tikzpicture} \\
-    
-    \LaTeX & \begin{tikzpicture}[line width=5pt] 
-    \shade[left color=gray!60, right color=gray!60] (0,0) rectangle (5cm,\barheight); 
-    \shade[left color=brown!300, right color=gray!60] (3.95cm,0) rectangle (4.7cm,\barheight);
-    \shade[left color=brown!300, right color=brown!300] (0,0) rectangle (4.0cm,\barheight); 
-    \end{tikzpicture} \\
-    
-    Others & \begin{tikzpicture}[line width=5pt] 
-    \shade[left color=gray!60, right color=gray!60] (0,0) rectangle (5cm,\barheight); 
-    \shade[left color=brown!300, right color=gray!60] (1.95cm,0) rectangle (2.7cm,\barheight);
-    \shade[left color=brown!300, right color=brown!300] (0,0) rectangle (2cm,\barheight); 
-    \end{tikzpicture} \\
-
-\end{tabular}
+%
+\vspace{3.5\baselineskip}
+%
+%
+\section*{ABOUT ME \vskip \sectionRulevSkip \hrule width 0.6\linewidth} 
+%
+%
+Artificial Intelligence developer with experience in various languages and frameworks.
+I have worked in big data projects with real time transmission technologies and several data science projects as well.
+I consider myself a dedicated, responsable, and very capable person, with the ability of quickly learn new things.
+%
+\vspace{\baselineskip}
+%
+%
+\begin{multicols*}{2}%
+%
+\vspace*{-35pt}
+%
+%
+\section*{EXPERIENCE \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
+%
+%
+\firstElement[Grupo_Salinas_logo.eps][1.2\companyCircleRadious][(-0.25pt, 2pt)]{
+	\textbf{Artificial Intelligence Developer} \newline
+	\textsc{Grupo Salinas} $\cdot$ Ciudad de México, Mexico $\cdot$ 2021 \newline
+	\color{black!70} Big data AI developer in projects related to bank credit fraud prevention using tools like Spark, Hadoop, Kafka, among others.
 }
-
+\middleElement[Migala.png]{
+	\textbf{Data Scientist} \newline
+	\textsc{Migala} $\cdot$ Ciudad de México, Mexico $\cdot$ 2021 \newline
+	\color{black!70} Data analysis of an inquest realized to potential members of a new political party.
+	
+	Foundations of a Blockchain project with Solidity and other components.
+}
+\middleElement[Best_Practices_Consulting_logo.png][1.8\companyCircleRadious]{
+	\textbf{Data Scientist} \newline
+	\textsc{Best Practices Consultant} $\cdot$ Querétaro, Mexico $\cdot$ 2020 \newline
+	\color{black!70} Data visualizations designer with Power BI for several companies projects, including a real time dashboard with information about gas distribution routes.
+}
+\lastElement[UV.pdf][1.8\companyCircleRadious][(0, 0.15pt)]{
+	\textbf{Algorithms and Prototipes Developer} \newline
+	\textsc{Artificial Intelligence Research Center} $\cdot$ University of Veracruz, Mexico $\cdot$ 2018 \newline
+	\color{black!70} C++ developer of an autonomous movement vehicle detection algorithm, designed for an embedded system, using accelerometers and Furier analisys.
+}
+\vspace*{-1pt}
+%
+\columnbreak%
+%
+%
+\section*{PROGRAMMING\ \ LANGUAGES \vskip \sectionRulevSkip \hrule width \columnwidth}
+%
+%
+\begin{tabular}{>{\bfseries\raggedleft} m{0.23\columnwidth} @{\hspace{8pt}}m{0.68\columnwidth}}%
+	 & \textcolor{gray}{\textbf{Junior}} \hfill \textcolor{cafe}{\textbf{Senior}}\\
+    Python & \skillBar{85} \\
+    C++  & \skillBar{80} \\
+    SQL & \skillBar{70} \\
+    Java & \skillBar{50} \\
+    Solidity & \skillBar{40} \\
+    HTML, CSS & \skillBar{50} \\
+    Javascript & \skillBar{30} \\
+    Others & \skillBar{80} \\
+\end{tabular}%
+%
+\vspace{10pt}%
+%
+%
+\section*{FRAMEWORKS\ \ \&\ \ SYSTEMS\vskip \sectionRulevSkip \hrule width \columnwidth}
+%
+%
+\begin{tabular}{>{\bfseries\raggedleft} m{0.23\columnwidth} @{\hspace{8pt}}m{0.68\columnwidth}}%
+	Spark & \skillBar{80} \\
+	MongoDB & \skillBar{75} \\
+	Kafka & \skillBar{75} \\
+	Hadoop & \skillBar{60} \\
+	Git & \skillBar{50} \\
+	Docker & \skillBar{40} \\
+    \small Kubernetes & \skillBar{40} \\
+\end{tabular}
+%
 \columnbreak
-
-\section*{PROJECTS \vskip 3pt \hrule width0.6\columnwidth}
-
-{\bf Robot Hostess} \ {\color{red} \href{https://www.youtube.com/watch?v=KU4NL_bc_rA}{\faYoutubePlay}} \ {\href{https://github.com/JoseAlbertoLopezLopez/CV_projects/tree/master/RobotHostess}{\faGithub}} \\
-{\color{black!70} I programmed the entire code of a Robot hostess in C++ with ROS. The robot detects diners via face recognition and lead them to a suitable table.}\\
-
-\noindent {\bf Augmented reality} \ {\color{red} \href{https://www.youtube.com/watch?v=aLcEEVrU13I}{\faYoutubePlay}} \ {\href{https://github.com/JoseAlbertoLopezLopez/CV_projects/tree/master/AugmentedReality}{\faGithub}} \\
-{\color{black!70} Example of augmented reality made with Python and OpenCV.}\\
-
-\noindent {\bf Traveling salesman problem visualization} \ {\color{red} \href{https://www.youtube.com/watch?v=VK9NzBgPXBw}{\faYoutubePlay}} \ {\href{https://github.com/JoseAlbertoLopezLopez/CV_projects/tree/master/SimulatedAnnealing}{\faGithub}} \\
-{\color{black!70} Visualization of traveling salesman problem solved with simulated annealing.}\\
-
-\noindent {\bf Grasp Objects in Clutter (Masters Thesis)} \\
-{\color{black!70} I developed an algorithm for accommodate objects in order to facilitating later grasps by defining grasping and neighborhood rules, and appling AI nature inspired algorithms.}\\
-
-\noindent {\bf Automatic Car's Anomalous Movements Detection (Bachelors Thesis)} \ {\href{https://github.com/JoseAlbertoLopezLopez/CV_projects/tree/master/BachelorsThesis}{\faGithub}} \\
-{\color{black!70} I made a program for detecting several kinds of movements in cars using acceleration sensors and signal procesing theory whose data were processed by a neutral network.}
-
-\vspace{0.5cm}
-
-\section*{\bf CERTIFICATIONS \vskip 3pt \hrule width0.6\columnwidth}
-
-I usually don't take courses, I read books about the subjects I need.\\
-
-{\setlength{\tabcolsep}{0pt}%
-\renewcommand{\arraystretch}{1.9}%
-\rowcolors{0}{}{gray!20}%
-\par\centering%
-\begin{tabular}{>{\centering \bf} m{0.31\columnwidth} >{\centering \bf} m{0.31\columnwidth} >{\centering \bf} m{0.31\columnwidth}}%
-%\hline
-\rowcolor{cafe}{\color{white} Institution} \vspace{0.06cm} & {\color{white} Subject} \vspace{0.06cm} & {\color{white} ID and URL} \vspace{0.06cm} \tabularnewline
-%\hline
-Udemy & Time Series Data Analisis & \href{http://ude.my/UC-51b1bb6c-b324-41d7-b11f-3826f7999574}{\Large\color{gray}\faShareSquareO} \tabularnewline
-%\hline
-Udemy & Git & \href{http://ude.my/UC-c48e4dd1-59c9-4f2c-b199-c9d09a74f9e8}{\Large\color{gray}\faShareSquareO} \tabularnewline
-%\hline
-Udemy & SQL: Basic to Advanced & \href{http://ude.my/UC-6acc8434-7c34-40b5-ae1b-b813b2252e33}{\Large\color{gray}\faShareSquareO} \tabularnewline
-%\hline
-SoloLearn & SQL & \href{https://www.sololearn.com/Certificate/1060-849693/pdf/}{\Large\color{gray}\faShareSquareO} \tabularnewline
-%\hline
-SoloLearn & Java & \href{https://www.sololearn.com/Certificate/1060-849693/pdf/}{\Large\color{gray}\faShareSquareO} \tabularnewline
-%\hline
-\end{tabular}\par}
-
-\columnbreak
-
-\section*{\raggedright \bf COMPLEMENTARY\ \ EXPERIENCE \vskip 3pt \hrule width\columnwidth}
-
-% Espacio entre elementos original: \\[0.35cm].
-\setlength{\sepVertical}{26.6pt}
-\elementoInicio{\footnotesize 2 years}{Python libraries for data science like NumPy, Pandas, ScikitLearn, Statsmodels, FacebookProphet, among others.}
-
-\elementoMitad{\footnotesize 2 years}{Mathematical foundations of models for time series analisys, like ARIMA, SARIMA, VARMA, Dickey-Fuller test, Granger causality, Holt-Winters method, EWMA, ETS, Hodrick-Prescott filter, etc.}
-
-\elementoMitad{\footnotesize 2 years}{Experience in parallel programing with OpenMS and MSI libraries in C++, C and Fortran.}
-\elementoMitad{\footnotesize 2 years}{Computer vision with OpenCV library in C++ and Python.}
-\elementoMitad{\footnotesize 2 years}{Robotic Operative System (ROS) with C++ and Python.}
-\elementoMitad{\footnotesize 2 years}{Experience in Keras and TensorFlow for deep learning and machine learning.}
-\elementoMitad{\footnotesize 3 years}{Mathematical foundations of dense, convolutional, and recurrent neural networks; as well as evolutionary and nature-inspired algorithms.}
-\elementoMitad{\footnotesize 5 years}{Large experience in data visualization with Gnuplot, Tikz-PGF library and Matplotlib (Python).}
-\elementoMitad{\footnotesize 7 years}{Use of Linux systems (terminal, etc.).}
-
-\elementoMitad{2017}{Engineery of Nuclear Pants Course, at Laguna Verde Nuclear Power Plant.}
-\elementoMitad{2017}{Nuclear Security Course, at Laguna Verde Nuclear Power Plant.}
-
-\elementoMitad{2016}{VII Physics and Nano-structures Workshop, organized by Nanosciences and Nanotechnology Center of UNAM, Ensenada, B.C, Mexico. \newline \hfill\color{black!70} Working in a quantum computing theory subject.}
-
-\setlength{\sepVertical}{21pt}
-\elementoInicio{2015}{Advanced Summer School 2015, organized by Research and Advenced Studies Center of IPN (National Polytechnic Institute), Cinvestav-IPN.
-\newline\color{black!70} Advanced topics of math, physics and engineering.}
-
-\elementoFin{2015}{XXV Summer of Science, organized by Mexican Academy of Sciences, at the Institute of Nuclear Sciences of the UNAM (Autonomous National University of Mexico). \newline \color{black!70} Working with data science topics applied to cities databases.}
-
-%\columnbreak
-
-\section*{\raggedright OTHER LANGUAGES \vskip 3pt \hrule width0.8\columnwidth}
-
-
+%
+%
+\section*{COMPLEMENTARY\ \ EXPERIENCE \vskip \sectionRulevSkip \hrule width \columnwidth}
+%
+%
+\setlength{\sepVertical}{23pt}
+\elementoInicio{Experience in Keras and TensorFlow for deep learning and machine learning.}
+\elementoMitad{Knowledge of dense, convolutional, and recurrent neural networks; as well as evolutionary and nature-inspired algorithms.}
+\elementoMitad{Computer vision with OpenCV library in C++ and Python.}
+\elementoMitad{Experience in parallel programing with OpenMS and MSI libraries in C and C++.}
+\elementoMitad{Experience working with data science applied to geographical and cities databases.}
+\elementoMitad{Large experience in data visualization with Matplotlib, Gnuplot, Ti\textit{k}Z-PGF and Power BI.}
+\elementoMitad{Mathematical foundations of models for time series analisys, like ARIMA, SARIMA, VARMA, Dickey-Fuller test, Granger causality, Holt-Winters method, EWMA, ETS, Hodrick-Prescott filter, etc.}
+\elementoFin{Robotic Operative System (ROS) with C++ and Python.}
+%
+\vspace{-0.6\baselineskip}%
+%
+%
+\section*{EDUCATION \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
+%
+%
+{\renewcommand{\arraystretch}{1.7}%
+\begin{tabular}{>{\centering}p{0.15\columnwidth} p{0.85\columnwidth}}
+	2020 & %
+	\textbf{Masters in artificial intelligence} \newline%
+	\textsc{Artificial Intelligence Research Center} $\cdot$ %
+	University of Veracruz, Mexico \ \MIApage \tabularnewline
+	%
+	2018 & %
+	\textbf{Bachelors in physics} \newline%
+	\textsc{Faculty of Physics} $\cdot$ %
+	University of Veracruz, Mexico \ \FFIApage \newline%
+	\color{black!70} Best marks of generation.
+\end{tabular}}
+%
+\vspace{-0.6\baselineskip}%
+%
+%
+\section*{LANGUAGES \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
+%
+%
 \begin{tabular*}{\columnwidth}{>{\raggedright} p{0.185\columnwidth} >{\centering} p{0.05\columnwidth}}
-    {\bf Spanish} & (native)
+    \textbf{Spanish} & Native
 \end{tabular*}
+%
+\columnbreak
+%
+%
+\section*{COURSES \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
+%
+%
+{\renewcommand{\arraystretch}{1.9}%
+\rowcolors{0}{}{gray!20}%
+%
+\centering%
+\begin{tabular}{>{\centering\bfseries} m{0.33\columnwidth} >{\centering\bfseries} m{0.39\columnwidth} >{\centering\bfseries} >{\centering}m{0.28\columnwidth}}%
+	\rowcolor{cafe}{\color{white} Institute} & {\color{white} Subject} & {\color{white} ID and URL} \tabularnewline
+	Udemy & Docker \& Kubernetes & \DockerAndKubernetesCourseURL \tabularnewline
+	MongoDB Academy & MongoDB & %
+		\MongoDBBasicsCourseURL\ \ %
+		\MongoDBBasicClusterAdministrationCourseURL\ \ %
+		\MongoDBDataModelingCourseURL \linebreak
+		\MongoDBAggregationFrameworkCourseURL\ \ %
+		\MongoDBPythonAPICourseURL\ \ %
+		\MongoDBPerformanceCourseURL \tabularnewline
+	Udemy & Time Series Data Analisis & \TimeSeriesCourseURL \tabularnewline
+	Udemy & Git & \GitCourseURL \tabularnewline
+	Udemy & SQL: Basic to Advanced & \SQLCourseURL \tabularnewline
+	SoloLearn & SQL & \BasicSQLCourseURL \tabularnewline
+	SoloLearn & Java & \JavaCourseURL \tabularnewline
+\end{tabular}}
+%
+\vspace{\baselineskip}
+%
+%
+\section*{PROJECTS \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
+%
+%
+\textbf{Robot Hostess} \ {\color{red} \href{https://www.youtube.com/watch?v=KU4NL_bc_rA}{\faYoutubePlay}} \ {\href{https://github.com/JoseAlbertoLopezLopez/CV_projects/tree/master/RobotHostess}{\faGithub}}\newline
+{\color{black!70} I programmed the entire code of a Robot hostess in C++ with ROS. The robot detects diners via face recognition and lead them to a suitable table.}
 
+\textbf{Augmented reality} \ {\color{red} \href{https://www.youtube.com/watch?v=aLcEEVrU13I}{\faYoutubePlay}} \ {\href{https://github.com/JoseAlbertoLopezLopez/CV_projects/tree/master/AugmentedReality}{\faGithub}}\newline
+{\color{black!70} Example of augmented reality made with Python and OpenCV.}
 
-\section*{CONTACT \vskip 3pt \hrule width0.6\columnwidth}
+\textbf{Traveling salesman problem visualization} \ {\color{red} \href{https://www.youtube.com/watch?v=VK9NzBgPXBw}{\faYoutubePlay}} \ {\href{https://github.com/JoseAlbertoLopezLopez/CV_projects/tree/master/SimulatedAnnealing}{\faGithub}}\newline
+{\color{black!70} Visualization of traveling salesman problem solved with simulated annealing.}
 
-
+\textbf{Grasp Objects in Clutter (Masters Thesis)}\newline
+{\color{black!70} I developed an algorithm for accommodate objects in order to facilitating later grasps by appling AI nature inspired algorithms.}
+%
+\columnbreak
+%
+%
+\section*{CONTACT \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
+%
+%
 \begin{itemize}
 	\item[\fontsize{11}{11}\selectfont \href{mailto:JLL.6@hotmail.com}{\faEnvelopeO}] \href{mailto:JLL.6@hotmail.com}{JLL.6@hotmail.com}%
-	\item[\fontsize{13}{13}\selectfont \faMobile \hspace{0.07cm}] +52 2281054832%
-	\item[\fontsize{12}{12}\selectfont \color{azul} \faPhone] +52 2969647471%
-	\item[\fontsize{12}{12}\selectfont \color{azul} \href{https://www.linkedin.com/in/alberto-l\%C3\%B3pez-177a281a0/?locale=en_US}{\faLinkedinSquare}] \href{https://www.linkedin.com/in/alberto-l\%C3\%B3pez-177a281a0/?locale=en_US}{Alberto López}%
+	\item[\fontsize{13}{13}\selectfont \faMobile \hspace{0.07cm}] +52 228-105-4832%
+	\item[\fontsize{12}{12}\selectfont \color{azul} \faPhone] +52 296-964-7471%
+	\item[\fontsize{12}{12}\selectfont \color{azul} \href{https://www.linkedin.com/in/alberto-l\%C3\%B3pez-177a281a0/?locale=en_US}{\faLinkedinSquare}] \href{https://www.linkedin.com/in/alberto-l\%C3\%B3pez-177a281a0/?locale=en_US}{\textcolor{blue}{\fancyUnderline{Alberto López}}}%
 \end{itemize}
+%
+%
+\section*{REFERENCES \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
+%
+%
+\textbf{Marxlenin Zapata Yañez} \newline%
+Chief of Reactor Engineering department at Laguna Verde Nuclear Power Plant. \newline%
+\textcolor{black!70}{Relation: Previous boss.} \newline%
+\href{mailto:marxlenin.zapata@cfe.gob.mx}{\faEnvelopeO\ marxlenin.zapata@cfe.gob.mx}
 
-%\vfill\mbox{}
-%\vspace{0.25cm}
-%\columnseprule 0pt
+\textbf{Irving Morales Agiss, PhD} \newline%
+Director of data science MORLANmx enterprise. \newline%
+\textcolor{black!70}{Relation: Professor.} \newline%
+\href{mailto:irvingfisica@gmail.com}{\faEnvelopeO\ irvingfisica@gmail.com}
 
-\section*{REFERENCES \vskip 3pt \hrule width0.6\columnwidth}
-
-\noindent {\bf Marxlenin Zapata Yañez} \newline {\color{black!70} Chief of Reactor Engineering department at Laguna Verde Nuclear Power Plant. \newline
-Relation: Previous boss.} \newline \href{mailto:marxlenin.zapata@cfe.gob.mx}{\faEnvelopeO\ marxlenin.zapata@cfe.gob.mx}%
-
-\vspace{0.3cm}%
-
-\noindent {\bf Irving Morales Agiss, PhD} \newline {\color{black!70} Director of data science MORLANmx enterprise. \newline
-Relation: Professor.} \newline \href{mailto:irvingfisica@gmail.com}{\faEnvelopeO\ irvingfisica@gmail.com}%
-
-\vspace{0.3cm}%
-
-\noindent {\bf Antonio Marín Hernández, PhD} \newline {\color{black!70} Researcher at the Artificial Intelligence Research Center of University of Veracruz, Mexico. \newline
-Relation: Thesis assesor.} \newline \href{mailto:anmarin@uv.mx}{\faEnvelopeO\ anmarin@uv.mx}
-
-\vspace{0.3cm}
-
-%\noindent {\bf Sergio Lerma Hernández, PhD} \newline {\color{black!70} Researcher at Faculty of Physics of University of Veracruz, Mexico. \newline
-%Relation: Professor.} \newline \href{mailto:sergioalerma@gmail.com}{\faEnvelopeO\ sergioalerma@gmail.com}
-
+\textbf{Antonio Marín Hernández, PhD} \newline%
+Researcher at the Artificial Intelligence Research Center of University of Veracruz, Mexico. \newline%
+\textcolor{black!70}{Relation: Thesis assesor.} \newline%
+\href{mailto:anmarin@uv.mx}{\faEnvelopeO\ anmarin@uv.mx}
+%
+\thispagestyle{fancy}%
+\rfoot{\textcolor{black!50}{\textit{Compilation date: \today}}}%
+%
 \end{multicols*}
-
+%
+%
+%
 \end{document}

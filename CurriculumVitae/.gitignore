@@ -3,4 +3,11 @@
 !**/*.tex
 !**/*.pdf
 !**/*.txt
+!img/Migala.png
+!img/Best_Practices_Consulting_logo.png
+!img/Grupo_Salinas_logo.eps
+!img/Grupo_Salinas_logo-eps-converted-to.pdf
+!img/Migala.png
+!img/UV.pdf
+!img/default.png
 !.gitignore
