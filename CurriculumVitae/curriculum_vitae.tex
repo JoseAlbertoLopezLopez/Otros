@@ -1,4 +1,4 @@
-\documentclass[letterpaper,11pt]{report}
+\documentclass[letterpaper, 11pt]{memoir}
 \usepackage[utf8]{inputenc}
 \usepackage[default]{raleway}
 
@@ -95,6 +95,7 @@
 \def\MIApage{\color{cyan!65}\href{https://www.uv.mx/dia/}{\faUniversity}}
 \def\FFIApage{\color{cyan!65} \href{https://www.uv.mx/ffia/}{\faUniversity}}
 
+\def\BlockchainCourseURL{\href{https://www.ude.my/UC-6573ff27-f962-4339-810e-ec8824785339/}{\Large\color{gray}\faShareSquareO}}
 \def\TimeSeriesCourseURL{\href{https://ude.my/UC-51b1bb6c-b324-41d7-b11f-3826f7999574}{\Large\color{gray}\faShareSquareO}}
 \def\GitCourseURL{\href{https://ude.my/UC-c48e4dd1-59c9-4f2c-b199-c9d09a74f9e8}{\Large\color{gray}\faShareSquareO}}
 \def\SQLCourseURL{\href{https://ude.my/UC-6acc8434-7c34-40b5-ae1b-b813b2252e33}{\Large\color{gray}\faShareSquareO}}
@@ -118,7 +119,7 @@
 \newlength{\compExpTimeLineWidth}
 \setlength{\compExpTimeLineWidth}{0.2\columnwidth}
 \newlength{\compExpTimeLineSep}
-\setlength{\compExpTimeLineSep}{15.3pt}
+\setlength{\compExpTimeLineSep}{12.7pt}
 \newlength{\compExpParWidth}
 \setlength{\compExpParWidth}{0.61\columnwidth}
 
@@ -281,15 +282,13 @@
 %
 %
 Artificial Intelligence developer with experience in various languages and frameworks.
-I have worked in big data projects with real time transmission technologies and several data science projects as well.
-I consider myself a dedicated, responsable, and very capable person, with the ability of quickly learn new things.
+I have worked in big data projects using real time transmission technologies and several data science projects as well.
+I consider myself a dedicated, responsable and very capable person.
 %
 \vspace{\baselineskip}
 %
 %
 \begin{multicols*}{2}%
-%
-\vspace*{-35pt}
 %
 %
 \section*{EXPERIENCE \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
@@ -297,27 +296,30 @@ I consider myself a dedicated, responsable, and very capable person, with the ab
 %
 \firstElement[Grupo_Salinas_logo.eps][1.2\companyCircleRadious][(-0.25pt, 2pt)]{
 	\textbf{Artificial Intelligence Developer} \newline
-	\textsc{Grupo Salinas} $\cdot$ Ciudad de México, Mexico $\cdot$ 2021 \newline
-	\color{black!70} Big data AI developer in projects related to bank credit fraud prevention using tools like Spark, Hadoop, Kafka, among others.
+	\textsc{Grupo Salinas} $\cdot$ Ciudad de México, Mexico \newline
+	\color{black!70} dec 2021 -- aug 2022 \newline
+	Big data AI developer in projects related to bank credit fraud prevention, using tools like Spark, Hadoop, Kafka, among others.
 }
 \middleElement[Migala.png]{
 	\textbf{Data Scientist} \newline
-	\textsc{Migala} $\cdot$ Ciudad de México, Mexico $\cdot$ 2021 \newline
-	\color{black!70} Data analysis of an inquest realized to potential members of a new political party.
+	\textsc{Migala} $\cdot$ Ciudad de México, Mexico \newline
+	\color{black!70} dec 2021 -- feb 2022 \newline
+	Data analysis of an inquest realized to potential members of a new political party.
 	
 	Foundations of a Blockchain project with Solidity and other components.
 }
 \middleElement[Best_Practices_Consulting_logo.png][1.8\companyCircleRadious]{
 	\textbf{Data Scientist} \newline
-	\textsc{Best Practices Consultant} $\cdot$ Querétaro, Mexico $\cdot$ 2020 \newline
-	\color{black!70} Data visualizations designer with Power BI for several companies projects, including a real time dashboard with information about gas distribution routes.
+	\textsc{Best Practices Consulting} $\cdot$ Querétaro, Mexico \newline
+	\color{black!70} mar 2021 -- sep 2021 \newline
+	Data visualizations designer with Power BI for several companies projects, including a dashboard with information about gas distribution routes in real time.
 }
 \lastElement[UV.pdf][1.8\companyCircleRadious][(0, 0.15pt)]{
 	\textbf{Algorithms and Prototipes Developer} \newline
-	\textsc{Artificial Intelligence Research Center} $\cdot$ University of Veracruz, Mexico $\cdot$ 2018 \newline
-	\color{black!70} C++ developer of an autonomous movement vehicle detection algorithm, designed for an embedded system, using accelerometers and Furier analisys.
+	\textsc{Artificial Intelligence Research Center} $\cdot$ University of Veracruz, Mexico \newline
+	\color{black!70} jun 2016 -- jun 2017 \newline
+	C++ developer of an autonomous movement vehicle detection algorithm, designed for an embedded system, using accelerometers and Furier analisys.
 }
-\vspace*{-1pt}
 %
 \columnbreak%
 %
@@ -337,9 +339,8 @@ I consider myself a dedicated, responsable, and very capable person, with the ab
     Others & \skillBar{80} \\
 \end{tabular}%
 %
-\vspace{10pt}%
 %
-%
+\vspace{-8pt}
 \section*{FRAMEWORKS\ \ \&\ \ SYSTEMS\vskip \sectionRulevSkip \hrule width \columnwidth}
 %
 %
@@ -349,6 +350,8 @@ I consider myself a dedicated, responsable, and very capable person, with the ab
 	Kafka & \skillBar{75} \\
 	Hadoop & \skillBar{60} \\
 	Git & \skillBar{50} \\
+	Blockchain & \skillBar{50} \\
+	Azure & \skillBar{40} \\
 	Docker & \skillBar{40} \\
     \small Kubernetes & \skillBar{40} \\
 \end{tabular}
@@ -419,6 +422,7 @@ I consider myself a dedicated, responsable, and very capable person, with the ab
 		\MongoDBAggregationFrameworkCourseURL\ \ %
 		\MongoDBPythonAPICourseURL\ \ %
 		\MongoDBPerformanceCourseURL \tabularnewline
+	Udemy & Blockchain & \BlockchainCourseURL \tabularnewline
 	Udemy & Time Series Data Analisis & \TimeSeriesCourseURL \tabularnewline
 	Udemy & Git & \GitCourseURL \tabularnewline
 	Udemy & SQL: Basic to Advanced & \SQLCourseURL \tabularnewline
