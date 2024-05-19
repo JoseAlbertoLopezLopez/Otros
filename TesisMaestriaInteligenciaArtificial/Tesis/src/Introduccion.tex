@@ -1,0 +1,175 @@
+%!TEX encoding = UTF-8 Unicode
+\chapter{Introducción}
+\label{chap:int}
+%
+%
+En este capítulo se presentarán de forma general las características principales del trabajo realizado, así como las motivaciones y antecedentes históricos que influyeron en su realización.
+%
+%
+\section{Antecedentes}
+%
+%
+El desarrollo tecnológico ha permitido la creación de máquinas y robots, asimismo ha provisto a algunos de estos con las habilidades para manipular objetos de formas diversas.
+Con el paso del tiempo estas habilidades se han ido refinando, llegando incluso a igualar o sobrepasar a las habilidades humanas en tareas concretas \cite{1256297}\cite{BastianSolutions}.
+
+La elaboración y programación de robots para la tarea de manipular objetos comenzó abordando problemas bien delimitados en entornos controlados.
+En un inicio la manipulación se realizaba por medio de teleoperación, por ejemplo, para manipular material radioactivo.
+Posteriormente, conforme se desarrollaron robots industriales, las tareas de manipulación comenzaron a aplicarse en líneas de producción, de entre las cuales se pueden mencionar el mover objetos pesados de un lugar a otro, el ensamblado de partes o acciones de tipo \textsl{tomar-dejar} \cite{doi:10.1146/annurev-control-060117-104848}\cite{murray2017mathematical}\cite{4141037}. 
+
+En la actualidad, la investigación, desarrollo y producción de máquinas y robots capaces de llevar a cabo tareas de manipulación de objetos a un nivel cada vez más alto está en constante auge.
+Tareas que van desde resolver un cubo Rubik real, auxiliar en una cirugía, hasta construir una casa ya están siendo realizadas por robots; y otras como organizar objetos en estantes o anaqueles, tomar objetos de un refrigerador o re-organizar objetos desacomodados en una superficie están en continuo desarrollo \cite{7743540}\cite{7139396}\cite{7759839}\cite{6906894}.
+
+Se estima que esta tendencia no hará más que incrementarse y diversificarse en los próximos años y no es difícil imaginar que, en un futuro, las máquinas sean capaces de superar a los humanos, no solo en habilidades que involucran únicamente procesos mentales, sino también en aquellas que requieren de la interacción con el medio ambiente.
+
+Gran parte de esta interacción con el medio ambiente se lleva a cabo mediante la manipulación de objetos.
+Una máquina podría sencillamente superar las habilidades de un humano lavando los platos sucios, acomodando los objetos de una habitación desordenada, armando o desarmando cualquier pieza mecánica o simplemente siendo más rápida buscando y tomando un martillo en una caja de herramientas.
+
+Para dar tales habilidades a un robot es necesaria la conjunción de varias sub-disciplinas de las ciencias de la computación y la inteligencia artificial (IA), tales como la visión por computadora, el aprendizaje automático, la implementación de algoritmos de planeación, entre otras.
+
+Afortunadamente, la tecnología es cada vez menos limitante en la cuestión de conseguir manipulaciones a nivel humano o superior.
+Grandes avances se han logrado en las áreas de hardware y control para dar a las máquinas la suficiente capacidad de movilidad y de precisión en sus movimientos para realizar una gran cantidad de labores.
+Asimismo, con el auge de la IA, se han desarrollado algoritmos cada vez más precisos en campos como la visión por computadora, los cuales son capaces de detectar objetos en escenas del mundo real \cite{Georgakis-RSS-17}, así como algoritmos de planificación que permiten ejecutar tareas de manipulación de manera rápida y efectiva \cite{10160887}.
+
+Sin embargo, comparado con la investigación hecha en los campos mencionados, las cuales están más enfocadas en mejorar las habilidades del robot o máquina manipuladora, las investigaciones relacionadas con mejorar las características de su entorno y más específicamente, de los objetos a manipular, de forma que el manipulador se pueda desenvolver de mejor manera, son menos abundantes.
+
+Existen pocos estudios acerca de cuál debe ser la disposición adecuada de los objetos, tanto individual como colectivamente, para que un manipulador pueda interactuar con ellos eficientemente, teniendo en cuenta por supuesto, la finalidad de tal interacción, así como las restricciones que esta finalidad y el medio ambiente pudieran imponer.
+
+Con el paso del tiempo, los robots y máquinas serán capaces de manipular objetos con mayor precisión y rapidez.
+Así mismo, también serán capaces de manejar un número y diversidad de objetos cada vez mayor. 
+Sin embargo, al crecer el número y diversidad de objetos con los que interactué el manipulador, una optimización de las condiciones iniciales de estos, siempre que sea posible, puede ayudar a eficientar los procesos de manipulación.
+
+Por más eficiente que sea un robot manipulando objetos individuales, el eficientar la disposición inicial de los objetos con los que va a interactuar, siempre que sea posible, dará mejores resultados que en el caso donde esto no se hiciera, por lo que vale la pena poner más atención en este tema. 
+Una propuesta inicial de cómo lograrlo es la que se desarrolla en el presente trabajo.
+%
+%
+\section{Planteamiento general del problema}
+%
+%
+En el presente trabajo se plantea una metodología relacionada con la interacción robot-medio ambiente, particularmente en el establecimiento de un arreglo inicial eficiente para la posterior manipulación de objetos, con una mínima ejecución de acciones o movimientos, en promedio, para acceder a cada uno de ellos.
+
+En la vida cotidiana existen varias situaciones en las que se pudiera aplicar una metodología como la que se propone.
+Estas situaciones tienen que ver con tomar un objeto de entre un grupo de elementos, dispuestos en un espacio delimitado, los cuales generalmente obstruyen su acceso.
+Por ejemplo cuando se intenta sacar un objeto de un baúl que contiene muchas cosas, cuando se quiere sacar la caja de leche que está al fondo del refrigerador o cuando se quiere sacar un medicamento que está dentro de una caja de medicinas. 
+En este tipo de problemas, el sujeto tiene que elegir cuidadosamente qué objetos retirar para tener un libre acceso al elemento deseado, tratando al mismo tiempo de no desordenar demasiado la configuración de objetos inicial, ni dañar o tirar algún objeto en el proceso. 
+
+Para este tipo de situaciones, en las que se tiene un arreglo o acomodo de objetos en un espacio delimitado y se quiere acceder a alguno de estos, se puede idear un método para realizar dicha acción de forma eficiente con respecto a algún criterio, como puede ser el número de obstáculos removidos o el tiempo empleado para acceder al objeto deseado.
+De manera que, al utilizar dicho método, en el mejor de los casos, este encontraría la solución óptima para tomar el objeto de interés con respecto al criterio establecido y para el arreglo de objetos particular que se le presenta.
+No obstante, en este punto, surge una cuestión interesante: ¿y si los objetos hubiesen estado inicialmente arreglados de otra forma, podría existir una mejor solución?.
+
+Se cree que en los problemas que involucran acciones prensiles, la respuesta a esta pregunta está fuertemente relacionada con las restricciones de sujeción que impone la configuración inicial de objetos, además por supuesto de la metodología empleda para tomar el objeto deseado.
+Es por ello, que el interés del presente trabajo es idear un método para el acomodo de objetos, de forma que el acceso a estos se pueda hacer de forma eficiente, en términos del número objetos que hay que retirar antes de poder acceder al objeto de interés.
+Para ello se toman en cuenta las restricciones de sujeción debidas a las características físicas de los objetos y a su configuración en el espacio.
+
+Al ser un problema para el que actualmente no hay muchas referencias en la literatura, el planteamiento del problema a resolver se realizará de una forma simplificada, como una primera aproximación de las condiciones y variables que se pueden encontrar en una situación del mundo real.
+Los detalles técnicos de este planteamiento se presentan en el Capítulo \ref{chap:marco_teorico}.
+%
+%
+\section{Justificación}
+%
+%
+Como se mencionó anteriormente, la manipulación de objetos es un campo en el que la automatización está y seguramente estará ganando cada vez más territorio mediante la refinación de habilidades que los robots y máquinas ya poseen, así como la incorporación de nuevas.
+
+En lo que respecta a la sujeción de objetos que se encuentran inmersos en un espacio o volúmen, junto a otros objetos, los cuales dificultan su sujeción, existen varias investigaciones que abordan diversos aspectos así como variantes de este tipo de problemas.
+Particularmente es en el proceso de elección de obstáculos a retirar y en qué orden, dado un arreglo inicial y arbitrario de objetos, donde se enfocan algunas de las investigaciones actuales, de las cuales se hablará en el siguiente capítulo.
+Sin embargo, la presente propuesta se centra en encontrar un arreglo inicial óptimo de los objetos, el cual permita acceder a estos realizando un menor número de acciones que el caso de tener un arreglo inicial arbitrario. 
+Por lo que, la búsqueda de la solución no se hace dentro de un arreglo ya establecido, si no que es el arreglo inicial mismo el que se trata de encontrar, de manera que este sea el más eficiente posible para la tarea dada.
+El estado del arte en este aspecto, como se verá más adelante, es bastante reducido en la actualidad, por lo cual se cree que vale la pena investigar más sobre este tema.
+
+Se estima que al encontrar un método que resuelva de forma satisfactoria el problema planteado, será muy factible probarlo en el mundo real. 
+Esto debido a la gran cantidad de modelos de brazos robóticos y dispositivos similares actualmente disponibles, así como de simuladores, los cuales permiten visualizar de forma aproximada cómo el algoritmo sería implementado en condiciones reales. 
+Además, debido a que la interacción con objetos es una actividad muy presente en el día a día de las personas, de seguir desarrollando la metodología propuesta para que pueda ser aplicada en situaciones más complejas, los casos de aplicación en el mundo real aumentarían a medida que se pueda admitir un mayor número de geometrías de objetos y de sus configuraciones en el espacio.
+Se espera que el método ideado pueda ser aplicado en el mundo real de forma satisfactoria en una gran cantidad de escenarios, además de que pueda ser adaptado de una forma muy sencilla a los diferentes modelos de dispositivos elaborados para la manipulación de objetos.
+%
+%
+\section{Hipótesis y objetivos}
+%
+%
+A continuación se enuncian la hipótesis y los objetivos planteados para la elaboración del presente trabajo.
+%
+%
+\subsection{Hipótesis}
+%
+%
+El desarrollo de este trabajo parte de la siguiente hipótesis:
+%
+\begin{itemize}[label = $\blacktriangleright$]
+	\item Existe una metodología para el acomodo de objetos en un espacio delimitado que minimiza el número promedio de acciones necesarias para acceder (tomar) a cualquiera de ellos.
+\end{itemize}
+%
+%
+\subsection{Objetivo general}
+%
+%
+De acerdo a la hipótesis planteada, el objetivo principal de este trabajo para comprobarla es el siguiente:
+%
+{\setlist{nolistsep}
+\begin{itemize}[label = $\blacktriangleright$]
+	\item Diseñar un algoritmo para el arreglo de objetos en un espacio delimitado, con la finalidad de que un manipulador sea capaz de acceder a los objetos realizando un número mínimo de acciones o movimientos.
+\end{itemize}}
+%
+\noindent Las variables independientes que se consideran para dicho algoritmo son: el tamaño del espacio donde se colocarán los objetos, así como las diferentes cantidades de objetos de determinadas clases a colocar en dicho espacio.
+La variable dependiente, con la que se evalúa la salida del algoritmo, está definida en términos de la cantidad de objetos-obstáculo que hay que retirar antes de acceder a cada objeto, a partir del arreglo inicial encontrado por el algoritmo.
+Los detalles de esta métrica se pueden consultar en la Sección \ref{subsec:costo}.
+%
+%
+\subsection{Objetivos particulares}
+%
+%
+Para llevar a cabo el objetivo general de este trabajo se establecieron los siguientes objetivos particulares:
+%
+\begin{enumerate}
+	\item Analizar la literatura relacionada para comparar los diferentes métodos utilizados en problemas similares.
+	\item Seleccionar y adaptar las metodologías útiles para el problema planteado.
+	\item Definir las métricas de eficiencia para los algoritmos a implementar.
+	\item Proponer un procedimiento adecuado para encontrar arreglos eficientes de objetos.
+	\item Evaluar la metodología propuesta.
+\end{enumerate}
+%
+%
+\section{Alcances y limitaciones}
+%
+%
+El método propuesto para el acomodo de objetos está constituido por cuatro componentes principales:
+%
+\begin{itemize}
+	\item La definición de las herramientas teóricas que serán utilizadas.
+	\item Una función de evaluación que pondera los acomodos de objetos de acuerdo a las características del problema. 
+	\item Un algoritmo de recocido simulado que utiliza a la función de evaluación para generar los arreglos.
+	\item Una función que calcula el costo real de tomar los objetos de un arreglo.
+\end{itemize}
+%
+La teoría desarrollada para la resolución del problema planteado consiste en un conjunto de definiciones matemáticas, las cuales establecen los límites sobre qué tipo de problemas pueden ser abordados con la metodología propuesta y cuales no.
+Dichos límites representan una simplificación del caso real.
+
+La simplificación considerada consiste en reducir el número de variables del problema, hasta que este pueda ser tratado de forma sencilla, pero sin que se pierdan sus características esenciales.
+Lo cual se traduce en este caso, en utilizar cantidades y variedades reducidas de objetos, además de que estos posean geometrías simples.
+
+Los límites impuestos al problema hacen que este, por su naturaleza discreta, pueda ser tratado como un problema de combinatoria.
+
+Existen gran cantidad de metodologías para resolver este tipo de problemas, en este caso se optó por utilizar un algoritmo de recocido simulado, ya que es una de las técnicas que ha demostrado tener muy buenos resultados en problemas dónde el espacio de búsqueda de combinaciones crece muy rápido cuando el tamaño del conjunto sobre el que se hace la búsqueda también lo hace.
+Dicho algoritmo utiliza la función de evaluación antes mencionada y su funcionamiento está basado principalmente en intercambios aleatorios de pares de elementos en un arreglo, los cuales realiza hasta encontrar (en teoría) el acomodo adecuado para las necesidades del problema.
+%
+%
+\section{Aportaciones}
+%
+%
+En este trabajo se propone un conjunto de herramientas teóricas para el acomodo de objetos de geometría simple en un espacio discreto.
+Dichas herramientas fueron establecidas con la intención de que metodologías generales para la evaluación y comparación de acomodos, de acuerdo a los fines planteados, se pudieran elaborar de forma sencilla.
+
+La función de evaluación de arreglos de objetos que se propone es una de las componentes de mayor importancia del método, con la cual se define en gran medida si este tendrá éxito o no.
+Consiste de una heurística simple, la cual ayuda a determinar qué tan fácil es tomar un objeto del arreglo en función de su vencindad.
+
+La función le asigna una puntuación a cada elemento del arreglo y a partir de estas puntuaciones individuales se obtiene un puntuación general de un acomodo.
+Las puntuaciones se asignan valorando en qué grado dicha vecindad restringe o permite la sujeción del elemento en cuestión.
+
+Esta función de evaluación es utilizada por un algoritmo de recocido simulado para evaluar la eficiencia del arreglo encontrado cada vez que se realiza un cambio de estado, al cual se llega mediante un intercambio de posición de dos elementos del arreglo elegidos de forma aleatoria.
+
+Finalmente, para evaluar los resultados del algoritmo se utiliza una función de costo, inspirada en el trabajo de M. Stilman et al. \cite{4209604}, la cual, mediante una búsqueda exhaustiva para todos los objetos en un acomodo determinado, encuentra cuál es la forma de acceder a estos que implique el menor costo posible.
+De esta manera se puede saber con certeza qué tan bueno es el resultado al que llegó el algoritmo, al poder comparar su costo asociado con el de otros acomodos.
+
+En el siguiente capítulo se hará una revisión de los trabajos relacionados a esta investigación.
+En el Capítulo \ref{chap:marco_teorico} se presentarán las bases teóricas desarrolladas para abordar el problema propuesto.
+Además, se definirán los límites de los problemas que se abordarán y se calculará la complejidad de su espacio de búsqueda.
+Posteriormente, en el Capítulo \ref{chap:propuesta}, se presentarán los procedimientos y funciones principales de la metodología propuesta, así como el funcionamiento algoritmo de recocido simulado que se elaboró.
+Luego, en el Capítulo \ref{chap:resultados}, se dan a conocer los resultados obtenidos por la metodología propuesta, comparándolos, en los casos donde fue posible, con los resultados obtenidos al hacer una búsqueda exhaustiva; y en los casos donde no, con los mejores resultados obtenidos al realizar una búsqueda en una muestra del espacio total de configuraciones.
+Finalmente, en el Capítulo \ref{chap:conclusiones}, se darán las conclusiones correspondientes tras finalizar el presente proyecto, así como las proyecciones para el trabajo futuro del mismo.

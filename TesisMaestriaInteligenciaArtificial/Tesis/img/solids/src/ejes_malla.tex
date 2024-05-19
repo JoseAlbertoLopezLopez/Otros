@@ -1,0 +1,39 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Compilar con LaTeX -> DviPDF ó con PDFLaTeX.
+\documentclass[crop]{standalone}
+\usepackage{pst-solides3d}
+\usepackage{anyfontsize}
+
+\input{./utils_paths.tex}
+\input{solids_definitions.tex}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}
+\nopagecolor%
+%
+\begin{pspicture}(-7.64, -14)(12.17, 2.22)
+\PsSettings{}%
+\Malla{}%
+%
+\psSolid[object=point, args=4.993 0.007 0, linecolor=colorLineasMalla]
+%
+\psPoint(0, 0, 0){P0}
+\psPoint(5, 0, 0){P1}
+\psPoint(5, 0, 0){P2}
+\psPoint(-1, 0, 0){P3}
+\psPoint(5, 5.5, 0){P4}
+\psPoint(4.9, 5.47, 0){P5}
+%
+\uput[ur](P3){\fontsize{45}{45}\selectfont $i$}
+\uput[dr](P5){\fontsize{45}{45}\selectfont $j$}
+%
+\psline[linewidth=4pt, arrowsize=15pt, linecolor=colorLineasMalla]{->}(P1)(P3)
+\psline[linewidth=4pt, arrowsize=15pt, linecolor=colorLineasMalla]{->}(P2)(P4)
+\end{pspicture}
+%
+%
+\end{document}

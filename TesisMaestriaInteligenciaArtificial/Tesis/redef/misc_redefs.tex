@@ -1,0 +1,71 @@
+\makeatletter
+
+
+% algorithm2e
+
+% Redefinición del caption.
+\renewcommand{\algocf@captionproctext}[2]{%
+	\addtolength{\hsize}{1.5\algomargin}%
+	\begin{minipage}{\linewidth + 1.5\algomargin}%
+	{%
+		\ProcSty{\ProcFnt\algocf@procname%
+			\ifthenelse{\boolean{algocf@procnumbered}}%
+			{\nobreakspace\thealgocf\algocf@typo\algocf@capseparator}%
+			{\relax}%
+		}%
+		\nobreakspace\ProcNameSty{\ProcNameFnt\algocf@captname\slshape #2@}%
+		\ifthenelse{\equal{\algocf@captparam #2@}{\arg@e}}{}{%
+			\ProcNameSty{$\ProcNameFnt($}\ProcArgSty{\ProcArgFnt\algocf@captparam #2@}\ProcNameSty{$\ProcNameFnt)$}% 
+		}%
+		\algocf@captother #2@%
+	}%
+	\end{minipage}
+}%
+
+
+% footmisc
+
+% Márgen izquierdo de nota al pie.
+\def\@makefntext#1{%
+	\ifFN@hangfoot
+		\bgroup
+		\setbox\@tempboxa\hbox{%
+			\ifdim\footnotemargin>0pt
+				\hb@xt@\footnotemargin{\@makefnmark\hss}%
+			\else
+				\@makefnmark
+			\fi
+		}%
+		\setlength{\leftmargin}{\wd\@tempboxa + 1em}%	% Línea modificada.
+		\rightmargin\z@
+		\linewidth \columnwidth
+		\advance \linewidth -\leftmargin
+		\parshape \@ne \leftmargin \linewidth
+		\@totalleftmargin \leftmargin
+		\footnotesize
+		\@setpar{{\@@par}}%
+		\leavevmode
+		\llap{\box\@tempboxa}%
+		\parskip\hangfootparskip\relax
+		\parindent\hangfootparindent\relax
+	\else
+		\parindent1em
+		\noindent
+		\ifdim\footnotemargin>\z@
+			\hb@xt@ \footnotemargin{\hss\@makefnmark}%
+		\else
+			\ifdim\footnotemargin=\z@
+				\llap{\@makefnmark}%
+			\else
+				\llap{\hb@xt@ -\footnotemargin{\@makefnmark\hss}}%
+			\fi
+		\fi
+	\fi
+	\footnotelayout#1%
+	\ifFN@hangfoot
+		\par\egroup
+	\fi
+}
+
+
+\makeatother

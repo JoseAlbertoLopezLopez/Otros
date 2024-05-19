@@ -1,0 +1,186 @@
+# Abreviaciones:
+#	RS: Recocido Simulado.
+#	FB: Fuerza Bruta.
+
+set encoding iso_8859_1
+set terminal epslatex color size 5.88, 3
+
+# Directorios actual, de entrada y de salida 
+gpl_file_dir = system("pwd")
+output_dir = "../.."
+
+cd output_dir
+input_dir = "./src/data/"	# Relativo a directorio de salida.
+
+# Parámetros
+caso = "3x5"
+
+archivo_entrada = input_dir."resultados_".caso.".csv"
+archivo_salida = "resultados_".caso.".tex"
+
+color_FB = 1
+color_RS = 2
+
+estilo_puntos = 7
+estilo_puntos_optimos = 11
+
+titulo = "\\fontsize{13}{13}\\selectfont{\\textbf{Resultados en mallas de} $\\bm{3\\times 5}$}"
+titulo_eje_x = "\\fontsize{12}{12}\\selectfont{Objetos en malla (cubos, prismas)}"
+titulo_eje_y = "\\fontsize{12}{12}\\selectfont{Costo global $T$}"
+
+x_tics_format = "\\fontsize{7.3}{7.3}\\selectfont{%s}"
+y_tics_format = "{\\fontsize{8}{8}\\selectfont{%g}}"
+
+x2_tics_format = "\\fontsize{2.5}{2.5}\\selectfont{%s}"
+x3_tics_format = "\\fontsize{5}{5}\\selectfont{$N = %g$}"
+
+x_tic = ""
+x2_tic = ""
+sumaPrevia = 1000
+
+FB_key = "\\fontsize{8}{8}\\selectfont{B\\'usqueda exhaustiva}"
+RS_key = "\\fontsize{8}{8}\\selectfont{B\\'usqueda por RS}"
+costo_optimo_key = "\\fontsize{8}{8}\\selectfont{Costo global \\'optimo}"
+coma = "\\fontsize{8}{8}\\selectfont{,}"
+key_figs_optimos_x = 0.955
+key_figs_optimos_y = 0.802
+
+# Funciones
+
+numCubos(colObjs) = \
+	int( \
+		substr( \
+			strcol(colObjs), \
+			0, \
+			strstrt(strcol(colObjs), ',') \
+		) \
+	)
+numPrismas(colObjs) = \
+	int( \
+		substr( \
+			strcol(colObjs), \
+			strstrt(strcol(colObjs), ',') + 1, \
+			strlen(strcol(colObjs)) \
+		) \
+	)
+
+sumaObjetos(colObjs) = numCubos(colObjs) + numPrismas(colObjs)
+
+estiloPuntosMuestras(colObjs, colCosto) = \
+	sumaObjetos(colObjs) == column(colCosto) ? \
+	estilo_puntos_optimos : estilo_puntos
+
+estiloPuntosExahust(colObjs, colCosto, colCostoOptimo) = \
+	column(colCosto) == column(colCostoOptimo) || \
+	sumaObjetos(colObjs) == column(colCosto) ? \
+	estilo_puntos_optimos : estilo_puntos
+
+# Marcas mayores eje x y x2.
+decidirColocarMarcaEjesX(x) = ( \
+	sumaObjetos(1) == sumaPrevia && \
+	!(numCubos(1) == 0 && numPrismas(1) == 9) ? \
+	(x_tic = 1/0, x2_tic = sprintf(x2_tics_format, strcol(1))) : \
+	(x_tic = sprintf(x_tics_format, strcol(1)), x2_tic = 1/0), \
+	sumaPrevia = sumaObjetos(1) \
+)
+
+# Marcas menores eje x2.
+decidirColocarMarcaEjeX2(x) = ( \
+	sumaObjetos(1) != sumaPrevia || \
+	(numCubos(1) == 0 && numPrismas(1) == 9) ? \
+	x2_tic = sprintf(x2_tics_format, strcol(1)) : x2_tic = 1/0, \
+	sumaPrevia = sumaObjetos(1) \
+)
+
+condicion_xtic_1(x) = \
+	numCubos(1) == numPrismas(1) || \
+	(numCubos(1) == 5 && numPrismas(1) == 4) ? \
+	sprintf(x3_tics_format, sumaObjetos(1)) : 1/0
+
+condicion_xtic_2(x) = \
+	numCubos(1) - numPrismas(1) == -1 && \
+	!(numCubos(1) == 4 && numPrismas(1) == 5) ? \
+	sprintf(x3_tics_format, sumaObjetos(1)) : 1/0
+
+# ==============================================================================================================================
+
+set output archivo_salida
+stats archivo_entrada nooutput
+
+set multiplot layout 1,1
+
+set margins 4.2, 0.1, 2.5, 2.2
+
+set border
+
+set xrange [-2:86]
+set yrange [5:40]
+
+set label titulo center at graph 0.5, screen 1 offset 0, char -0.5
+set label titulo_eje_x center at graph 0.5, screen 0 offset 0, char 0.5
+set label titulo_eje_y center at screen 0, graph 0.5 rotate by 90 offset char 1, 0
+
+set xtics scale 1
+set xtics mirror
+set xtics offset 0, 0.5
+
+set x2tics scale 0.5
+set x2tics offset -0.35, -0.3
+set x2tic rotate by 45
+
+set ytics 10, 10, 40
+set format y y_tics_format
+set mytics 5
+set ytics add right ("" 8 1)
+
+set key at graph 0.998, 0.97
+set key samplen 1.5
+set key spacing 1
+
+# Leyenda de óptimos.
+set label at graph key_figs_optimos_x, key_figs_optimos_y "" point pt estilo_puntos_optimos ps 1.2 lc color_FB
+set label at graph key_figs_optimos_x + 0.0187, key_figs_optimos_y "" point pt estilo_puntos_optimos ps 1.2 lc color_RS
+set label at graph key_figs_optimos_x + 0.006, key_figs_optimos_y coma
+
+plot \
+	archivo_entrada u 0:3 w lp lw 1 lc 1 pt estilo_puntos_optimos ps 1 t "", \
+	archivo_entrada u 0:2:(decidirColocarMarcaEjesX(NaN)):(estiloPuntosExahust(1, 2, 3)): \
+		xtic(x_tic):x2tic(x2_tic) \
+		w lp lw 1 lc 2 pt variable ps 1 t "", \
+	keyentry w lp lw 1.2 lc color_FB pt estilo_puntos_optimos ps 1.2 t FB_key, \
+	keyentry w lp lw 1.2 lc color_RS pt estilo_puntos ps 1.2 t RS_key, \
+	keyentry title costo_optimo_key
+
+set border 0
+unset label
+unset xtics
+unset ytics
+unset key
+
+# Marcas menores en eje x2.
+
+sumaPrevia = 1000
+x2_tic = ""
+
+set x2tics scale 0
+
+plot archivo_entrada u 0:(NaN):(decidirColocarMarcaEjeX2(NaN)):x2tic(x2_tic) lw 0 ps 0 t ""
+
+# Nombres $N = X$ en eje x inferior.
+
+unset x2tics
+
+set xtics scale 0
+set xtics offset first 0.5, char 1.4
+
+plot archivo_entrada u 0:(NaN):xtic(condicion_xtic_1(NaN)) t ""
+
+set xtics offset 0, char 1.4
+
+plot archivo_entrada u 0:(NaN):xtic(condicion_xtic_2(NaN)) t ""
+
+unset multiplot
+unset output
+
+cd gpl_file_dir
+reset
