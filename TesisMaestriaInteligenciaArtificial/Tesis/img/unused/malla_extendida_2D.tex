@@ -1,0 +1,36 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[crop]{standalone}
+\usepackage{pst-solides3d}
+
+\input{solides_params.tex}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}
+\dataheight=6%
+\begin{pspicture}(0.09, -7.53)(7.53, 0.03)%
+	\FPdiv\aux{3}{6}%
+	\psset{unit = \aux}%
+	\psset{
+		viewpoint = 20 0 90 rtp2xyz,
+		Decran = 50
+	}%
+	\psSolid[
+		object = grille,
+		base = -6 0 0 6,
+		RotY=180,
+		linestyle = dashed,
+		fillcolor = red,
+		action = draw
+	](0, 0, 0)%
+	\psSolid[
+		object = grille,
+		base = 1 5 1 5,
+		fillcolor = colorMalla
+	](0, 0, 0)%
+\end{pspicture}
+%
+%
+\end{document}

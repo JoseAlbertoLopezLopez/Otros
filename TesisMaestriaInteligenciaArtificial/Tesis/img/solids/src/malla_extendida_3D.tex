@@ -1,0 +1,32 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Compilar con LaTeX -> DviPDF ó con PDFLaTeX.
+\documentclass[crop]{standalone}
+\usepackage{pst-solides3d}
+
+\input{./utils_paths.tex}
+\input{solids_definitions.tex}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}
+\nopagecolor%
+%
+\begin{pspicture}(-9.57, -15.89)(14.95, 0.02)%
+	\PsSettings{}%
+	\psSolid[
+		object = grille,
+		base = -6 0 0 6,
+		RotY = 180,
+		linestyle = dashed,
+		linewidth = \grosorLineaMalla, 
+		linecolor = gray!80!black,
+		action = draw
+	](0, 0, 0)%
+	\Malla{base = 1 5 1 5}%
+\end{pspicture}
+%
+%
+\end{document}

@@ -1,0 +1,187 @@
+% !TEX encoding = UTF-8 Unicode
+\chapter{Resultados}
+\label{chap:resultados}
+%
+%
+En esta sección se presentarán los resultados obtenidos al aplicar la formulación y metodología propuesta a diferentes instancias del problema.
+Estas instancias consisten en distintos tamaños de mallas, donde, para cada uno de ellos, se probaron todas las combinaciones de objetos de clases $C_1$ y $C_2$ posibles, solo descartando las que correspondían a casos triviales o imposibles.
+Los diferentes tamaños de malla con los que se trabajó fueron: 
+%
+\begin{center}
+\renewcommand{\arraystretch}{1.2}%
+\begin{tabular}{w{c}{2cm} w{c}{2cm} w{c}{2cm}}
+	\toprule[\arrayrulewidth]
+	\toprule[\arrayrulewidth]
+	$3\times 3$ & $5\times 5$ & $7\times 7$ \\
+	$3\times 5$ & $6\times 6$ & $8\times 8$ \\
+	$4\times 4$ & $5\times 8$ & \\
+	\bottomrule[\arrayrulewidth]
+	\bottomrule[\arrayrulewidth]
+\end{tabular}
+\end{center}
+%
+Para cada una de las combinaciones de objetos en la malla propuestas, se comparó el costo global del acomodo encontrado por el algoritmo, respecto al costo global del mejor acomodo encontrado al realizar una búsqueda exhaustiva en todas las permutaciones posibles de los objetos en la malla, esto para mallas de un tamaño de hasta $4\times 4$. 
+Para mallas más grandes se realizó una comparación del algoritmo propuesto solo contra un subconjunto de permutaciones y no contra una búsqueda exhaustiva.
+Lo anterior debido a que la cantidad de permutaciones posibles de elementos en mallas de estos tamaños es muy grande, por lo que una búsqueda exhaustiva es inviable con los recursos computacionales utilizados en cuanto al tiempo de procesamiento requerido.
+
+Los subconjuntos de permutaciones se generaron de manera aleatoria. 
+La cantidad de permutaciones generadas fue de $\num{2000000}$ por cada tamaño distinto de la malla, repartidas en cada una de las combinaciones de objetos probadas.
+Esto es, para tamaños de malla iguales o mayores a $5 \times 5$, la suma de las permutaciones generadas, de todas las combinaciones permitidas de $N_1$ y $N_2$ objetos, es de $\num{2000000}$.
+
+La cantidad de permutaciones generadas para cada caso particular $N_1$, $N_2$ es proporcional al número total de objetos en la malla, es decir a $N$.
+Esto debido a que la probabilidad de encontrar el o uno de los arreglos óptimos en cada caso es inversamente proporcional a la cantidad de objetos en la malla.
+
+Los puntos en las gráficas ubicados en el infinito indican que en la muestra generada no se encontró un arreglo que no correspondiera a un caso imposible. 
+
+A continuación se presentan los resultados obtenidos para cada tamaño de malla, junto con un ejemplo ilustrativo de un caso particular, en el que se muestra el acomodo aleatorio inicial y el acomodo encontrado por el algoritmo.
+En cada gráfica se muestran, en los ejes horizontales, el número de objetos de cada clase utilizados para formar el acomodo de objetos en la malla, y en el eje vertical el costo global asociado del arreglo encontrado.
+
+En los casos donde es posible comprobar si el costo global del arreglo encontrado es óptimo, se utilizó una marca diferente en la gráfica, para diferenciarlos de los casos donde, o no es posible comprobarlo o simplemente no lo son.
+Por ejemplo, en las mallas de tamaño menor a $5\times 5$, los arreglos encontrados por la búsqueda exhaustiva siempre serán óptimos.
+Para arreglos de tamaño igual o mayor a $5\times 5$ es posible saber si un arreglo es óptimo si el costo global del arreglo es igual al número de objetos presentes en él.
+
+Para la implementación de las funciones y algoritmos descritos en el Capítulo \ref{chap:propuesta}, se utilizaron los lenguajes de programación C++ y Prolog.
+Mediante el primero se implementó el algoritmo principal, así como las funciones de ponderación que este utiliza, mientras que el segundo se utilizó para implementar las funciones de \textit{backtracking} que calculan el costo global de cada arreglo\footnote{El código del proyecto se puede en contrar en \url{https://github.com/JoseAlbertoLopezLopez}.}.
+La ejecución de los programas desarrollados se llevó a cabo en una laptop Lenovo modelo Ideapad 320, con un procesador \textsl{Intel\,\raisebox{1.3pt}{\scriptsize\circledR} Core™ i7-7500U CPU @ 2.70GHz × 4} y 8 GB de memoria RAM.
+%
+\pagebreak
+%
+\captionsetup[figure]{skip = 13pt}%
+\tikzset{
+	every node/.style = {%
+		inner sep=0, 
+		outer sep=0
+	}, 
+	arrows = {-Stealth[length=10pt, inset=1pt]}
+}%
+%
+\newlength{\oldintextsep}%
+\setlength{\oldintextsep}{\intextsep}%
+\setlength\intextsep{9pt}%
+%
+\begin{figure}[H]
+	\input{resultados_3x3.tex}%
+	\caption{Comparación de la evaluación de los mejores acomodos encontrados por una búsqueda exhaustiva contra los encontrados por el algoritmo propuesto.}%
+\end{figure}
+\vfill%
+\begin{figure}[H]
+	\arregloAntesDespues{caso=3x3, separacionAntesDespues=4.2, separacionVertical=0.7cm}{height=4.4cm}{width=3.42cm}%
+	\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo propuesto (derecha), mostrados en diferentes vistas.}%
+\end{figure}
+%
+\begin{figure}[H]
+	\input{resultados_3x5.tex}%
+	\caption{Comparación de la evaluación de los mejores acomodos encontrados por una búsqueda exhaustiva contra los encontrados por el algoritmo propuesto.}%
+\end{figure}
+\vspace{7pt}%
+\begin{figure}[H]
+	\arregloAntesDespues{caso=3x5, separacionAntesDespues=4.4, separacionVertical=1cm}{width=5.8cm}[width=6.09292929cm]{width=5cm}%
+	\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo propuesto (derecha), mostrados en diferentes vistas.}
+\end{figure}
+%
+\begin{figure}[H]
+	\input{resultados_4x4.tex}%
+	\caption{Comparación de la evaluación de los mejores acomodos encontrados por una búsqueda exhaustiva contra los encontrados por el algoritmo propuesto.}%
+\end{figure}
+\vfill%
+\begin{figure}[H]
+	\arregloAntesDespues{caso=4x4, separacionAntesDespues=4.4, separacionVertical=0.7cm}{width=5.4cm}[width=5.46cm]{width=4.3527cm}%
+	\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo propuesto (derecha), mostrados en diferentes vistas.}%
+\end{figure}
+%
+\begin{figure}[H]
+	\input{resultados_5x5.tex}%
+	\caption{Comparación de la evaluación de los mejores acomodos encontrados en una muestra aleatoria y los encontrados por el algoritmo propuesto.}%
+\end{figure}
+\vfill%
+\begin{figure}[H]
+	\arregloAntesDespues{caso=5x5, separacionAntesDespues=4.5, separacionVertical=0.7cm}{width=5.9cm}{width=4.5cm}%
+	\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo propuesto (derecha), mostrados en diferentes vistas.}%
+\end{figure}%
+%
+\begin{figure}[H]
+	\input{resultados_6x6.tex}%
+	\caption{Comparación de la evaluación de los mejores acomodos encontrados en una muestra aleatoria y los encontrados por el algoritmo propuesto.}%
+\end{figure}
+\vfill%
+\begin{figure}[H]
+	\arregloAntesDespues{caso=6x6, separacionAntesDespues=4.5, separacionVertical=0.7cm}{width=5.8cm}[width=6cm]{width=4.5cm}%
+	\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo propuesto (derecha), mostrados en diferentes vistas.}%
+\end{figure}
+%
+\begin{figure}[H]
+	\input{resultados_5x8.tex}%
+	\caption{Comparación de la evaluación de los mejores acomodos encontrados en una muestra aleatoria contra los encontrados por el algoritmo propuesto.}%
+\end{figure}
+\vspace{10pt}%
+\begin{figure}[H]
+	\arregloAntesDespues{caso=5x8, separacionAntesDespues=4.5, separacionVertical=1cm}{width=5.8cm}[width=5.995cm]{width=5cm}%
+	\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo propuesto (derecha), mostrados en diferentes vistas.}%
+\end{figure}
+%
+\setlength\intextsep{4pt}
+\begin{figure}[H]
+	\input{resultados_7x7.tex}%
+	\caption{Comparación de la evaluación de los mejores acomodos encontrados en una muestra aleatoria y los encontrados por el algoritmo propuesto.}%
+\end{figure}
+\vfill%
+\begin{figure}[H]
+	\arregloAntesDespues{caso=7x7, separacionAntesDespues=4.5, separacionVertical=0.7cm}{width=5.8cm}[width=6.09cm]{width=4.4cm}%
+	\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo propuesto (derecha), mostrados en diferentes vistas.}%
+\end{figure}
+%
+\setlength\intextsep{6pt}
+\begin{figure}[H]
+	\input{resultados_8x8.tex}%
+	\caption{Comparación de la evaluación de los mejores acomodos encontrados en una muestra aleatoria y los encontrados por el algoritmo propuesto.}%
+\end{figure}
+\vfill%
+\begin{figure}[H]
+	\arregloAntesDespues{caso=8x8, separacionAntesDespues=4.5, separacionVertical=0.7cm}{width=5.95cm}[width=5.88cm]{width=4.46cm}%
+	\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo propuesto (derecha), mostrados en diferentes vistas.}%
+\end{figure}
+\setlength{\intextsep}{\oldintextsep}%
+%
+A pesar de ser un algoritmo estocástico, se observó bastante regularidad y consistencia en los resultados obtenidos.
+En la mayoría de los casos se llegaba al mismo arreglo tras varias ejecuciones del algoritmo, para los mismos datos de entrada.
+Sin embargo, en ocasiones se llegó a diferentes resultados para una misma entrada.
+En estos casos los arreglos encontrados obtuvieron la misma puntuación o una muy parecida.
+Esta variabilidad no representa mayor inconveniente en los resultados obtenidos, ya que es poco frecuente y el costo global de los arreglos encontrados se mantiene, pudiendo servir incluso para encontrar diferentes alternativas de arreglos óptimos.
+
+Como se mencionó previamente en este capítulo, a pesar de que a partir de los tamaños de malla de $5\times 5$ no fue posible realizar un búsqueda exhaustiva para comparar los resultados del algoritmo, en algunos casos se puede verificar si el acomodo obtenido por el algoritmo es óptimo.
+Esto se puede determinar simplemente verificando si el costo global del acomodo obtenido es igual al número de objetos en él.
+Al observar las gráficas de resultados se puede ver que esto ocurre en varias ocasiones, en las regiones que asemejan valles en la curva generada por los resultados del algoritmo de recocido simulado.
+
+Para los casos donde fue posible comparar el arreglo encontrado por el algoritmo propuesto con el arreglo óptimo, encontrado mediante una búsqueda exhaustiva, se obtuvo la información estadística presentada en la Tabla \ref{tab:comparacion_RS_vs_exhaustiva}.
+%
+\begin{table}[H]
+\renewcommand{\arraystretch}{1.4}%
+\saveminipagetablewidth{%
+\begin{tabular}{c >{\centering}m{1.8cm} >{\centering}m{1.8cm} w{c}{2.5cm} >{\centering}m{3.4cm}}
+	\hline%
+	\bfseries Malla & %
+	\bfseries \#\,Casos óptimos & %
+	\bfseries \#\,Total casos & %
+	\bfseries \%\,Óptimos & %
+	\bfseries Promedio de acciones extra\mpfootnotemark \tabularnewline \hline
+	$\bm{3\times 3}$ & 30 & 32 & 93.75 \% & 0.09 \tabularnewline 
+	$\bm{3\times 5}$ & 70 & 85 & 82.35 \% & 0.33 \tabularnewline 
+	$\bm{4\times 4}$ & 88 & 88 & 100 \% & 0 \tabularnewline
+	\hline%
+\end{tabular}%
+\footnotetext{Promedio de acciones (o costo global $T$) extra por caso. Este valor se calcula mediante la expresión $( \sum T - \sum T_{\text{opt}} ) /\textsl{\#\,Total casos}$, donde $\sum T_{\text{opt}}$ es la suma de costos óptimos para todos los casos probados.}%
+}%
+\captionsetup{width=\tablewidth}%
+\caption{Resultados del algoritmo propuesto para mallas de tamaño igual o menor a $4\times 4$.}%
+\label{tab:comparacion_RS_vs_exhaustiva}%
+\end{table}
+%
+Como se puede notar, en el 6.25\% de los casos para mallas de $3\times 3$ y en el 17.65\% de los casos para mallas de $3\times 5$, el algoritmo no es capaz de encontrar el arreglo óptimo.
+Esto puede resultar confuso, ya que se trata de tamaños de malla más pequeños que el tamaño $4\times 4$, para el cual el algoritmo siempre encuentra un arreglo óptimo.
+Esto es debido a la razón explicada al final de la Sección \ref{sec:algoritmo_principal}: se pueden presentar casos especiales en los que las reglas de puntuación establecidas no siempre otorguen la mejor puntuación al arreglo óptimo, lo cual es posible corregir modificando las heurísticas utilizadas para puntuar, probablemente a cambio de un aumento en la complejidad del modelo.
+
+Sin embargo, en los casos donde no se llega a un arreglo óptimo, el algoritmo encuentra arreglos que no están muy alejados de este, ya que están solo unos pocos movimientos por encima del óptimo.
+Es decir, por ejemplo, que la única diferencia entre el arreglo encontrado y el óptimo, es que para uno o dos objetos en el arreglo se necesitarían uno o dos movimientos extra para acceder a ellos, manteniendo costos óptimos de acceso para el resto.
+Lo cual se traduce en la métrica del promedio de acciones extra, mostrada en la Tabla \ref{tab:comparacion_RS_vs_exhaustiva}.
+
+En la gran mayoría de los casos donde es posible comprobarlo, el algoritmo otorga la mejor puntuación al arreglo con costo el global mínimo.

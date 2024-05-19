@@ -1,0 +1,384 @@
+% GNUPLOT: LaTeX picture with Postscript
+\begingroup
+  % Encoding inside the plot.  In the header of your document, this encoding
+  % should to defined, e.g., by using
+  % \usepackage[latin1,<other encodings>]{inputenc}
+  \inputencoding{latin1}%
+  \makeatletter
+  \providecommand\color[2][]{%
+    \GenericError{(gnuplot) \space\space\space\@spaces}{%
+      Package color not loaded in conjunction with
+      terminal option `colourtext'%
+    }{See the gnuplot documentation for explanation.%
+    }{Either use 'blacktext' in gnuplot or load the package
+      color.sty in LaTeX.}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\includegraphics[2][]{%
+    \GenericError{(gnuplot) \space\space\space\@spaces}{%
+      Package graphicx or graphics not loaded%
+    }{See the gnuplot documentation for explanation.%
+    }{The gnuplot epslatex terminal needs graphicx.sty or graphics.sty.}%
+    \renewcommand\includegraphics[2][]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \@ifundefined{ifGPcolor}{%
+    \newif\ifGPcolor
+    \GPcolortrue
+  }{}%
+  \@ifundefined{ifGPblacktext}{%
+    \newif\ifGPblacktext
+    \GPblacktexttrue
+  }{}%
+  % define a \g@addto@macro without @ in the name:
+  \let\gplgaddtomacro\g@addto@macro
+  % define empty templates for all commands taking text:
+  \gdef\gplbacktext{}%
+  \gdef\gplfronttext{}%
+  \makeatother
+  \ifGPblacktext
+    % no textcolor at all
+    \def\colorrgb#1{}%
+    \def\colorgray#1{}%
+  \else
+    % gray or color?
+    \ifGPcolor
+      \def\colorrgb#1{\color[rgb]{#1}}%
+      \def\colorgray#1{\color[gray]{#1}}%
+      \expandafter\def\csname LTw\endcsname{\color{white}}%
+      \expandafter\def\csname LTb\endcsname{\color{black}}%
+      \expandafter\def\csname LTa\endcsname{\color{black}}%
+      \expandafter\def\csname LT0\endcsname{\color[rgb]{1,0,0}}%
+      \expandafter\def\csname LT1\endcsname{\color[rgb]{0,1,0}}%
+      \expandafter\def\csname LT2\endcsname{\color[rgb]{0,0,1}}%
+      \expandafter\def\csname LT3\endcsname{\color[rgb]{1,0,1}}%
+      \expandafter\def\csname LT4\endcsname{\color[rgb]{0,1,1}}%
+      \expandafter\def\csname LT5\endcsname{\color[rgb]{1,1,0}}%
+      \expandafter\def\csname LT6\endcsname{\color[rgb]{0,0,0}}%
+      \expandafter\def\csname LT7\endcsname{\color[rgb]{1,0.3,0}}%
+      \expandafter\def\csname LT8\endcsname{\color[rgb]{0.5,0.5,0.5}}%
+    \else
+      % gray
+      \def\colorrgb#1{\color{black}}%
+      \def\colorgray#1{\color[gray]{#1}}%
+      \expandafter\def\csname LTw\endcsname{\color{white}}%
+      \expandafter\def\csname LTb\endcsname{\color{black}}%
+      \expandafter\def\csname LTa\endcsname{\color{black}}%
+      \expandafter\def\csname LT0\endcsname{\color{black}}%
+      \expandafter\def\csname LT1\endcsname{\color{black}}%
+      \expandafter\def\csname LT2\endcsname{\color{black}}%
+      \expandafter\def\csname LT3\endcsname{\color{black}}%
+      \expandafter\def\csname LT4\endcsname{\color{black}}%
+      \expandafter\def\csname LT5\endcsname{\color{black}}%
+      \expandafter\def\csname LT6\endcsname{\color{black}}%
+      \expandafter\def\csname LT7\endcsname{\color{black}}%
+      \expandafter\def\csname LT8\endcsname{\color{black}}%
+    \fi
+  \fi
+    \setlength{\unitlength}{0.0500bp}%
+    \ifx\gptboxheight\undefined%
+      \newlength{\gptboxheight}%
+      \newlength{\gptboxwidth}%
+      \newsavebox{\gptboxtext}%
+    \fi%
+    \setlength{\fboxrule}{0.5pt}%
+    \setlength{\fboxsep}{1pt}%
+\begin{picture}(8466.00,4320.00)%
+    \gplgaddtomacro\gplbacktext{%
+      \csname LTb\endcsname%%
+      \put(422,550){\makebox(0,0){\strut{}\raisebox{2pt}{\fontsize{8}{8}\selectfont{10}}}}%
+      \put(422,3840){\makebox(0,0){\strut{}\raisebox{1pt}{\fontsize{8}{8}\selectfont{$\infty$}}}}%
+      \put(422,1020){\makebox(0,0){\fontsize{8}{8}\selectfont{20}}}%
+      \put(422,1490){\makebox(0,0){\fontsize{8}{8}\selectfont{30}}}%
+      \put(422,1960){\makebox(0,0){\fontsize{8}{8}\selectfont{40}}}%
+      \put(422,2430){\makebox(0,0){\fontsize{8}{8}\selectfont{50}}}%
+      \put(422,2900){\makebox(0,0){\fontsize{8}{8}\selectfont{60}}}%
+      \put(422,3370){\makebox(0,0){\fontsize{8}{8}\selectfont{70}}}%
+      \put(623,440){\makebox(0,0){\strut{}\fontsize{7.3}{7.3}\selectfont{21,4}}}%
+      \put(1244,440){\makebox(0,0){\strut{}\fontsize{7.3}{7.3}\selectfont{21,3}}}%
+      \put(1899,440){\makebox(0,0){\strut{}\fontsize{7.3}{7.3}\selectfont{21,2}}}%
+      \put(2589,440){\makebox(0,0){\strut{}\fontsize{7.3}{7.3}\selectfont{21,1}}}%
+      \put(3313,440){\makebox(0,0){\strut{}\fontsize{7.3}{7.3}\selectfont{21,0}}}%
+      \put(4071,440){\makebox(0,0){\strut{}\fontsize{7.3}{7.3}\selectfont{20,0}}}%
+      \put(4796,440){\makebox(0,0){\strut{}\fontsize{7.3}{7.3}\selectfont{19,0}}}%
+      \put(5485,440){\makebox(0,0){\strut{}\fontsize{7.3}{7.3}\selectfont{18,0}}}%
+      \put(6141,440){\makebox(0,0){\strut{}\fontsize{7.3}{7.3}\selectfont{17,0}}}%
+      \put(6761,440){\makebox(0,0){\strut{}\fontsize{7.3}{7.3}\selectfont{16,0}}}%
+      \put(7347,440){\makebox(0,0){\strut{}\fontsize{7.3}{7.3}\selectfont{15,0}}}%
+      \put(7899,440){\makebox(0,0){\strut{}\fontsize{7.3}{7.3}\selectfont{14,0}}}%
+      \put(8382,440){\makebox(0,0){\strut{}\hspace{-0.2cm}\fontsize{7.3}{7.3}\selectfont{0,14}}}%
+      \put(611,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{20,5}}}}%
+      \put(646,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{19,6}}}}%
+      \put(680,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{18,7}}}}%
+      \put(715,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{17,8}}}}%
+      \put(749,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{16,9}}}}%
+      \put(784,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{15,10}}}}%
+      \put(818,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{14,11}}}}%
+      \put(853,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{13,12}}}}%
+      \put(887,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{12,13}}}}%
+      \put(922,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{11,14}}}}%
+      \put(956,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{10,15}}}}%
+      \put(991,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{9,16}}}}%
+      \put(1025,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{8,17}}}}%
+      \put(1060,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{7,18}}}}%
+      \put(1094,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{6,19}}}}%
+      \put(1129,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{5,20}}}}%
+      \put(1163,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{4,21}}}}%
+      \put(1232,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{20,4}}}}%
+      \put(1267,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{19,5}}}}%
+      \put(1301,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{18,6}}}}%
+      \put(1336,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{17,7}}}}%
+      \put(1370,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{16,8}}}}%
+      \put(1405,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{15,9}}}}%
+      \put(1439,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{14,10}}}}%
+      \put(1474,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{13,11}}}}%
+      \put(1508,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{12,12}}}}%
+      \put(1543,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{11,13}}}}%
+      \put(1577,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{10,14}}}}%
+      \put(1612,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{9,15}}}}%
+      \put(1646,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{8,16}}}}%
+      \put(1680,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{7,17}}}}%
+      \put(1715,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{6,18}}}}%
+      \put(1749,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{5,19}}}}%
+      \put(1784,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{4,20}}}}%
+      \put(1818,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{3,21}}}}%
+      \put(1887,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{20,3}}}}%
+      \put(1922,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{19,4}}}}%
+      \put(1956,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{18,5}}}}%
+      \put(1991,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{17,6}}}}%
+      \put(2025,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{16,7}}}}%
+      \put(2060,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{15,8}}}}%
+      \put(2094,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{14,9}}}}%
+      \put(2129,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{13,10}}}}%
+      \put(2163,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{12,11}}}}%
+      \put(2198,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{11,12}}}}%
+      \put(2232,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{10,13}}}}%
+      \put(2267,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{9,14}}}}%
+      \put(2301,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{8,15}}}}%
+      \put(2336,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{7,16}}}}%
+      \put(2370,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{6,17}}}}%
+      \put(2405,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{5,18}}}}%
+      \put(2439,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{4,19}}}}%
+      \put(2474,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{3,20}}}}%
+      \put(2508,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{2,21}}}}%
+      \put(2577,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{20,2}}}}%
+      \put(2612,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{19,3}}}}%
+      \put(2646,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{18,4}}}}%
+      \put(2681,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{17,5}}}}%
+      \put(2715,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{16,6}}}}%
+      \put(2750,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{15,7}}}}%
+      \put(2784,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{14,8}}}}%
+      \put(2818,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{13,9}}}}%
+      \put(2853,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{12,10}}}}%
+      \put(2887,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{11,11}}}}%
+      \put(2922,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{10,12}}}}%
+      \put(2956,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{9,13}}}}%
+      \put(2991,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{8,14}}}}%
+      \put(3025,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{7,15}}}}%
+      \put(3060,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{6,16}}}}%
+      \put(3094,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{5,17}}}}%
+      \put(3129,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{4,18}}}}%
+      \put(3163,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{3,19}}}}%
+      \put(3198,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{2,20}}}}%
+      \put(3232,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{1,21}}}}%
+      \put(3301,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{20,1}}}}%
+      \put(3336,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{19,2}}}}%
+      \put(3370,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{18,3}}}}%
+      \put(3405,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{17,4}}}}%
+      \put(3439,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{16,5}}}}%
+      \put(3474,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{15,6}}}}%
+      \put(3508,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{14,7}}}}%
+      \put(3543,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{13,8}}}}%
+      \put(3577,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{12,9}}}}%
+      \put(3612,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{11,10}}}}%
+      \put(3646,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{10,11}}}}%
+      \put(3681,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{9,12}}}}%
+      \put(3715,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{8,13}}}}%
+      \put(3750,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{7,14}}}}%
+      \put(3784,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{6,15}}}}%
+      \put(3819,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{5,16}}}}%
+      \put(3853,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{4,17}}}}%
+      \put(3888,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{3,18}}}}%
+      \put(3922,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{2,19}}}}%
+      \put(3956,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{1,20}}}}%
+      \put(3991,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{0,21}}}}%
+      \put(4060,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{19,1}}}}%
+      \put(4094,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{18,2}}}}%
+      \put(4129,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{17,3}}}}%
+      \put(4163,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{16,4}}}}%
+      \put(4198,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{15,5}}}}%
+      \put(4232,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{14,6}}}}%
+      \put(4267,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{13,7}}}}%
+      \put(4301,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{12,8}}}}%
+      \put(4336,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{11,9}}}}%
+      \put(4370,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{10,10}}}}%
+      \put(4405,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{9,11}}}}%
+      \put(4439,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{8,12}}}}%
+      \put(4474,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{7,13}}}}%
+      \put(4508,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{6,14}}}}%
+      \put(4543,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{5,15}}}}%
+      \put(4577,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{4,16}}}}%
+      \put(4612,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{3,17}}}}%
+      \put(4646,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{2,18}}}}%
+      \put(4681,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{1,19}}}}%
+      \put(4715,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{0,20}}}}%
+      \put(4784,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{18,1}}}}%
+      \put(4819,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{17,2}}}}%
+      \put(4853,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{16,3}}}}%
+      \put(4888,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{15,4}}}}%
+      \put(4922,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{14,5}}}}%
+      \put(4957,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{13,6}}}}%
+      \put(4991,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{12,7}}}}%
+      \put(5025,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{11,8}}}}%
+      \put(5060,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{10,9}}}}%
+      \put(5094,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{9,10}}}}%
+      \put(5129,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{8,11}}}}%
+      \put(5163,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{7,12}}}}%
+      \put(5198,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{6,13}}}}%
+      \put(5232,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{5,14}}}}%
+      \put(5267,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{4,15}}}}%
+      \put(5301,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{3,16}}}}%
+      \put(5336,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{2,17}}}}%
+      \put(5370,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{1,18}}}}%
+      \put(5405,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{0,19}}}}%
+      \put(5474,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{17,1}}}}%
+      \put(5508,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{16,2}}}}%
+      \put(5543,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{15,3}}}}%
+      \put(5577,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{14,4}}}}%
+      \put(5612,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{13,5}}}}%
+      \put(5646,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{12,6}}}}%
+      \put(5681,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{11,7}}}}%
+      \put(5715,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{10,8}}}}%
+      \put(5750,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{9,9}}}}%
+      \put(5784,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{8,10}}}}%
+      \put(5819,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{7,11}}}}%
+      \put(5853,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{6,12}}}}%
+      \put(5888,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{5,13}}}}%
+      \put(5922,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{4,14}}}}%
+      \put(5957,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{3,15}}}}%
+      \put(5991,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{2,16}}}}%
+      \put(6026,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{1,17}}}}%
+      \put(6060,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{0,18}}}}%
+      \put(6129,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{16,1}}}}%
+      \put(6163,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{15,2}}}}%
+      \put(6198,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{14,3}}}}%
+      \put(6232,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{13,4}}}}%
+      \put(6267,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{12,5}}}}%
+      \put(6301,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{11,6}}}}%
+      \put(6336,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{10,7}}}}%
+      \put(6370,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{9,8}}}}%
+      \put(6405,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{8,9}}}}%
+      \put(6439,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{7,10}}}}%
+      \put(6474,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{6,11}}}}%
+      \put(6508,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{5,12}}}}%
+      \put(6543,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{4,13}}}}%
+      \put(6577,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{3,14}}}}%
+      \put(6612,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{2,15}}}}%
+      \put(6646,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{1,16}}}}%
+      \put(6681,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{0,17}}}}%
+      \put(6750,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{15,1}}}}%
+      \put(6784,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{14,2}}}}%
+      \put(6819,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{13,3}}}}%
+      \put(6853,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{12,4}}}}%
+      \put(6888,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{11,5}}}}%
+      \put(6922,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{10,6}}}}%
+      \put(6957,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{9,7}}}}%
+      \put(6991,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{8,8}}}}%
+      \put(7026,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{7,9}}}}%
+      \put(7060,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{6,10}}}}%
+      \put(7095,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{5,11}}}}%
+      \put(7129,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{4,12}}}}%
+      \put(7164,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{3,13}}}}%
+      \put(7198,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{2,14}}}}%
+      \put(7233,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{1,15}}}}%
+      \put(7267,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{0,16}}}}%
+      \put(7336,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{14,1}}}}%
+      \put(7370,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{13,2}}}}%
+      \put(7405,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{12,3}}}}%
+      \put(7439,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{11,4}}}}%
+      \put(7474,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{10,5}}}}%
+      \put(7508,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{9,6}}}}%
+      \put(7543,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{8,7}}}}%
+      \put(7577,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{7,8}}}}%
+      \put(7612,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{6,9}}}}%
+      \put(7646,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{5,10}}}}%
+      \put(7681,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{4,11}}}}%
+      \put(7715,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{3,12}}}}%
+      \put(7750,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{2,13}}}}%
+      \put(7784,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{1,14}}}}%
+      \put(7819,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{0,15}}}}%
+      \put(7888,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{13,1}}}}%
+      \put(7922,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{12,2}}}}%
+      \put(7957,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{11,3}}}}%
+      \put(7991,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{10,4}}}}%
+      \put(8026,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{9,5}}}}%
+      \put(8060,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{8,6}}}}%
+      \put(8095,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{7,7}}}}%
+      \put(8129,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{6,8}}}}%
+      \put(8164,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{5,9}}}}%
+      \put(8198,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{4,10}}}}%
+      \put(8233,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{3,11}}}}%
+      \put(8267,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{2,12}}}}%
+      \put(8302,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{1,13}}}}%
+      \put(4503,4209){\makebox(0,0){\strut{}\fontsize{13}{13}\selectfont{\bf Resultados en mallas de $\bm{5\times 5}$}}}%
+      \put(4503,110){\makebox(0,0){\strut{}\fontsize{12}{12}\selectfont{Objetos en malla (cubos, prismas)}}}%
+      \put(132,2242){\rotatebox{90}{\makebox(0,0){\strut{}\fontsize{12}{12}\selectfont{Costo global $T$}}}}%
+      \put(8127,3312){\makebox(0,0)[l]{\strut{}}}%
+      \csname LTb\endcsname%%
+      \put(8274,3312){\makebox(0,0)[l]{\strut{}}}%
+      \csname LTb\endcsname%%
+      \put(8143,3281){\makebox(0,0)[l]{\strut{}\fontsize{8}{8}\selectfont{,}}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \csname LTb\endcsname%%
+      \put(7910,3722){\makebox(0,0)[r]{\strut{}\fontsize{8}{8}\selectfont{B\'usqueda en muestra}}}%
+      \csname LTb\endcsname%%
+      \put(7910,3502){\makebox(0,0)[r]{\strut{}\fontsize{8}{8}\selectfont{B\'usqueda por RS}}}%
+      \csname LTb\endcsname%%
+      \put(7910,3282){\makebox(0,0)[r]{\strut{}\fontsize{8}{8}\selectfont{Costo global \'optimo}}}%
+    }%
+    \gplgaddtomacro\gplbacktext{%
+      \csname LTb\endcsname%%
+      \put(577,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{21,4}}}}%
+      \put(1198,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{21,3}}}}%
+      \put(1853,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{21,2}}}}%
+      \put(2543,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{21,1}}}}%
+      \put(3267,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{21,0}}}}%
+      \put(4025,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{20,0}}}}%
+      \put(4750,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{19,0}}}}%
+      \put(5439,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{18,0}}}}%
+      \put(6095,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{17,0}}}}%
+      \put(6715,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{16,0}}}}%
+      \put(7301,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{15,0}}}}%
+      \put(7853,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{14,0}}}}%
+      \put(8336,3989){\rotatebox{45}{\makebox(0,0)[l]{\strut{}\fontsize{1}{1}\selectfont{0,14}}}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+    }%
+    \gplgaddtomacro\gplbacktext{%
+      \csname LTb\endcsname%%
+      \put(1571,638){\makebox(0,0){\strut{}\fontsize{5}{5}\selectfont{$N = 24$}}}%
+      \put(2950,638){\makebox(0,0){\strut{}\fontsize{5}{5}\selectfont{$N = 22$}}}%
+      \put(4433,638){\makebox(0,0){\strut{}\fontsize{5}{5}\selectfont{$N = 20$}}}%
+      \put(5813,638){\makebox(0,0){\strut{}\fontsize{5}{5}\selectfont{$N = 18$}}}%
+      \put(7054,638){\makebox(0,0){\strut{}\fontsize{5}{5}\selectfont{$N = 16$}}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+    }%
+    \gplgaddtomacro\gplbacktext{%
+      \csname LTb\endcsname%%
+      \put(933,638){\makebox(0,0){\strut{}\fontsize{5}{5}\selectfont{$N = 25$}}}%
+      \put(2244,638){\makebox(0,0){\strut{}\fontsize{5}{5}\selectfont{$N = 23$}}}%
+      \put(3692,638){\makebox(0,0){\strut{}\fontsize{5}{5}\selectfont{$N = 21$}}}%
+      \put(5140,638){\makebox(0,0){\strut{}\fontsize{5}{5}\selectfont{$N = 19$}}}%
+      \put(6451,638){\makebox(0,0){\strut{}\fontsize{5}{5}\selectfont{$N = 17$}}}%
+      \put(7623,638){\makebox(0,0){\strut{}\fontsize{5}{5}\selectfont{$N = 15$}}}%
+      \put(8141,638){\makebox(0,0){\strut{}\fontsize{5}{5}\selectfont{$N = 14$}}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+    }%
+    \gplbacktext
+    \put(0,0){\includegraphics{resultados_5x5}}%
+    \gplfronttext
+  \end{picture}%
+\endgroup
