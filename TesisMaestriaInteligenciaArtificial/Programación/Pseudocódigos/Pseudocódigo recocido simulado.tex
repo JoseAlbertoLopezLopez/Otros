@@ -1,0 +1,221 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{anyfontsize}
+
+\usepackage{float}
+
+\usepackage{geometry}
+\geometry{
+	right=35mm,
+	left=35mm,
+	top=30mm,
+	bottom=30mm
+}
+
+%\usepackage{fontspec}
+%\setmainfont{Arial}
+
+\usepackage{titlesec}
+
+\usepackage{setspace}
+\setstretch{1.2}
+
+\usepackage[linesnumbered, ruled, lined, boxed]{algorithm2e}
+
+\titlespacing*{\section}{0cm}{1cm}{1cm}
+
+\setlength{\interspacetitleruled}{5pt}
+
+\title{\raggedright \bf \fontsize{32}{32}\selectfont{Algoritmo RS}}
+\author{}
+\date{}
+
+\SetKwInput{KwData}{Datos de entrada}
+\SetKwInput{KwResult}{Resultado}
+
+\IncMargin{1em}
+
+
+\newlength{\espacioVert}
+\setlength{\espacioVert}{0.5cm}
+
+
+\usepackage[table]{xcolor}
+
+\usepackage{tikz}
+
+\usepackage{pgffor}
+
+\usepackage{xparse}
+
+\usepackage{etoolbox}
+
+
+%\global\let\a\b
+
+%\let\oldalgorithm\algorithm
+%\let\oldendalgorithm\endalgorithm
+%\def\algorithm{\begingroup \oldalgorithm}
+%\def\endalgorithm{\oldendalgorithm \endgroup}
+
+\makeatletter
+\let\oldalgorithm\algorithm
+\let\oldendalgorithm\endalgorithm
+
+\renewcommand{\algorithm}{\@ifnextchar[\algorithm@i \algorithm@ii}
+\def\algorithm@i[#1]{\oldalgorithm[#1] \setcounter{AlgoLine}{\the\value{contAlgoLargo}}}
+\def\algorithm@ii{\oldalgorithm \setcounter{AlgoLine}{\the\value{contAlgoLargo}}}
+
+\renewcommand{\endalgorithm}{\setcounter{contAlgoLargo}{\the\value{AlgoLine}} \oldendalgorithm}
+\makeatother
+
+\newcounter{contAlgoLargo}
+\makeatletter
+\NewDocumentCommand{\AlgoritmoLargo}{m}{
+
+	\ifthenelse{\equal{#1}{Inicio}}{
+
+		\setcounter{contAlgoLargo}{0}
+		
+		\renewcommand{\algorithm}{\@ifnextchar[\algorithm@i \algorithm@ii}
+
+		\setlength{\interspacetitleboxruled}{5pt}
+		\renewcommand{\@algocf@pre@ruled}{\hrule width\algocf@ruledwidth height1pt depth0pt\kern\interspacetitleruled}
+		\setlength{\algotitleheightrule}{1pt}
+		\renewcommand{\@algocf@post@ruled}{\kern\interspacealgoruled\hrule width\algocf@ruledwidth height0pt} 
+		
+		\renewcommand{\endalgorithm}{\setcounter{contAlgoLargo}{\the\value{AlgoLine}} \oldendalgorithm}
+	}{}
+	
+	\ifthenelse{\equal{#1}{Continua}}{
+	
+		\setlength{\interspacetitleboxruled}{0pt}
+		\renewcommand{\@algocf@pre@ruled}{\hrule width\algocf@ruledwidth height 0pt depth0pt\kern -6pt}
+		\setlength{\algotitleheightrule}{0pt}
+		\renewcommand{\@algocf@post@ruled}{\kern\interspacealgoruled\hrule width\algocf@ruledwidth height0pt} 
+	}{}
+		
+	\ifthenelse{\equal{#1}{Fin}}{
+	
+		\setlength{\interspacetitleboxruled}{0pt}
+		\renewcommand{\@algocf@pre@ruled}{\hrule width\algocf@ruledwidth height 0pt depth0pt\kern -6pt}
+		\setlength{\algotitleheightrule}{0pt}
+		\renewcommand{\@algocf@post@ruled}{\kern\interspacealgoruled\hrule width\algocf@ruledwidth height 1pt}
+
+		\setcounter{AlgoLine}{0} 
+		\renewcommand{\endalgorithm}{\renewcommand{\algorithm}{\oldalgorithm} \oldendalgorithm}
+	}{}
+}
+\makeatother
+
+
+\newcounter{cont}
+\let\oldnl\nl
+\newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}
+\makeatletter
+\NewDocumentCommand{\BloqueLargo}{m +m +m}{
+
+	\ifthenelse{\equal{#1}{IfInicio}}{ \SetKwIF{If}{ElseIf}{Else}{if}{then}{else if}{else}{} \If{#2}{\SetKwIF{If}{ElseIf}{Else}{if}{then}{else if}{else}{end} #3} }{}
+	\ifthenelse{\equal{#1}{ForInicio}}{ \SetKwFor{For}{for}{do}{} \For{#2}{\SetKwFor{For}{for}{do}{end} #3} }{}
+	\ifthenelse{\equal{#1}{WhileInicio}}{ \SetKwFor{While}{while}{do}{} \While{#2}{\SetKwFor{While}{while}{do}{end} #3} }{}
+	\ifthenelse{\equal{#1}{SwitchInicio}}{ \SetKwSwitch{Switch}{Case}{Other}{switch}{do}{case}{otherwise}{endcase}{} \Switch{#2}{\SetKwSwitch{Switch}{Case}{Other}{switch}{do}{case}{otherwise}{endcase}{end} #3} }{}
+	\ifthenelse{\equal{#1}{CaseInicio}}{ \SetKwSwitch{Switch}{Case}{Other}{}{}{case}{}{}{} \Case{#2}{\SetKwSwitch{Switch}{Case}{Other}{switch}{do}{case}{otherwise}{end}{end} #3} }{}
+	\ifthenelse{\equal{#1}{ForEachInicio}}{ \SetKwFor{ForEach}{foreach}{do}{} \ForEach{#2}{\SetKwFor{ForEach}{foreach}{do}{end} #3} }{}
+	\ifthenelse{\equal{#1}{ForAllInicio}}{ \SetKwAll{ForEach}{forall}{do}{} \ForAll{#2}{\SetKwAll{ForEach}{forall}{do}{end} #3} }{}
+	\ifthenelse{\equal{#1}{RepeatInicio}}{ \SetKwRepeat{Repeat}{repeat}{} \Repeat{#2}{\SetKwRepeat{Repeat}{repeat}{until} #3} }{}
+
+
+	\ifthenelse{\equal{#1}{IfContinua}}{ \SetKwIF{If}{ElseIf}{Else}{}{}{else if}{else}{} \vspace{-\baselineskip} \nonl \If{#2}{\SetKwIF{If}{ElseIf}{Else}{if}{then}{else if}{else}{end} #3} \SetKwIF{If}{ElseIf}{Else}{if}{then}{else if}{else}{end} }{}
+	\ifthenelse{\equal{#1}{ForContinua}}{ \SetKwFor{For}{}{}{} \vspace{-\baselineskip} \nonl \For{#2}{\SetKwFor{For}{for}{do}{end} #3} }{}
+	\ifthenelse{\equal{#1}{WhileContinua}}{ \SetKwFor{While}{}{}{} \vspace{-\baselineskip} \nonl \While{#2}{\SetKwFor{While}{while}{do}{end} #3} }{}
+	\ifthenelse{\equal{#1}{SwitchContinua}}{ \SetKwSwitch{Switch}{Case}{Other}{}{}{case}{otherwise}{endcase}{} \vspace{-\baselineskip} \nonl \Switch{#2}{\SetKwSwitch{Switch}{Case}{Other}{switch}{do}{case}{otherwise}{endcase}{end} #3} }{}
+	\ifthenelse{\equal{#1}{CaseContinua}}{ \SetKwSwitch{Switch}{Case}{Other}{}{}{}{}{}{} \vspace{-\baselineskip} \nonl \Case{#2}{\SetKwSwitch{Switch}{Case}{Other}{switch}{do}{case}{otherwise}{end}{end} #3} }{}
+	\ifthenelse{\equal{#1}{ForEachContinua}}{ \SetKwFor{ForEach}{}{}{} \vspace{-\baselineskip} \nonl \ForEach{#2}{\SetKwFor{ForEach}{foreach}{do}{end} #3} }{}
+	\ifthenelse{\equal{#1}{ForAllContinua}}{ \SetKwAll{ForEach}{}{}{} \vspace{-\baselineskip} \nonl \ForAll{#2}{\SetKwAll{ForEach}{forall}{do}{end} #3} }{}
+	\ifthenelse{\equal{#1}{RepeatContinua}}{ \SetKwRepeat{Repeat}{}{} \vspace{-\baselineskip} \nonl \Repeat{#2}{\SetKwRepeat{Repeat}{repeat}{until} #3} }{}
+
+
+	\ifthenelse{\equal{#1}{IfFin}}{ \SetKwIF{If}{ElseIf}{Else}{}{}{else if}{else}{end} \vspace{-\baselineskip} \nonl \If{#2}{\SetKwIF{If}{ElseIf}{Else}{if}{then}{else if}{else}{end} #3} }{}
+	\ifthenelse{\equal{#1}{ForFin}}{ \SetKwFor{For}{}{}{end} \vspace{-\baselineskip} \nonl \For{#2}{\SetKwFor{For}{for}{do}{end} #3} }{}
+	\ifthenelse{\equal{#1}{WhileFin}}{ \SetKwFor{While}{}{}{end} \vspace{-\baselineskip} \nonl \While{#2}{\SetKwFor{While}{while}{do}{end} #3} }{}
+	\ifthenelse{\equal{#1}{SwitchFin}}{ \SetKwSwitch{Switch}{Case}{Other}{}{}{case}{otherwise}{endcase}{end} \vspace{-\baselineskip} \nonl \Switch{#2}{\SetKwSwitch{Switch}{Case}{Other}{switch}{do}{case}{otherwise}{endcase}{end} #3} }{}
+	\ifthenelse{\equal{#1}{CaseFin}}{ \SetKwSwitch{Switch}{Case}{Other}{}{}{}{otherwise}{end}{} \vspace{-\baselineskip} \nonl \Case{#2}{\SetKwSwitch{Switch}{Case}{Other}{switch}{do}{case}{otherwise}{end}{end} #3} }{}
+	\ifthenelse{\equal{#1}{ForEachFin}}{ \SetKwFor{ForEach}{}{}{end} \vspace{-\baselineskip} \nonl \ForEach{#2}{\SetKwFor{ForEach}{foreach}{do}{end} #3} }{}
+	\ifthenelse{\equal{#1}{ForAllFin}}{ \SetKwAll{ForEach}{}{}{end} \vspace{-\baselineskip} \nonl \ForAll{#2}{\SetKwAll{ForEach}{forall}{do}{end} #3} }{}
+	\ifthenelse{\equal{#1}{RepeatFin}}{ \SetKwRepeat{Repeat}{}{until} \vspace{-\baselineskip} \nonl \Repeat{#2}{\SetKwRepeat{Repeat}{repeat}{until} #3} }{}
+}
+\makeatother
+
+\usepackage[bottom]{footmisc}
+
+
+
+\begin{document}
+
+
+
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\maketitle
+
+\thispagestyle{empty}
+\DontPrintSemicolon
+
+\begin{algorithm}[H]
+	
+	\vspace{\baselineskip}
+
+	\KwData{Temperatura inicial $T$, constantes $\alpha$, $a$, $b$.}
+	\KwResult{Malla con objetos acomodados (representada por una matriz de enteros).}
+	
+	\vspace{\baselineskip}
+	
+	$T=50000000$\;
+	$\alpha = 0.0000001$\;
+	$a=0.99991$\;
+	$b=1$\;
+	
+	\vspace{\baselineskip}
+	
+	\tcp*[l]{Puntajes actual y de intercambio.}
+	$pAct=puntuacionGlobal()$\;
+	$pInt$\;
+	
+	\vspace{\baselineskip}
+	
+	\While{$T>{b \over a-1}$}{
+	
+		\BlankLine
+	
+		Intercambiar aleatoriamente 2 elementos diferentes en la malla.\;
+		$pInt=puntuacionGlobal()$\;
+		
+		\BlankLine
+		
+		\eIf{$random([0,1])<e^{-{(pAct-pInt) \over \alpha T}}$ {\bf or} $pAct \leq pInt$}{
+		
+			\BlankLine
+			Se acepta el intercambio.\;
+			$pAct = pInt$
+		}
+		{
+			\BlankLine
+			No se acepta el intercambio.
+		}
+		
+		\vspace{\baselineskip}
+		
+		$T=aT+b$ \hspace{1.5em} \footnotemark[1]
+	}
+	
+	\vspace{\baselineskip}
+	
+	\caption{Recocido simulado.}
+
+\end{algorithm}
+
+\footnotetext[1]{El esquema de reducción de temperatura lo saqué de: {\it Performance Analysis of Simulated Annealing Cooling Schedules in the Context of Dense Image Matching.}}
+	
+\end{document}

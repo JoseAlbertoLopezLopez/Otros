@@ -1,0 +1,3 @@
+Los archivos "resultados_nxn.csv" fueron construidos manualmente a partir de los archivos "datos_resultados_nxn.txt" y de "limites_acciones_nxn.txt" (originalmente llamados "comparacionAlgoritmosnxn.txt" y "LimitesPasosnxn.txt").
+
+Si se va a trabajar con el proyecto en el futuro, se tiene que modificar el código correspondiente para que genere el archivo "resultados_nxn.csv" en vez de los dos archivos que actualmente genera.

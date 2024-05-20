@@ -1,0 +1,415 @@
+\usepackage{keyval}
+\usepackage{xparse}
+\usepackage{arrayjobx}
+\usepackage{pgffor}
+\usepackage{fp}
+\usepackage{ifthen}
+
+\input{solids_settings.tex}
+
+
+\makeatletter
+
+% Configuraciones generales
+\define@key{PsSettings}{unit}{\def\mm@unit{#1}}
+\define@key{PsSettings}{viewpoint}{\def\mm@viewpoint{#1}}
+\define@key{PsSettings}{lightsrc}{\def\mm@lightsrc{#1}}
+\define@key{PsSettings}{lightintensity}{\def\mm@lightintensity{#1}}
+\define@key{PsSettings}{Decran}{\def\mm@Decran{#1}}
+
+\DeclareDocumentCommand{\PsSettings}{m}{%
+%\begingroup%
+	\setkeys{PsSettings}{%
+		unit = {1},%
+		viewpoint = {20 30 30 rtp2xyz},%
+		lightsrc = {15 45 50 rtp2xyz},%
+		lightintensity = {2},%
+		Decran = {50},%
+		#1%
+	}%
+	%
+	\psset{
+		unit = \mm@unit,
+		viewpoint = \mm@viewpoint, 
+		lightsrc = \mm@lightsrc, 
+		lightintensity = \mm@lightintensity, 
+		Decran = \mm@Decran
+	}%
+%\endgroup%
+}
+
+
+% Plantilla para flecha 3D
+\define@key{Flecha}{ConeCoords}{\def\mm@ConeCoords{#1}}
+\define@key{Flecha}{CylindreCoords}{\def\mm@CylindreCoords{#1}}
+\define@key{Flecha}{RotX}{\def\mm@RotX{#1}}
+\define@key{Flecha}{RotY}{\def\mm@RotY{#1}}
+\define@key{Flecha}{fillcolor}{\def\mm@fillcolor{#1}}
+\define@key{Flecha}{linecolor}{\def\mm@linecolor{#1}}
+
+% Suficiente para el uso que se le va a dar, pero puede mejorar.
+\DeclareDocumentCommand{\Flecha}{m}{%
+\begingroup%
+	\setkeys{Flecha}{%
+		ConeCoords = {0, 0, 0},%
+		CylindreCoords = {0, 0, 0},%
+		RotX = {0},%
+		RotY = {0},%
+		fillcolor = {colorFlechas},%
+		linecolor = {colorFlechas},%
+		#1%
+	}%
+	\psSolid[
+		object = cone, 
+		h = 0.3, 
+		r = 0.075, 
+		RotX = \mm@RotX, 
+		RotY = \mm@RotY, 
+		linewidth = 0.2pt, 
+		ngrid = 4 50, 
+		action = draw**, 
+		fillcolor = \mm@fillcolor,
+		linecolor = \mm@linecolor
+	](\mm@ConeCoords)%
+	\psSolid[
+		object = cylindre, 
+		h = 0.7, 
+		r = 0.03, 
+		RotX = \mm@RotX, 
+		RotY = \mm@RotY, 
+		linewidth = 1pt, 
+		ngrid = 4 40, 
+		action = draw**, 
+		fillcolor = \mm@fillcolor,
+		linecolor = \mm@linecolor
+	](\mm@CylindreCoords)%
+\endgroup%
+}
+
+
+% Plantilla para malla
+\define@key{Malla}{base}{\def\mm@base{#1}}
+\define@key{Malla}{linewidth}{\def\mm@linewidth{#1}}
+\define@key{Malla}{fillcolor}{\def\mm@fillcolor{#1}}
+\define@key{Malla}{linecolor}{\def\mm@linecolor{#1}}
+
+\DeclareDocumentCommand{\Malla}{m}{%
+\begingroup%
+	\setkeys{Malla}{%
+		base = 0 5 0 5,%
+		linewidth = {\grosorLineaMalla},%
+		fillcolor = {colorMalla},%
+		linecolor = {colorLineasMalla},%
+		#1%
+	}%
+	\psSolid[
+		object = grille, 
+		linewidth = \mm@linewidth, 
+		base = \mm@base, 
+		fillcolor = \mm@fillcolor,
+		linecolor = \mm@linecolor
+	](0, 0, 0)%
+\endgroup%
+}
+
+
+% Plantillas para cubos y prismas
+
+% Cubo.
+\define@key{Cubo}{origin}{\def\mm@origin{#1}}
+\define@key{Cubo}{l}{\def\mm@l{#1}}
+\define@key{Cubo}{color}{\def\mm@color{#1}}
+\define@key{Cubo}{lw}{\def\mm@lw{#1}}
+\define@key{Cubo}{name}{\def\mm@name{#1}}
+
+\DeclareDocumentCommand{\Cubo}{m}{%
+\begingroup%
+	\setkeys{Cubo}{%
+		origin = {0, 0, 0.5},%
+		l = {1},%
+		lw = {\grosorLineaSolidos},%
+		color = {rojo},%
+		name = { },%
+		#1%
+	}%
+	%
+	\psSolid[
+		object = cube, 
+		a = \mm@l, 
+		linecolor = colorLineaSolidos, 
+		linewidth = \mm@lw, 
+		action = draw**, 
+		fillcolor = \mm@color,
+		name = \mm@name
+	](\mm@origin)%
+\endgroup%
+}
+
+
+% Prisma.
+\define@key{Prisma}{origin}{\def\mm@origin{#1}}
+\define@key{Prisma}{a}{\def\mm@a{#1}}
+\define@key{Prisma}{l}{\def\mm@l{#1}}
+\define@key{Prisma}{color}{\def\mm@color{#1}}
+\define@key{Prisma}{lw}{\def\mm@lw{#1}}
+\define@key{Prisma}{name}{\def\mm@name{#1}}
+
+\DeclareDocumentCommand{\Prisma}{m}{%
+\begingroup%
+	\setkeys{Prisma}{%
+		origin = {0, 0, 1},%
+		a = {1},%
+		l = {2},%
+		lw = {\grosorLineaSolidos},%
+		color = {azul},%
+		name = { },%
+		#1%
+	}%
+	\psSolid[
+		object = parallelepiped, 
+		a = \mm@a, 
+		b = \mm@a, 
+		c = \mm@l, 
+		linecolor = colorLineaSolidos, 
+		linewidth = \mm@lw, 
+		action = draw**, 
+		fillcolor = \mm@color,
+		name = \mm@name
+	](\mm@origin)%
+\endgroup%
+}
+
+
+% Plantillas para imágenes de cubos y prismas que serán generadas muchas veces
+\define@key{ImagenCubo}{color}{\def\mm@color{#1}}
+\define@key{ImagenCubo}{lw}{\def\mm@lw{#1}}
+\define@key{ImagenCubo}{texto}{\def\mm@texto{#1}}
+
+\DeclareDocumentCommand{\ImagenCubo}{m}{%
+\begingroup%
+	\setkeys{ImagenCubo}{%
+		color = {rojo},%
+		lw = {\grosorLineaSolidos},%
+		texto = {},%
+		#1%
+	}%
+	%
+	\nopagecolor%
+	\begin{pspicture}(-1.635, -1.888)(1.725, 1.9155)%
+	\psset{solidmemory}%
+	\PsSettings{lightsrc = 15 35 60 rtp2xyz}%
+	\psSolid[
+		object = new, 
+		name = A,
+		sommets = 
+			 0.5   0.5   0.5 
+			-0.5   0.5   0.5 
+			-0.5  -0.5   0.5 
+			 0.5  -0.5   0.5 
+			 0.45  0.45 -0.5 
+			-0.45  0.45 -0.5 
+			-0.45 -0.45 -0.5 
+			 0.45 -0.45 -0.5, 
+		faces = {
+			[0 1 2 3] 
+			[0 4 5 1] 
+			[1 5 6 2] 
+			[2 6 7 3] 
+			[3 7 4 0] 
+			[4 5 6 7]
+		}, 
+		linecolor = colorLineaSolidos, 
+		linewidth = \mm@lw, 
+		action = draw**, 
+		fillcolor = \mm@color
+	](0, 0, 0)%
+	\psSolid[
+		object = plan, 
+		action = none, 
+		definition = solidface, 
+		args = A 0, 
+		name = P0
+	]%
+	\psProjection[
+		object = texte, 
+		PSfont = \solidesFont,
+		linecolor = colorLineaSolidos, 
+		text = \mm@texto, 
+		fontsize = 20, 
+		plan = P0
+	]%
+	\end{pspicture}%
+\endgroup%
+}
+
+\define@key{ImagenPrisma}{color}{\def\mm@color{#1}}
+\define@key{ImagenPrisma}{lw}{\def\mm@lw{#1}}
+\define@key{ImagenPrisma}{texto}{\def\mm@texto{#1}}
+
+\DeclareDocumentCommand{\ImagenPrisma}{m}{%
+\begingroup%
+	\setkeys{ImagenPrisma}{%
+		color = {azul},%
+		lw = {\grosorLineaSolidos},%
+		texto = {},%
+		#1%
+	}%
+	%
+	\nopagecolor%
+	\begin{pspicture}(-1.66, -2.95)(1.75, 3.02)%
+	\psset{solidmemory}%
+	\PsSettings{lightsrc = 15 35 60 rtp2xyz}%
+	\psSolid[
+		object = new, 
+		name = A,
+		sommets = 
+			 0.5   0.5   1 
+			-0.5   0.5   1 
+			-0.5  -0.5   1 
+			 0.5  -0.5   1 
+			 0.45  0.45 -1 
+			-0.45  0.45 -1 
+			-0.45 -0.45 -1 
+			 0.45 -0.45 -1, 
+		faces = {
+			[0 1 2 3] 
+			[0 4 5 1] 
+			[1 5 6 2] 
+			[2 6 7 3] 
+			[3 7 4 0] 
+			[4 5 6 7]
+		}, 
+		linecolor = colorLineaSolidos, 
+		linewidth = \mm@lw, 
+		action = draw**, 
+		fillcolor = \mm@color
+	](0, 0, 0)%
+	%
+	\psSolid[
+		object = plan, 
+		action = none, 
+		definition = solidface, 
+		args = A 0, 
+		name = P0
+	]%
+	\psProjection[
+		object = texte, 
+		PSfont = \solidesFont,
+		linecolor = colorLineaSolidos, 
+		text = \mm@texto, 
+		fontsize = 20, 
+		plan = P0
+	]%
+	\end{pspicture}%
+\endgroup%
+}
+
+
+% Imágenes de arreglo antes (desordenado) y después (ordenado) en 2D y 3D
+\define@key{arregloAntesDespues}{caso}{\def\mm@caso{#1}}
+\define@key{arregloAntesDespues}{argImagenUno}{\def\mm@argImagenUno{#1}}
+\define@key{arregloAntesDespues}{argImagenDos}{\def\mm@argImagenDos{#1}}
+\define@key{arregloAntesDespues}{separacionAntesDespues}{\def\mm@separacionAntesDespues{#1}}
+\define@key{arregloAntesDespues}{separacionVertical}{\def\mm@separacionVertical{#1}}
+
+\DeclareDocumentCommand{\arregloAntesDespues}{m m O{#2} m}{%
+\begingroup%
+	\setkeys{arregloAntesDespues}{%
+		caso = {},%
+		argImagenUno = {},%
+		argImagenDos = {},%
+		separacionAntesDespues = {-4.2},%
+		separacionVertical = {0.5cm},%
+		#1%
+	}%
+	\begin{tikzpicture}
+		\node[anchor = south] (3D_1) 
+			at (-\mm@separacionAntesDespues, 0) 
+			{\includegraphics[#2]{arreglo_\mm@caso _3D_desorden}};
+		\draw[line width = 2pt] 
+			let \p{3D_1} = (3D_1.center) in (-1.17, \y{3D_1}) 
+			-- 
+			node [above, shift = {(-5.1pt, 3.5pt)}] 
+				{\scriptsize Algoritmo RS} (1.17, \y{3D_1});
+		\node[anchor = south] (3D_2) 
+			at (\mm@separacionAntesDespues, 0) 
+			{\includegraphics[#3]{arreglo_\mm@caso _3D_orden}};
+		
+		\node[below = \mm@separacionVertical of 3D_1] (2D_1) 
+			{\includegraphics[#4]{arreglo_\mm@caso _2D_desorden}};
+		\draw[line width = 2pt] 
+			let \p{2D_1} = (2D_1) in (-1.17, \y{2D_1}) 
+			-- 
+			node [above, shift = {(-5.1pt, 3.5pt)}] 
+				{\scriptsize Algoritmo RS} (1.17, \y{2D_1});
+		\node[below = \mm@separacionVertical of 3D_2] 
+			{\includegraphics[#4]{arreglo_\mm@caso _2D_orden}};
+	\end{tikzpicture}
+\endgroup%
+}
+
+\makeatother
+
+
+% Plantillas para gráficas de mallas con objetos
+\def\Plano#1{%
+	\psSolid[
+		object = plan, 
+		definition = equation, 
+		args = {[0 0 1 0]}, 
+		origine = {\x} {\y} 0, 
+		base = -0.5 0.5 -0.5 0.5, 
+		linewidth = \grosorLineaMalla, 
+		linecolor = colorLineasMalla,
+		fillcolor = #1
+	]%
+}
+\NewDocumentCommand{\GraficarMallaDosD}{m m O{20 0 89.999} O{0.203, -7.53} O{7.415, 0.03}}{
+	\dataheight=#2%
+	\nopagecolor%
+	\begin{pspicture}(#4)(#5)%
+	\FPdiv\aux{3}{#1}%
+	\psset{
+		unit = \aux,
+		viewpoint = #3 rtp2xyz, 
+		Decran = 50
+	}%
+	\Malla{base = 0 #1 0 #2}%
+	\foreach \n in {1, ..., #1}{%
+		\foreach \m in {1, ..., #2}{%
+			\FPadd\x\n{-0.5}%
+			\FPadd\y\m{-0.5}%
+			\checkmallaDosD(\n, \m)%
+			%
+			\ifthenelse{\cachedata = 1}{\Plano{rojo}}{}%
+			\ifthenelse{\cachedata = 2}{\Plano{azul}}{}%
+		}%
+	}%
+	\end{pspicture}
+}
+
+% Iluminación alternativa (se puede colocar más de una): 15 45 40.
+\NewDocumentCommand{\GraficarMallaTresD}{m m O{-5, -8} O{8, 1.5} O{20 30 30} O{15 45 50}}{
+	\dataheight=#2
+	\nopagecolor%
+	\begin{pspicture}(#3)(#4)
+	\psset{solidmemory}
+	\FPdiv\aux{3}{#2}
+	\PsSettings{
+		unit = \aux,
+		viewpoint = #5 rtp2xyz, 
+		lightsrc = #6 rtp2xyz
+	}%
+	\Malla{base = 0 #1 0 #2}%
+	\foreach \n in {1, ..., #1}{%
+		\foreach \m in {1, ..., #2}{%
+			\FPadd\x\n{-0.5}%
+			\FPadd\y\m{-0.5}%
+			\checkmallaTresD(\n, \m)%
+			%
+			\ifthenelse{\cachedata = 1}{\Cubo{origin = {\x, \y, 0.5}}}{}%
+			\ifthenelse{\cachedata = 2}{\Prisma{origin = {\x, \y, 1}}}{}%
+		}%
+	}%
+	\end{pspicture}
+}

@@ -1,0 +1,43 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Compilar con LaTeX -> DviPDF ó con PDFLaTeX.
+\documentclass[crop]{standalone}
+\usepackage{pst-solides3d}
+\usepackage{anyfontsize}
+\usepackage{tikz}
+
+\input{./utils_paths.tex}
+\input{solids_definitions.tex}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}
+\nopagecolor%
+%
+\begin{tikzpicture}
+\setlength{\grosorLineaMalla}{1.5pt}
+\def\labelFormat#1{\fontsize{35}{35}\selectfont\color{colorTextoMalla} #1}
+\def\viewA{21.5}
+\def\viewB{60}
+\node {
+\begin{pspicture}(0.89, -7.09)(7.26, -3.96)
+\PsSettings{}%
+%
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine=2.5 2.5 0, base=-0.5 0.5 -0.5 0.5, fillcolor=colorCeldaObjeto, linecolor=colorLineasMalla, linewidth=\grosorLineaMalla, name=plano0]
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine=2.5 3.5 0, base=-0.5 0.5 -0.5 0.5, fillcolor=colorCeldaVecina, linecolor=colorLineasMalla, linewidth=\grosorLineaMalla, name=plano3]
+\end{pspicture}
+};
+\begin{scope}[nodes={cm = {cos(\viewA), -sin(\viewA)*sin(\viewB), sin(\viewA), cos(\viewA)*sin(\viewB), (0, 0)}}]
+\def\auxX{-1.75}%
+\def\auxY{-0.5}%
+\coordinate (A) at (0.35 + \auxX, 0.95 + \auxY);
+\coordinate (B) at (3 + \auxX, 0.1 + \auxY);
+\node at (A) {\labelFormat\color{colorMalla} $\scalebox{1.3}{$e$}_{i_1 j_1}$};
+\node at (B) {\labelFormat $\scalebox{1.3}{$e$}_{i_2 j_2}$};
+\end{scope}
+\end{tikzpicture}
+%
+%
+\end{document}

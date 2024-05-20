@@ -1,0 +1,25 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Compilar con LaTeX -> DviPDF ó con PDFLaTeX.
+\documentclass[crop]{standalone}
+\usepackage{pst-solides3d}
+
+\input{./utils_paths.tex}
+\input{solids_definitions.tex}
+
+\global\newarray\mallaDosD
+\readarray{mallaDosD}{
+	2&0&2&
+	2&0&2&
+	2&0&2
+}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}
+\GraficarMallaDosD{3}{3}
+%
+%
+\end{document}

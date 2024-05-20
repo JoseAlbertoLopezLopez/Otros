@@ -1,0 +1,102 @@
+set term eps enhanced color size 25.5,6.5 font "Helvetica"
+
+set output "Mallas.eps"
+
+set tics scale 0
+
+set xtics 0,1,2
+set ytics 0,1,2
+
+set xtics (''0,''1,''2)
+set ytics (''0,''1,''2)
+
+set size 1,1
+
+unset border
+
+set grid front lt 1 lw 6 lc -1
+
+set datafile separator ","
+
+set pm3d implicit # Para que los objetos puedan tomar colores de la paleta.
+
+set palette model RGB defined (0 "red", 0.5 "yellow", 1 "green")
+unset colorbox
+
+set multiplot layout 2,10
+
+set title "Promedio=1.33333, Min=1, Max=2"
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc palette frac 1 fs noborder
+plot[0:2][0:2] "MatricesEvaluadasGnuplot.txt" using 1:2:($0 >= 0 && $0 <= 3 ? $3 : "") with labels font ',20' t ""
+pr 0
+unset object 1
+
+set title "Promedio=1, Min=1, Max=1"
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc palette frac 1 fs noborder
+plot[0:2][0:2] "MatricesEvaluadasGnuplot.txt" using 1:2:($0 >= 4 && $0 <= 7 ? $3 : "") with labels font ',20' t ""
+pr 1
+unset object 1
+
+set title "Promedio=1.33333, Min=1, Max=2"
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc palette frac 0 fs noborder
+plot[0:2][0:2] "MatricesEvaluadasGnuplot.txt" using 1:2:($0 >= 8 && $0 <= 11 ? $3 : "") with labels font ',20' t ""
+pr 2
+unset object 1
+
+set title "Promedio=1.33333, Min=1, Max=2"
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc palette frac 0 fs noborder
+plot[0:2][0:2] "MatricesEvaluadasGnuplot.txt" using 1:2:($0 >= 12 && $0 <= 15 ? $3 : "") with labels font ',20' t ""
+pr 3
+unset object 1
+
+set title "Promedio=1, Min=1, Max=1"
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc palette frac 1 fs noborder
+plot[0:2][0:2] "MatricesEvaluadasGnuplot.txt" using 1:2:($0 >= 16 && $0 <= 19 ? $3 : "") with labels font ',20' t ""
+pr 4
+unset object 1
+
+set title "Promedio=1.33333, Min=1, Max=2"
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc palette frac 1 fs noborder
+plot[0:2][0:2] "MatricesEvaluadasGnuplot.txt" using 1:2:($0 >= 20 && $0 <= 23 ? $3 : "") with labels font ',20' t ""
+pr 5
+unset object 1
+
+set title "Promedio=-, Min=-, Max=-"
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc palette frac 0 fs noborder
+plot[0:2][0:2] "MatricesEvaluadasGnuplot.txt" using 1:2:($0 >= 24 && $0 <= 27 ? $3 : "") with labels font ',20' t ""
+pr 6
+unset object 1
+
+set title "Promedio=2, Min=1, Max=3"
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc palette frac 1 fs noborder
+plot[0:2][0:2] "MatricesEvaluadasGnuplot.txt" using 1:2:($0 >= 28 && $0 <= 31 ? $3 : "") with labels font ',20' t ""
+pr 7
+unset object 1
+
+set title "Promedio=1.5, Min=1, Max=2"
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc palette frac 1 fs noborder
+plot[0:2][0:2] "MatricesEvaluadasGnuplot.txt" using 1:2:($0 >= 32 && $0 <= 35 ? $3 : "") with labels font ',20' t ""
+pr 8
+unset object 1
+
+set title "Promedio=1.5, Min=1, Max=2"
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc palette frac 1 fs noborder
+plot[0:2][0:2] "MatricesEvaluadasGnuplot.txt" using 1:2:($0 >= 36 && $0 <= 39 ? $3 : "") with labels font ',20' t ""
+pr 9
+unset object 1
+
+set title "Promedio=1.5, Min=1, Max=2"
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc palette frac 1 fs noborder
+plot[0:2][0:2] "MatricesEvaluadasGnuplot.txt" using 1:2:($0 >= 40 && $0 <= 43 ? $3 : "") with labels font ',20' t ""
+pr 10
+unset object 1
+
+set title "Promedio=-, Min=-, Max=-"
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc palette frac 0 fs noborder
+plot[0:2][0:2] "MatricesEvaluadasGnuplot.txt" using 1:2:($0 >= 44 && $0 <= 47 ? $3 : "") with labels font ',20' t ""
+pr 11
+unset object 1
+
+unset multiplot
+
+unset output

@@ -1,0 +1,31 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Compilar con LaTeX -> DviPDF ó con PDFLaTeX.
+\documentclass[crop]{standalone}
+\usepackage{pst-solides3d}
+
+\input{./utils_paths.tex}
+\input{solids_definitions.tex}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}
+\nopagecolor%
+%
+\begin{pspicture}(-7.6, -12.16)(12.17, 0.58)%
+	\PsSettings{}%
+	\Malla{}%
+	%
+	\Cubo{origin={2.5, 1.5, 0.5}}%
+	\Flecha{RotX=90, ConeCoords={2.5, 2.3, 1}, CylindreCoords={2.5, 3, 1}}
+	\Prisma{origin={2.5, 3.5, 1}}
+	% Flechas horizontales.
+	\Flecha{RotX=-90, ConeCoords={2.5, 0.7, 1}, CylindreCoords={2.5, 0, 1}}
+	\Flecha{RotX=-90, ConeCoords={2.5, 2.7, 2}, CylindreCoords={2.5, 2, 2}}
+	\Flecha{RotX=90, ConeCoords={2.5, 4.3, 2}, CylindreCoords={2.5, 5, 2}}
+\end{pspicture}
+%
+%
+\end{document}

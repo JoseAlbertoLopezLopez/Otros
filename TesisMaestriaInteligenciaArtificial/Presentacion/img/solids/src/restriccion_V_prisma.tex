@@ -1,0 +1,40 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Compilar con LaTeX -> DviPDF ó con PDFLaTeX.
+\documentclass[crop]{standalone}
+\usepackage{pst-solides3d}
+\usepackage{tikz}
+\usepackage{fontawesome}
+\usepackage{anyfontsize}
+
+\input{./utils_paths.tex}
+\input{solids_definitions.tex}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}
+\nopagecolor%
+%
+\begin{tikzpicture}[every node/.style={inner sep=0, outer sep=0}]
+\node at (-4.2, 7.7) {\fontsize{105}{105}\selectfont $H$};
+\node at (4.2, 7.7) {\fontsize{105}{105}\selectfont $V$\llap{\textcolor{red}{\faBan\hspace{-4pt}}}};
+%
+\node {%
+	\begin{pspicture}(-7.62, -12.16)(12.18, 5.5)%
+		\PsSettings{}%
+		\Malla{}%
+		%
+		\Cubo{origin={2.5, 1.5, 0.5}, color=gray}
+		\Prisma{origin={1.5, 2.5, 1}, color=gray}
+		\Prisma{origin={2.5, 2.5, 1}}
+		%
+		\Flecha{RotX=-90, ConeCoords={2.5, 1.7, 2}, CylindreCoords={2.5, 1, 2}}
+		\Flecha{RotX=90, ConeCoords={2.5, 3.3, 2}, CylindreCoords={2.5, 4, 2}}
+	\end{pspicture}
+};
+\end{tikzpicture}
+%
+%
+\end{document}

@@ -1,0 +1,205 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Plantilla para portada de tesis.
+% Se requieren los paquetes `geometry`, `adjustbox`, `graphicx`, `fancyhdr` y `calc`.
+% Por hacer: el resultado es aceptable para parámetros razonables.
+% 	No se realizó una implementación de manejo de excepciones para parámetros extraordinarios, por lo que en estos casos los resultados pueden ser irregulares.
+%
+\begingroup%
+% Parámetros principales.
+\def\universidad{Universidad Veracruzana}%
+\def\facultad{Instituto de Investigaciones en Inteligencia Artificial}%
+\def\titulo{Un método para el acomodo de objetos basado en intercambios ponderados, que minimiza el costo de acceso global a estos}%
+\def\grado{Maestría en Inteligencia Artificial}%
+\def\separador{h_ornament}%
+\def\autor{José Alberto López López}%
+\def\asesor{Dr. Antonio Marín Hernández}%
+\def\lugar{Xalapa-Enríquez, Veracruz}%
+\def\fecha{\today}%
+%
+% Descomentar para visualizar cajas contenedoras.
+%\adjustboxset{frame=0.01pt}%
+%
+% Dimensiones de página
+\newgeometry{%
+	top = 6.1cm, 
+	left = 3.00cm, 
+	right = 1.40cm, 
+	bottom = 0.80cm,
+	headheight = 3.51cm, 
+	headsep = 11pt,
+	nomarginpar
+}
+%
+% Parámetros geométricos y de diseño.
+\setlength{\topskip}{0.00001pt}%
+\setlength{\parindent}{0pt}%
+\setlength{\lineskip}{0pt}%
+\setlength{\baselineskip}{0pt}%
+\setlength{\parskip}{0pt}%
+%
+\def\titlefontsize{25}%
+%
+\newlength{\logovlinesvsep}%
+\setlength{\logovlinesvsep}{10pt}%
+%
+\newlength{\logowidth}%
+\setlength{\logowidth}{0.185\paperwidth}%
+%
+\newlength{\vmajorrulewidth}%
+\setlength{\vmajorrulewidth}{1.8pt}%
+%
+\newlength{\hmajorrulelength}%
+\setlength{\hmajorrulelength}{360pt}%
+%
+\newlength{\hmajorrulewidth}%
+\setlength{\hmajorrulewidth}{1.3pt}%
+%
+\newlength{\hminorrulelength}%
+\setlength{\hminorrulelength}{323pt}%
+%
+\newlength{\hminorrulewidth}%
+\setlength{\hminorrulewidth}{1pt}%
+%
+\newlength{\vmajorruleheight}%
+\setlength{\vmajorruleheight}{\textheight}%
+%
+\newlength{\vminorrulewidth}%
+\setlength{\vminorrulewidth}{0.9pt}%
+%
+\newlength{\vminorruleheight}%
+\setlength{\vminorruleheight}{0.973\vmajorruleheight}%
+%
+\newlength{\htitleruleslength}%
+\setlength{\htitleruleslength}{0.84\textwidth}%
+%
+\newlength{\titlelength}%
+\setlength{\titlelength}{0.90\htitleruleslength}%
+%
+\newlength{\htitleruleswidth}%
+\setlength{\htitleruleswidth}{2pt}%
+%
+\newlength{\vruleshsep}%
+\setlength{\vruleshsep}{7pt}%
+%
+\newlength{\vruleswidth}%
+\setlength{\vruleswidth}{2\vmajorrulewidth + \vminorrulewidth + 2\vruleshsep}%
+%
+\newlength{\twotextlinesvsep}%
+\setlength{\twotextlinesvsep}{20pt}%
+%
+%
+% No se debería editar nada después de este punto --------------------------------------------------------------------------------------
+%
+%
+% Encabezado (logo y nombre de institución).
+\fancypagestyle{cover}{%
+\fancyhf{}%
+\renewcommand{\headrulewidth}{0pt}%
+%
+\fancyhead[L]{%
+	\adjustbox{
+		minipage=[b][\headheight]{\logowidth}, 
+		padding=-0.5\logowidth-0.5\vruleswidth 0 0, 
+		valign=b
+	}{%
+		\includegraphics[width=\logowidth]{UV_escudo}%
+	}%
+}%
+\fancyhead[C]{%
+	\adjustbox{
+		center, 
+		minipage=[c][\headheight]{\hmajorrulelength}, 
+		valign=b
+	}{%
+		\offinterlineskip%
+		\setlength{\lineskip}{7pt}%
+		\centering\scshape\bfseries%
+		\Huge \universidad
+		\vskip 2pt%
+		\rule{\hmajorrulelength}{\hmajorrulewidth}
+		\vskip 3pt%
+		\rule{\hminorrulelength}{\hminorrulewidth}
+		\fontsize{18}{18}\selectfont%
+		\facultad\par%
+	}%
+}%
+}%
+\thispagestyle{cover}%
+%
+% Líneas verticales.
+\vbox to 0pt{\hbox{%
+	\adjustbox{padding=-\vruleswidth 0pt 0pt}{%
+		\rule{\vmajorrulewidth}{\vmajorruleheight}%
+		\hskip \vruleshsep%
+		\rule[0.5\vmajorruleheight - 0.5\vminorruleheight]{\vminorrulewidth}{\vminorruleheight}%
+		\hskip \vruleshsep%
+		\rule{\vmajorrulewidth}{\vmajorruleheight}%
+	}%
+}\vss}%
+%
+\vspace{0.5\vmajorruleheight - 0.5\vminorruleheight}%
+%
+% Título.
+\adjustbox{center, minipage=\htitleruleslength}{%
+	\setlength{\lineskip}{7pt}%
+	%
+	\rule{\htitleruleslength}{\htitleruleswidth}
+	\adjustbox{center, minipage=\titlelength}{%
+		\offinterlineskip%
+		\setlength{\lineskip}{7pt}%
+		\centering%
+		\fontsize{\titlefontsize}{\titlefontsize}%
+		\selectfont \textsl{\textbf{\titulo}}\par
+	}
+	\rule{\htitleruleslength}{\htitleruleswidth}\par%
+}
+%
+% Información debajo de título (grado, autor, asesor, fecha, etc.).
+\vfill
+\adjustbox{center, stack}{%
+	\Large Trabajo recepcional en la modalidad de:
+	\vskip \twotextlinesvsep
+	\LARGE \textbf{TESIS}
+}
+\vfill
+\adjustbox{center, stack}{%
+	\Large que como requisito parcial para obtener el título de:
+	\vskip \twotextlinesvsep
+	\LARGE \textbf{\grado}
+}
+\vfill
+\adjustbox{center, minipage=0.7\htitleruleslength, valign=b}{%
+	\makeatletter%
+	\def\hrulefill{\leavevmode\leaders\hrule height 0.8pt\hfill\kern\z@}%
+	\makeatother%
+	\centering%
+	%\hrulefill%
+	%\hskip 5pt%
+	\adjustimage{valign=c, width=38.5pt, height=4.95pt}{\separador}%
+	%\hskip 5pt%
+	%\hrulefill%
+	\par%
+}
+\vfill
+\adjustbox{center, stack}{%
+	\Large P\ r\ e\ s\ e\ n\ t\ a
+	\vspace{1.8\twotextlinesvsep}
+	
+	\LARGE \textbf{\autor}
+}
+\vfill
+\adjustbox{center, stack}{%
+	\Large Asesor:
+	\vskip \twotextlinesvsep
+	\Large \asesor
+}
+\vfill
+\vskip 0.2\twotextlinesvsep
+\adjustbox{center, minipage=0.92\textwidth, valign=B}{%
+	\lugar \hfill \fecha
+}
+%
+% Restaurar dimensiones principales del documento.
+\restoregeometry%
+\endgroup%
