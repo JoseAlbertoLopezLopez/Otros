@@ -1,0 +1,83 @@
+\usepackage[linesnumbered, nokwfunc, lined, titlenotnumbered, hanginginout]{algorithm2e}
+
+\SetKwInput{Data}{Datos de entrada}
+\SetKwInput{Result}{Resultado}
+\SetKwInput{Definitions}{Definiciones}
+\SetKw{Not}{not}
+\SetKw{Or}{or}
+\SetKwIF
+	{IfWithNoThen}
+	{ElseIfWithNoThen}
+	{Else}
+	{if}
+	{}
+	{else if}
+	{else}
+	{end}
+\DontPrintSemicolon
+\SetAlgoSkip{}
+\IncMargin{1.1em}
+\SetNlSkip{0.4em}
+\SetInd{0.3em}{0.8em}
+\RestyleAlgo{titlenotnumbered}
+\SetAlgorithmName{Algoritmo}{}{}
+\SetAlgoFuncName{Funci\'on:}{}
+\SetAlCapFnt{\hspace{5pt}\footnotesize}
+\SetProcNameFnt{\footnotesize\itshape}
+\SetProcArgFnt{\footnotesize}
+\SetProcFnt{\footnotesize}
+
+\def\f#1{\textsl{#1}}
+
+\newcommand{\QuarterBlankLine}{\vskip 0.25ex}
+\newcommand{\HalfBlankLine}{\vskip 0.5ex}
+\newcommand{\HalfQuarterBlankLine}{\vskip 0.75ex}
+\newcommand{\OneQuarterBlankLine}{\BlankLine\vskip 0.25ex}
+\newcommand{\OneHalfBlankLine}{\BlankLine\vskip 0.5ex}
+\newcommand{\TwoBlankLines}{\BlankLine\BlankLine}
+
+% Estilo de comentarios.
+\SetKwComment{tcp}{\!\fontsize{9}{9}\faComments[regular]\:}{}
+\newcommand\commentstyle[1]{\ttfamily\textcolor{gray!80!black}{\textit{\footnotesize #1}}}
+\SetCommentSty{commentstyle}
+
+% Comandos para modificar números de líneas.
+\let\oldnl\nl
+\newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}\stepcounter{AlgoLine}}
+% Sin aumentar contador.
+\let\oldnl\nl
+\newcommand{\noln}{\renewcommand{\nl}{\let\nl\oldnl}}
+
+\makeatletter
+\setboolean{algocf@hangingcomment}{true}
+\let\oldalgocf@captother\algocf@captother
+\renewcommand\algocf@captother{\footnotesize\oldalgocf@captother}	
+
+% Margen izquierdo al caption.
+\renewcommand{\algocf@captionproctext}[2]{%
+  \hspace{5pt}\begin{minipage}{\linewidth-5pt}%
+  {%
+    \ProcSty{\ProcFnt\algocf@procname\ifthenelse{\boolean{algocf@procnumbered}}{\nobreakspace\thealgocf\algocf@typo\algocf@capseparator}{\relax}}%
+    \nobreakspace\ProcNameSty{\ProcNameFnt\algocf@captname #2@}% Name of the procedure in ProcName Style. 
+    \ifthenelse{\equal{\algocf@captparam #2@}{\arg@e}}{}{% if no argument, write nothing
+      \ProcNameSty{\ProcNameFnt(}\ProcArgSty{\ProcArgFnt\algocf@captparam #2@}\ProcNameSty{\ProcNameFnt)}%else put arguments in ProcArgSty:
+    }% endif
+   {\setstretch{0}\algocf@captother #2@\par}%		Cambiar interlineado.
+  }%
+  \end{minipage}
+}%
+
+\makeatother
+
+\SetAlCapNameFnt{\footnotesize}
+\renewcommand{\thealgocf}{}
+\newcounter{function}
+\makeatletter
+\AtBeginEnvironment{function}{\let\c@algocf\c@function}
+\makeatother
+\SetKwProg{Function}{function}{:}{end}
+
+\SetKwProg{FunctionInicio}{function}{:}{}
+\SetKwProg{FunctionFin}{}{}{end}
+\SetKwIF{IfInicio}{ElseIf}{Else}{if}{then}{else if}{else}{}
+\SetKwIF{IfFin}{ElseIf}{Else}{}{}{else if}{else}{end}

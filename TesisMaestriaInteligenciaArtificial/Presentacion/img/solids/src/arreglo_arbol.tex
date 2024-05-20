@@ -1,0 +1,74 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Compilar con LaTeX -> DviPDF ó con PDFLaTeX.
+\documentclass[crop, pstricks]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{pst-solides3d}
+\usepackage{pstricks}
+
+\input{./utils_paths.tex}
+\input{solids_definitions.tex}
+
+\global\newarray\mallaTresD
+\readarray{mallaTresD}{
+	0&0&2&0&
+	0&2&1&0&
+	2&1&1&1&
+	0&1&0&1
+}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}
+\nopagecolor%
+%
+\dataheight=4
+\begin{pspicture}[solidmemory](-5.91, -8.98)(9.51, 3.41)
+\PsSettings{}%
+\Malla{base = 0 4 0 4}%
+%
+\foreach \n in {1, ..., 4}{
+	\foreach \m in {1, ..., 4}{
+		\FPadd\x\n{-0.5}
+		\FPadd\y\m{-0.5}
+		\checkmallaTresD(\n, \m)
+		%
+		\ifthenelse{\cachedata=1}{\Cubo{origin={\x, \y, 0.5}, name=A\n\m}}{}%
+		\ifthenelse{\cachedata=2}{\Prisma{origin={\x, \y, 1}, name=B\n\m}}{}%
+	}%
+}% 
+%
+\def\SolidProjection#1#2#3{%
+	\psSolid[
+		object = plan, 
+		action = none, 
+		definition = solidface, 
+		args = #2 0, 
+		name = #3
+	]%
+	\psProjection[
+		object = texte, 
+		PSfont = \solidesFont, 
+		linecolor = colorTextoSolidos, 
+		text = #1, 
+		fontsize = 20, 
+		plan = #3
+	]%
+}
+\SolidProjection{A}{A33}{P0}%
+\SolidProjection{B}{A32}{P1}%
+\SolidProjection{D}{A34}{P2}%
+\SolidProjection{E}{A44}{P3}%
+\SolidProjection{C}{A42}{P4}%
+\SolidProjection{F}{A23}{P5}%
+%
+\SolidProjection{G}{B31}{P6}%
+\SolidProjection{H}{B22}{P7}%
+\SolidProjection{I}{B13}{P8}%
+\end{pspicture}
+%
+%
+\end{document}
