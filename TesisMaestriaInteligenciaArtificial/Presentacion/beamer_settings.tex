@@ -1,0 +1,231 @@
+\definecolor{verdeOscuro}{RGB}{0, 81, 40}
+\definecolor{verdeMedio}{RGB}{0, 130, 50}
+\definecolor{verdeClaro}{RGB}{235, 250, 235}
+\definecolor{verdeClaroDos}{RGB}{100, 170, 100}
+
+\setbeamercolor{palette primary}{fg = white, bg = verdeOscuro}
+\setbeamercolor{palette quaternary}{fg = white, bg = verdeMedio}
+
+\setbeamercolor{item}{fg = verdeMedio}
+\setbeamercolor{section in toc}{fg = verdeOscuro}
+\setbeamerfont{section number projected}{size* = {10}{10}}
+
+\setbeamercolor{block body}{fg = black, bg = white}
+\setbeamerfont{block title}{shape = \slshape}
+
+\setbeamercolor{normal text}{fg = black, bg = verdeClaro}
+
+\setbeamerfont{institute}{shape = \scshape, size* = {20pt}{20pt}}
+\setbeamerfont{faculty}{shape = \scshape, size* = {13pt}{15pt}}
+\setbeamerfont{title}{shape = \itshape, size* = {19.8}{23}}
+\setbeamerfont{author}{size* = {13.2pt}{13.2pt}}
+\setbeamerfont{adviser}{size* = {13pt}{13pt}}
+\setbeamerfont{date}{size* = {11pt}{11pt}}
+
+\setbeamerfont{caption}{size* = {14pt}{17pt}}
+
+\apptocmd{\frame}{}{\justifying}{}
+\addtobeamertemplate{block begin}{}{\justifying}
+
+\newlength{\institutewidth}
+\setlength{\institutewidth}{\widthof{\usebeamerfont{institute}\insertinstitute}}
+\setbeamertemplate{title page}{%
+	\leavevmode%
+	\begin{beamercolorbox}{institute}
+		\Wider[0.5cm]{%
+		\raisebox{5pt}{\adjustbox{rlap, minipage=\titlegraphicwidth}{%
+			\inserttitlegraphic%
+		}}%
+		\hfill%
+		\raisebox{9pt}{\adjustbox{center, minipage=\institutewidth, valign=t}{%		%6pt
+			\centering%
+			\usebeamerfont{institute}%
+			\insertinstitute
+			\vskip 9pt%
+			\adjustbox{center, minipage = 8cm}{%
+				\centering%
+				\usebeamerfont{faculty}%
+				\insertfaculty\par%
+			}
+		}}}
+	\end{beamercolorbox}%
+	\vskip 3pt%
+	\begin{beamercolorbox}[
+		center, 
+		sep = 6pt, 
+		shadow = true, 
+		rounded = true
+	]{title}
+		\usebeamerfont{title}%
+		\inserttitle%
+	\end{beamercolorbox}%
+	%
+	\begin{beamercolorbox}[
+		center, 
+		sep = 18pt
+	]{author}
+		\usebeamerfont{author}
+		\insertauthor
+		\vskip 12pt%
+		\usebeamerfont{adviser}
+		Asesor: \insertadviser%
+	\end{beamercolorbox}
+	%
+	\begin{beamercolorbox}[
+		sep = 9pt, 
+		center
+	]{date}
+		\usebeamerfont{date}
+		\insertdate
+	\end{beamercolorbox}
+}
+
+\setbeamertemplate{headline}{
+	\leavevmode%
+	\begin{beamercolorbox}[
+		wd = 0.5\paperwidth, 
+		ht = 6.67pt, 
+		dp = 4.9pt, 
+		leftskip = 0.3cm plus 1fill, 
+		shadow = true, 
+		rightskip = 0.3cm
+	]{section in head/foot}
+    	\insertsection%
+	\end{beamercolorbox}%
+	%
+	\begin{beamercolorbox}[
+		wd = 0.5\paperwidth, 
+		ht = 6.67pt, 
+		dp = 4.9pt, 
+		shadow = true, 
+		leftskip = 0.3cm, 
+		rightskip = 0.3cm plus 1fil
+	]{subsection in head/foot}
+		\insertsubsection%
+	\end{beamercolorbox}%
+}
+
+\newcommand{\numdiap}{\insertframenumber /\inserttotalframenumber}
+\setbeamertemplate{footline}{
+	\leavevmode%
+	\begin{beamercolorbox}[
+		wd = 0.5\paperwidth, 
+		ht = 6.67pt, 
+		dp = 3pt, 
+		leftskip = 0.3cm plus 1fill, 
+		rightskip = 0.3cm
+	]{author in head/foot}
+		\usebeamerfont{author in head/foot}%
+		\insertauthor%
+	\end{beamercolorbox}%
+	%
+	\begin{beamercolorbox}[
+		wd = 0.5\paperwidth, 
+		ht = 6.67pt, 
+		dp = 3pt, 
+		leftskip = 0.3cm, 
+		rightskip = 0.3cm plus 1fil
+	]{title in head/foot}
+		\usebeamerfont{title in head/foot}%
+		\insertshorttitle \hfill \numdiap%
+	\end{beamercolorbox}%
+}
+
+\setbeamertemplate{caption}[numbered]
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamercolor{bibliography item}{fg = verdeOscuro}
+\setbeamercolor{bibliography entry author}{fg = verdeOscuro}
+\setbeamercolor{bibliography entry location}{fg = verdeClaroDos}
+\setbeamercolor{bibliography entry note}{fg = verdeClaroDos}
+\setbeamerfont{bibliography entry author}{shape = \normalfont}
+\setbeamerfont{bibliography entry title}{shape = \slshape}
+\setbeamerfont{bibliography entry location}{shape = \normalfont}
+\setbeamerfont{bibliography entry note}{shape = \normalfont}
+
+\makeatletter
+\define@key{beamer@col}{totalwidth}{%
+	\def\beamer@colentrycode{\hfill\hbox to#1\bgroup\ignorespaces}%
+	\def\beamer@colexitcode{\unskip\egroup\hfill}%
+}
+
+% Redefinición de entorno `itemize`.
+\renewcommand{\itemize}[1][]{%
+  \beamer@ifempty{#1}{}{\def\beamer@defaultospec{#1}}%
+  \ifnum \@itemdepth >2\relax\@toodeep\else
+    \advance\@itemdepth\@ne
+    \beamer@computepref\@itemdepth% sets \beameritemnestingprefix
+    \usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+    \list
+      {\usebeamertemplate{itemize \beameritemnestingprefix item}}
+      {%
+      	\setlength{\leftmargin}{\widthof{\pgftransformscale{2}\pgftext{\pgfuseshading{bigsphere}}} + 2ex}%
+        %\setlength{\topsep}{0pt}%
+        %\setlength{\partopsep}{0pt}%
+        %\setlength{\itemsep}{0pt}%
+        %\setlength{\baselineskip}{17pt}%
+        \def\makelabel##1{%
+          {%
+            \hss\llap{{%
+                \usebeamerfont*{itemize \beameritemnestingprefix item}%
+                \usebeamercolor[fg]{itemize \beameritemnestingprefix item}##1}}%
+          }%
+        }%
+      }
+  \fi%
+  \beamer@cramped%
+  \justifying%
+  \beamer@firstlineitemizeunskip%
+}
+
+% Redefinición de entorno `enumerate`.
+\def\beamer@enum@{%
+  \beamer@computepref\@itemdepth% sets \beameritemnestingprefix
+  \usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+  \usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+  \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+  \expandafter
+    \list
+      {\usebeamertemplate{\beamer@enumtempl}}
+      {\usecounter\@enumctr%
+      	\setlength{\leftmargin}{\widthof{\pgftransformscale{2}\pgftext{\pgfuseshading{bigsphere}}} + 2ex}%
+      	\setlength{\topsep}{0cm}%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\itemsep}{2ex}%
+        \setlength{\baselineskip}{17pt}%
+        \def\makelabel##1{{\hss\llap{{%
+                \usebeamerfont*{enumerate \beameritemnestingprefix item}%
+                \usebeamercolor[fg]{enumerate \beameritemnestingprefix item}##1}}}}}%
+  \beamer@cramped%
+  \justifying%
+  \beamer@firstlineitemizeunskip%
+}
+\makeatother
+
+
+% Redefinir esfera de `enumerate` e `itemize`.
+\defbeamertemplate{enumerate item}{largeball}{
+	\begin{pgfpicture}{-1ex}{-0.65ex}{1ex}{0ex}
+		\usebeamercolor[fg]{item projected}
+		{\pgftransformscale{2.5}\pgftext{\pgfuseshading{bigsphere}}}
+		{\pgftransformshift{\pgfpoint{0pt}{0.5pt}}
+			\pgftext{\usebeamerfont*{item projected}\insertenumlabel}}
+	\end{pgfpicture}%
+}
+
+% Redefinir círculo de `enumerate` e `itemize`.
+\defbeamertemplate{enumerate item}{customCircle}{%
+  \usebeamerfont*{item projected}%
+  \usebeamercolor[bg]{item projected}%
+  \begin{pgfpicture}{-1ex}{-0.4ex}{1.1ex}{2ex}
+    \pgfpathcircle{\pgfpoint{0pt}{.75ex}}{1.4ex}
+    \pgfusepath{fill}
+    \pgftext[base]{\color{fg}\insertenumlabel}
+  \end{pgfpicture}%
+}[action]{\setbeamerfont{item projected}{size = \scriptsize}}
+
+\setbeamertemplate{enumerate item}[customCircle]
+\setbeamerfont{item projected}{size* = {10}{10}}
+%\setbeamercolor{item projected}{bg = verdeOscuro}

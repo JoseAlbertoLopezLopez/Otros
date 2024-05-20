@@ -1,0 +1,49 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[crop]{standalone}
+\usepackage{pst-solides3d}
+\usepackage{tikz}
+\usepackage{fp}
+
+\definecolor{verde}{RGB}{0, 190, 0}
+\definecolor{amarillo}{RGB}{230, 230, 0}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}
+%
+%
+\begin{tikzpicture}
+%
+\node {%
+\begin{pspicture}(-4.7,-7.7)(7.5,0.4)%(-8,-12.5)(12.5,0.5)
+\psset{solidmemory}
+\FPdiv\aux{3}{5}
+\psset{unit=\aux}
+\psset{viewpoint=20 30 30 rtp2xyz, lightsrc=15 45 50 rtp2xyz, lightintensity=2, Decran=50}
+%
+\psSolid[object=grille, linewidth=0.75pt, base=0 5 0 5, fillcolor=gray!10, opacity=0](0,0,0)
+%
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine={2.5} {2.5} 0, base=-0.5 0.5 -0.5 0.5, fillcolor=verde, name=planoCero]%
+%
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine={2.5} {1.5} 0, base=-0.5 0.5 -0.5 0.5, fillcolor=amarillo, name=planoUno]%
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine={1.5} {2.5} 0, base=-0.5 0.5 -0.5 0.5, fillcolor=amarillo, name=planoDos]%
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine={2.5} {3.5} 0, base=-0.5 0.5 -0.5 0.5, fillcolor=amarillo, name=planoTres]%
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine={3.5} {2.5} 0, base=-0.5 0.5 -0.5 0.5, fillcolor=amarillo, name=planoCuatro]%
+\end{pspicture}
+};
+%
+\newcommand{\viewA}{21.5}
+\newcommand{\viewB}{60}
+%
+\node[cm={cos(\viewA),-sin(\viewA)*sin(\viewB),sin(\viewA),cos(\viewA)*sin(\viewB),(0,0)}] at (0.2,0.55) {\fontsize{24}{24}\selectfont $e_{i,j}$};
+\node[cm={cos(\viewA),-sin(\viewA)*sin(\viewB),sin(\viewA),cos(\viewA)*sin(\viewB),(0,0)}] at (1,1.5) {\fontsize{24}{24}\selectfont $v_1$};
+\node[cm={cos(\viewA),-sin(\viewA)*sin(\viewB),sin(\viewA),cos(\viewA)*sin(\viewB),(0,0)}] at (1.8,0.1) {\fontsize{24}{24}\selectfont $v_2$};
+\node[cm={cos(\viewA),-sin(\viewA)*sin(\viewB),sin(\viewA),cos(\viewA)*sin(\viewB),(0,0)}] at (-0.6,-0.3) {\fontsize{24}{24}\selectfont $v_3$};
+\node[cm={cos(\viewA),-sin(\viewA)*sin(\viewB),sin(\viewA),cos(\viewA)*sin(\viewB),(0,0)}] at (-1.3,1.13) {\fontsize{24}{24}\selectfont $v_4$};
+%
+\end{tikzpicture}
+%
+%
+\end{document}

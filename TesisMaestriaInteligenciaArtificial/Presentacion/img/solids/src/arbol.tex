@@ -1,0 +1,91 @@
+% !TEX encoding = UTF-8 Unicode
+
+% NOTA: Este script hace uso de las imágenes previamente generadas: arreglo_arbol, cubo_[A-F] y prisma_H.
+
+% Compilar con PDFLaTeX.
+\documentclass[crop, rgb]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{quotes, shadows}
+
+\input{./utils_paths.tex}
+\input{solids_settings.tex}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}%
+\nopagecolor%
+%
+\begin{tikzpicture}[every node/.style={inner sep=0, outer sep=0}]
+\large
+\def\heightCubeImg{1.05cm}
+\def\heightPrismImg{1.2cm}
+\def\ruta{../../}
+\node at (-4, 2.5) {\includegraphics[width = 5cm]{\ruta arreglo_arbol}};
+\begin{scope}[
+	nodes = {
+		draw, 
+		circle, 
+		minimum size = 1.5cm, 
+		inner sep = -2pt, 
+		line width = 1pt, 
+		color = maintextcolor, 
+		fill = colorMalla, 
+		circular drop shadow
+	}
+]
+\node (B) at (0,0) {\includegraphics[height=\heightPrismImg]{\ruta prisma_H}};
+\node (C) at (2.5,0) {\includegraphics[height=\heightCubeImg]{\ruta cubo_C}};
+\node (D) at (4.35,0) {\includegraphics[height=\heightCubeImg]{\ruta cubo_E}};
+\node (E) at (6.75,0) {\includegraphics[height=\heightPrismImg]{\ruta prisma_H}};
+\coordinate (J1) at (1.25,1.25);
+\node (G) at (1.25,2.5) {\includegraphics[height=\heightCubeImg]{\ruta cubo_B}};
+\node (H) at (4.35,2.5) {\includegraphics[height=\heightCubeImg]{\ruta cubo_D}};
+\node (I) at (6.75,2.5) {\includegraphics[height=\heightCubeImg]{\ruta cubo_F}};
+\coordinate (J3) at (2.8,3.75);
+\node (J) at (3.7,5) {\includegraphics[height=\heightCubeImg]{\ruta cubo_A}};
+\end{scope}
+
+\begin{scope}
+	[nodes = {inner sep = 1.7pt}, 
+	line width = 1pt, 
+	color = maintextcolor]
+	\draw (B) edge ["$V$"] (J1);
+	\draw (C) edge ["$V$", swap] (J1);
+	\draw (J1) edge (G);
+	\draw (D) edge ["$V$"] (H);
+	\draw (E) edge ["$H$"] (I);
+	\draw (G) edge ["$H$"] (J3);
+	\draw (H) edge ["$H$", swap] (J3);
+	\draw (J3) edge (J);
+	\draw (I) edge ["$V$", swap] (J);
+\end{scope}
+
+\useasboundingbox 
+	(current bounding box.south west) +(0pt, -7.8pt) 
+	rectangle 
+	(current bounding box.north east) +(11.6pt, 7.7pt);
+\node[color = gray!90] at (1, 5.2) 
+	{\textbf{\textsf{Solución óptima}}};
+\draw
+	[line width = 2pt, 
+	color = gray, 
+	dashed] 
+	plot[smooth cycle, tension = 0.8] 
+		coordinates{
+			(7.6,3) 
+			(7.75,1.25) 
+			(7.75,-0.2) 
+			(6.75,-1) 
+			(5.75,0) 
+			(5.65,2.5) 
+			(3.5,4) 
+			(2.7,5) 
+			(3.7,6) 
+			(5.2,5)
+		};
+\end{tikzpicture}
+%
+%
+\end{document}%

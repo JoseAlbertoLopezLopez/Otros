@@ -1,0 +1,54 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Compilar con LaTeX -> DviPDF ó con PDFLaTeX.
+\documentclass[crop]{standalone}
+\usepackage{pst-solides3d}
+\usepackage{anyfontsize}
+\usepackage{tikz}
+
+\input{./utils_paths.tex}
+\input{solids_definitions.tex}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}
+\nopagecolor%
+%
+\begin{tikzpicture}
+\setlength{\grosorLineaMalla}{1.5pt}
+\def\labelFormat#1{\fontsize{45}{45}\selectfont\color{colorTextoMalla} #1}
+\def\labelFormatV#1{\fontsize{33}{33}\selectfont\color{colorTextoMalla} #1}
+\def\labelFormatv#1{\fontsize{30}{30}\selectfont\color{colorTextoMalla} #1}
+\def\viewA{21.5}
+\def\viewB{60}
+\node {
+\begin{pspicture}(-1.63, -7.82)(7.26, -2.62)
+\PsSettings{}%
+%
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine=2.5 2.5 0, base=-0.5 0.5 -0.5 0.5, fillcolor=colorCeldaObjeto, linecolor=colorLineasMalla, linewidth=\grosorLineaMalla, name=plano0]
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine=2.5 1.5 0, base=-0.5 0.5 -0.5 0.5, fillcolor=colorCeldaVecina, linecolor=colorLineasMalla, linewidth=\grosorLineaMalla, name=plano1]
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine=1.5 2.5 0, base=-0.5 0.5 -0.5 0.5, fillcolor=colorCeldaVecina, linecolor=colorLineasMalla, linewidth=\grosorLineaMalla, name=plano2]
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine=2.5 3.5 0, base=-0.5 0.5 -0.5 0.5, fillcolor=colorCeldaVecina, linecolor=colorLineasMalla, linewidth=\grosorLineaMalla, name=plano3]
+\psSolid[object=plan, definition=equation, args={[0 0 1 0]}, origine=3.5 2.5 0, base=-0.5 0.5 -0.5 0.5, fillcolor=colorCeldaVecina, linecolor=colorLineasMalla, linewidth=\grosorLineaMalla, name=plano4]
+\end{pspicture}
+};
+\begin{scope}[nodes={cm = {cos(\viewA), -sin(\viewA)*sin(\viewB), sin(\viewA), cos(\viewA)*sin(\viewB), (0, 0)}}]
+\def\auxX{-0.5}%
+\def\auxY{-0.8}%
+\coordinate (A) at (0.35 + \auxX, 0.95 + \auxY);
+\coordinate (B) at (3 + \auxX, 0.07 + \auxY);
+\coordinate (C) at (1.62 + \auxX, 2.38 + \auxY);
+\coordinate (D) at (-1.1 + \auxX, -0.59 + \auxY);
+\coordinate (E) at (-2.22 + \auxX, 1.79 + \auxY);
+\node at (A) {\labelFormat\color{colorMalla} $e_{ij}$};
+\node at (C) {\labelFormatv $V_{i,j,1}$};
+\node at (B) {\labelFormatV $V_{i,j,2}$};
+\node at (D) {\labelFormatV $V_{i,j,3}$};
+\node at (E) {\labelFormatv $V_{i,j,4}$};
+\end{scope}
+\end{tikzpicture}
+%
+%
+\end{document}

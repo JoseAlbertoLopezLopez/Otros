@@ -1,0 +1,319 @@
+% Versión utilizada actualmente.
+\begin{frame}{Algoritmo principal}
+	\SetKwIF{If}{ElseIf}{Else}{if}{\!\!:}{else if}{else}{end}%
+	\setlength{\algomargin}{0pt}%
+	\SetAlgoHangIndent{0pt}%
+	%\DecMargin{0.15em}%
+	\Wider[0.6cm]{%
+	\begin{block}{\,Algoritmo: \textsl{Recocido simulado}\rule[-5pt]{0pt}{18pt}}
+	\footnotesize%
+	\leavevmode%
+	\begin{minipage}[b]{0.465\linewidth}
+	\setlength{\algomargin}{13pt}%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{\algomargin}%
+	\BlankLine
+	\Data{\justifying Temperatura inicial $T$, constantes $\alpha$, $a$, $b$, malla con objetos.}
+	\OneHalfBlankLine
+	\Result{\justifying Malla con objetos acomodados (representada por una matriz de enteros).}
+	\TwoBlankLines
+	\tcp*[l]{Parámetros del algoritmo.}
+	$T =\num{50000000}$\;
+	$\alpha = 0.0000001$\;
+	$a = 0.99991$\;
+	$b = 1$\;
+	\OneHalfBlankLine
+	\tcp*[l]{Puntajes actual y de intercambio.}
+	$p_A = \f{puntuacionGlobal}()$\;
+	$p_I = 0$%\;
+	%\nonl\centering $\bm{\cdots}$
+	\end{algorithm}
+	\end{minipage}
+	\leavevmode
+	\hskip 0.28cm\raisebox{-3.07cm}{\tikz\draw[loosely dotted, line width=0.7pt, color=gray] (0,0) -- (0,6.3);}\hskip 0.28cm%
+	\begin{minipage}{0.49\linewidth}
+	\setlength{\algomargin}{12pt}%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{\algomargin}%
+	\setcounter{AlgoLine}{6}%
+	%\nonl\centering $\bm{\cdots}$\nonl\par\;
+	%\vskip -16pt%
+	\raggedright\While{$T > \frac{b}{1 - a}$}{
+		\BlankLine
+		\justifying Intercambiar aleatoriamente 2 elementos diferentes en la malla.\;
+		\HalfBlankLine
+		$p_I = \f{puntuacionGlobal}()$\;
+		\HalfBlankLine
+		\eIf{$p_A \leq p_I$ \Or $\f{random}([0,1]) < e^{-\frac{{\scriptstyle p}_{\scriptscriptstyle A} -\, {\scriptstyle p}_{\scriptscriptstyle I}}{\alpha T}}$}
+		{%
+			\BlankLine
+			Se acepta el intercambio.\;
+			$p_A = p_I$
+			\QuarterBlankLine
+		}{
+			No se acepta el intercambio.
+		}
+		\HalfBlankLine
+		$T = aT + b$
+	}%
+	\end{algorithm}
+	\vspace{0.4cm}
+	\end{minipage}
+	\end{block}
+	}
+\end{frame}
+
+
+
+\begin{frame}{Algoritmo principal}
+	\SetKwIF{If}{ElseIf}{Else}{if}{\!\!:}{else if}{else}{end}%
+	\SetAlgoHangIndent{0pt}%
+	%\DecMargin{0.15em}%
+	\vskip -0.4ex%
+	\Wider[0.6cm]{%
+	\begin{block}{\,Algoritmo: \textsl{Recocido simulado}\rule[-5pt]{0pt}{18pt}}
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{\algomargin}%
+	\footnotesize%
+	\HalfBlankLine
+	\Data{\justifying Temperatura inicial $T$, constantes $\alpha$, $a$, $b$, malla con objetos.}
+	\HalfBlankLine
+	\Result{\justifying Malla con objetos acomodados (representada por una matriz de enteros).}
+	\HalfBlankLine
+	\nonl%
+	\begin{minipage}{0.42\hsize}
+	\setlength{\algomargin}{0pt}%
+	\vspace{-1.5cm}
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{\algomargin}%
+	\tcp*[l]{Parámetros del algoritmo.}
+	$T =\num{50000000}$\;
+	$\alpha = 0.0000001$\;
+	$a = 0.99991$\;
+	$b = 1$\;
+	\OneHalfBlankLine
+	\tcp*[l]{Puntajes actual y de intercambio.}
+	$p_A = \f{puntuacionGlobal}()$\;
+	$p_I = 0$
+	\end{algorithm}
+	\end{minipage}\leavevmode%
+	\hskip 0.03\hsize\raisebox{-2.75cm}{\tikz\draw[loosely dotted, line width=0.7pt, color=gray] (0,0) -- (0,5.7);\hskip 0.01\hsize}%
+	\begin{minipage}{0.53\hsize}
+	\setlength{\algomargin}{18pt}%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{\algomargin}%
+	\setcounter{AlgoLine}{6}%
+	\nl\While{$T > \frac{b}{1 - a}$}{
+		\HalfBlankLine
+		\justifying Intercambiar aleatoriamente 2 elementos diferentes en la malla.\;
+		\HalfBlankLine
+		$p_I = \f{puntuacionGlobal}()$\;
+		\eIf{$p_A \leq p_I$ \Or $\f{random}([0,1]) < e^{-\frac{{\scriptstyle p}_{\scriptscriptstyle A} -\, {\scriptstyle p}_{\scriptscriptstyle I}}{\alpha T}}$}
+		{%
+			\BlankLine
+			Se acepta el intercambio.\;
+			$p_A = p_I$
+			\QuarterBlankLine
+		}{
+			No se acepta el intercambio.
+		}
+		\QuarterBlankLine
+		$T = aT + b$
+	}%
+	\end{algorithm}
+	\vskip -0.8ex%
+	\end{minipage}
+	\end{algorithm}
+	\end{block}
+	}
+\end{frame}
+
+
+
+% Versión utilizada actualmente.
+\begin{frame}{Funciones de costo}
+	\SetAlgoHangIndent{0pt}%
+	\SetAlgoSkip{}%
+	\SetNlSkip{0.25em}%
+	\SetInd{0.2em}{0.45em}%
+	%
+	\vskip -5pt%
+	\Wider[0.85cm]{%
+	\begin{block}{\,Función: \f{secuencia}($e_{i j}$, $l$)}
+	\vskip -1pt%
+	\footnotesize%
+	\centering%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{\algomargin}%
+	\BlankLine
+	\Data{\justifying Celda $e_{ij}$ del objeto deseado y lista vacía $l$.}
+	\QuarterBlankLine
+	\Result{\justifying Lista $l$ con la secuencia de elementos a retirar.}
+	\QuarterBlankLine
+	\Definitions{\justifying $h_{ij}$, $C_{ij}$, $o_{ij}$: altura, clase y datos relevantes del elemento en $e_{ij}$.}
+	\OneQuarterBlankLine
+	\nonl%
+	\begin{minipage}[t]{0.45\linewidth}
+	\strut\vspace*{-\baselineskip}\newline%
+	\setlength{\algomargin}{0pt}%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{1.5cm}%
+	\FunctionInicio{$\f{secuencia}(e_{ij},\: l)$}{%
+	\BlankLine
+		\lIf{$C_{ij} = C_0$}{Finalizar con éxito.}
+		\BlankLine
+		\uIf{$o_{ij} \not\in l$}{
+			\HalfBlankLine
+			$\f{append}(o_{ij},\: l)$
+			\HalfQuarterBlankLine
+			\uIf{$\f{sujetable}(e_{ij})$}{
+				\BlankLine
+				Finalizar recursión con éxito.
+				\HalfBlankLine
+			}
+			\tcp*[l]{Si no, ejecutar un par:}
+			\nonl\nlset{7\hspace{-0.5pt}}%
+			\uElseIfWithNoThen{Par 1\normalfont{:}}{
+				\QuarterBlankLine
+				\SetKwIF{If}{ElseIf}{Else}{if}{\!:}{else if}{else}{end}%
+				\lIf{$h_{i+1,\, j} \geq h_{ij}$}{$\f{secuencia}(e_{i+1,\, j},\: l)$}
+				\lIf{$h_{i-1,\, j} \geq h_{ij}$}{$\f{secuencia}(e_{i-1,\, j},\: l)$}
+				\vskip -1pt%
+			}
+		}
+	}
+	\end{algorithm}
+	\end{minipage}%
+	%
+	\begin{minipage}[t]{0.03\linewidth}
+	\strut\vspace*{-\baselineskip}\newline%
+	\centering\tikz\draw[loosely dotted, line width=0.7pt, color=gray] (0, 0) -- (0, 5);%
+	\end{minipage}%
+	%
+	\begin{minipage}[t]{0.45\linewidth}
+	\strut\vspace*{-\baselineskip}\newline%
+	\setlength{\algomargin}{13pt}%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{1.5cm}%
+	\setcounter{AlgoLine}{6}%
+	\vspace{-\baselineskip}\noln%
+	\SetAlgoNoEnd%
+	\FunctionFin{}{
+		\vspace{-\baselineskip}\noln%
+		\SetAlgoShortEnd%
+		\eIfFin{}{%
+			\uElseIfWithNoThen{Par 2\hskip 1pt\normalfont{:}}{
+				\QuarterBlankLine
+				\SetKwIF{If}{ElseIf}{Else}{if}{\!:}{else if}{else}{end}%
+				\lIf{$h_{i,\, j+1} \geq h_{ij}$}{$\f{secuencia}(e_{i,\, j+1},\: l)$}
+				\lIf{$h_{i,\, j-1} \geq h_{ij}$}{$\f{secuencia}(e_{i,\, j-1},\: l)$}
+			}
+			\nonl\nlset{13\hspace{-0.5pt}}%
+			\Else{
+				\tcp*[l]{Si ambos pares fallaron:}
+				Finalizar recursión con fallo.
+			}
+		}{
+			Finalizar recursión con fallo.
+		}
+		Finalizar recursión con éxito.
+		\vskip -2pt%
+	}\nonl\nlset{20\hspace{-0.5pt}}\textbf{end}
+	\vskip -1pt%
+	\end{algorithm}%
+	\end{minipage}%
+	\end{algorithm}
+	\end{block}
+	}
+\end{frame}
+
+
+
+\begin{frame}{Funciones de costo}
+	\SetAlgoHangIndent{0pt}%
+	\SetAlgoSkip{}%
+	\SetNlSkip{0.25em}%
+	\SetInd{0.2em}{0.45em}%
+	%
+	\vskip -5.5pt%
+	\Wider[0.8cm]{%
+	\begin{block}{\,Función: \f{secuencia}($e_{i j}$, $l$)}
+	\footnotesize%
+	\leavevmode%
+	\centering%
+	\begin{minipage}[b]{0.45\linewidth}
+	\setlength{\algomargin}{7pt}%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{1.5\algomargin}%
+	\HalfBlankLine
+	\Data{\justifying Celda $e_{ij}$ del objeto deseado y lista vacía $l$.}
+	\QuarterBlankLine
+	\Result{\justifying Lista $l$ con la secuencia de elementos a retirar.}
+	\QuarterBlankLine
+	\Definitions{\justifying $h_{ij}$, $C_{ij}$, $o_{ij}$: altura, clase y datos relevantes del elemento en $e_{ij}$.}
+	\BlankLine
+	\nonl\nlset{1\hspace{-0.6pt}}%
+	\FunctionInicio{$\f{secuencia}(e_{ij},\: l)$}{%
+	\BlankLine
+		\lIf{$C_{ij} = C_0$}{Finalizar con éxito.}
+		\BlankLine
+		\uIf{$o_{ij} \not\in l$}{
+			\HalfBlankLine
+			$\f{append}(o_{ij},\: l)$
+			\HalfBlankLine
+			\uIf{$\f{sujetable}(e_{ij})$}{
+				\BlankLine
+				Finalizar recursión con éxito.
+				\HalfBlankLine
+			}
+			\tcp*[l]{Si no, ejecutar uno de los siguientes pares de recursión:}
+		}
+	}
+	\end{algorithm}
+	\end{minipage}
+	%
+	\leavevmode%
+	\hskip 0.002\linewidth%
+	\raisebox{-3.4cm}[0.0cm][0.0cm]{\tikz\draw[loosely dotted, line width = 0.7pt, color=gray] (0,0) -- (0,7.1);}%
+	\hskip 0.016\linewidth%
+	%	
+	\begin{minipage}[t]{0.5\linewidth}
+	\setlength{\algomargin}{10.5pt}%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{1.5\algomargin}%
+	\setcounter{AlgoLine}{6}%
+	\vspace{-\baselineskip}\noln%
+	\SetAlgoNoEnd%
+	\FunctionFin{}{
+		\vspace{-\baselineskip}\noln%
+		\SetAlgoShortEnd%
+		\eIfFin{}{
+			\nonl\nlset{7\hspace{-0.5pt}}%
+			\uElseIfWithNoThen{Par 1:}{
+				\QuarterBlankLine
+				\lIf{$h_{i+1,\, j} \geq h_{ij}$}{$\f{secuencia}(e_{i+1,\, j},\: l)$}
+				\lIf{$h_{i-1,\, j} \geq h_{ij}$}{$\f{secuencia}(e_{i-1,\, j},\: l)$}
+				\HalfBlankLine
+			}
+			%\nonl\nlset{10\hspace{-0.5pt}}%
+			\uElseIfWithNoThen{Par 2:}{
+				\QuarterBlankLine
+				\lIf{$h_{i,\, j+1} \geq h_{ij}$}{$\f{secuencia}(e_{i,\, j+1},\: l)$}
+				\lIf{$h_{i,\, j-1} \geq h_{ij}$}{$\f{secuencia}(e_{i,\, j-1},\: l)$}
+			}
+			\nonl\nlset{13\hspace{-0.5pt}}%
+			\Else{
+				\tcp*[l]{Si en ambos pares alguna de las dos recursiones falló:}
+				Finalizar recursión con fallo.
+			}
+		}{
+			Finalizar recursión con fallo.
+		}
+		Finalizar recursión con éxito.
+	}\nonl\nlset{20\hspace{-0.5pt}}\textbf{end}
+	\vskip -3pt%
+	\end{algorithm}%
+	\end{minipage}%
+	\end{block}
+	}
+\end{frame}

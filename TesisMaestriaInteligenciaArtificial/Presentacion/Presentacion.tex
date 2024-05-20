@@ -1,0 +1,1072 @@
+\documentclass[14pt, aspectratio = 1610, xcolor=table, structureblod]{beamer}
+\usetheme{Warsaw}
+
+
+% Agilizar pruebas
+%\PassOptionsToPackage{draft}{graphicx}
+%\includeonlyframes{current}
+
+
+% Varios
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdecimal{.}
+\usepackage{anyfontsize}
+\usepackage{fontawesome5}
+\usepackage{ragged2e}
+\usepackage{xargs}
+\usepackage[export]{adjustbox}
+\usepackage{float}
+\usepackage{etoolbox}
+\usepackage{calc}
+\usepackage[group-separator={\textsf{,}}]{siunitx}
+\usepackage{setspace}
+
+\makeatletter
+\def\input@path{
+	{./def/}
+	{./redef/}
+	{./img/plots/}
+	{./img/solids/src/definitions/}
+	{./img/solids/src/settings/}
+}
+\makeatother
+
+
+% Beamer
+\title[Acomodo de objetos para su acceso posterior]{%
+	Un método para el acomodo de objetos basado en intercambios ponderados, que minimiza el costo de acceso global a estos%
+}
+\author{José Alberto López López}
+
+\def\adviser#1{\def\insertadviser{#1}}
+\adviser{Dr.~Antonio Marín Hernández}
+
+\institute{Universidad Veracruzana}
+
+\def\faculty#1{\def\insertfaculty{#1}}
+\faculty{Instituto de Investigaciones en Inteligencia Artificial}
+
+\newlength{\titlegraphicwidth}
+\setlength{\titlegraphicwidth}{2.3cm}
+\titlegraphic{%
+	\includegraphics[width = \titlegraphicwidth]{UV_escudo}%
+}
+
+\date{\today}
+
+\useinnertheme{tcolorbox}
+
+\input{beamer_settings}
+
+\newcommandx{\Wider}[4][1=3em, 2=c, 3=c, usedefault]{
+	\makebox[\linewidth][#3]{
+		\begin{minipage}[#2]{\dimexpr\textwidth + #1\relax}
+			\raggedright#4
+		\end{minipage}
+	}
+}
+
+
+% Matemáticas
+\usefonttheme[onlymath]{serif}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{mathtools}
+
+
+% Imágenes
+\usepackage{graphicx}
+\graphicspath{
+	{./img/}
+	{./img/plots/}
+	{./img/solids/}
+}
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+% Gráficos
+\usepackage{pst-solides3d}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{
+	babel, 
+	calc, 
+	graphs, 
+	positioning, 
+	quotes, 
+	shadows
+}
+
+\input{solids_definitions}
+
+
+% Algoritmos
+\input{algorithm2e_settings}
+
+
+% Notas al pie
+\usepackage[symbol, hang]{footmisc}
+\renewcommand{\thempfootnote}{\fnsymbol{mpfootnote}}
+\setlength{\footnotemargin}{0.5em}
+
+
+% Bibliografía
+%\usepackage{natbib}
+\let\oldcite\cite
+\def\cite#1{\textcolor{verdeMedio}{\oldcite{#1}}}
+
+
+% Temporal
+\setlength{\fboxsep}{0pt}
+\setlength{\fboxrule}{0.1pt}
+%\usepackage{multicol}
+
+
+
+%==============================================================================================================================
+\begin{document}
+%==============================================================================================================================
+
+
+
+\fontsize{16}{19}\selectfont
+\beamertemplatenavigationsymbolsempty
+\frame[plain]{\titlepage}
+
+
+\begingroup
+\setbeamertemplate{headline}[default]
+\makeatletter
+\def\beamer@entrycode{\vspace*{-9.75pt}}
+\makeatother
+\begin{frame}{Contenido de la presentación}
+\tableofcontents
+\end{frame}
+\endgroup
+
+
+\section{Introducción}
+
+
+\frame[noframenumbering, plain]{\tableofcontents[currentsection]}
+
+
+\begin{frame}{Problema a abordar}
+	\vskip -5pt%
+	\Wider[0.85cm]{\small\justifying Problemas relacionados con disponer objetos en espacios delimitados:}%
+	\vskip 6pt%
+	\begin{columns}[totalwidth = 0.89\textwidth]
+	\begin{column}{0.43\linewidth}
+		\includegraphics[width = \linewidth]{bin_packing}
+		\vskip 0.3cm%
+		\includegraphics[width = \linewidth]{circuits}
+	\end{column}
+	\begin{column}{0.43\linewidth}
+		\includegraphics[width = \linewidth]{eolic_park}
+		\vskip 0.3cm%
+		\includegraphics[width = \linewidth]{mechanism}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}[t]{Características generales del problema}
+	\vfill%
+	\Wider[-0.2cm]{%
+	\begin{columns}[totalwidth = \textwidth]
+	\begin{column}[b]{0.48\linewidth}
+	\fontsize{14}{16}\selectfont\justifying En el presente trabajo se pretende desarrollar un método para el acomodo de objetos en un espacio delimitado, de tal forma que el costo para acceder (sujetar) a cada uno de estos se minimice.
+	\vskip 16.5pt%
+	\includegraphics[width = \linewidth]{toolbox}
+	\end{column}
+	%
+	\begin{column}[b]{0.48\linewidth}
+		\includegraphics[width = \linewidth]{fridge}
+		\vskip 8pt%
+		\includegraphics[width = \linewidth]{first_aid_kit}
+	\end{column}
+	\end{columns}
+	}%
+\end{frame}
+
+
+\begin{frame}{Trabajos relacionados}
+	\vskip 5pt%
+	\fontsize{14}{16}\selectfont%
+	\begin{minipage}{\textwidth}
+		\includegraphics[height = 2.5cm, valign = t]{shuai_han_b} 
+		\includegraphics[height = 2.5cm, valign = t]{shuai_han_c} \hfill
+		\parbox[t]{0.455\linewidth}{Reordenamiento donde se conoce la configuración final. Imagen tomada de \cite{Han-RSS-17}.}
+	\end{minipage}
+	\vskip -13pt%
+	\begin{minipage}{\textwidth}
+		\parbox[t]{0.52\linewidth}{Mover un objeto rodeado de obstáculos a una posición meta. Imagen tomada de \cite{2018arXiv181010654P}.} \hfill 
+		\begin{tikzpicture}[>=Triangle, baseline={([yshift={2.8ex}]current bounding box.center)}]
+			\node[inner sep = 0pt] at (0, 0) 
+				{\includegraphics[height = 3.6cm]{lerrel_pinto_a}};
+			\node[opacity = 0.4] at (0.95, -0.087) 
+				{\includegraphics[width = 0.79cm]{lerrel_pinto_b}};
+			
+			\draw[
+				line width = 0.8pt, 
+				color = maintextcolor!80, 
+				opacity = 0.7, 
+				scale = 0.5, 
+				shift = {(0.05, -0.1)}
+			] 
+				
+			[arrows = {-Triangle[width = 2pt, length = 2pt]}] 
+			(0.6,-1.6) -- (0.9,-2.3) -- (1.6,-2.3)
+			node[right = -4pt, maintextcolor, opacity = 1] 
+				{\fontsize{5}{5}\selectfont Objetivo};
+			
+			\draw[
+				line width = 0.8pt, 
+				color = maintextcolor!80, 
+				opacity = 0.7, 
+				scale = 0.5, 
+				shift = {(0.09, -0.05)}
+			]
+				
+			[arrows = {-Triangle[width = 2pt, length = 2pt]}] 
+			(1.7, -0.8) -- (2, -1.5) -- (2.6, -1.5) 
+			node[right = -4pt, maintextcolor, opacity = 1] 
+				{\fontsize{5}{5}\selectfont Posición meta};
+		\end{tikzpicture}
+	\end{minipage}
+	\vskip -23pt%
+	\begin{minipage}{\textwidth}
+		\includegraphics[height = 2.8cm, valign = b]{aliakbar_akbari_b}
+		\includegraphics[height = 2.8cm, valign = b]{aliakbar_akbari_f} \hfill 
+		\parbox[b]{0.53\linewidth}{Tomar un objeto rodeado de obstáculos en desorden. Imagen tomada de \cite{Akbari2019}.}
+	\end{minipage}
+\end{frame}
+
+
+\section{Hipótesis y objetivos}
+
+
+\frame[noframenumbering, plain]{\tableofcontents[currentsection]}
+
+
+\begin{frame}{Hipótesis}
+	\def\thinkCloud{\raisebox{-1.5pt}{\includegraphics[width=1em]{think_bubble}}}%
+	\begin{itemize}
+	\item[\thinkCloud]\itshape Existe una metodología para el acomodo de objetos en un espacio delimitado que minimiza el número promedio de acciones necesarias para acceder (tomar) a cualquiera de ellos.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Objetivo general}
+	\begin{itemize}
+	\item[\color{verdeOscuro}\raisebox{1pt}{$\blacktriangleright$}] Diseñar un algoritmo para el arreglo de objetos en un espacio delimitado, con la finalidad de que un manipulador sea capaz de acceder a cualquiera de los objetos, realizando un número mínimo de acciones o movimientos.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Objetivos particulares}
+	\setbeamerfont{itemize/enumerate body}{size*={14.5pt}{14.5pt}}%
+	\vfill%
+	\Wider[-1.5cm]{%
+		\begin{enumerate}
+			\item Analizar la literatura relacionada para comparar los diferentes métodos utilizados en problemas similares.
+			\item Seleccionar y adaptar las metodologías útiles para el problema planteado.
+			\item Definir las métricas de eficiencia para los algoritmos a implementar.
+			\item Proponer un procedimiento adecuado para encontrar arreglos eficientes de objetos.
+			\item Evaluar la metodología propuesta.
+		\end{enumerate}
+	}%
+\end{frame}
+
+
+\section{Marco teórico}
+
+
+\tcbset{
+	skin = enhanced,                                 
+	bottom = 2pt, 
+	%top = 10pt, 
+	left = 3.5pt,
+	right = 3.5pt,
+	bottomtitle = 1pt, 
+	%toptitle = 10pt, 
+	lefttitle = 3.5pt, 
+	righttitle = 3.5pt
+}
+
+\frame[noframenumbering, plain]{\tableofcontents[currentsection]}
+
+
+\begin{frame}{Espacio de trabajo}
+	\begin{columns}
+	\column{0.45\textwidth}%
+	\vskip -20pt%
+	\justifying Se desea que el algoritmo propuesto se aplique a una gran variedad de circunstancias de la vida real, por lo cual se trató de que los fundamentos de este fueran lo más generales posible.
+	\column{0.55\textwidth}%
+	\vspace{-8pt}%
+	\begin{block}{Definición}
+		Sea $E$ un espacio discreto (malla) de $n\times m$ localidades o celdas, cada una representada por $e_{ij}$. 
+	\end{block}
+	\vskip -2pt%
+	\centering
+	\includegraphics[width = 0.74\textwidth]{ejes_malla}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{Conjunto de objetos}
+	Se desea colocar en $E$ un grupo de objetos.
+	\begin{block}{Definición}
+		Sea $O = \{o_1, o_2, \cdots\hspace{-1pt}, o_N\}$ el conjunto de objetos disponibles para colocar en las celdas de $E$, donde $N$ es el número total de objetos y $N \leq nm$.
+	\end{block}
+	\vfill
+	\centering
+	\includegraphics[width=2cm]{cubo}
+	\hskip 1.5cm%
+	\includegraphics[width=2cm]{prisma}
+\end{frame}
+
+
+\begin{frame}{Atributos de los objetos}
+	\setlength{\abovedisplayskip}{10pt}
+	\vspace{-8pt}%
+	\begin{block}{Definición}
+		Sea $A = \{a_1, a_2, \cdots\hspace{-1pt}, a_{N_A}\}$ el conjunto de atributos que puede tener un objeto, por ejemplo el tamaño, color, forma, etc.
+	\end{block}
+	%
+	\begin{block}{Definición}
+		Sea $A_k = \{a_{k, 1}, a_{k, 2}, \cdots\hspace{-1pt}, a_{k, N_A}\}$ el conjunto de atributos asociado a un determinado objeto $o_k$.
+	\end{block}
+	%\vskip 0.15cm%
+	Es decir, si por ejemplo, $o_1 \equiv \includegraphics[width=15pt, valign=c]{Cubo}$ y $o_2 \equiv \includegraphics[width=15pt, margin*={0.0cm, -0.2cm, 0.0cm, 0.0cm}]{Prisma}$, entonces:
+	%
+	\begin{align*}
+		A = \{\textsl{altura}, \textsl{color}, \ldots\}\qquad &
+		\begin{aligned}
+			A_1 &= \{\text{10cm}, \text{rojo}, \ldots\} \\
+			A_2 &= \{\text{20cm}, \text{azul}, \ldots\}
+		\end{aligned}
+	\end{align*}
+\end{frame}
+
+
+\begin{frame}{Clases de objetos}
+	\setlength{\abovedisplayskip}{0.75cm}
+	\addtobeamertemplate{block begin}{\vskip 0.3cm}{}
+	\addtobeamertemplate{block end}{}{\vskip 0.4cm}
+	\begin{block}{Definición}
+		Se define $C = \{C_1, C_2, \cdots\hspace{-1pt}, C_{N_C}\}$ como el conjunto de clases distintas de objetos, donde cada clase representa un $A_k$ distinto, siendo $N_C$ el número total de clases o $A_k$'s diferentes.
+	\end{block}
+	%
+	Entonces, si $o_1 \equiv \includegraphics[width=15pt, valign=c]{Cubo}$ y $o_2 \equiv \includegraphics[width=15pt, margin*={0.0cm, -0.2cm, 0.0cm, 0.0cm}]{Prisma}$:
+	%
+	\begin{align*}
+		&\text{\f{clase}($o_1$)} = C_1 \equiv \text{atributos cubo} \\[5pt]
+		&\text{\f{clase}($o_2$)} = C_2 \equiv \text{atributos prisma}
+	\end{align*}
+\end{frame}
+
+
+\begin{frame}{Vecindad}
+	\vspace{-6pt}%
+	\begin{block}{Definición}
+		Se define una vecindad $V_{ij} = \{v_1, v_2, \cdots\hspace{-1pt}, v_{N_V}\}$, como un conjunto de celdas, las cuales se consideran localidades vecinas a la localidad $e_{ij}$.
+	\end{block}
+	\vfill
+	\centering
+	\includegraphics[width=7cm]{vecindad}
+\end{frame}
+
+
+\begin{frame}{Formas de sujeción}
+	\vspace{-1pt}%
+	\begin{block}{Definición}
+		Sea $S_K = \{s_{K, 1}, s_{K, 2}, \cdots\hspace{-1pt}, s_{K, N_S}\}$ el conjunto de formas de sujeción asociado a una clase $C_K$.
+	\end{block}
+	\vskip 3pt%
+	Por ejemplo, si $S_1 = S_2 = \{H, V\}$:
+	\vskip 3pt%
+	\begin{figure}[H]
+		\captionsetup[subfigure]{width=1.05\linewidth, skip=1pt}%
+		\begin{subfigure}{4.5cm}
+			\includegraphics[width=\linewidth]{agarre_horizontal}%
+			\caption{Forma de sujeción $H$.}%
+		\end{subfigure}%
+		\hspace{1.75cm}%
+		\begin{subfigure}{4.5cm}
+			\includegraphics[width=\linewidth]{agarre_vertical}%
+			\caption{Forma de sujeción $V$.}%
+		\end{subfigure}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Restricciones de sujeción}
+	\captionsetup[figure]{
+		labelformat = empty, 
+		format = hang, 
+		justification = justified, 
+		belowskip = 4pt, 
+		aboveskip = -1pt
+	}%
+	\begin{figure}[H]
+	\def\figswidth{0.25\textwidth}%
+	\def\figshsep{1cm}%
+		\caption{Ejemplos de cómo se pueden restringir las formas de sujeción en función de la vecindad de un objeto.}%
+    	\begin{subfigure}{\figswidth}
+			\includegraphics[width=\textwidth]{restriccion_H_cubo}
+			%\caption{Restricción de $H$ en un cubo.}
+    	\end{subfigure}
+    	\hskip \figshsep%
+    	\begin{subfigure}{\figswidth}
+       		\includegraphics[width=\textwidth]{restriccion_V_cubo}
+       		%\caption{Restricción de $V$ en un cubo.}
+    	\end{subfigure}
+    	\hskip \figshsep%
+    	\begin{subfigure}{\figswidth}
+       		\includegraphics[width=\textwidth]{restriccion_HV_cubo}
+       		%\caption{Restricción de $H$ y $V$ en un cubo.}
+    	\end{subfigure}%
+    	\vskip 5pt%
+    	\begin{subfigure}{\figswidth} 
+			\includegraphics[width=\textwidth]{restriccion_H_prisma}
+			%\caption{Restricción de $H$ en un prisma.}
+		\end{subfigure}
+		\hskip \figshsep%
+    	\begin{subfigure}{\figswidth}
+       		\includegraphics[width=\textwidth]{restriccion_V_prisma}
+       		%\caption{Restricción de $V$ en un prisma.}
+    	\end{subfigure}
+    	\hskip \figshsep%
+    	\begin{subfigure}{\figswidth}
+       		\includegraphics[width=\textwidth]{restriccion_HV_prisma}
+       		%\caption{Restricción de $H$ y $V$ en un prisma.}
+    	\end{subfigure}%
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Costos de acceso a los objetos}
+	\fontsize{14}{16}\selectfont
+	\vspace{-5.5pt}%
+	\begin{block}{Definición}
+		Sea $t_{ij}$ la variable discreta que cuantifica el número de acciones necesarias para tomar el objeto en $e_{ij}$, lo cual se denomina como el costo de tomar un objeto.
+	\end{block}
+	%
+	Así, $t_{ij} - 1$ corresponderá al número de objetos-obstáculo que hay que retirar antes de tomar un objeto de interés.
+	\vspace{-3pt}%
+	%
+	\begin{block}{Definición}
+		\setlength{\abovedisplayskip}{10pt}%
+		Asimismo, se define el costo global $T$ de un acomodo de objetos como la suma de los costos individuales $t_{ij}$:
+		\begin{equation*}
+			T = \sum_{i,\,j}\ t_{ij}
+		\end{equation*}
+	\end{block}
+\end{frame}
+
+
+\section{Metodología propuesta}
+
+
+\tcbset{                              
+	bottom = 0pt, 
+	top = 0pt, 
+	left = 0pt,
+	right = 0pt,
+	bottomtitle = 0.5pt, 
+	toptitle = 1.5pt, 
+	lefttitle = 2pt, 
+	righttitle = 0pt
+}
+
+
+\setbeamerfont{block title}{shape = \normalfont}
+
+
+\frame[noframenumbering, plain]{\tableofcontents[currentsection]}
+
+
+\begin{frame}{Funciones de puntuación}
+	\vskip -12pt%
+	\Wider[0.6cm]{%
+	\begin{columns}[totalwidth = \textwidth]
+	\begin{column}{0.58\textwidth}
+	\begin{block}{Función: \f{puntuacionPar}($e_{i_1 j_1}$, $e_{i_2 j_2}$)}
+	\footnotesize%
+	\makeatletter%
+	\setboolean{algocf@hanginginout}{false}%
+	\makeatother%
+	\begin{function}[H]
+	\addtolength{\hsize}{\algomargin}%
+	\HalfQuarterBlankLine
+	\Data{\setstretch{0.8}Celdas de los elementos vecinos.}
+	\HalfBlankLine
+	\Result{Puntuación del par de vecinos.}
+	\HalfBlankLine
+	\Definitions{\justifying $C_{ij}$: clase del elemento en $e_{ij}$.\newline $C_0$: celda vacía.}
+	\HalfBlankLine
+	\nonl\nlset{1\hspace{-0.5pt}}%
+	\SetAlgoNoEnd%
+	\Function{$\f{puntuacionPar}\:\!(e_{i_1 j_1}, e_{i_2 j_2})$}{
+		\HalfBlankLine
+		\SetAlgoShortEnd%
+		\Switch{$C_{i_1 j_1}$, $C_{i_2 j_2}$}{%
+			\HalfBlankLine
+			\lCase{$C_1$, $C_0$}{\Return 3}
+			\lCase{$C_1$, $C_2$}{\Return 1}
+			\lCase{$C_2$, $C_1$}{\Return 2}
+			\lCase{$C_2$, $C_0$}{\Return 1}
+			\lCase{$C_0$, $C_1$}{\Return 2}
+			\lCase{$C_0$, $C_2$}{\Return 1}
+			\lCase{$C_{k_C}$, $C_{k_C}$}{\Return 0}
+			\vskip -1pt%
+		}
+		\vskip -1pt%
+	}\nonl\nlset{11\hspace{-0.5pt}}\textbf{end}
+	%\caption{puntuacionPar($e_{i_1,j_1}$, $e_{i_2,j_2}$). Función para obtener la puntuación de un par de elementos vecinos.}
+	\end{function}
+	\end{block}
+	\end{column}
+	%
+	\begin{column}{0.38\textwidth}
+		\justifying%
+		\fontsize{15}{17}\selectfont Función para obtener la puntuación de un par de elementos vecinos en la malla.
+		\vskip 20pt%
+		\centering%
+		\includegraphics[width = 0.85\linewidth]{puntuacion_par}
+	\end{column}
+	\end{columns}
+	}
+\end{frame}
+
+
+\begin{frame}{Funciones de puntuación}
+	\vskip -11pt%
+	\Wider[0.6cm]{%
+	\begin{columns}[totalwidth=\textwidth]
+	\begin{column}{0.58\textwidth}
+	\begin{block}{Función: \f{puntuacionElemento}($e_{ij}$)}
+	\footnotesize%
+	\begin{function}[H]
+	\addtolength{\hsize}{\algomargin}%
+	\BlankLine
+	\Data{Celda del elemento a puntuar $e_{ij}$.}
+	\QuarterBlankLine
+	\Result{Puntuación $p$ del elemento.}
+	\BlankLine
+	\nonl\nlset{1\hspace{-0.5pt}}%
+	\SetAlgoNoEnd%
+	\Function{$\f{puntuacionElemento}(e_{ij})$}{
+		\HalfQuarterBlankLine
+		\SetAlgoShortEnd%
+		$p_H = \f{puntPar}\:\!(e_{ij},\: V_{i, j, 2}) +\, \f{puntPar}\:\!(e_{ij},\: V_{i, j, 4})$\;
+		\QuarterBlankLine
+		$\mathrlap{p_V}\hphantom{p_H} = \f{puntPar}\:\!(e_{ij},\: V_{i, j, 1}) +\, \f{puntPar}\:\!(e_{ij},\: V_{i, j, 3})$\;
+		\BlankLine
+		$p = p_H + p_V$\;
+		\OneHalfBlankLine
+		\If{$C_{ij} \neq C_0$}{
+			\BlankLine
+			\lIf{$\mathrlap{\f{sujetable}(e_{ij})}\hphantom{\f{imposible}(e_{ij})}$}{$p\ \!\!= \max(p_H,\: p_V) + \textsf{3}$}
+			\QuarterBlankLine
+			\lIf{$\f{imposible}(e_{ij})$}{$p\ -\!\!= \textsf{2}$}
+		}
+		\HalfQuarterBlankLine
+		\Return $p$
+	}\nonl\nlset{10\hspace{-0.5pt}}\textbf{end}
+	%\caption{puntuacionElemento($e_{ij}$). Función para calcular la puntuación de un elemento de la malla.}%
+	\end{function}
+	\end{block}
+	\end{column}
+	%
+	\begin{column}{0.38\textwidth}
+		\justifying%
+		\fontsize{15}{17}\selectfont Función para calcular la puntuación de un elemento de la malla.
+		\vskip 20pt%
+		\centering%
+		\includegraphics[width = 0.9\linewidth]{puntuacion_elemento}%
+	\end{column}
+	\end{columns}
+	}
+\end{frame}
+
+
+\begin{frame}{Funciones de puntuación}
+\begin{block}{\fontsize{18}{18}\selectfont Función: \f{puntuacionGlobal}()}
+	\setlength{\abovedisplayshortskip}{0.4cm}
+	\setlength{\belowdisplayshortskip}{0.4cm}
+	\begin{equation*}
+		\f{puntuacionGlobal}\hspace{1.5pt}\textsf{()} = \sum_{i,\hspace{1pt} j}\hspace{1.5pt}\f{puntuacionElemento}\hspace{1.5pt}\textsf{($e_{ij}$)}
+	\end{equation*}\,
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Algoritmo principal}
+	\SetKwIF{If}{ElseIf}{Else}{if}{\!\!:}{else if}{else}{end}%
+	\setlength{\algomargin}{0pt}%
+	\SetAlgoHangIndent{0pt}%
+	%\DecMargin{0.15em}%
+	\vskip 3pt%
+	\Wider[0.6cm]{%
+	\begin{block}{Algoritmo: \textsl{Recocido simulado}}
+	\footnotesize%
+	\leavevmode%
+	\vskip 0.5pt%
+	\begin{minipage}[b]{0.465\linewidth}
+	\setlength{\algomargin}{13pt}%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{\algomargin}%
+	\BlankLine
+	\Data{\justifying Temperatura inicial $T$, constantes $\alpha$, $a$, $b$, malla con objetos.}
+	\OneHalfBlankLine
+	\Result{\justifying Malla con objetos acomodados (representada por una matriz de enteros).}
+	\TwoBlankLines
+	\tcp*[l]{Parámetros del algoritmo.}
+	$T = \num[text-family-to-math = true]{50000000}$\;
+	$\mathrlap{\alpha}\hphantom{T} = \textsf{0.0000001}$\;
+	$\mathrlap{a}\hphantom{T} = \textsf{0.99991}$\;
+	$\mathrlap{b}\hphantom{T} = \textsf{1}$\;
+	\OneHalfBlankLine
+	\tcp*[l]{Puntajes actual y de intercambio.}
+	$p_A =\, \f{puntuacionGlobal}()$\;
+	$\mathrlap{p_I}\hphantom{p_A} =\, \textsf{0}$%
+	\QuarterBlankLine
+	\end{algorithm}
+	\end{minipage}
+	\leavevmode
+	\hskip 0.28cm\raisebox{-3.05cm}{\tikz\draw[loosely dotted, line width=0.7pt, color=gray] (0,0) -- (0,6.3);}\hskip 0.28cm%
+	\begin{minipage}{0.49\linewidth}
+	\setlength{\algomargin}{12pt}%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{\algomargin}%
+	\setcounter{AlgoLine}{6}%
+	\raggedright\While{$T > \frac{b}{1 - a}$}{
+		\BlankLine
+		\justifying Intercambiar aleatoriamente 2 elementos diferentes en la malla.\;
+		\HalfBlankLine
+		$p_I = \f{puntuacionGlobal}()$\;
+		\HalfBlankLine
+		\eIf{$p_A \leq p_I$ \Or $\f{random}([0,1]) < e^{-\frac{{\scriptstyle p}_{\scriptscriptstyle A} -\, {\scriptstyle p}_{\scriptscriptstyle I}}{\alpha T}}$}
+		{%
+			\BlankLine
+			Se acepta el intercambio.\;
+			$p_A = p_I$
+			\QuarterBlankLine
+		}{
+			No se acepta el intercambio.
+		}
+		\HalfBlankLine
+		$T = aT + b$
+	}%
+	\end{algorithm}
+	\vspace{0.4cm}%
+	\end{minipage}
+	\end{block}
+	}
+\end{frame}
+
+
+\begin{frame}{Funciones de costo}
+	La función de costo utilizada está basada en la que se presenta en el artículo \textsl{Manipulation planning among movable obstacles} \cite{4209604}.
+	
+	\centering	
+	\includegraphics[width = 0.87\textwidth]{arbol}
+\end{frame}
+
+
+\begin{frame}{Funciones de costo}
+	\SetAlgoHangIndent{0pt}%
+	\SetAlgoSkip{}%
+	\SetNlSkip{0.25em}%
+	\SetInd{0.2em}{0.45em}%
+	%
+	\vskip 1.9pt%
+	\Wider[0.85cm]{%
+	\begin{block}{Función: \f{secuencia}($e_{i j}$, $l$)}
+	%\vskip -1pt%
+	\footnotesize%
+	\centering%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{\algomargin}%
+	\HalfQuarterBlankLine
+	\Data{\justifying Celda $e_{ij}$ del objeto deseado y lista vacía $l$.}
+	\QuarterBlankLine
+	\Result{\justifying Lista $l$ con la secuencia de elementos a retirar.}
+	\QuarterBlankLine
+	\Definitions{\justifying $h_{ij}$, $C_{ij}$, $o_{ij}$: altura, clase y datos relevantes del elemento en $e_{ij}$.}
+	\vskip 4pt%
+	\nonl%
+	\begin{minipage}[t]{0.45\linewidth}
+	\strut\vspace*{-\baselineskip}\newline%
+	\setlength{\algomargin}{0pt}%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{1.5cm}%
+	\FunctionInicio{$\f{secuencia}(e_{ij},\: l)$}{%
+	\BlankLine
+		\lIf{$C_{ij} = C_0$}{Finalizar con éxito.}
+		\BlankLine
+		\uIf{$o_{ij} \not\in l$}{
+			\HalfBlankLine
+			$\f{append}(o_{ij},\: l)$
+			\HalfQuarterBlankLine
+			\uIf{$\f{sujetable}(e_{ij})$}{
+				\BlankLine
+				Finalizar recursión con éxito.
+				\HalfBlankLine
+			}
+			\tcp*[l]{Si no, ejecutar un par:}
+			\nonl\nlset{7\hspace{-0.5pt}}%
+			\uElseIfWithNoThen{Par 1\normalfont{:}}{
+				\QuarterBlankLine
+				\SetKwIF{If}{ElseIf}{Else}{if}{\!:}{else if}{else}{end}%
+				\lIf{$h_{i+1,\, j} \geq h_{ij}$}{$\f{secuencia}(e_{i+1,\, j},\: l)$}
+				\lIf{$h_{i-1,\, j} \geq h_{ij}$}{$\f{secuencia}(e_{i-1,\, j},\: l)$}
+				\vskip -1pt%
+			}
+		}
+	}
+	\end{algorithm}
+	\end{minipage}%
+	%
+	\begin{minipage}[t]{0.03\linewidth}
+	\strut\vspace*{-\baselineskip}\newline%
+	\centering\tikz\draw[loosely dotted, line width=0.7pt, color=gray] (0, 0) -- (0, 5);%
+	\end{minipage}%
+	%
+	\begin{minipage}[t]{0.45\linewidth}
+	\strut\vspace*{-\baselineskip}\newline%
+	\setlength{\algomargin}{13pt}%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{1.5cm}%
+	\setcounter{AlgoLine}{9}%
+	\vspace{-\baselineskip}\noln%
+	\SetAlgoNoEnd%
+	\FunctionFin{}{
+		\vspace{-\baselineskip}\noln%
+		\SetAlgoShortEnd%
+		\eIfFin{}{%
+			\uElseIfWithNoThen{Par 2\hskip 1pt\normalfont{:}}{
+				\QuarterBlankLine
+				\SetKwIF{If}{ElseIf}{Else}{if}{\!:}{else if}{else}{end}%
+				\lIf{$h_{i,\, j+1} \geq h_{ij}$}{$\f{secuencia}(e_{i,\, j+1},\: l)$}
+				\lIf{$h_{i,\, j-1} \geq h_{ij}$}{$\f{secuencia}(e_{i,\, j-1},\: l)$}
+			}
+			\nonl\nlset{13\hspace{-0.5pt}}%
+			\Else{
+				\tcp*[l]{Si ambos pares fallaron:}
+				Finalizar recursión con fallo.
+			}
+		}{
+			Finalizar recursión con fallo.
+		}
+		Finalizar recursión con éxito.
+		\vskip -2pt%
+	}\nonl\nlset{20\hspace{-0.5pt}}\textbf{end}
+	\vskip -0.5pt%
+	\end{algorithm}%
+	\end{minipage}%
+	\end{algorithm}
+	\end{block}
+	}
+\end{frame}
+
+
+\begin{frame}{Funciones de costo}
+	\vspace{-7pt}%
+	\begin{block}{Algoritmo: \itshape Costo $t_{ij}$ de tomar un objeto}
+	\footnotesize%
+	\SetAlgoHangIndent{0pt}%
+	\begin{algorithm}[H]
+	\addtolength{\hsize}{\algomargin}%
+	\BlankLine
+	\Data{Celda $e_{ij}$ del objeto deseado.}
+	\HalfBlankLine
+	\Result{Costo $t_{ij}$ de tomar el objeto en $e_{ij}$.}
+	\HalfBlankLine
+	\Definitions{$\f{encontrarTodas}()$: Función de backtracking que retorna todas las soluciones posibles de $\f{secuencia}()$.}
+	\BlankLine
+	\tcp*[l]{Lista para\! almacenar\! todas\! las\! secuencias\! posibles\! para\! tomar\! un\! objeto.}
+	$L = \{ \}$\;
+	\HalfBlankLine
+	$L = \f{encontrarTodas}(\f{secuencia}(e_{ij},\: l))$\;
+	\HalfBlankLine
+	$t_{ij} = \min\limits_i \left| L_i \right|$
+	%\caption{Algoritmo para calcular el costo $t_{ij}$.}%
+	\end{algorithm}
+	\end{block}
+	%
+	\small\setstretch{1.2}%
+	\vskip 3pt%
+	Como se mencionó, el costo global $T$ es simplemente la suma de los costos individuales $t_{ij}$:
+	%
+	\fontsize{13}{13}\selectfont%
+	\begin{equation*}
+		T = \sum_{i,\hspace{1pt} j} \, t_{ij}
+	\end{equation*}
+\end{frame}
+	
+
+\section{Resultados}
+
+
+\frame[noframenumbering, plain]{\tableofcontents[currentsection]}
+
+
+\begin{frame}{Tamaños y casos probados}
+\begin{columns}[totalwidth = 0.95\textwidth]
+\begin{column}{0.45\linewidth}
+Tamaños de malla y número de combinaciones de cubos y prismas (casos) probados en estas.
+\end{column}
+\begin{column}{0.5\linewidth}
+\fontsize{14}{14}\selectfont%
+\begin{table}[H]
+\renewcommand{\arraystretch}{1.4}%
+\setlength{\arrayrulewidth}{0.75pt}%
+\setlength{\tabcolsep}{0pt}%
+\centering%
+\begin{tabular}{
+	>{\centering} m{0.3\textwidth} 
+	>{\centering} m{0.38\textwidth} 
+}
+	\hline%
+	\rule{0pt}{14pt}\bfseries Tamaño malla & \bfseries\#\,Casos probados \tabularnewline 
+	\hline%
+	3\:$\bm{\times}$\:3 & 32 \tabularnewline 
+	3\:$\bm{\times}$\:5 & 85 \tabularnewline 
+	4\:$\bm{\times}$\:4 & 88 \tabularnewline
+	5\:$\bm{\times}$\:5 & 226 \tabularnewline 
+	6\:$\bm{\times}$\:6 & 423 \tabularnewline 
+	5\:$\bm{\times}$\:8 & 558 \tabularnewline
+	7\:$\bm{\times}$\:7 & 834 \tabularnewline 
+	8\:$\bm{\times}$\:8 & 1312 \tabularnewline 
+	\hline%
+\end{tabular}
+\end{table}
+\end{column}
+\end{columns}
+\end{frame}
+
+\captionsetup[figure]{
+	labelformat = empty, 
+	justification = justified, 
+	belowskip = 3pt
+}
+\setbeamerfont{caption}{size*={12pt}{17pt}}
+\tikzset{
+	every node/.style = {
+		inner sep=0, 
+		outer sep=0
+	}, 
+	arrows = {-Stealth[length=10pt, inset=1pt]}
+}
+
+\begin{frame}{Mallas de $\mathsf{3\times 3}$}
+	\vfill
+	\Wider[1.85cm]{
+	\begin{figure}[H]
+		\input{resultados_3x3.tex}%
+	\end{figure}
+	}%
+\end{frame}
+
+\begin{frame}{Ejemplo ilustrativo en malla de $\mathsf{3\times 3}$}
+	\vskip -10pt%
+	\begin{figure}[H]
+		\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo (derecha), mostrados en diferentes vistas.}%
+		\arregloAntesDespues{caso=3x3, separacionAntesDespues=4, separacionVertical=0.4cm}{height=3.3cm}{width=2.565cm}%
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Mallas de $\mathsf{3\times 5}$}
+	\vfill
+	\Wider[1.85cm]{
+	\begin{figure}[H]
+		\input{resultados_3x5.tex}%
+	\end{figure}
+	}%
+\end{frame}
+
+\begin{frame}{Ejemplo ilustrativo en malla de $\mathsf{3\times 5}$}
+	\vskip -10pt%
+	\begin{figure}[H]
+		\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo (derecha), mostrados en diferentes vistas.}%
+		\arregloAntesDespues{caso=3x5, separacionAntesDespues=4.3, separacionVertical=0.5cm}{width=4.3cm}[width=4.51717171cm]{width=3.706896cm}%
+	\end{figure}%
+\end{frame}
+
+
+\begin{frame}{Mallas de $\mathsf{4\times 4}$}
+	\vfill
+	\Wider[1.85cm]{
+	\begin{figure}[H]
+		\input{resultados_4x4.tex}%
+	\end{figure}
+	}%
+\end{frame}
+
+\begin{frame}{Ejemplo ilustrativo en malla de $\mathsf{4\times 4}$}
+	\vskip -8pt%
+	\begin{figure}[H]
+		\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo (derecha), mostrados en diferentes vistas.}%
+		\arregloAntesDespues{caso=4x4, separacionAntesDespues=4, separacionVertical=0.35cm}{width=3.9cm}[width=3.94321cm]{width=2.8cm}%
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Mallas de $\mathsf{5\times 5}$}
+	\vfill
+	\Wider[1.85cm]{
+	\begin{figure}[H]
+		\input{resultados_5x5.tex}%
+	\end{figure}
+	}%
+\end{frame}
+
+\begin{frame}{Ejemplo ilustrativo en malla de $\mathsf{5\times 5}$}
+	\vskip -7pt%
+	\begin{figure}[H]
+		\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo (derecha), mostrados en diferentes vistas.}%
+		\arregloAntesDespues{caso=5x5, separacionAntesDespues=4, separacionVertical=0.33cm}{width=4.1cm}{width=2.8cm}%
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Mallas de $\mathsf{6\times 6}$}
+	\vfill
+	\Wider[1.85cm]{
+	\begin{figure}[H]
+		\input{resultados_6x6.tex}%
+	\end{figure}
+	}%
+\end{frame}
+
+\begin{frame}{Ejemplo ilustrativo en malla de $\mathsf{6\times 6}$}
+	\vskip -7pt%
+	\begin{figure}[H]
+		\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo (derecha), mostrados en diferentes vistas.}%
+		\arregloAntesDespues{caso=6x6, separacionAntesDespues=4, separacionVertical=0.3cm}{width=4.1cm}[width=4.2413cm]{width=2.9cm}%
+	\end{figure}
+\end{frame}
+	
+
+\begin{frame}{Mallas de $\mathsf{5\times 8}$}
+	\vfill
+	\Wider[1.85cm]{
+	\begin{figure}[H]
+		\input{resultados_5x8.tex}%
+	\end{figure}
+	}%
+\end{frame}
+
+\begin{frame}{Ejemplo ilustrativo en malla de $\mathsf{5\times 8}$}
+	\captionsetup[figure]{belowskip = 4pt}%
+	\vskip -6pt%
+	\begin{figure}[H]
+		\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo (derecha), mostrados en diferentes vistas.}%
+		\arregloAntesDespues{caso=5x8, separacionAntesDespues=4.2, separacionVertical=0.35cm}{width=5cm}[width=5.163cm]{width=3.8cm}%
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Mallas de $\mathsf{7\times 7}$}
+	\vfill
+	\Wider[1.85cm]{
+	\begin{figure}[H]
+		\input{resultados_7x7.tex}%
+	\end{figure}
+	}%
+\end{frame}
+
+\begin{frame}{Ejemplo ilustrativo en malla de $\mathsf{7\times 7}$}
+	\captionsetup[figure]{belowskip = -4pt}%
+	\vskip -7pt%
+	\begin{figure}[H]
+		\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo (derecha), mostrados en diferentes vistas.}%
+		\arregloAntesDespues{caso=7x7, separacionAntesDespues=4.2, separacionVertical=0.26cm}{width=4.3cm}[width=4.515cm]{width=2.9cm}%
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Mallas de $\mathsf{8\times 8}$}
+	\vfill
+	\Wider[1.85cm]{
+	\begin{figure}[H]
+		\input{resultados_8x8.tex}%
+	\end{figure}
+	}%
+\end{frame}
+
+\begin{frame}{Ejemplo ilustrativo en malla de $\mathsf{8\times 8}$}
+	\captionsetup[figure]{belowskip = 0.5pt}%
+	\vskip -7pt%
+	\begin{figure}[H]
+		\caption{Acomodo aleatorio inicial (izquierda) y acomodo encontrado por el algoritmo (derecha), mostrados en diferentes vistas.}%
+		\arregloAntesDespues{caso=8x8, separacionAntesDespues=4.2, separacionVertical=0.26cm}{width=4.4cm}[width=4.348235cm]{width=2.9cm}%
+	\end{figure}
+\end{frame}
+
+	
+\begin{frame}{Tabla de resultados}
+\vfill%
+\setstretch{1.15}%
+Resultados del algoritmo propuesto para mallas de tamaño igual o menor a 4\:$\times$\:4.
+\fontsize{14}{14}\selectfont%
+\begin{table}[H]
+\renewcommand{\arraystretch}{1.4}%
+\setlength{\arrayrulewidth}{0.75pt}%
+\setlength{\tabcolsep}{0pt}%
+\begin{minipage}{\textwidth}
+\centering%
+\begin{tabular}{
+	>{\centering\bfseries}m{0.15\textwidth} 
+	>{\centering}m{0.19\textwidth} 
+	>{\centering}m{0.19\textwidth} 
+	>{\centering}m{0.22\textwidth} 
+	>{\centering}m{0.25\textwidth}
+}
+	\hline%
+	\bfseries Malla & %
+	\bfseries \#\,Total casos & %
+	\bfseries \#\,Casos óptimos & %
+	\bfseries \hspace*{-10pt}\%\,Óptimos & %
+	\bfseries Promedio de acciones extra\mpfootnotemark \tabularnewline \hline
+	3\:$\bm{\times}$\:3 & 32 & 30 & 93.75 \% & 0.09 \tabularnewline 
+	3\:$\bm{\times}$\:5 & 85 & 70 & 82.35 \% & 0.33 \tabularnewline 
+	4\:$\bm{\times}$\:4 & 88 & 88 & 100 \% & 0 \tabularnewline
+	\hline%
+\end{tabular}
+\footnotetext{Promedio de acciones (o costo global $T$) extra por caso. Este valor se calcula mediante la expresión $( \sum T - \sum T_{\text{opt}} ) /\textsl{\#\,Total casos}$, donde $\sum T_{\text{opt}}$ es la suma de costos óptimos para todos los casos probados.}%
+\end{minipage}
+%\caption{Resultados del algoritmo propuesto para mallas de tamaño igual o menor a $4\times 4$.}%
+\end{table}
+\end{frame}
+
+
+%\renewcommand{\numdiap}{}
+{
+\makeatletter
+\setbeamertemplate{headline}[default]
+\def\beamer@entrycode{\vspace{-9.75pt}}
+\makeatother
+\begin{frame}{Referencias}
+	\vspace{-2pt}%
+	\fontsize{11.1}{13}\selectfont%
+	\bibliographystyle{apalike}	
+	\bibliography{Bibliografia}
+\end{frame}
+}
+
+
+\frame[noframenumbering,plain]{\centering \fontsize{40}{40}\selectfont{\textsc{Gracias}}}
+
+
+
+%==============================================================================================================================		
+\end{document}
+%==============================================================================================================================

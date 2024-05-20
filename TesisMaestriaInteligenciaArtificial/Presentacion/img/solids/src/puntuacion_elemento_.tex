@@ -1,0 +1,28 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Compilar con LaTeX -> DviPDF ó con PDFLaTeX.
+\documentclass[crop]{standalone}
+\usepackage{pst-solides3d}
+
+\input{./utils_paths.tex}
+\input{solids_definitions.tex}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}
+\nopagecolor%
+%
+\begin{pspicture}(-7.62, -12.16)(12.18, 1.91)%
+	\PsSettings{}%
+	\Malla{}%
+	\Cubo{origin={1.5, 2.5, 0.5}}
+	\Prisma{origin={2.5, 1.5, 1}}
+	\Prisma{origin={2.5, 2.5, 1}}
+	\Cubo{origin={3.5, 2.5, 0.5}}
+	\Cubo{origin={2.5, 3.5, 0.5}}
+\end{pspicture}
+%
+%
+\end{document}

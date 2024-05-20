@@ -1,0 +1,32 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[crop]{standalone}
+\usepackage{pst-solides3d}
+
+
+\definecolor{rojo}{RGB}{255, 0, 0}
+\definecolor{azul}{RGB}{0, 0, 169}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}
+%
+%
+\begin{pspicture}(-5.2,-3.2)(7.5,3)%
+\psset{solidmemory}%
+\psset{unit=0.6}%
+\psset{viewpoint=20 0 25 rtp2xyz, lightsrc=25 0 60 rtp2xyz, lightintensity=2, Decran=50}%
+%
+\psSolid[object=cube, a=1, linecolor=black, RotZ=-20, linewidth=0.2pt, action=draw**, fillcolor=rojo](1.3,-2.0,0.5)
+\psSolid[object=cube, a=1, linecolor=black, RotZ=-20, linewidth=0.2pt, action=draw**, fillcolor=rojo](1.7,-0.5,0.5)
+\psSolid[object=cube, a=1, linecolor=black, RotZ=-20, linewidth=0.2pt, action=draw**, fillcolor=rojo](2.6,-2.2,0.5)
+\psSolid[object=cube, a=1, linecolor=black, RotZ=-20, linewidth=0.2pt, action=draw**, fillcolor=rojo](3.0,-0.7,0.5)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, RotZ=-30, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=azul](1.1,1.9,1)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, RotZ=-30, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=azul](1.5,3.4,1)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, RotZ=-30, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=azul](2.6,1.8,1)
+\psSolid[object=parallelepiped, a=1, b=1, c=2, RotZ=-30, linecolor=black, linewidth=0.2pt, action=draw**, fillcolor=azul](3.0,3.3,1)
+\end{pspicture}
+%
+%
+\end{document}

@@ -1,0 +1,28 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Compilar con LaTeX -> DviPDF ó con PDFLaTeX.
+\documentclass[crop]{standalone}
+\usepackage{pst-solides3d}
+
+\input{./utils_paths.tex}
+\input{solids_definitions.tex}
+
+\global\newarray\mallaTresD
+\readarray{mallaTresD}{
+	1&2&2&2&2&2&
+	2&1&0&1&0&1&
+	1&0&1&2&1&2&
+	2&1&2&1&0&1&
+	2&0&1&0&1&2&
+	2&1&2&1&2&1
+}
+
+
+\begin{document}
+%
+%
+\pagestyle{empty}
+\GraficarMallaTresD{6}{6}[-4.95, -7.96][7.82, 2.01][20 30 30][15 45 40]
+%
+%
+\end{document}
