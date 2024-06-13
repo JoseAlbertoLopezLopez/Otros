@@ -12,41 +12,14 @@
 !**/*.txt
 !**/*.docx
 !**/*.gpl
+!**/*.md
 !.gitignore
 
+baseConocimientoMallasFiltradas.pl
+
+Archivos casos/
+Bases de conocimiento/
+LatexGnuplot/
+Matrices evaluadas/matrices_evaluadas_ordenadas.csv
+
 Mallas PDF/4x4 Cubos 5, Prismas 6.pdf
-
-Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/*.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas0000-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas0100-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas0200-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas0300-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas0400-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas0500-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas2465-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas2565-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas2665-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas2765-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas2865-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas3431895-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas3431995-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas3432095-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas3432195-eps-converted-to.pdf
-!Bases de conocimiento/4x4/Latex (mallas 10x10 pdfs)/Mallas3432295-eps-converted-to.pdf
-
-
-LatexGnuplot/4x4/**/*.pdf
-LatexGnuplot/4x4/**/*.eps
-!LatexGnuplot/4x4/12,4/Mallas4705454.eps
-!LatexGnuplot/4x4/12,4/Mallas4705454-eps-converted-to.pdf
-!LatexGnuplot/4x4/12,4/MallasLatex.pdf
-!LatexGnuplot/4x4/5,6/Mallas2572000-eps-converted-to.pdf
-!LatexGnuplot/4x4/5,11/Mallas4712979.eps
-!LatexGnuplot/4x4/5,11/Mallas4712979-eps-converted-to.pdf
-!LatexGnuplot/4x4/5,11/MallasLatex.pdf
-!LatexGnuplot/4x4/8,8/Mallas4708789.eps
-!LatexGnuplot/4x4/8,8/Mallas4708789-eps-converted-to.pdf
-!LatexGnuplot/4x4/8,8/MallasLatex.pdf
-!LatexGnuplot/4x4/9,0/Mallas0000.eps
-!LatexGnuplot/4x4/9,0/Mallas0000-eps-converted-to.pdf
-!LatexGnuplot/4x4/9,0/MallasLatex.pdf
