@@ -6,3 +6,5 @@ El presente repositorio contiene el código desarrollado para el proyecto de pro
 Debido al proceso de reestructuración del repositorio que está en curso y a que la modificación del código para su mejora está reservada para una etapa posterior, el estado del repositorio correspondiente al commit actual es inestable, esto en el sentido de que algunos scripts pueden no ejecutarse correctamente a causa del cambio de nombres, cambio de ubicación o eliminación de archivos y directorios que actualmente son leídos como entrada por dichos scripts.
 
 En la carpeta `doc/` se puede encontrar información relacionada con el proceso de mejora del repositorio, así como información de las entradas necesarias para ejecutar correctamente cada script y sus salidas correspondientes.
+
+En la carpeta `aux/` se encuentra el shell script encargado de tomar las muestras de la mayoría de los archivos generados de forma automática; así como el script encargado de generar el archivo CSV que contiene la información del estado de todos los archivos del repositorio, antes de y en su creación.

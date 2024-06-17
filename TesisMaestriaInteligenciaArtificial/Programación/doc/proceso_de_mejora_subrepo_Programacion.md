@@ -202,12 +202,12 @@ Debido a que en este proceso se modificarán rutas y nombres de archivos, y a qu
 
 - [X] Modificar documentación para que concuerde con eliminación de archivos y directorios generados.
 
-- [ ] Agregar archivo `README.md` con descripción sencilla en la raíz del repositorio.
+- [X] Agregar archivo `README.md` con descripción sencilla en la raíz del repositorio.
   Mencionar la información documentada en los archivos agregados en `doc/` y eliminar esta referencia cuando estos se eliminen.
 
-- [ ] Agregar archivo de comandos Git y mensajes de commits que están en el borrador e ignorarlo para tenerlo como registro local de las acciones realizadas.
+- [X] Agregar archivo con información de comandos Git y mensajes de commits que está el borrador e ignorarlo para tenerlo como registro local de las acciones realizadas.
 
-- [ ] Añadir el `.sh` que se usó para tomar las muestras de archivos en masa y `.py` que se usó para generar el `.csv` con el estatus de todos los archivos del proyecto.
+- [X] Añadir el `.sh` que se usó para tomar las muestras de archivos en masa y el `.py` que se usó para generar el `.csv` con el estatus de todos los archivos del proyecto.
   Estos archivos solo permanecerán en el índice hasta el siguiente commit, o bien, hasta el inicio de la segunda ronda de commits.
 
 - [ ] Crear una carpeta para versiones anteriores de códigos y moverlos todos ahí, para tenerlos como documentación.

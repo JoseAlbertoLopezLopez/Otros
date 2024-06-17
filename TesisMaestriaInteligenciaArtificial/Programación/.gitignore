@@ -5,6 +5,8 @@
 !**/*.pl
 !**/*.tex
 !**/*.nb
+!**/*.py
+!**/*.sh
 !**/*.csv
 !**/*.pdf
 !**/*.eps
@@ -15,11 +17,5 @@
 !**/*.md
 !.gitignore
 
-baseConocimientoMallasFiltradas.pl
-
-Archivos casos/
-Bases de conocimiento/
-LatexGnuplot/
 Matrices evaluadas/matrices_evaluadas_ordenadas.csv
-
 Mallas PDF/4x4 Cubos 5, Prismas 6.pdf
