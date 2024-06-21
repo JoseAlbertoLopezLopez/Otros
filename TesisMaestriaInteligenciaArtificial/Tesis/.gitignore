@@ -9,4 +9,5 @@
 !**/*.csv
 !**/*.txt
 !**/*.gpl
+!**/*.md
 !.gitignore
