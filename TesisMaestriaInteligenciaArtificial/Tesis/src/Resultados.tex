@@ -3,9 +3,9 @@
 \label{chap:resultados}
 %
 %
-En esta sección se presentarán los resultados obtenidos al aplicar la formulación y metodología propuesta a diferentes instancias del problema.
+En este capítulo se presentarán los resultados obtenidos al aplicar la formulación y metodología propuesta a diferentes instancias del problema.
 Estas instancias consisten en distintos tamaños de mallas, donde, para cada uno de ellos, se probaron todas las combinaciones de objetos de clases $C_1$ y $C_2$ posibles, solo descartando las que correspondían a casos triviales o imposibles.
-Los diferentes tamaños de malla con los que se trabajó fueron: 
+Los diferentes tamaños de malla con los que se trabajó fueron:
 %
 \begin{center}
 \renewcommand{\arraystretch}{1.2}%
@@ -20,18 +20,18 @@ Los diferentes tamaños de malla con los que se trabajó fueron:
 \end{tabular}
 \end{center}
 %
-Para cada una de las combinaciones de objetos en la malla propuestas, se comparó el costo global del acomodo encontrado por el algoritmo, respecto al costo global del mejor acomodo encontrado al realizar una búsqueda exhaustiva en todas las permutaciones posibles de los objetos en la malla, esto para mallas de un tamaño de hasta $4\times 4$. 
+Para cada una de las combinaciones de objetos en la malla propuestas, se comparó el costo global del acomodo encontrado por el algoritmo, respecto al costo global del mejor acomodo encontrado al realizar una búsqueda exhaustiva en todas las permutaciones posibles de los objetos en la malla, esto para mallas de un tamaño de hasta $4\times 4$.
 Para mallas más grandes se realizó una comparación del algoritmo propuesto solo contra un subconjunto de permutaciones y no contra una búsqueda exhaustiva.
 Lo anterior debido a que la cantidad de permutaciones posibles de elementos en mallas de estos tamaños es muy grande, por lo que una búsqueda exhaustiva es inviable con los recursos computacionales utilizados en cuanto al tiempo de procesamiento requerido.
 
-Los subconjuntos de permutaciones se generaron de manera aleatoria. 
+Los subconjuntos de permutaciones se generaron de manera aleatoria.
 La cantidad de permutaciones generadas fue de $\num{2000000}$ por cada tamaño distinto de la malla, repartidas en cada una de las combinaciones de objetos probadas.
 Esto es, para tamaños de malla iguales o mayores a $5 \times 5$, la suma de las permutaciones generadas, de todas las combinaciones permitidas de $N_1$ y $N_2$ objetos, es de $\num{2000000}$.
 
 La cantidad de permutaciones generadas para cada caso particular $N_1$, $N_2$ es proporcional al número total de objetos en la malla, es decir a $N$.
 Esto debido a que la probabilidad de encontrar el o uno de los arreglos óptimos en cada caso es inversamente proporcional a la cantidad de objetos en la malla.
 
-Los puntos en las gráficas ubicados en el infinito indican que en la muestra generada no se encontró un arreglo que no correspondiera a un caso imposible. 
+Los puntos en las gráficas ubicados en el infinito indican que en la muestra generada no se encontró un arreglo que no correspondiera a un caso imposible.
 
 A continuación se presentan los resultados obtenidos para cada tamaño de malla, junto con un ejemplo ilustrativo de un caso particular, en el que se muestra el acomodo aleatorio inicial y el acomodo encontrado por el algoritmo.
 En cada gráfica se muestran, en los ejes horizontales, el número de objetos de cada clase utilizados para formar el acomodo de objetos en la malla, y en el eje vertical el costo global asociado del arreglo encontrado.
@@ -41,8 +41,8 @@ Por ejemplo, en las mallas de tamaño menor a $5\times 5$, los arreglos encontra
 Para arreglos de tamaño igual o mayor a $5\times 5$ es posible saber si un arreglo es óptimo si el costo global del arreglo es igual al número de objetos presentes en él.
 
 Para la implementación de las funciones y algoritmos descritos en el Capítulo \ref{chap:propuesta}, se utilizaron los lenguajes de programación C++ y Prolog.
-Mediante el primero se implementó el algoritmo principal, así como las funciones de ponderación que este utiliza, mientras que el segundo se utilizó para implementar las funciones de \textit{backtracking} que calculan el costo global de cada arreglo\footnote{El código del proyecto se puede en contrar en \url{https://github.com/JoseAlbertoLopezLopez}.}.
-La ejecución de los programas desarrollados se llevó a cabo en una laptop Lenovo modelo Ideapad 320, con un procesador \textsl{Intel\,\raisebox{1.3pt}{\scriptsize\circledR} Core™ i7-7500U CPU @ 2.70GHz × 4} y 8 GB de memoria RAM.
+Mediante el primero se implementó el algoritmo principal, así como las funciones de ponderación que este utiliza, mientras que el segundo se utilizó para implementar las funciones de \textit{backtracking} que calculan el costo global de cada arreglo\footnote{El código del proyecto se puede encontrar en \url{https://github.com/JoseAlbertoLopezLopez}.}.
+La ejecución de los programas desarrollados se llevó a cabo en una laptop Lenovo modelo Ideapad 320, con un procesador \textsl{Intel\,\raisebox{1.3pt}{\scriptsize\circledR} Core™ i7-7500U CPU @ 2.70 GHz × 4} y 8 GB de memoria RAM.
 %
 \pagebreak
 %
@@ -145,10 +145,10 @@ La ejecución de los programas desarrollados se llevó a cabo en una laptop Leno
 A pesar de ser un algoritmo estocástico, se observó bastante regularidad y consistencia en los resultados obtenidos.
 En la mayoría de los casos se llegaba al mismo arreglo tras varias ejecuciones del algoritmo, para los mismos datos de entrada.
 Sin embargo, en ocasiones se llegó a diferentes resultados para una misma entrada.
-En estos casos los arreglos encontrados obtuvieron la misma puntuación o una muy parecida.
+En estos casos los arreglos encontrados obtuvieron la misma puntuación o una muy similar.
 Esta variabilidad no representa mayor inconveniente en los resultados obtenidos, ya que es poco frecuente y el costo global de los arreglos encontrados se mantiene, pudiendo servir incluso para encontrar diferentes alternativas de arreglos óptimos.
 
-Como se mencionó previamente en este capítulo, a pesar de que a partir de los tamaños de malla de $5\times 5$ no fue posible realizar un búsqueda exhaustiva para comparar los resultados del algoritmo, en algunos casos se puede verificar si el acomodo obtenido por el algoritmo es óptimo.
+Como se mencionó previamente en este capítulo, a pesar de que a partir de los tamaños de malla de $5\times 5$ no fue posible realizar una búsqueda exhaustiva para comparar los resultados del algoritmo, en algunos casos se puede verificar si el acomodo obtenido por el algoritmo es óptimo.
 Esto se puede determinar simplemente verificando si el costo global del acomodo obtenido es igual al número de objetos en él.
 Al observar las gráficas de resultados se puede ver que esto ocurre en varias ocasiones, en las regiones que asemejan valles en la curva generada por los resultados del algoritmo de recocido simulado.
 
@@ -164,8 +164,8 @@ Para los casos donde fue posible comparar el arreglo encontrado por el algoritmo
 	\bfseries \#\,Total casos & %
 	\bfseries \%\,Óptimos & %
 	\bfseries Promedio de acciones extra\mpfootnotemark \tabularnewline \hline
-	$\bm{3\times 3}$ & 30 & 32 & 93.75 \% & 0.09 \tabularnewline 
-	$\bm{3\times 5}$ & 70 & 85 & 82.35 \% & 0.33 \tabularnewline 
+	$\bm{3\times 3}$ & 30 & 32 & 93.75 \% & 0.09 \tabularnewline
+	$\bm{3\times 5}$ & 70 & 85 & 82.35 \% & 0.33 \tabularnewline
 	$\bm{4\times 4}$ & 88 & 88 & 100 \% & 0 \tabularnewline
 	\hline%
 \end{tabular}%
@@ -182,6 +182,6 @@ Esto es debido a la razón explicada al final de la Sección \ref{sec:algoritmo_
 
 Sin embargo, en los casos donde no se llega a un arreglo óptimo, el algoritmo encuentra arreglos que no están muy alejados de este, ya que están solo unos pocos movimientos por encima del óptimo.
 Es decir, por ejemplo, que la única diferencia entre el arreglo encontrado y el óptimo, es que para uno o dos objetos en el arreglo se necesitarían uno o dos movimientos extra para acceder a ellos, manteniendo costos óptimos de acceso para el resto.
-Lo cual se traduce en la métrica del promedio de acciones extra, mostrada en la Tabla \ref{tab:comparacion_RS_vs_exhaustiva}.
+Lo cual se expresa en la métrica del promedio de acciones extra, mostrada en la Tabla \ref{tab:comparacion_RS_vs_exhaustiva}.
 
 En la gran mayoría de los casos donde es posible comprobarlo, el algoritmo otorga la mejor puntuación al arreglo con costo el global mínimo.
