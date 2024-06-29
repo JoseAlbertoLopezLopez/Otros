@@ -281,6 +281,11 @@
 \makeatletter
 \newcounter{function}
 \AtBeginEnvironment{function}{\let\c@algocf\c@function}
+
+% Hacer que al hacer clic sobre una referencia a un algoritmo, mande a la parte superior del caption en el PDF.
+\long\def\algocf@caption@algo#1[#2]#3{%
+	\algocf@latexcaption{#1}[#2]{#3}%
+}
 \makeatother
 
 \SetAlgoHangIndent{0pt}

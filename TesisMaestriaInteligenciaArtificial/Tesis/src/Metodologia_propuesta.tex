@@ -4,7 +4,7 @@
 %
 %
 En este capítulo se establecerá y detallará la propuesta para realizar un acomodo de objetos, con la condición de minimizar el número de acciones que conlleva el acceder a cada uno de ellos.
-Dicha propuesta se basa en un sistema de puntuaciones, asignadas a cada uno de los elementos en la malla incluyendo celdas vacías.
+Dicha propuesta se basa en un sistema de puntuaciones, asignadas a cada uno de los elementos en la malla, incluyendo celdas vacías.
 La puntuación que se asignará a cada elemento dependerá de la clase del elemento en cuestión así como de su vecindad.
 
 La puntuación de un elemento, cuando se trate de un objeto, será máxima cuando este se pueda tomar mediante una sola acción y disminuye con la presencia de vecinos que impiden su agarre o sujeción.
@@ -26,7 +26,7 @@ La definición completa del algoritmo y de las funciones mencionadas se dará en
 En esta sección se iniciará con la definición de los componentes más básicos de la metodología propuesta, posteriormente se definirán las funciones y procedimientos de más alto nivel, que hacen uso de dichos componentes y finalmente, en la Sección \ref{sec:algoritmo_principal}, se describirá el algoritmo principal de la propuesta, el cual es la definición de más alto nivel de esta.
 
 Con la finalidad de simplificar la notación de algunos cálculos posteriores, se define $C_0$ como la clase de una celda vacía, la cual, al solo tener fines de representación, no tiene ningún atributo asociado.
-Asimismo se define $h_{ij}$ como la altura del elemento en la celda $e_{ij}$, definiendo la altura de una celda vacía como cero.
+Asimismo se define $h_{ij}$ como la altura del elemento en la celda $e_{ij}$, donde esta altura es igual a cero cuando se trata de una celda vacía.
 
 Se define la función de estado $C_{ij}$ como la función que retorna la clase del elemento posicionado en la celda $e_{ij}$.
 %
@@ -41,7 +41,7 @@ Además, se define la función de sujeción $S_{ij}$ como la función que retorn
 \end{equation}
 %
 Las expresiones que describen las condiciones bajo las cuales los objetos pueden ser sujetados, correspondientes a la descripción dada en la Sección \ref{subsec:restricciones}, se presentan a continuación:
-%	
+%
 \begin{equation}
 \label{eq:restricciones}
 	\begin{aligned}
@@ -67,13 +67,15 @@ De forma similar, la función $\f{imposible}(e_{ij})$ indica si el elemento en l
 %
 A continuación se presenta la función que asigna una puntuación (un número entero) a un par de elementos vecinos en $E$.
 
-Algo a tener en cuenta con esta función es que, si bien por si sola es una función que solo puntúa un par de elementos en la malla, está pensada para ser una sub-función del proceso de puntuación de más alto nivel de la Función \ref{func:puntuacion_elemento}, enfocado a puntuar un elemento particular de la malla en función de su vecindad.
-Particularmente es el elemento del primer argumento de la Función \ref{func:puntuacion_par} el que será puntuado respecto a su vencindad en la Función \ref{func:puntuacion_elemento}.
+Algo a tener en cuenta con esta función es que, si bien por sí sola es una función que solo puntúa un par de elementos en la malla, está pensada para ser una subfunción del proceso de puntuación de más alto nivel de la Función \ref{func:puntuacion_elemento}, enfocado a puntuar un elemento particular de la malla en función de su vecindad.
+Particularmente es el elemento del primer argumento de la Función \ref{func:puntuacion_par} el que será puntuado respecto a su vecindad en la Función \ref{func:puntuacion_elemento}.
 Esta es una de las razones por las que en algunos casos el resultado de la función no sea conmutativo respecto al orden de sus argumentos, ya que en el proceso de puntuación de más alto nivel se le da más ``atención'' al primer argumento de la función, al ser considerado como el elemento a puntuar.
 %
 \begin{center}
 \begin{minipage}{0.9\textwidth}
 \begin{function}[H]
+	\label{func:puntuacion_par}%
+	\caption{puntuacionPar($e_{i_1 j_1}$, $e_{i_2 j_2}$). Función para obtener la puntuación de un par de elementos vecinos.}%
 	\OneHalfBlankLine
 	\Data{Celdas de los elementos vecinos $e_{i_1 j_1}$, $e_{i_2 j_2}$.}
 	\Result{Puntuación.}
@@ -91,13 +93,11 @@ Esta es una de las razones por las que en algunos casos el resultado de la funci
 			\lCase{$C_{k_C}$, $C_{k_C}$}{\Return 0}
 		}
 	}
-	\caption{puntuacionPar($e_{i_1 j_1}$, $e_{i_2 j_2}$). Función para obtener la puntuación de un par de elementos vecinos.}%
-	\label{func:puntuacion_par}%
 \end{function}
 \end{minipage}
 \end{center}
 %
-El sistema de puntuación presentado en la Función \ref{func:puntuacion_par} fue diseñado en base a heurísticas simples, esto con el propósito de que su implementación fuese eficiente en términos de velocidad de procesamiento.
+El sistema de puntuación presentado en la Función \ref{func:puntuacion_par} fue diseñado con base en heurísticas simples, esto con el propósito de que su implementación fuese eficiente en términos de velocidad de procesamiento.
 Sin embargo, se intentó mantener un balance entre la eficiencia en el número de operaciones, proporcionada por la simpleza de las reglas de puntuación; y la eficiencia de los arreglos encontrados por el algoritmo, que está definida en términos del número total de acciones necesarias para tomar los objetos.
 
 Dicho lo anterior, y teniendo en cuenta que posteriormente el primer argumento de la Función \ref{func:puntuacion_par} fungirá como el elemento a ser puntuado en la Función \ref{func:puntuacion_elemento}, las heurísticas detrás del sistema de puntuación utilizado en la Función \ref{func:puntuacion_par} son las siguientes:
@@ -107,7 +107,7 @@ Dicho lo anterior, y teniendo en cuenta que posteriormente el primer argumento d
 	\item Para los prismas (casos $C_2$, $C_1$ y $C_2$, $C_0$): la puntuación es máxima cuando su vecino es un cubo, pero no tanto como la del par \textsl{cubo-celda\,vacía}.
 	La razón de esto es que, si bien la sujeción del prisma no se restringe, la del cubo sí, mientras que en el caso del par \textsl{cubo-celda\,vacía} no se genera ninguna restricción de sujeción.
 	Por otro lado, la puntuación es mínima, pero no cero, cuando el vecino de un prisma es una celda vacía; esto debido a que, si bien la sujeción del prisma no se restringe, es posible que la celda vacía pueda ser mejor aprovechada al colocarla al lado de un cubo.
-	\item Para las celdas vacías (casos $C_0$, $C_1$ y $C_0$, $C_2$): la puntuación es máxima cuando su vecino es un cubo, debido a que la celda vacía es el único elemento que permite su sujeción; y es mínima, pero no cero, cuando su vecino es un prisma, ya que permite su sujeción pero también existe otro elemento que la permite, pudiendo ser una mejor elección en determinadas situaciones.
+	\item Para las celdas vacías (casos $C_0$, $C_1$ y $C_0$, $C_2$): la puntuación es máxima cuando su vecino es un cubo, debido a que la celda vacía es el único elemento que permite su sujeción; y es mínima, pero no cero, cuando su vecino es un prisma, ya que si bien permite su sujeción, también existe otro elemento que la permite, pudiendo ser una mejor elección en determinadas situaciones.
 	\item Para vecinos de la misma clase (caso $C_{k_C}$, $C_{k_C}$): la puntuación es cero.
 	 La razón de ello es que, tratándose de objetos, se restringe la sujeción de ambos, mientras que si se trata de celdas vacías, su capacidad para permitir la sujeción de objetos es desaprovechada.
 \end{itemize}
@@ -128,6 +128,8 @@ Las funciones $\f{sujetable}()$ e $\f{imposible}()$ se describen al inicio de la
 \begin{center}
 \begin{minipage}{0.9\textwidth}
 \begin{function}[H]
+	\label{func:puntuacion_elemento}%
+	\caption{puntuacionElemento($e_{ij}$). Función para calcular la puntuación de un elemento de la malla.}%
 	\OneHalfBlankLine
 	\Data{Celda del elemento a puntuar $e_{ij}$.}
 	\Result{Puntuación $p$ del elemento.}
@@ -151,8 +153,6 @@ Las funciones $\f{sujetable}()$ e $\f{imposible}()$ se describen al inicio de la
 		\Return $p$
 		\HalfBlankLine
 	}
-	\caption{puntuacionElemento($e_{ij}$). Función para calcular la puntuación de un elemento de la malla.}%
-	\label{func:puntuacion_elemento}%
 \end{function}
 \end{minipage}
 \end{center}
@@ -171,22 +171,22 @@ Finalmente, se define la puntuación global de la malla como la suma de las punt
 %
 %
 El algoritmo para calcular el costo $t_{ij}$ de tomar un objeto de la malla está basado en el algoritmo RSC, presentado en \cite{4209604}.
-Dicho algoritmo consiste básicamente en crear un árbol de objetos-obstáculo que impiden la sujeción de un objeto particular. 
-La raíz del árbol es el objeto que se desea tomar, y a partir de este, se ramifican nodos correspondientes a sus objetos-obstáculo más inmediatos.
+Dicho algoritmo consiste básicamente en crear un árbol de objetos-obstáculo que impiden la sujeción de un objeto particular.
+La raíz del árbol es el objeto que se desea tomar, y a partir de este se ramifican nodos que corresponden a sus objetos-obstáculo más cercanos.
 A su vez, de cada uno de estos nodos se desprenden más ramas o nodos, correspondientes a los objetos-obstáculo de cada uno, y así sucesivamente hasta llegar a las hojas del árbol, las cuales corresponden a objetos-obstáculo que sí son sujetables.
 
 Al retirar los objetos correspondientes a los nodos hoja, se pueden hacer sujetables los objetos de sus nodos padres, con lo cual se convierten en nuevos nodos hoja, reduciendo el tamaño del árbol de objetos-obstáculo.
 Al continuar con este proceso se puede hacer sujetable al objeto del nodo raíz.
 %
 \begin{figure}[H]
-\includegraphics{arbol}%
-\caption{Ejemplo de arreglo de objetos (izquierda) y el árbol de objetos-obstáculo correspondiente al cubo A (derecha). Como se puede observar, la solución óptima para tomar este cubo tiene costo 3.}%
-\label{fig:arbol}%
+	\includegraphics{arbol}%
+	\caption{Ejemplo de arreglo de objetos (izquierda) y el árbol de objetos-obstáculo correspondiente al cubo A (derecha). Como se puede observar, la solución óptima para tomar este cubo tiene costo 3.}%
+	\label{fig:arbol}%
 \end{figure}
 %
-De acuerdo con las formas de sujeción establecidas, existen en general, dos secuencias distintas de objetos-obstáculo que hay que retirar de la malla para hacer sujetable a otro objeto particular. 
+De acuerdo con las formas de sujeción establecidas, existen en general, dos secuencias distintas de objetos-obstáculo que hay que retirar de la malla para hacer sujetable a otro objeto particular.
 El costo $t_{ij}$ para tomar un objeto en la celda $e_{ij}$ es entonces la longitud de la secuencia con menos objetos a retirar, tal como se muestra en la Figura \ref{fig:arbol}, donde esta secuencia corresponde a la rama de menor longitud del árbol generado.
-El cálculo de $t_{ij}$ se detalla en el Algoritmo \ref{alg:costo_individual}, el cual utiliza la Función \ref{fun:secuencia} recursiva.
+El cálculo de $t_{ij}$ se detalla en el Algoritmo \ref{alg:costo_individual}, el cual utiliza la Función \ref{fun:secuencia} de forma recursiva.
 
 La Función \ref{fun:secuencia} implementa un algoritmo de \textit{backtracking} para encontrar una de las secuencias de objetos-obstáculo para hacer sujetable y tomar un objeto de interés.
 La secuencia encontrada por la función es considerada como solución al problema de hacer sujetable y tomar un objeto, esto debido a que él o los elementos al final de la secuencia siempre corresponderán a nodos hoja en el árbol de objetos-obstáculo del objeto de interés, como el que se muestra en Figura \ref{fig:arbol}.
@@ -196,13 +196,15 @@ El algoritmo de \textit{backtracking} explora las ramas del árbol de objetos-ob
 Si no es posible retirar ningún objeto de la rama en cuestión, la función falla.
 Esto sucede cuando el elemento de la malla que se está analizando ya se encuentra agregado en la secuencia, lo cual puede ser indicativo de la existencia de un cuadro imposible en el arreglo.
 Al fallar una función, todos sus procesos y los de las funciones en recursiones previas que la llamaron directa o indirectamente se invalidan, lo cual se traduce en que la secuencia que se había estado construyendo hasta ese momento sea descartada.
-Después de esto se procede a explorar otra rama del árbol. 
+Después de esto se procede a explorar otra rama del árbol.
 
 La primera rama para la cual la función finalice con éxito es la que se toma como solución y cuyos objetos son añadidos a la secuencia considerada como resultado de la función.
 %
 \begin{center}
 \begin{minipage}{0.90\textwidth}
 \begin{function}[H]
+	\label{fun:secuencia}%
+	\caption{secuencia($e_{ij}$, $l$). Función de \textit{backtracking} para obtener una secuencia de objetos a retirar para hacer sujetable y tomar un objeto en la celda $e_{ij}$, el cual también se incluye al final de la secuencia.}%
 	\BlankLine
 	\Data{Celda $e_{ij}$ del objeto deseado y lista vacía $l$.}
 	\QuarterBlankLine
@@ -244,7 +246,7 @@ La primera rama para la cual la función finalice con éxito es la que se toma c
 			\Else{
 				\tcp*[l]{Si en ambos pares alguna de las dos recursiones terminó con fallo:}
 				Finalizar recursión con fallo (hacer \textit{backtracking} e intentar otra alternativa (par) de recursión).
-				\HalfBlankLine		
+				\HalfBlankLine
 			}
 		}{
 			\HalfBlankLine
@@ -255,8 +257,6 @@ La primera rama para la cual la función finalice con éxito es la que se toma c
 		Finalizar recursión con éxito.
 		\QuarterBlankLine
 	}%
-	\caption{secuencia($e_{ij}$, $l$). Función de \textit{backtracking} para obtener una secuencia de objetos a retirar para hacer sujetable y tomar un objeto en la celda $e_{ij}$, el cual también se incluye al final de la secuencia.}%
-	\label{fun:secuencia}%
 \end{function}
 \end{minipage}
 \end{center}
@@ -267,6 +267,8 @@ El algoritmo cuenta los objetos-obstáculo de cada una de las secuencias y final
 \begin{center}
 \begin{minipage}{0.98\textwidth}
 \begin{algorithm}[H]
+	\caption{Algoritmo para calcular el costo $t_{ij}$.}%
+	\label{alg:costo_individual}%
 	\OneHalfBlankLine
 	\Data{Celda $e_{ij}$ del objeto deseado.}
 	\Result{Costo $t_{ij}$ de tomar el objeto en $e_{ij}$.}
@@ -281,8 +283,6 @@ El algoritmo cuenta los objetos-obstáculo de cada una de las secuencias y final
 	\TwoBlankLines
 	$t_{ij} = \min\limits_i \left| L_i \right|$\;
 	\HalfBlankLine
-	\caption{Algoritmo para calcular el costo $t_{ij}$.}%
-	\label{alg:costo_individual}%
 \end{algorithm}
 \end{minipage}
 \end{center}
@@ -316,7 +316,7 @@ En este caso, el criterio principal para generar tales cambios es el sistema de 
 Se eligió un algoritmo de recocido simulado para abordar el problema propuesto debido a que se adecúa muy bien a la búsqueda de vecindad planteada para este problema, la cual consiste en cambios graduales o mínimos en un arreglo dado, considerado como solución actual.
 Dichos cambios graduales se refieren a los intercambios de pares de elementos en un arreglo, ya que, bajo las reglas establecidas, un intercambio de un par de elementos distintos en un arreglo se considera como el cambio mínimo necesario para hacerlo cambiar de estado, sin alterar el número de objetos de cada clase que hay en él.
 
-Si bien puedieran existir mejores soluciones, al emplear otro tipo de algortimos o metodologías, el objetivo principal de este trabajo no es encontrar la solución más eficiente, sino encontrar o diseñar una solución aceptable al problema propuesto, del cual no parece haber antecedentes según la investigación realizada.
+Si bien pudieran existir mejores soluciones, al emplear otro tipo de algoritmos o metodologías, el objetivo principal de este trabajo no es encontrar la solución más eficiente, sino encontrar o diseñar una solución aceptable al problema propuesto, del cual no parece haber antecedentes según la investigación realizada.
 Se cree que, debido al nivel de simplificación y de condiciones particulares que requiere problema, encontrar el método de solución más eficiente no sería de mucha utilidad (más allá de la intelectual) en esta etapa, como si lo sería en etapas posteriores donde se pueda aplicar en situaciones reales.
 
 No obstante, también se consideraron otros algoritmos y metodologías de búsqueda, de entre los cuales se eligió al recocido simulado por el balance entre la simpleza del método, su conocida eficiencia, además de la ya mencionada facilidad con la que se adapta a las reglas de búsqueda del problema propuesto.
@@ -332,6 +332,8 @@ En el Algoritmo \ref{alg:recocido_simulado} se presenta el algoritmo de recocido
 \begin{minipage}{0.98\textwidth}
 \setlength{\interspacetitleruled}{5pt}
 \begin{algorithm}[H]
+	\caption{Recocido simulado.}%
+	\label{alg:recocido_simulado}%
 	\OneQuarterBlankLine
 	\Data{Temperatura inicial $T$, constantes $\alpha$, $a$, $b$, malla con objetos.}
 	\HalfBlankLine
@@ -371,13 +373,11 @@ En el Algoritmo \ref{alg:recocido_simulado} se presenta el algoritmo de recocido
 		\QuarterBlankLine
 	}%
 	\HalfBlankLine
-	\caption{Recocido simulado.}%
-	\label{alg:recocido_simulado}%
 \end{algorithm}
 \end{minipage}
 \end{center}
 %
-El algoritmo recibe como entrada principal una malla con los objetos acomodados de forma aleatoria. 
+El algoritmo recibe como entrada principal una malla con los objetos acomodados de forma aleatoria.
 Después de inicializar los parámetros del algoritmo, tales como la temperatura, se inicia un proceso iterativo, en el cual, en primer lugar se calcula la puntuación global de la malla, para luego escoger dos elementos distintos en la malla de forma aleatoria e intercambiarlos de posición.
 Dicho par de elementos puede ser un par \textsl{objeto~-objeto} o bien \textsl{objeto~-celda\! vacía}.
 Al simular este intercambio se vuelve a calcular la puntuación global de la malla y esta se compara con la puntuación calculada antes de hacer el intercambio.
@@ -386,13 +386,13 @@ Este proceso de intercambios se repite hasta que se cumpla la condición de paro
 Finalmente, la salida del algoritmo será el acomodo encontrado.
 
 Los parámetros iniciales mostrados en el Algoritmo \ref{alg:recocido_simulado} fueron los utilizados para generar los arreglos de mayor tamaño ($8\times 8$).
-Para arreglos de menor tamaño estos parámetros se pueden relajar hasta cierto punto, sin sacrificar la calidad de los resultados.
+Para arreglos de menor tamaño, estos parámetros se pueden relajar hasta cierto punto, sin sacrificar la calidad de los resultados.
 El esquema de reducción de temperatura utilizado es el esquema aritmético-geométrico \cite{ouali2017performance}.
 
-Si bien el proceso de ponderación de un arreglo se ideó con el fin de que el arreglo con mayor puntuación sea el óptimo, este podría no siempre ser el caso. 
+Si bien el proceso de ponderación de un arreglo se ideó con el fin de que el arreglo con mayor puntuación sea el óptimo, este podría no siempre ser el caso.
 Esto es debido a que existen algunos pocos casos especiales en los que, a causa de cómo están constituidas las reglas de puntuación, el algoritmo no le da la mejor puntuación al arreglo óptimo, sino a uno que tiene, en la mayoría de los casos donde se pudo corroborar, un costo global de una o dos acciones por encima del óptimo.
 Estos casos especiales se pueden corregir mediante una extensión de las reglas de puntuación que considere las situaciones en las que ocurren, sin embargo, debido a que son muy poco frecuentes, se cree que la ganancia de extender las reglas es poca comparada con la complejidad añadida al modelo, por lo cual en esta ocasión no se considerará tal extensión.
 
 Con la finalidad de evaluar el desempeño de dicho proceso de ponderación y del algoritmo propuesto, también se calculó el costo global real de los arreglos encontrados por el algoritmo propuesto, mediante el proceso descrito en la Sección \ref{subsec:costo}, el cual es un proceso exhaustivo.
-Los costos globales de los arreglos encontrados por el algoritmo propuesto se compararon con los costos globales de los arreglos óptimos correspondientes, obtenidos mediante una búsqueda exhaustiva en lo casos donde fue posible realizarla. 
+Los costos globales de los arreglos encontrados por el algoritmo propuesto se compararon con los costos globales de los arreglos óptimos correspondientes, obtenidos mediante una búsqueda exhaustiva en los casos donde fue posible realizarla.
 Los resultados de esta comparación se presentan en el siguiente capítulo.
