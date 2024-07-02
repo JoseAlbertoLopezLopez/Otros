@@ -1,8 +1,9 @@
 % !TEX encoding = UTF-8 Unicode
-
-% Plantilla para portada de tesis.
+%
+% Plantilla para portada de tesis
+%
 % Se requieren los paquetes `geometry`, `adjustbox`, `graphicx`, `fancyhdr` y `calc`.
-% Por hacer: el resultado es aceptable para parámetros razonables.
+% Pendiente: el resultado es aceptable para valores razonables de los parámetros definidos.
 % 	No se realizó una implementación de manejo de excepciones para parámetros extraordinarios, por lo que en estos casos los resultados pueden ser irregulares.
 %
 \begingroup%
@@ -196,7 +197,7 @@
 }
 \vfill
 \vskip 0.2\twotextlinesvsep
-\adjustbox{center, minipage=0.92\textwidth, valign=B}{%
+\adjustbox{center, minipage=\htitleruleslength, valign=B}{%
 	\lugar \hfill \fecha
 }
 %
