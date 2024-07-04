@@ -240,7 +240,7 @@
 	\def\@fs@mid{\vspace{\tablecaptionskip}\relax}%
 	\let\@fs@iftopcapt\iftrue%
 }
-\makeatletter
+\makeatother
 
 
 % Algoritmos
@@ -274,9 +274,18 @@
 	{else}
 	{end}
 
-\SetKwComment{tcp}{\!\fontsize{10}{10}\selectfont\faComments[regular] }{}
+% Redefinición de símbolo de comentario y su estilo.
+\def\speechBubbleComment{\fontsize{10}{10}\selectfont\faComments[regular]}
+\AtBeginDocument{\SetKwComment{tcp}{\speechBubbleComment\ }{}}
 \newcommand\commentstyle[1]{\ttfamily\textcolor{gray!80!black}{\textit{#1}}}
 \SetCommentSty{commentstyle}
+% Indentación de líneas subsecuentes de comentarios.
+\newlength{\CommentHangIndent}
+\newcommand{\SetAlgoCommentHangIndent}[1]{\setlength{\CommentHangIndent}{#1}}
+\SetAlgoCommentHangIndent{\widthof{\CommentSty{\speechBubbleComment\ }}}
+
+% Indentación de líneas subsecuentes de párrafos.
+\SetAlgoHangIndent{0em}
 
 \makeatletter
 \newcounter{function}
@@ -288,7 +297,6 @@
 }
 \makeatother
 
-\SetAlgoHangIndent{0pt}
 \setlength{\interspacetitleruled}{4pt}
 \IncMargin{0.3ex}
 \SetInd{0.25em}{1em}
