@@ -251,6 +251,8 @@
 	lined
 ]{algorithm2e}
 
+\input{algorithm2e_redefs.tex}
+
 \SetAlgoFuncName{Función}{}
 \SetAlgorithmName{Algoritmo}{}
 
@@ -276,7 +278,7 @@
 
 % Redefinición de símbolo de comentario y su estilo.
 \def\speechBubbleComment{\fontsize{10}{10}\selectfont\faComments[regular]}
-\AtBeginDocument{\SetKwComment{tcp}{\speechBubbleComment\ }{}}
+\SetKwComment{tcp}{\speechBubbleComment\ }{}
 \newcommand\commentstyle[1]{\ttfamily\textcolor{gray!80!black}{\textit{#1}}}
 \SetCommentSty{commentstyle}
 % Indentación de líneas subsecuentes de comentarios.
@@ -349,12 +351,9 @@
 
 % Notas al pie
 \usepackage[symbol, hang, bottom]{footmisc}
+\input{footmisc_redefs.tex}
 \renewcommand{\thempfootnote}{\fnsymbol{mpfootnote}}
 \setlength{\footnotemargin}{0.7em}
-
-
-% Redefiniciones diversas
-\input{misc_redefs.tex}
 
 
 % Hipervínculos.
