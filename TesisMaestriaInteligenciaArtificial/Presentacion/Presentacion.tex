@@ -509,7 +509,7 @@
 	\HalfBlankLine
 	\Definitions{\justifying $C_{ij}$: clase del elemento en $e_{ij}$.\newline $C_0$: celda vacía.}
 	\HalfBlankLine
-	\nonl\nlset{1\hspace{-0.5pt}}%
+	\nonl\nlset{1}%
 	\SetAlgoNoEnd%
 	\Function{$\f{puntuacionPar}\:\!(e_{i_1 j_1}, e_{i_2 j_2})$}{
 		\HalfBlankLine
@@ -526,7 +526,7 @@
 			\vskip -1pt%
 		}
 		\vskip -1pt%
-	}\nonl\nlset{11\hspace{-0.5pt}}\textbf{end}
+	}\nonl\nlset{11}\textbf{end}
 	%\caption{puntuacionPar($e_{i_1,j_1}$, $e_{i_2,j_2}$). Función para obtener la puntuación de un par de elementos vecinos.}
 	\end{function}
 	\end{block}
@@ -558,7 +558,7 @@
 	\QuarterBlankLine
 	\Result{Puntuación $p$ del elemento.}
 	\BlankLine
-	\nonl\nlset{1\hspace{-0.5pt}}%
+	\nonl\nlset{1}%
 	\SetAlgoNoEnd%
 	\Function{$\f{puntuacionElemento}(e_{ij})$}{
 		\HalfQuarterBlankLine
@@ -577,7 +577,7 @@
 		}
 		\HalfQuarterBlankLine
 		\Return $p$
-	}\nonl\nlset{10\hspace{-0.5pt}}\textbf{end}
+	}\nonl\nlset{10}\textbf{end}
 	%\caption{puntuacionElemento($e_{ij}$). Función para calcular la puntuación de un elemento de la malla.}%
 	\end{function}
 	\end{block}
@@ -641,7 +641,7 @@
 	\leavevmode
 	\hskip 0.28cm\raisebox{-3.05cm}{\tikz\draw[loosely dotted, line width=0.7pt, color=gray] (0,0) -- (0,6.3);}\hskip 0.28cm%
 	\begin{minipage}{0.49\linewidth}
-	\setlength{\algomargin}{12pt}%
+	\setlength{\algomargin}{11pt}%
 	\begin{algorithm}[H]
 	\addtolength{\hsize}{\algomargin}%
 	\setcounter{AlgoLine}{6}%
@@ -720,7 +720,7 @@
 				\HalfBlankLine
 			}
 			\tcp*[l]{Si no, ejecutar un par:}
-			\nonl\nlset{7\hspace{-0.5pt}}%
+			\nonl\nlset{7}%
 			\uElseIfWithNoThen{Par 1\normalfont{:}}{
 				\QuarterBlankLine
 				\SetKwIF{If}{ElseIf}{Else}{if}{\!:}{else if}{else}{end}%
@@ -756,7 +756,7 @@
 				\lIf{$h_{i,\, j+1} \geq h_{ij}$}{$\f{secuencia}(e_{i,\, j+1},\: l)$}
 				\lIf{$h_{i,\, j-1} \geq h_{ij}$}{$\f{secuencia}(e_{i,\, j-1},\: l)$}
 			}
-			\nonl\nlset{13\hspace{-0.5pt}}%
+			\nonl\nlset{13}%
 			\Else{
 				\tcp*[l]{Si ambos pares fallaron:}
 				Finalizar recursión con fallo.
@@ -766,7 +766,7 @@
 		}
 		Finalizar recursión con éxito.
 		\vskip -2pt%
-	}\nonl\nlset{20\hspace{-0.5pt}}\textbf{end}
+	}\nonl\nlset{20}\textbf{end}
 	\vskip -0.5pt%
 	\end{algorithm}%
 	\end{minipage}%

@@ -1,4 +1,12 @@
-\usepackage[linesnumbered, nokwfunc, lined, titlenotnumbered, hanginginout]{algorithm2e}
+\usepackage[
+	linesnumbered, 
+	nokwfunc, 
+	lined, 
+	titlenotnumbered, 
+	hanginginout
+]{algorithm2e}
+
+\input{algorithm2e_redefs.tex}
 
 \SetKwInput{Data}{Datos de entrada}
 \SetKwInput{Result}{Resultado}
@@ -14,10 +22,11 @@
 	{else if}
 	{else}
 	{end}
+	
 \DontPrintSemicolon
 \SetAlgoSkip{}
 \IncMargin{1.1em}
-\SetNlSkip{0.4em}
+\SetNlSkip{0.3em}
 \SetInd{0.3em}{0.8em}
 \RestyleAlgo{titlenotnumbered}
 \SetAlgorithmName{Algoritmo}{}{}
@@ -36,10 +45,20 @@
 \newcommand{\OneHalfBlankLine}{\BlankLine\vskip 0.5ex}
 \newcommand{\TwoBlankLines}{\BlankLine\BlankLine}
 
-% Estilo de comentarios.
-\SetKwComment{tcp}{\!\fontsize{9}{9}\faComments[regular]\:}{}
-\newcommand\commentstyle[1]{\ttfamily\textcolor{gray!80!black}{\textit{\footnotesize #1}}}
+
+% Redefinición de símbolo de comentario y su estilo.
+\def\speechBubbleComment{\fontsize{9}{9}\selectfont\faComments[regular]}
+\SetKwComment{tcp}{\speechBubbleComment\ }{}
+\newcommand\commentstyle[1]{\ttfamily\textcolor{gray!80!black}{\textit{#1}}}
 \SetCommentSty{commentstyle}
+
+% Indentación de líneas subsecuentes de comentarios.
+\newlength{\CommentHangIndent}
+\newcommand{\SetAlgoCommentHangIndent}[1]{\setlength{\CommentHangIndent}{#1}}
+\SetAlgoCommentHangIndent{\widthof{\CommentSty{\speechBubbleComment\ \ }}}
+
+% Indentación de líneas subsecuentes de párrafos.
+\SetAlgoHangIndent{0em}
 
 % Comandos para modificar números de líneas.
 \let\oldnl\nl
