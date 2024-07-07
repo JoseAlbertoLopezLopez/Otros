@@ -46,6 +46,22 @@
 	}%
   }%
 
+% Alineación de números de línea.
+\newlength{\AlgoVLineWidth}
+\setlength{\AlgoVLineWidth}{0.4pt}
+\renewcommand{\algocf@Vsline}[1]{%    no vskip in between boxes but a strut to separate them, 
+  \strut\par\nointerlineskip% then interblock space stay the same whatever is inside it
+  \algocf@bblockcode%
+  \advance\skiptotal by \AlgoVLineWidth%
+  \algocf@push{\skiprule}%        move to the right before the vertical rule
+  \hbox{\vrule width\AlgoVLineWidth%               the vertical rule
+    \vtop{\algocf@push{\skiptext}%move the right after the rule
+      \vtop{\algocf@addskiptotal #1}}}% inside the block
+  \algocf@pop{\skiprule}% restore indentation
+  \advance\skiptotal by -\AlgoVLineWidth%
+  \algocf@eblockcode%
+}
+
 % Redefinición del caption.
 \renewcommand{\algocf@captionproctext}[2]{%
 	\addtolength{\hsize}{1.5\algomargin}%
