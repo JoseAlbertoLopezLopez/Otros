@@ -231,7 +231,7 @@ La primera rama para la cual la función finalice con éxito es la que se toma c
 				\HalfBlankLine
 			}
 			\SetArgSty{normaltext}
-			\tcp*[l]{Ejecutar uno de los siguientes pares de recursiones:}
+			\JustifiedComment*[l]{Ejecutar uno de los siguientes pares de recur\-siones:}
 			\uElseIfWithNoThen{Par 1:}{
 				\HalfBlankLine
 				\lIf{$h_{i+1,\, j} \geq h_{ij}$}{$\f{secuencia}(e_{i+1,\, j},\: l)$}
@@ -244,7 +244,7 @@ La primera rama para la cual la función finalice con éxito es la que se toma c
 				\lIf{$h_{i,\, j-1} \geq h_{ij}$}{$\f{secuencia}(e_{i,\, j-1},\: l)$}
 			}
 			\Else{
-				\tcp*[l]{Si en ambos pares alguna de las dos recursiones terminó con fallo:}
+				\Comment*[l]{Si en ambos pares alguna de las dos recursiones terminó con fallo:}
 				Finalizar recursión con fallo (hacer \textit{backtracking} e intentar otra alternativa (par) de recursión).
 				\HalfBlankLine
 			}
@@ -273,10 +273,10 @@ El algoritmo cuenta los objetos-obstáculo de cada una de las secuencias y final
 	\Data{Celda $e_{ij}$ del objeto deseado.}
 	\Result{Costo $t_{ij}$ de tomar el objeto en $e_{ij}$.}
 	\TwoBlankLines
-	\tcp*[l]{Lista para almacenar todas las secuencias posibles para tomar un objeto.}
+	\Comment*[l]{Lista para almacenar todas las secuencias posibles para tomar un objeto.}
 	$L = \{ \}$\;
 	\TwoBlankLines
-	\tcp*[l]{Función que retorna todas las soluciones posibles de $\f{secuencia()}$.}
+	\Comment*[l]{Función que retorna todas las soluciones posibles de $\f{secuencia()}$.}
 	$\f{encontrarTodas}()$\;
 	\TwoBlankLines
 	$L = \f{encontrarTodas}(\f{secuencia}(e_{ij},\: l))$\;
@@ -340,14 +340,14 @@ En el Algoritmo \ref{alg:recocido_simulado} se presenta el algoritmo de recocido
 	\Result{Malla con objetos acomodados (representada por una matriz de enteros).}
 	\TwoBlankLines
 	%
-	\tcp*[l]{Parámetros del algoritmo.}
+	\Comment*[l]{Parámetros del algoritmo.}
 	$T = \num{50000000}$\;
 	$\mathrlap{\alpha}\hphantom{T} = 0.0000001$\;
 	$\mathrlap{a}\hphantom{T} = 0.99991$\;
 	$\mathrlap{b}\hphantom{T} = 1$\;
 	\TwoBlankLines
 	%
-	\tcp*[l]{Puntajes actual y de intercambio.}
+	\Comment*[l]{Puntajes actual y de intercambio.}
 	$p_A =\, \f{puntuacionGlobal}()$\;
 	$\mathrlap{p_I}\hphantom{p_A} =\, 0$\;
 	\TwoBlankLines
