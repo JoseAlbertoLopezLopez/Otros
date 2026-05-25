@@ -1,5 +1,5 @@
+% LuaLaTeX
 \documentclass[letterpaper, 11pt]{memoir}
-\usepackage[utf8]{inputenc}
 \usepackage[default]{raleway}
 
 
@@ -8,7 +8,7 @@
 \geometry{
 	right=15mm,
 	left=15mm,
-	top=25mm,
+	top=20mm,
 	bottom=20mm
 }
 \setlength{\parskip}{\baselineskip}
@@ -19,7 +19,8 @@
 % Fuentes
 \usepackage[letterspace=200]{microtype}
 \usepackage{fontawesome}
-%\usepackage{fontspec}
+\usepackage{fontspec}
+\usepackage{emoji}
 
 
 % Varios
@@ -41,10 +42,7 @@
 % Tablas
 \usepackage{array}
 \usepackage{supertabular}
-\usepackage{cellspace}
 \setlength{\tabcolsep}{0pt}
-%\usepackage{longtable}
-%\usepackage{tabu}
 
 \newcounter{rowcount}
 \setcounter{rowcount}{0}
@@ -91,24 +89,46 @@
 	hidelinks=true,
 }
 
-\def\CIIAlocation{\href{https://maps.google.com/?cid=17992863989216810333}{\textcolor{red}{\faMapMarker}}}
-\def\MIApage{\color{cyan!65}\href{https://www.uv.mx/dia/}{\faUniversity}}
-\def\FFIApage{\color{cyan!65} \href{https://www.uv.mx/ffia/}{\faUniversity}}
+\def\MIApage{\textcolor{cyan!65}{\href{https://www.uv.mx/mia/generacion-2018-2020/}{\faUniversity}}}
+\def\FFIApage{\textcolor{cyan!65}{\href{https://www.uv.mx/ffia/lista-de-egresados-2017/}{\faUniversity}}}
+\def\GitHubMastersThesis{\href{https://github.com/JoseAlbertoLopezLopez/Otros/blob/master/TesisMaestriaInteligenciaArtificial/Tesis/Tesis.pdf}{\faGithub}}
+\def\GitHubBachelorsThesis{\href{https://github.com/JoseAlbertoLopezLopez/Otros/blob/master/TesisLicenciaturaFisica/Tesis\%20LaTeX/Tesis.pdf}{\faGithub}}
 
+\def\AWSCloudPractitionerURL{\href{https://www.credly.com/badges/fa7804c7-105b-4f26-82b3-246e746dde3a/public_url}{\Large\color{gray}\faShareSquareO}}
 \def\BlockchainCourseURL{\href{https://www.ude.my/UC-6573ff27-f962-4339-810e-ec8824785339/}{\Large\color{gray}\faShareSquareO}}
 \def\TimeSeriesCourseURL{\href{https://ude.my/UC-51b1bb6c-b324-41d7-b11f-3826f7999574}{\Large\color{gray}\faShareSquareO}}
 \def\GitCourseURL{\href{https://ude.my/UC-c48e4dd1-59c9-4f2c-b199-c9d09a74f9e8}{\Large\color{gray}\faShareSquareO}}
 \def\SQLCourseURL{\href{https://ude.my/UC-6acc8434-7c34-40b5-ae1b-b813b2252e33}{\Large\color{gray}\faShareSquareO}}
-\def\BasicSQLCourseURL{\href{https://www.sololearn.com/Certificate/1060-849693/pdf/}{\Large\color{gray}\faShareSquareO}}
-\def\JavaCourseURL{\href{https://www.sololearn.com/Certificate/1068-849693/pdf/}{\Large\color{gray}\faShareSquareO}}
+\def\BasicSQLCourseURL{\href{https://www.sololearn.com/certificates/CT-X4YZZNMV}{\Large\color{gray}\faShareSquareO}}
+\def\JavaCourseURL{\href{https://www.sololearn.com/certificates/CT-KFE0KY4A}{\Large\color{gray}\faShareSquareO}}
+\def\CPPCourseURL{\href{https://www.sololearn.com/certificates/CT-1WRCDZVG}{\Large\color{gray}\faShareSquareO}}
 \def\DockerAndKubernetesCourseURL{\href{https://ude.my/UC-93d1fe9f-91d7-4547-9f2a-2d924a7582f3}{\Large\color{gray}\faShareSquareO}}
 \def\MongoDBDataModelingCourseURL{\href{https://learn.mongodb.com/c/nsoZ-ybvTlyIW4GdYEmyDg}{\Large\color{gray}\faShareSquareO}}
 \def\MongoDBAggregationFrameworkCourseURL{\href{https://learn.mongodb.com/c/izxrxl1BTveMe2NkrtiEtw}{\Large\color{gray}\faShareSquareO}}
 \def\MongoDBPythonAPICourseURL{\href{https://learn.mongodb.com/c/1TWNDNs5RHKU1bY3O0K8GQ}{\Large\color{gray}\faShareSquareO}}
 \def\MongoDBPerformanceCourseURL{\href{https://learn.mongodb.com/c/OII3PHyCQuSof4KOy6ahVA}{\Large\color{gray}\faShareSquareO}}
-\def\MongoDBBasicClusterAdministrationCourseURL{\href{https://university.mongodb.com/course_completion/cd0248d4-64b2-4a81-9253-1766d7e3459f}{\Large\color{gray}\faShareSquareO}}
-\def\MongoDBBasicsCourseURL{\href{https://university.mongodb.com/course_completion/93f517c6-c0f7-4ecc-8871-5524c33f1a48}{\Large\color{gray}\faShareSquareO}}
+%\def\MongoDBBasicClusterAdministrationCourseURL{\href{https://university.mongodb.com/course_completion/cd0248d4-64b2-4a81-9253-1766d7e3459f}{\Large\color{gray}\faShareSquareO}}
+%\def\MongoDBBasicsCourseURL{\href{https://university.mongodb.com/course_completion/93f517c6-c0f7-4ecc-8871-5524c33f1a48}{\Large\color{gray}\faShareSquareO}}
 
+\newcommand{\PythonLogo}{\raisebox{-1.2pt}{\includegraphics[height=1.8ex, keepaspectratio]{img/python-logo.pdf}}}
+
+\makeatletter
+\DeclareRobustCommand{\LaTe}{%
+	L\kern-.36em%
+	{\sbox\z@ T%
+		\vbox to\ht\z@{%
+			\hbox{%
+				\check@mathfonts
+				\fontsize\sf@size\z@
+				\math@fontsfalse\selectfont
+				A%
+			}%
+		\vss}%
+	}%
+	\kern-.15em%
+	T\kern-.1667em\lower.5ex\hbox{E}%	% \TeX
+}
+\makeatother
 
 % Elementos con línea vertical y bullet.
 \newlength{\sepVertical}
@@ -119,7 +139,7 @@
 \newlength{\compExpTimeLineWidth}
 \setlength{\compExpTimeLineWidth}{0.2\columnwidth}
 \newlength{\compExpTimeLineSep}
-\setlength{\compExpTimeLineSep}{12.7pt}
+\setlength{\compExpTimeLineSep}{12.55pt}
 \newlength{\compExpParWidth}
 \setlength{\compExpParWidth}{0.61\columnwidth}
 
@@ -166,9 +186,9 @@
 \newlength{\vruleDepth}
 \setlength{\vruleDepth}{-20pt -\companyCircleRadious - \companyCircleShift}
 \newlength{\experienceItemOverlap}
-\setlength{\experienceItemOverlap}{2.2pt}
+\setlength{\experienceItemOverlap}{7.2pt}
 \newlength{\experienceItemSep}
-\setlength{\experienceItemSep}{0pt}
+\setlength{\experienceItemSep}{5pt}
 \newlength{\companyLogoDefaultHeight}
 \setlength{\companyLogoDefaultHeight}{1.86\companyCircleRadious}
 
@@ -194,7 +214,7 @@
 			\draw[color=cafe, line width=1.5pt] (0, 0) circle (\companyCircleRadious);
 			\node[shift={#3}] {\includegraphics[height=#2]{img/#1}};
 		\end{tikzpicture}\hfill%
-		{\hspace{-\timeLineSep}\color{cafe}\vrule width \timeLineWidth height 20pt depth \vruleDepth \hspace{\timeLineSep}}%
+		{\hspace{-\timeLineSep}\color{cafe}\vrule width \timeLineWidth height 25pt depth \vruleDepth \hspace{\timeLineSep}}%
 		{\hspace{-\timeLineSep - \timeLineWidth}\color{cafe}\vrule width \timeLineWidth height \vruleHeight \hspace{\timeLineSep}}%
 		\parbox[t]{0.85\columnwidth}{#5}%
 	}%
@@ -209,7 +229,7 @@
 			\draw[color=cafe, line width=1.5pt] (0, 0) circle (\companyCircleRadious);
 			\node[shift={#3}] {\includegraphics[height=#2]{img/#1}};
 		\end{tikzpicture}\hfill%
-		{\hspace{-\timeLineSep}\color{cafe}\vrule width \timeLineWidth height 20pt depth \vruleDepth \hspace{\timeLineSep}}%
+		{\hspace{-\timeLineSep}\color{cafe}\vrule width \timeLineWidth height 25pt depth \vruleDepth \hspace{\timeLineSep}}%
 		\parbox[t]{0.85\columnwidth}{#5}%
 	}%
 }
@@ -259,6 +279,7 @@
 }
 
 
+
 \begin{document}
 %
 %
@@ -268,37 +289,43 @@
 	\useasboundingbox (0cm,0cm) rectangle (\paperwidth,5cm);
 	%
 	\node[anchor=north west, minimum width=\paperwidth, minimum height=5cm, fill=brown!340, inner sep=0pt, align=center] at (current page.north west) {
-		\\[35pt] \textcolor{white}{\fontsize{24}{24}\selectfont \textbf{JOSÉ ALBERTO} LÓPEZ LÓPEZ} \\[10pt] 
-		\textcolor{white}{\large BACHELORS IN PHYSICS} \\[5pt] 
-		\textcolor{white}{\large MASTERS IN ARTIFICIAL INTELLIGENCE} \\[5pt] 
-		\textcolor{gray}{\href{mailto:JLL.6@hotmail.com}{\faEnvelope\ \ JLL.6@hotmail.com}}
+		\\[35pt] \textcolor{white}{\fontsize{24}{24}\selectfont \textbf{JOSÉ\,\,ALBERTO}\,\,LÓPEZ\,\,LÓPEZ} \\[10pt] 
+		\textcolor{white}{\large BACHELORS \,IN \,PHYSICS} \\[5pt]
+		\textcolor{white}{\large MASTERS \,IN \,ARTIFICIAL \,INTELLIGENCE} \\[5pt] 
+		\textcolor{gray}{\href{mailto:j6.josealberto@gmail.com}{\faEnvelope\ \ j6.josealberto@gmail.com}}
 	};
 \end{tikzpicture}
 %
-\vspace{3.5\baselineskip}
+\vspace{4.5\baselineskip}
 %
 %
-\section*{ABOUT ME \vskip \sectionRulevSkip \hrule width 0.6\linewidth} 
+\section*{ABOUT ME \vskip \sectionRulevSkip \hrule width 0.6\linewidth}
 %
 %
-Artificial Intelligence developer with experience in various languages and frameworks.
-I have worked in big data projects using real time transmission technologies and several data science projects as well.
-I consider myself a dedicated, responsable and very capable person.
+\setlength{\baselineskip}{1.2\baselineskip}
+Artificial Intelligence developer with 10+ years of experience, primarily in Python and C++, applied to big data, data science, computer vision and robotics systems.
+Contributing to large-scale data pipelines processing 10M+ records daily as well as building and optimizing code for computer vision and robotic systems.
 %
-\vspace{\baselineskip}
+\vspace{0.5\baselineskip}
 %
 %
 \begin{multicols*}{2}%
 %
 %
-\section*{EXPERIENCE \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
+\section*{RELEVANT\ \ EXPERIENCE \vskip \sectionRulevSkip \hrule width \columnwidth}
 %
 %
-\firstElement[Grupo_Salinas_logo.eps][1.2\companyCircleRadious][(-0.25pt, 2pt)]{
+\firstElement[Santander_1.pdf][1.3\companyCircleRadious][(0pt, 1pt)]{
+	\textbf{Senior Big Data Developer} \newline
+	\textsc{Santander} $\cdot$ Ciudad de México, Mexico \newline
+	\color{black!70} dec 2022 -- may 2025 \newline
+	Big data developer in projects related to bank fraud prevention and ETL processes, using Spark with Scala and Python, Hadoop and Snowflake (SnowSQL and Snowpark).
+}
+\middleElement[Grupo_Salinas_logo.pdf][1.2\companyCircleRadious][(-0.25pt, 2pt)]{
 	\textbf{Artificial Intelligence Developer} \newline
 	\textsc{Grupo Salinas} $\cdot$ Ciudad de México, Mexico \newline
 	\color{black!70} dec 2021 -- aug 2022 \newline
-	Big data AI developer in projects related to bank credit fraud prevention, using tools like Spark, Hadoop, Kafka, among others.
+	Big data AI developer in projects related to bank credit fraud prevention through AI models, using Spark, Hadoop, Kafka, among others.
 }
 \middleElement[Migala.png]{
 	\textbf{Data Scientist} \newline
@@ -306,19 +333,13 @@ I consider myself a dedicated, responsable and very capable person.
 	\color{black!70} dec 2021 -- feb 2022 \newline
 	Data analysis of an inquest realized to potential members of a new political party.
 	
-	Foundations of a Blockchain project with Solidity and other components.
+	Foundations of Blockchain project with Solidity and other components.
 }
-\middleElement[Best_Practices_Consulting_logo.png][1.8\companyCircleRadious]{
+\lastElement[Best_Practices_Consulting_logo.png][1.8\companyCircleRadious]{
 	\textbf{Data Scientist} \newline
 	\textsc{Best Practices Consulting} $\cdot$ Querétaro, Mexico \newline
 	\color{black!70} mar 2021 -- sep 2021 \newline
 	Data visualizations designer with Power BI for several companies projects, including a dashboard with information about gas distribution routes in real time.
-}
-\lastElement[UV.pdf][1.8\companyCircleRadious][(0, 0.15pt)]{
-	\textbf{Algorithms and Prototipes Developer} \newline
-	\textsc{Artificial Intelligence Research Center} $\cdot$ University of Veracruz, Mexico \newline
-	\color{black!70} jun 2016 -- jun 2017 \newline
-	C++ developer of an autonomous movement vehicle detection algorithm, designed for an embedded system, using accelerometers and Furier analisys.
 }
 %
 \columnbreak%
@@ -327,31 +348,31 @@ I consider myself a dedicated, responsable and very capable person.
 \section*{PROGRAMMING\ \ LANGUAGES \vskip \sectionRulevSkip \hrule width \columnwidth}
 %
 %
-\begin{tabular}{>{\bfseries\raggedleft} m{0.23\columnwidth} @{\hspace{8pt}}m{0.68\columnwidth}}%
-	 & \textcolor{gray}{\textbf{Junior}} \hfill \textcolor{cafe}{\textbf{Senior}}\\
+\begin{tabular}{>{\bfseries\raggedleft} p{0.23\columnwidth} @{\hspace{8pt}} p{0.68\columnwidth}}%
+     & \textcolor{gray}{\textbf{Junior}} \hfill \textcolor{cafe}{\textbf{Senior}}\\
     Python & \skillBar{85} \\
-    C++  & \skillBar{80} \\
+    C++ & \skillBar{70} \\
+    Scala & \skillBar{70} \\
     SQL & \skillBar{70} \\
     Java & \skillBar{50} \\
     Solidity & \skillBar{40} \\
-    HTML, CSS & \skillBar{50} \\
-    Javascript & \skillBar{30} \\
     Others & \skillBar{80} \\
 \end{tabular}%
 %
 %
 \vspace{-8pt}
-\section*{FRAMEWORKS\ \ \&\ \ SYSTEMS\vskip \sectionRulevSkip \hrule width \columnwidth}
+\section*{FRAMEWORKS\ \ \&\ \ TECHNOLOGIES\vskip \sectionRulevSkip \hrule width \columnwidth}
 %
 %
 \begin{tabular}{>{\bfseries\raggedleft} m{0.23\columnwidth} @{\hspace{8pt}}m{0.68\columnwidth}}%
+	Linux & \skillBar{70} \\
+	Git & \skillBar{80} \\
 	Spark & \skillBar{80} \\
 	MongoDB & \skillBar{75} \\
 	Kafka & \skillBar{75} \\
-	Hadoop & \skillBar{60} \\
-	Git & \skillBar{50} \\
+	AWS & \skillBar{50} \\
+	ROS & \skillBar{50} \\
 	Blockchain & \skillBar{50} \\
-	Azure & \skillBar{40} \\
 	Docker & \skillBar{40} \\
     \small Kubernetes & \skillBar{40} \\
 \end{tabular}
@@ -364,13 +385,13 @@ I consider myself a dedicated, responsable and very capable person.
 %
 \setlength{\sepVertical}{23pt}
 \elementoInicio{Experience in Keras and TensorFlow for deep learning and machine learning.}
+\elementoMitad{Robotic Operative System (ROS) with C++ and Python.}
 \elementoMitad{Knowledge of dense, convolutional, and recurrent neural networks; as well as evolutionary and nature-inspired algorithms.}
 \elementoMitad{Computer vision with OpenCV library in C++ and Python.}
-\elementoMitad{Experience in parallel programing with OpenMS and MSI libraries in C and C++.}
+\elementoMitad{Experience in parallel programing with OpenMS and MSI libraries in C and C++ and strong inclination toward efficient and optimized code.}
 \elementoMitad{Experience working with data science applied to geographical and cities databases.}
 \elementoMitad{Large experience in data visualization with Matplotlib, Gnuplot, Ti\textit{k}Z-PGF and Power BI.}
-\elementoMitad{Mathematical foundations of models for time series analisys, like ARIMA, SARIMA, VARMA, Dickey-Fuller test, Granger causality, Holt-Winters method, EWMA, ETS, Hodrick-Prescott filter, etc.}
-\elementoFin{Robotic Operative System (ROS) with C++ and Python.}
+\elementoFin{Mathematical foundations of models for time series analisys, like ARIMA, SARIMA, VARMA, Dickey-Fuller test, Granger causality, Holt-Winters method, EWMA, ETS, Hodrick-Prescott filter, etc.}
 %
 \vspace{-0.6\baselineskip}%
 %
@@ -381,81 +402,82 @@ I consider myself a dedicated, responsable and very capable person.
 {\renewcommand{\arraystretch}{1.7}%
 \begin{tabular}{>{\centering}p{0.15\columnwidth} p{0.85\columnwidth}}
 	2020 & %
-	\textbf{Masters in artificial intelligence} \newline%
+	\textbf{Masters in Artificial Intelligence} \newline%
 	\textsc{Artificial Intelligence Research Center} $\cdot$ %
-	University of Veracruz, Mexico \ \MIApage \tabularnewline
+	University of Veracruz, Mexico \ \MIApage \ \GitHubMastersThesis \tabularnewline
 	%
 	2018 & %
-	\textbf{Bachelors in physics} \newline%
+	\textbf{Bachelors in Physics} \newline%
 	\textsc{Faculty of Physics} $\cdot$ %
-	University of Veracruz, Mexico \ \FFIApage \newline%
-	\color{black!70} Best marks of generation.
+	University of Veracruz, Mexico \ \FFIApage \ \GitHubBachelorsThesis \newline%
+	\color{black!70} Ranked 1st in class.
 \end{tabular}}
 %
-\vspace{-0.6\baselineskip}%
+\vspace{-0.9\baselineskip}%
 %
 %
 \section*{LANGUAGES \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
 %
 %
-\begin{tabular*}{\columnwidth}{>{\raggedright} p{0.185\columnwidth} >{\centering} p{0.05\columnwidth}}
-    \textbf{Spanish} & Native
+\begin{tabular*}{\columnwidth}{p{0.185\columnwidth} p{0.2\columnwidth}}
+    \textbf{Spanish} & Native \tabularnewline
+    \textbf{English} & B2
 \end{tabular*}
 %
 \columnbreak
 %
 %
-\section*{COURSES \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
+\section*{COURSES\ \ \&\ \ CERTIFICATIONS \vskip \sectionRulevSkip \hrule width \columnwidth}
 %
 %
 {\renewcommand{\arraystretch}{1.9}%
 \rowcolors{0}{}{gray!20}%
 %
 \centering%
-\begin{tabular}{>{\centering\bfseries} m{0.33\columnwidth} >{\centering\bfseries} m{0.39\columnwidth} >{\centering\bfseries} >{\centering}m{0.28\columnwidth}}%
+\begin{tabular}{>{\centering\bfseries} m{0.33\columnwidth} >{\centering\bfseries} m{0.39\columnwidth} >{\centering\bfseries} m{0.28\columnwidth}}%
 	\rowcolor{cafe}{\color{white} Institute} & {\color{white} Subject} & {\color{white} ID and URL} \tabularnewline
+	AWS & AWS Cloud Practitioner & \AWSCloudPractitionerURL \tabularnewline
 	Udemy & Docker \& Kubernetes & \DockerAndKubernetesCourseURL \tabularnewline
 	MongoDB Academy & MongoDB & %
-		\MongoDBBasicsCourseURL\ \ %
-		\MongoDBBasicClusterAdministrationCourseURL\ \ %
-		\MongoDBDataModelingCourseURL \linebreak
-		\MongoDBAggregationFrameworkCourseURL\ \ %
+		\MongoDBDataModelingCourseURL\ \ %
+		\MongoDBAggregationFrameworkCourseURL\linebreak
 		\MongoDBPythonAPICourseURL\ \ %
 		\MongoDBPerformanceCourseURL \tabularnewline
 	Udemy & Blockchain & \BlockchainCourseURL \tabularnewline
 	Udemy & Time Series Data Analisis & \TimeSeriesCourseURL \tabularnewline
 	Udemy & Git & \GitCourseURL \tabularnewline
 	Udemy & SQL: Basic to Advanced & \SQLCourseURL \tabularnewline
-	SoloLearn & SQL & \BasicSQLCourseURL \tabularnewline
-	SoloLearn & Java & \JavaCourseURL \tabularnewline
+	SoloLearn & C++\ \,$\cdot$\ \,Java\ \,$\cdot$\ \,SQL & \CPPCourseURL\ \ \JavaCourseURL\ \ \BasicSQLCourseURL\tabularnewline
 \end{tabular}}
 %
-\vspace{\baselineskip}
+%
+\vspace{-\baselineskip}%
+\section*{PERSONAL\ \ PROJECTS \vskip \sectionRulevSkip \hrule width 0.8\columnwidth}
 %
 %
-\section*{PROJECTS \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
-%
-%
-\textbf{Robot Hostess} \ {\color{red} \href{https://www.youtube.com/watch?v=KU4NL_bc_rA}{\faYoutubePlay}} \ {\href{https://github.com/JoseAlbertoLopezLopez/CV_projects/tree/master/RobotHostess}{\faGithub}}\newline
-{\color{black!70} I programmed the entire code of a Robot hostess in C++ with ROS. The robot detects diners via face recognition and lead them to a suitable table.}
-
-\textbf{Augmented reality} \ {\color{red} \href{https://www.youtube.com/watch?v=aLcEEVrU13I}{\faYoutubePlay}} \ {\href{https://github.com/JoseAlbertoLopezLopez/CV_projects/tree/master/AugmentedReality}{\faGithub}}\newline
+{\renewcommand{\arraystretch}{1.8}%
+\begin{tabular}{>{\centering}p{0.15\columnwidth} p{0.85\columnwidth}}
+	2026 & %
+	\textbf{docu\LaTe}\emoji{hot-beverage} \ $\cdot$\ \ \href{https://pypi.org/project/doculate/}{\PythonLogo} \ {\href{https://github.com/JoseAlbertoLopezLopez/docuLaTe}{\faGithub}} \newline
+{\color{black!70} A format and parser for code documentation from TXT to PDF via \LaTeX, that produces a nice-looking document.} \tabularnewline
+	%
+	2019 & %
+	\textbf{Robot Host} \ $\cdot$\ \ {\color{red} \href{https://www.youtube.com/watch?v=KU4NL_bc_rA}{\faYoutubePlay}} \ {\href{https://github.com/JoseAlbertoLopezLopez/Otros/tree/master/ProyectosUniversidad/robot-anfitrion-restaurante}{\faGithub}} \newline
+{\color{black!70} Robot host programmed in C++ with ROS. The robot detects diners via face recognition and lead them to a suitable table.} \tabularnewline
+	2019 & %
+	\textbf{Augmented reality} \ $\cdot$\ \ {\color{red} \href{https://www.youtube.com/watch?v=aLcEEVrU13I}{\faYoutubePlay}} \ {\href{https://github.com/JoseAlbertoLopezLopez/Otros/tree/master/ProyectosUniversidad/realidad-aumentada}{\faGithub}} \newline
 {\color{black!70} Example of augmented reality made with Python and OpenCV.}
-
-\textbf{Traveling salesman problem visualization} \ {\color{red} \href{https://www.youtube.com/watch?v=VK9NzBgPXBw}{\faYoutubePlay}} \ {\href{https://github.com/JoseAlbertoLopezLopez/CV_projects/tree/master/SimulatedAnnealing}{\faGithub}}\newline
-{\color{black!70} Visualization of traveling salesman problem solved with simulated annealing.}
-
-\textbf{Grasp Objects in Clutter (Masters Thesis)}\newline
-{\color{black!70} I developed an algorithm for accommodate objects in order to facilitating later grasps by appling AI nature inspired algorithms.}
-%
-\columnbreak
+\end{tabular}}
 %
 %
+%
+%
+\vspace{-1.4\baselineskip}%
 \section*{CONTACT \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
 %
 %
-\begin{itemize}
-	\item[\fontsize{11}{11}\selectfont \href{mailto:JLL.6@hotmail.com}{\faEnvelopeO}] \href{mailto:JLL.6@hotmail.com}{JLL.6@hotmail.com}%
+\begin{itemize}\setlength{\baselineskip}{0.0\baselineskip}
+	\item[\fontsize{11}{11}\selectfont \href{mailto:j6.josealberto@gmail.com}{\faEnvelopeO}] \href{mailto:j6.josealberto@gmail.com}{j6.josealberto@gmail.com}%
 	\item[\fontsize{13}{13}\selectfont \faMobile \hspace{0.07cm}] +52 228-105-4832%
 	\item[\fontsize{12}{12}\selectfont \color{azul} \faPhone] +52 296-964-7471%
 	\item[\fontsize{12}{12}\selectfont \color{azul} \href{https://www.linkedin.com/in/alberto-l\%C3\%B3pez-177a281a0/?locale=en_US}{\faLinkedinSquare}] \href{https://www.linkedin.com/in/alberto-l\%C3\%B3pez-177a281a0/?locale=en_US}{\textcolor{blue}{\fancyUnderline{Alberto López}}}%
@@ -465,20 +487,20 @@ I consider myself a dedicated, responsable and very capable person.
 \section*{REFERENCES \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
 %
 %
-\textbf{Marxlenin Zapata Yañez} \newline%
-Chief of Reactor Engineering department at Laguna Verde Nuclear Power Plant. \newline%
+\textbf{Mercedes Potrero Morales} \newline%
+Technology Project Manager at Indra. \newline%
 \textcolor{black!70}{Relation: Previous boss.} \newline%
-\href{mailto:marxlenin.zapata@cfe.gob.mx}{\faEnvelopeO\ marxlenin.zapata@cfe.gob.mx}
-
-\textbf{Irving Morales Agiss, PhD} \newline%
-Director of data science MORLANmx enterprise. \newline%
-\textcolor{black!70}{Relation: Professor.} \newline%
-\href{mailto:irvingfisica@gmail.com}{\faEnvelopeO\ irvingfisica@gmail.com}
+\href{mailto:mpotrero@minsait.com}{\faEnvelopeO\ mpotrero@minsait.com}
 
 \textbf{Antonio Marín Hernández, PhD} \newline%
 Researcher at the Artificial Intelligence Research Center of University of Veracruz, Mexico. \newline%
-\textcolor{black!70}{Relation: Thesis assesor.} \newline%
+\textcolor{black!70}{Relation: Masters Thesis director.} \newline%
 \href{mailto:anmarin@uv.mx}{\faEnvelopeO\ anmarin@uv.mx}
+
+\textbf{Marxlenin Zapata Yañez, MS} \newline%
+Chief of Reactor Engineering department at Laguna Verde Nuclear Power Plant. \newline%
+\textcolor{black!70}{Relation: Previous boss.} \newline%
+\href{mailto:marxlenin.zapata@cfe.gob.mx}{\faEnvelopeO\ marxlenin.zapata@cfe.gob.mx}
 %
 \thispagestyle{fancy}%
 \rfoot{\textcolor{black!50}{\textit{Compilation date: \today}}}%
