@@ -8,8 +8,8 @@
 \geometry{
 	right=15mm,
 	left=15mm,
-	top=20mm,
-	bottom=20mm
+	top=19mm,
+	bottom=19mm
 }
 \setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0pt}
@@ -38,6 +38,9 @@
 \usepackage{fancyhdr}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
+
+% Listas
+\usepackage{enumitem}
 
 % Tablas
 \usepackage{array}
@@ -95,6 +98,8 @@
 \def\GitHubBachelorsThesis{\href{https://github.com/JoseAlbertoLopezLopez/Otros/blob/master/TesisLicenciaturaFisica/Tesis\%20LaTeX/Tesis.pdf}{\faGithub}}
 
 \def\AWSCloudPractitionerURL{\href{https://www.credly.com/badges/fa7804c7-105b-4f26-82b3-246e746dde3a/public_url}{\Large\color{gray}\faShareSquareO}}
+\def\ClaudeCodeInActionURL{\href{https://verify.skilljar.com/c/kdbe4zg7z5io}{\Large\color{gray}\faShareSquareO}}
+\def\ClaudeCodeURL{\href{https://verify.skilljar.com/c/rz4569p9a6xs}{\Large\color{gray}\faShareSquareO}}
 \def\BlockchainCourseURL{\href{https://www.ude.my/UC-6573ff27-f962-4339-810e-ec8824785339/}{\Large\color{gray}\faShareSquareO}}
 \def\TimeSeriesCourseURL{\href{https://ude.my/UC-51b1bb6c-b324-41d7-b11f-3826f7999574}{\Large\color{gray}\faShareSquareO}}
 \def\GitCourseURL{\href{https://ude.my/UC-c48e4dd1-59c9-4f2c-b199-c9d09a74f9e8}{\Large\color{gray}\faShareSquareO}}
@@ -188,9 +193,37 @@
 \newlength{\experienceItemOverlap}
 \setlength{\experienceItemOverlap}{7.2pt}
 \newlength{\experienceItemSep}
-\setlength{\experienceItemSep}{5pt}
+\setlength{\experienceItemSep}{3pt}
 \newlength{\companyLogoDefaultHeight}
 \setlength{\companyLogoDefaultHeight}{1.86\companyCircleRadious}
+
+\definecolor{IndraColor}{HTML}{00475D}
+\definecolor{SantanderColor}{HTML}{ea1d25}
+
+\newcommandx{\twoImgFirstElement}[8][1=default.png, 2=\companyLogoDefaultHeight, 3={(0,0)}, 4=default.png, 5=\companyLogoDefaultHeight, 6={(0,0)}, 7=\experienceItemSep, usedefault]{%
+	\noindent\parbox[t]{\columnwidth}{%
+		\hfill%
+		\begin{tikzpicture}[baseline={([yshift=\companyCircleShift]current bounding box.north)}]
+			\useasboundingbox (-\companyCircleRadious, -\companyCircleRadious) rectangle (\companyCircleRadious, \companyCircleRadious);
+			\draw[color=cafe, line width=\companyCircleWidth] (0, 0) circle (\companyCircleRadious);
+			\begin{scope}
+				\clip (canvas polar cs:angle=45, radius=\companyCircleRadious) arc [start angle=45, delta angle=180, radius=\companyCircleRadious];
+				\draw[fill=SantanderColor] (canvas polar cs:angle=45, radius=\companyCircleRadious - 0.5\companyCircleWidth) arc [start angle=45, delta angle=180, radius=\companyCircleRadious - 0.55\companyCircleWidth];
+				\node[shift={#3}] at (canvas polar cs:angle=135, radius=0.5\companyCircleRadious) {\includegraphics[height=#2]{img/#1}};
+			\end{scope}
+			\begin{scope}
+				\clip (canvas polar cs:angle=45, radius=\companyCircleRadious) arc [start angle=45, delta angle=-180, radius=\companyCircleRadious];
+				\draw[fill=IndraColor] (canvas polar cs:angle=45, radius=\companyCircleRadious - 0.5\companyCircleWidth) arc [start angle=45, delta angle=-180, radius=\companyCircleRadious - 0.55\companyCircleWidth];
+				\node[shift={#6}] at (canvas polar cs:angle=315, radius=0.5\companyCircleRadious) {\includegraphics[height=#5]{img/#4}};
+			\end{scope}
+			%\node[shift={#6}, fill=blue] at (canvas polar cs:angle=315, radius=0.5\companyCircleRadious) {\includegraphics[height=#5]{img/#4}};
+			%\draw[fill=green] (canvas polar cs:angle=45, radius=\companyCircleRadious) arc [start angle=45, delta angle=180, radius=\companyCircleRadious];
+		\end{tikzpicture}\hfill%
+		{\hspace{-\timeLineSep}\color{cafe}\vrule width \timeLineWidth height \vruleHeight \hspace{\timeLineSep}}%
+		\parbox[t]{0.85\columnwidth}{#8}%
+	}%
+	\vspace{#7 - \experienceItemOverlap}
+}
 
 \newcommandx{\firstElement}[5][1=default.png, 2=\companyLogoDefaultHeight, 3={(0,0)}, 4=\experienceItemSep, usedefault]{%
 	\noindent\parbox[t]{\columnwidth}{%
@@ -237,7 +270,7 @@
 
 \renewcommand{\arraystretch}{1.56}
 \newlength\barheight
-\setlength{\barheight}{9.5pt}
+\setlength{\barheight}{13pt}
 
 \def\stepFunction#1{%
 	\ifthenelse{\fpeval{#1 < 0} = 1}{0}{#1}%
@@ -279,34 +312,35 @@
 }
 
 
-
+\usetikzlibrary{calc}
 \begin{document}
 %
 %
 %
 % Encabezado.
+% Pendiente: corregir coordenada (current page.north west) de forma exacta para que no agrege línea delgadas en los márgentes.
 \begin{tikzpicture}[remember picture, overlay]%
 	\useasboundingbox (0cm,0cm) rectangle (\paperwidth,5cm);
 	%
-	\node[anchor=north west, minimum width=\paperwidth, minimum height=5cm, fill=brown!340, inner sep=0pt, align=center] at (current page.north west) {
-		\\[35pt] \textcolor{white}{\fontsize{24}{24}\selectfont \textbf{JOSÉ\,\,ALBERTO}\,\,LÓPEZ\,\,LÓPEZ} \\[10pt] 
-		\textcolor{white}{\large BACHELORS \,IN \,PHYSICS} \\[5pt]
-		\textcolor{white}{\large MASTERS \,IN \,ARTIFICIAL \,INTELLIGENCE} \\[5pt] 
-		\textcolor{gray}{\href{mailto:j6.josealberto@gmail.com}{\faEnvelope\ \ j6.josealberto@gmail.com}}
+	\node[anchor=north west, minimum width=\paperwidth, minimum height=5cm, fill=brown!340, align=center] at ($(current page.north west) + (-0.2pt, 0.2pt)$) {
+		\\[32pt] \textcolor{white}{\fontsize{24}{24}\selectfont \textbf{JOSÉ\,\,ALBERTO}\,\,LÓPEZ\,\,LÓPEZ} \\[11pt] 
+		\textcolor{white}{\large Big Data Engineer\ \ |\ \ Data Scientist\ \ |\ \ Machine Learning Engineer} \\[8pt] 
+\textcolor{white}{\large B.S. Physics \qquad M.S. Artificial Intelligence} \\[7pt]
+		\textcolor{gray!80!white}{\href{mailto:j6.josealberto@gmail.com}{\faEnvelope\ \ j6.josealberto@gmail.com}}\vspace{2pt}
 	};
 \end{tikzpicture}
 %
-\vspace{4.5\baselineskip}
+\vspace{4.2\baselineskip}
 %
 %
 \section*{ABOUT ME \vskip \sectionRulevSkip \hrule width 0.6\linewidth}
 %
 %
-\setlength{\baselineskip}{1.2\baselineskip}
-Artificial Intelligence developer with 10+ years of experience, primarily in Python and C++, applied to big data, data science, computer vision and robotics systems.
-Contributing to large-scale data pipelines processing 10M+ records daily as well as building and optimizing code for computer vision and robotic systems.
+\vspace{-0.2\baselineskip}
+\setlength{\baselineskip}{1.2\baselineskip}%
+Big Data Engineer with 10+ years of programming experience, primarily in Python, C++, and Scala; 5+ years of industry experience, mainly in big data and data science projects, developing and maintaining about 15 large-scale data pipelines processing 10M+ records daily, and also building AI models for fraud prevention. Complementary hands-on experience in fields such as computer vision and robotics.
 %
-\vspace{0.5\baselineskip}
+\vspace{0.4\baselineskip}
 %
 %
 \begin{multicols*}{2}%
@@ -315,31 +349,31 @@ Contributing to large-scale data pipelines processing 10M+ records daily as well
 \section*{RELEVANT\ \ EXPERIENCE \vskip \sectionRulevSkip \hrule width \columnwidth}
 %
 %
-\firstElement[Santander_1.pdf][1.3\companyCircleRadious][(0pt, 1pt)]{
-	\textbf{Senior Big Data Developer} \newline
-	\textsc{Santander} $\cdot$ Ciudad de México, Mexico \newline
-	\color{black!70} dec 2022 -- may 2025 \newline
-	Big data developer in projects related to bank fraud prevention and ETL processes, using Spark with Scala and Python, Hadoop and Snowflake (SnowSQL and Snowpark).
+\twoImgFirstElement[Santander_2.pdf][0.75\companyCircleRadious][(-0.3pt, 0.5pt)][indra_logo_2.pdf][0.25\companyCircleRadious][(-0.3pt, 1pt)]{
+	\textbf{Big Data Engineer} \newline
+	\textsc{Santander} (via \textsc{Indra}) $\cdot$ Mexico City \newline
+	{\color{black!60} dec 2022 -- may 2025} \newline
+	Developed and maintained about 15 data pipelines related to bank fraud prevention and ETL processes, using Spark (Scala and Python), and Snowflake (SnowSQL and Snowpark).
 }
 \middleElement[Grupo_Salinas_logo.pdf][1.2\companyCircleRadious][(-0.25pt, 2pt)]{
-	\textbf{Artificial Intelligence Developer} \newline
-	\textsc{Grupo Salinas} $\cdot$ Ciudad de México, Mexico \newline
-	\color{black!70} dec 2021 -- aug 2022 \newline
-	Big data AI developer in projects related to bank credit fraud prevention through AI models, using Spark, Hadoop, Kafka, among others.
+	\textbf{Big Data Engineer\ \,{\textnormal |}\ \,AI Developer} \newline
+	\textsc{Grupo Salinas} $\cdot$ Mexico City \newline
+	{\color{black!60} dec 2021 -- aug 2022} \newline
+	Big Data and AI Developer in projects related to bank credit fraud prevention through AI models, using Spark, Hadoop, Kafka, among other technologies.
 }
 \middleElement[Migala.png]{
 	\textbf{Data Scientist} \newline
-	\textsc{Migala} $\cdot$ Ciudad de México, Mexico \newline
-	\color{black!70} dec 2021 -- feb 2022 \newline
-	Data analysis of an inquest realized to potential members of a new political party.
+	\textsc{Migala} $\cdot$ Mexico City \newline
+	{\color{black!60} dec 2021 -- feb 2022} \newline
+	Data analysis of a survey conducted among potential members of a new political party.
 	
 	Foundations of Blockchain project with Solidity and other components.
 }
 \lastElement[Best_Practices_Consulting_logo.png][1.8\companyCircleRadious]{
 	\textbf{Data Scientist} \newline
-	\textsc{Best Practices Consulting} $\cdot$ Querétaro, Mexico \newline
-	\color{black!70} mar 2021 -- sep 2021 \newline
-	Data visualizations designer with Power BI for several companies projects, including a dashboard with information about gas distribution routes in real time.
+	\textsc{Best Practices Consulting} $\cdot$ Querétaro \newline
+	{\color{black!60} mar 2021 -- sep 2021} \newline
+	Development of data pipelines and Power BI dashboards in diverse companies projects, including dashboards with gas distribution routes information in real time.
 }
 %
 \columnbreak%
@@ -348,33 +382,33 @@ Contributing to large-scale data pipelines processing 10M+ records daily as well
 \section*{PROGRAMMING\ \ LANGUAGES \vskip \sectionRulevSkip \hrule width \columnwidth}
 %
 %
-\begin{tabular}{>{\bfseries\raggedleft} p{0.23\columnwidth} @{\hspace{8pt}} p{0.68\columnwidth}}%
-     & \textcolor{gray}{\textbf{Junior}} \hfill \textcolor{cafe}{\textbf{Senior}}\\
+\begin{tabular}{>{\bfseries\raggedleft} m{0.23\columnwidth} @{\hspace{8pt}} m{0.68\columnwidth}}%
+     & \textcolor{gray}{\textbf{Beginner}} \hfill \textcolor{cafe}{\textbf{Expert}}\\
     Python & \skillBar{85} \\
-    C++ & \skillBar{70} \\
+    SQL & \skillBar{85} \\
+    C++ & \skillBar{77} \\
     Scala & \skillBar{70} \\
-    SQL & \skillBar{70} \\
-    Java & \skillBar{50} \\
-    Solidity & \skillBar{40} \\
+    Java & \skillBar{48} \\
+    Solidity & \skillBar{35} \\
     Others & \skillBar{80} \\
 \end{tabular}%
 %
 %
-\vspace{-8pt}
+\vspace{-16pt}
 \section*{FRAMEWORKS\ \ \&\ \ TECHNOLOGIES\vskip \sectionRulevSkip \hrule width \columnwidth}
 %
 %
 \begin{tabular}{>{\bfseries\raggedleft} m{0.23\columnwidth} @{\hspace{8pt}}m{0.68\columnwidth}}%
-	Linux & \skillBar{70} \\
+	Apache\\ Spark & \skillBar{80} \\
 	Git & \skillBar{80} \\
-	Spark & \skillBar{80} \\
-	MongoDB & \skillBar{75} \\
-	Kafka & \skillBar{75} \\
+	PyTorch & \skillBar{60} \\
+	Snowflake & \skillBar{60} \\
+	Kafka & \skillBar{60} \\
+	MongoDB & \skillBar{60} \\
 	AWS & \skillBar{50} \\
-	ROS & \skillBar{50} \\
-	Blockchain & \skillBar{50} \\
+	OpenCode & \skillBar{50} \\
+	\small Claude\,Code & \skillBar{50} \\
 	Docker & \skillBar{40} \\
-    \small Kubernetes & \skillBar{40} \\
 \end{tabular}
 %
 \columnbreak
@@ -383,17 +417,18 @@ Contributing to large-scale data pipelines processing 10M+ records daily as well
 \section*{COMPLEMENTARY\ \ EXPERIENCE \vskip \sectionRulevSkip \hrule width \columnwidth}
 %
 %
-\setlength{\sepVertical}{23pt}
-\elementoInicio{Experience in Keras and TensorFlow for deep learning and machine learning.}
-\elementoMitad{Robotic Operative System (ROS) with C++ and Python.}
-\elementoMitad{Knowledge of dense, convolutional, and recurrent neural networks; as well as evolutionary and nature-inspired algorithms.}
+\setlength{\sepVertical}{20pt}
+\elementoInicio{Experience with OpenCode and Claude Code (skills, commands, MCP, permissions, deploying subagents in parallel, etc.).}
+\elementoMitad{Knowledge of LLMs, RAG, and agentic systems internals, how to develop them and techniques to mitigate hallucinations, lack of knowledge and prompt injections.}
+\elementoMitad{Knowledge of MLOps and the machine learning models lifecycle.}
+\elementoMitad{Experience deploying popular AWS services (EC2, S3, SQS, Lambda, CloudFormation, etc.).}
+\elementoMitad{Complementary experience with Keras and TensorFlow (in addition to PyTorch) for deep learning and machine learning.}
+\elementoMitad{Deep knowledge of dense, convolutional, and recurrent neural networks; LLM and transformers architectures; as well as evolutionary and nature-inspired algorithms.}
+\elementoMitad{Robotic Operating System (ROS) with C++ and Python.}
 \elementoMitad{Computer vision with OpenCV library in C++ and Python.}
-\elementoMitad{Experience in parallel programing with OpenMS and MSI libraries in C and C++ and strong inclination toward efficient and optimized code.}
-\elementoMitad{Experience working with data science applied to geographical and cities databases.}
-\elementoMitad{Large experience in data visualization with Matplotlib, Gnuplot, Ti\textit{k}Z-PGF and Power BI.}
-\elementoFin{Mathematical foundations of models for time series analisys, like ARIMA, SARIMA, VARMA, Dickey-Fuller test, Granger causality, Holt-Winters method, EWMA, ETS, Hodrick-Prescott filter, etc.}
+\elementoFin{Experience in parallel programming with OpenMS and MSI libraries in C and C++.}
 %
-\vspace{-0.6\baselineskip}%
+\vspace{-0.8\baselineskip}%
 %
 %
 \section*{EDUCATION \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
@@ -402,18 +437,18 @@ Contributing to large-scale data pipelines processing 10M+ records daily as well
 {\renewcommand{\arraystretch}{1.7}%
 \begin{tabular}{>{\centering}p{0.15\columnwidth} p{0.85\columnwidth}}
 	2020 & %
-	\textbf{Masters in Artificial Intelligence} \newline%
+	\textbf{Master's in Artificial Intelligence} \newline%
 	\textsc{Artificial Intelligence Research Center} $\cdot$ %
 	University of Veracruz, Mexico \ \MIApage \ \GitHubMastersThesis \tabularnewline
 	%
 	2018 & %
-	\textbf{Bachelors in Physics} \newline%
+	\textbf{Bachelor's in Physics} \newline%
 	\textsc{Faculty of Physics} $\cdot$ %
 	University of Veracruz, Mexico \ \FFIApage \ \GitHubBachelorsThesis \newline%
 	\color{black!70} Ranked 1st in class.
 \end{tabular}}
 %
-\vspace{-0.9\baselineskip}%
+\vspace{-1.1\baselineskip}%
 %
 %
 \section*{LANGUAGES \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
@@ -435,8 +470,9 @@ Contributing to large-scale data pipelines processing 10M+ records daily as well
 %
 \centering%
 \begin{tabular}{>{\centering\bfseries} m{0.33\columnwidth} >{\centering\bfseries} m{0.39\columnwidth} >{\centering\bfseries} m{0.28\columnwidth}}%
-	\rowcolor{cafe}{\color{white} Institute} & {\color{white} Subject} & {\color{white} ID and URL} \tabularnewline
+	\rowcolor{cafe}{\color{white} Provider} & {\color{white} Subject} & {\color{white} ID and URL} \tabularnewline
 	AWS & AWS Cloud Practitioner & \AWSCloudPractitionerURL \tabularnewline
+	Anthropic Academy & Claude Code & \ClaudeCodeInActionURL\ \ \ClaudeCodeURL \tabularnewline
 	Udemy & Docker \& Kubernetes & \DockerAndKubernetesCourseURL \tabularnewline
 	MongoDB Academy & MongoDB & %
 		\MongoDBDataModelingCourseURL\ \ %
@@ -444,14 +480,12 @@ Contributing to large-scale data pipelines processing 10M+ records daily as well
 		\MongoDBPythonAPICourseURL\ \ %
 		\MongoDBPerformanceCourseURL \tabularnewline
 	Udemy & Blockchain & \BlockchainCourseURL \tabularnewline
-	Udemy & Time Series Data Analisis & \TimeSeriesCourseURL \tabularnewline
+	Udemy & Time Series Data Analysis & \TimeSeriesCourseURL \tabularnewline
 	Udemy & Git & \GitCourseURL \tabularnewline
-	Udemy & SQL: Basic to Advanced & \SQLCourseURL \tabularnewline
-	SoloLearn & C++\ \,$\cdot$\ \,Java\ \,$\cdot$\ \,SQL & \CPPCourseURL\ \ \JavaCourseURL\ \ \BasicSQLCourseURL\tabularnewline
 \end{tabular}}
 %
 %
-\vspace{-\baselineskip}%
+\vspace{-0.4\baselineskip}%
 \section*{PERSONAL\ \ PROJECTS \vskip \sectionRulevSkip \hrule width 0.8\columnwidth}
 %
 %
@@ -463,24 +497,22 @@ Contributing to large-scale data pipelines processing 10M+ records daily as well
 	%
 	2019 & %
 	\textbf{Robot Host} \ $\cdot$\ \ {\color{red} \href{https://www.youtube.com/watch?v=KU4NL_bc_rA}{\faYoutubePlay}} \ {\href{https://github.com/JoseAlbertoLopezLopez/Otros/tree/master/ProyectosUniversidad/robot-anfitrion-restaurante}{\faGithub}} \newline
-{\color{black!70} Robot host programmed in C++ with ROS. The robot detects diners via face recognition and lead them to a suitable table.} \tabularnewline
+{\color{black!70} Robot host programmed in C++ with ROS. The robot detects diners via face detection and leads them to a suitable table.} \tabularnewline
 	2019 & %
 	\textbf{Augmented reality} \ $\cdot$\ \ {\color{red} \href{https://www.youtube.com/watch?v=aLcEEVrU13I}{\faYoutubePlay}} \ {\href{https://github.com/JoseAlbertoLopezLopez/Otros/tree/master/ProyectosUniversidad/realidad-aumentada}{\faGithub}} \newline
-{\color{black!70} Example of augmented reality made with Python and OpenCV.}
+{\color{black!70} Augmented reality demo made with Python and OpenCV.}
 \end{tabular}}
 %
 %
-%
-%
-\vspace{-1.4\baselineskip}%
+\vspace{-\baselineskip}%
 \section*{CONTACT \vskip \sectionRulevSkip \hrule width 0.6\columnwidth}
 %
 %
-\begin{itemize}\setlength{\baselineskip}{0.0\baselineskip}
-	\item[\fontsize{11}{11}\selectfont \href{mailto:j6.josealberto@gmail.com}{\faEnvelopeO}] \href{mailto:j6.josealberto@gmail.com}{j6.josealberto@gmail.com}%
-	\item[\fontsize{13}{13}\selectfont \faMobile \hspace{0.07cm}] +52 228-105-4832%
-	\item[\fontsize{12}{12}\selectfont \color{azul} \faPhone] +52 296-964-7471%
-	\item[\fontsize{12}{12}\selectfont \color{azul} \href{https://www.linkedin.com/in/alberto-l\%C3\%B3pez-177a281a0/?locale=en_US}{\faLinkedinSquare}] \href{https://www.linkedin.com/in/alberto-l\%C3\%B3pez-177a281a0/?locale=en_US}{\textcolor{blue}{\fancyUnderline{Alberto López}}}%
+\begin{itemize}[itemsep=0.6\baselineskip, parsep=0pt]
+	\item[\fontsize{11}{11}\selectfont \href{mailto:j6.josealberto@gmail.com}{\faEnvelopeO}] \href{mailto:j6.josealberto@gmail.com}{j6.josealberto@gmail.com}
+	\item[\fontsize{13}{13}\selectfont \faMobile \hspace{0.07cm}] +52 228-105-4832
+	\item[\fontsize{12}{12}\selectfont \color{azul} \faPhone] +52 296-964-7471
+	\item[\fontsize{12}{12}\selectfont \color{azul} \href{https://www.linkedin.com/in/alberto-lopez-177a281a0}{\faLinkedinSquare}] \href{https://www.linkedin.com/in/alberto-lopez-177a281a0}{\textcolor{blue}{\fancyUnderline{Alberto López}}}
 \end{itemize}
 %
 %
@@ -488,13 +520,13 @@ Contributing to large-scale data pipelines processing 10M+ records daily as well
 %
 %
 \textbf{Mercedes Potrero Morales} \newline%
-Technology Project Manager at Indra. \newline%
-\textcolor{black!70}{Relation: Previous boss.} \newline%
-\href{mailto:mpotrero@minsait.com}{\faEnvelopeO\ mpotrero@minsait.com}
+Technology Project Manager at NFQ. \newline%
+\textcolor{black!70}{Relation: Previous boss at Indra.} \newline%
+\href{mailto:mercedes.potrero@nfq.mx}{\faEnvelopeO\ mercedes.potrero@nfq.mx}
 
 \textbf{Antonio Marín Hernández, PhD} \newline%
 Researcher at the Artificial Intelligence Research Center of University of Veracruz, Mexico. \newline%
-\textcolor{black!70}{Relation: Masters Thesis director.} \newline%
+\textcolor{black!70}{Relation: Master's Thesis director.} \newline%
 \href{mailto:anmarin@uv.mx}{\faEnvelopeO\ anmarin@uv.mx}
 
 \textbf{Marxlenin Zapata Yañez, MS} \newline%
